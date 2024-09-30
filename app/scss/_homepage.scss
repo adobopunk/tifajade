@@ -1,0 +1,13 @@
+.intro {
+	font-size: 1.75rem;
+	max-width: 50%;
+	text-align: center;
+
+	@media (orientation: portrait) {
+		max-width: 90%;
+	}
+}
+.intro-sub {
+	font-size: 1.2rem;
+	text-align: left;
+}

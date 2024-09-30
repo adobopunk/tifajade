@@ -1,0 +1,10 @@
+.wrapper-m {
+	// margin-inline: auto;
+	max-width: 95%;
+	padding-inline: 5vw;
+
+	@media (orientation: portrait) {
+		max-width: 98%;
+		padding-inline: 10px;
+	}
+}
