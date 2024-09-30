@@ -1,0 +1,29 @@
+a {
+	text-decoration: none;
+}
+
+/* Hide scrollbar for WebKit browsers */
+body::-webkit-scrollbar {
+	display: none; /* Hides the scrollbar */
+}
+
+/* For other browsers (Firefox) */
+body {
+	overflow: -moz-scrollbars-none; /* Hides scrollbar */
+	scrollbar-width: none; /* Hides scrollbar */
+}
+
+fieldset.grid {
+	margin-bottom: 1rem; /* Adjust bottom margin as needed */
+}
+
+fieldset.grid p {
+	margin-bottom: 0.5rem; /* Reduce margin for paragraphs inside the fieldset */
+}
+
+fieldset.grid input {
+	margin-bottom: 0; /* Ensure no extra margin on the input fields */
+}
+
+.footer__links {
+}
