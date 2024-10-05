@@ -1,9 +1,21 @@
+@use '../scss/util/' as u;
+
+.wrapper {
+	display: flex;
+	flex-direction: row;
+}
+
 .wrapper-m {
 	// margin-inline: auto;
 	max-width: 95%;
 	padding-inline: 5vw;
 
-	@media (orientation: portrait) {
+	// @media (orientation: portrait) {
+	// 	max-width: 98%;
+	// 	padding-inline: 10px;
+	// }
+
+	@include u.breakpoint-down(small) {
 		max-width: 98%;
 		padding-inline: 10px;
 	}

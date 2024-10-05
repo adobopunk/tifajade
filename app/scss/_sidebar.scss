@@ -1,0 +1,18 @@
+.sidebar {
+	width: clamp(150px, 20vw, 300px);
+	padding: 20px;
+	box-sizing: border-box;
+
+	@media (orientation: portrait) {
+		width: 10vw;
+	}
+}
+
+.content {
+	flex-grow: 1;
+}
+
+.logo {
+	width: clamp(50px, 10vw, 100px);
+	box-shadow: none;
+}
