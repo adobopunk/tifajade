@@ -1,0 +1,18 @@
+@use '../scss/util/' as u;
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+	gap: 1rem; /* Space between images */
+
+	@include u.breakpoint-down(medium) {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+}
+.gallery img {
+	width: 100%; /* Ensures images fill the grid cell */
+	border-radius: 8px; /* Optional: rounded corners */
+	object-fit: cover;
+}
