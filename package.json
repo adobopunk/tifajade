@@ -12,5 +12,8 @@
   "dependencies": {
     "@11ty/eleventy": "^2.0.1"
   },
-  "description": ""
+  "description": "",
+  "prettier": {
+  "endOfLine": "lf"
+}
 }
