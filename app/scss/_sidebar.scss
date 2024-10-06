@@ -1,10 +1,13 @@
+@use '../scss/util/' as u;
+
 .sidebar {
-	width: clamp(150px, 20vw, 300px);
+	// width: clamp(150px, 20vw, 300px);
+	width: 200px;
 	padding: 20px;
 	box-sizing: border-box;
 
-	@media (orientation: portrait) {
-		width: 10vw;
+	@include u.breakpoint-down(small) {
+		display: none;
 	}
 }
 
@@ -15,4 +18,13 @@
 .logo {
 	width: clamp(50px, 10vw, 100px);
 	box-shadow: none;
+}
+
+nav {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	// justify-content: space-between;
+	position: relative;
+	width: 100%;
 }
