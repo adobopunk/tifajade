@@ -28,28 +28,6 @@
   right: 10px;
 }
 
-.vimeo-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  width: 100%;
-  box-sizing: border-box;
-  transform: scale(1.01); /* Slight scaling to prevent sub-pixel issues */
-  transform-origin: top left;
-}
-
-.vimeo-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 101%;
-  height: 101%;
-  border: 0;
-
-  box-sizing: border-box;
-}
-
 .intro-sub {
   transition: opacity 1s ease;
   opacity: 1;

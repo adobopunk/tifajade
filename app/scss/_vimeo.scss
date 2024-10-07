@@ -1,0 +1,24 @@
+.vimeo-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  transform: none;
+}
+
+.iframe-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Ensure it hides any overflow */
+}
+
+.vimeo-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Ensure no borders */
+}
