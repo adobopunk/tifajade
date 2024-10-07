@@ -1,46 +1,46 @@
 .footer {
-	&__legal {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-	}
+  z-index: 100;
+  &__legal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 form {
-	text-align: left;
-	margin-block-end: 10vh;
+  text-align: left;
+  margin-block-end: 10vh;
 }
 
 .layout-main {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5vh;
 }
 
 .two-col {
-	display: flex;
-	flex-direction: row;
-	gap: 10%;
-	align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
 
-	@media (orientation: portrait) {
-		flex-direction: column;
-	}
+  @media (orientation: portrait) {
+    flex-direction: column;
+  }
 }
 .two-col > * {
-	flex: 1;
+  flex: 1;
 }
 
 img {
-	width: clamp(250px, 25vw, 500px);
-	height: auto;
-	display: block;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-	border-radius: 5px;
+  // width: clamp(250px, 25vw, 500px);
+  height: auto;
+  display: block;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
 
-	@media (orientation: portrait) {
-		width: 75vw;
-	}
+  @media (orientation: portrait) {
+    width: 75vw;
+  }
 }

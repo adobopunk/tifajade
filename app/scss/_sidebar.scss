@@ -1,30 +1,39 @@
-@use '../scss/util/' as u;
+@use "../scss/util/" as u;
 
 .sidebar {
-	// width: clamp(150px, 20vw, 300px);
-	width: 200px;
-	padding: 20px;
-	box-sizing: border-box;
+  z-index: 1;
+  position: absolute; // Keep the sidebar fixed in place
+  top: 0; // Set it to stick to the top of the viewport
+  left: 0; // Align it to the left side of the viewport
+  width: clamp(150px, 15vw, 250px); // Maintain the desired width
+  height: 100vh; // Make the sidebar full height of the viewport
+  padding: 20px;
+  box-sizing: border-box;
+  margin-inline: 2vw;
 
-	@include u.breakpoint-down(small) {
-		display: none;
-	}
+  @include u.breakpoint-down(small) {
+    display: none;
+  }
 }
 
 .content {
-	flex-grow: 1;
+  flex-grow: 1;
 }
 
 .logo {
-	width: clamp(50px, 10vw, 100px);
-	box-shadow: none;
+  width: clamp(100px, 10vw, 350px);
+  box-shadow: none;
 }
 
 nav {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	// justify-content: space-between;
-	position: relative;
-	width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.topnav__links {
+  line-height: 0.5;
 }
