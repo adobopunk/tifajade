@@ -33,9 +33,20 @@
   justify-content: center;
   // width: clamp(500px, 80vw, 1200px);
   margin: 0 auto;
+  padding: 0;
+
+  @include u.breakpoint-down(small) {
+    flex-direction: column;
+  }
 }
 
 .footer__wrapper {
   margin: 0 auto;
   justify-content: center;
+}
+
+.topnav__wrapper {
+  @include u.breakpoint-down(small) {
+    // display: flex;
+  }
 }

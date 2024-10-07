@@ -1,0 +1,13 @@
+@use "../scss/util/" as u;
+
+.project-title {
+  margin-top: u.rem(50);
+}
+
+.project-layout > img {
+  min-width: 100%;
+
+  @include u.breakpoint-down(small) {
+    min-width: 100vw;
+  }
+}

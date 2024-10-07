@@ -1,14 +1,18 @@
 @use "../scss/util/" as u;
 
 .gallery {
+  margin-top: u.rem(50);
   display: grid;
   grid-template-columns: repeat(
     auto-fill,
     minmax(500px, 1fr)
   ); // Responsive grid
   gap: 1rem; /* Space between images */
+  @include u.breakpoint(xlarge) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-  @include u.breakpoint(large) {
+  @include u.breakpoint(xxxlarge) {
     grid-template-columns: repeat(3, 1fr);
   }
 

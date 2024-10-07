@@ -3,16 +3,43 @@
 .sidebar {
   z-index: 1;
   position: absolute; // Keep the sidebar fixed in place
-  top: 0; // Set it to stick to the top of the viewport
-  left: 0; // Align it to the left side of the viewport
-  width: clamp(150px, 15vw, 250px); // Maintain the desired width
+  width: clamp(150px, 15vw, 150px); // Maintain the desired width
   height: 100vh; // Make the sidebar full height of the viewport
   padding: 20px;
   box-sizing: border-box;
   margin-inline: 2vw;
 
+  display: flex;
+  flex-direction: column; // Stack elements vertically
+  align-items: center; // Center horizontally by default
+
+  @include u.breakpoint-down(medium) {
+    width: clamp(150px, 10vw, 150px);
+    margin-inline: 0;
+  }
+
   @include u.breakpoint-down(small) {
-    display: none;
+    position: relative;
+    width: 100%; // Full width on small screens
+    height: 100px;
+    flex-direction: row; // Change to row layout
+    justify-content: center; // Center elements horizontally
+    margin-inline: 0;
+  }
+
+  &__homelink {
+    font-size: u.rem(24);
+
+    @include u.breakpoint-down(small) {
+      display: none;
+    }
+  }
+
+  &__logo {
+    @include u.breakpoint-down(small) {
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 
@@ -29,11 +56,25 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  // justify-content: space-between;
   position: relative;
   width: 100%;
+
+  @include u.breakpoint-down(small) {
+    flex-direction: row;
+  }
+}
+
+.topnav__link {
+  padding: auto 0;
+  line-height: 1;
 }
 
 .topnav__links {
-  line-height: 0.5;
+  @include u.breakpoint-down(small) {
+    display: none;
+  }
+}
+
+.reveal .topnav__link {
+  font-size: 90%;
 }
