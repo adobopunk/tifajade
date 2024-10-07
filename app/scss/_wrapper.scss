@@ -1,18 +1,41 @@
-@use '../scss/util/' as u;
+@use "../scss/util/" as u;
 
 .wrapper {
-	display: flex;
-	flex-direction: row;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
 }
 
 .wrapper-m {
-	width: clamp(250px, 60vw, 1080px);
-	@include u.breakpoint-down(small) {
-		max-width: 98%;
-		padding-inline: 10px;
-	}
+  width: clamp(250px, 85vw, 2100px);
+  @include u.breakpoint-down(medium) {
+    width: clamp(250px, 98vw, 1080px);
+    max-width: 98%;
+  }
+  @include u.breakpoint(medium) {
+    margin-left: clamp(150px, 20vw, 300px);
+  }
+}
+
+.wrapper-f {
+  width: clamp(250px, 85vw, 1200px);
+  @include u.breakpoint-down(medium) {
+    width: clamp(250px, 98vw, 1080px);
+    max-width: 98%;
+  }
+  @include u.breakpoint(medium) {
+    margin-left: clamp(150px, 20vw, 300px);
+  }
+}
+
+.wrapper-home {
+  display: flex;
+  justify-content: center;
+  // width: clamp(500px, 80vw, 1200px);
+  margin: 0 auto;
 }
 
 .footer__wrapper {
-	justify-content: center;
+  margin: 0 auto;
+  justify-content: center;
 }
