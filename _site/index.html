@@ -58,7 +58,7 @@
   <h2 class="visually-hidden">Header</h2>
   <div class="wrapper topnav__wrapper">
     <nav class="content">
-      <a href="/" class="topnav__homelink">
+      <a href="/" class="sidebar__logo">
         <img
           src="/assets/img/temp.svg"
           alt="Tifa Jade logo"
@@ -66,10 +66,35 @@
           width="50px"
         />
       </a>
-      <a href="/"><h1>Tifa Jade</h1></a>
+      <a href="/"><h1 class="sidebar__homelink">Tifa Jade</h1></a>
       <ul class="topnav__links">
         <li class="topnav__item">
-          <a href="/index.html" class="topnav__link">Work</a>
+          <a class="topnav__link collapsible">Work</a>
+          <div class="reveal">
+            <ul class="topnav__links">
+              <li class="topnav__item">
+                <a href="" class="topnav__link">Fortnite</a>
+              </li>
+              <li class="topnav__item">
+                <a href="" class="topnav__link">Mountain Dew</a>
+              </li>
+              <li class="topnav__item">
+                <a href="" class="topnav__link">Obama</a>
+              </li>
+              <li class="topnav__item">
+                <a href="" class="topnav__link">Apex Legends</a>
+              </li>
+              <li class="topnav__item">
+                <a href="" class="topnav__link">Trump 2024</a>
+              </li>
+              <li class="topnav__item">
+                <a href="" class="topnav__link">Paper Factory</a>
+              </li>
+              <li class="topnav__item">
+                <a href="" class="topnav__link">The Mall</a>
+              </li>
+            </ul>
+          </div>
         </li>
         <li class="topnav__item">
           <a href="/about/index.html" class="topnav__link">About</a>
@@ -83,15 +108,16 @@
 <div class="wrapper wrapper-home">
   <div class="layout-main wrapper-m">
     <section class="gallery">
-      <div class="vimeo-container">
-        <iframe
-          src="https://player.vimeo.com/video/482898747"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-          title="Tifa Jade Reel"
-        >
-        </iframe>
+      <div class="vimeo-container" style="overflow: hidden">
+        <div class="iframe-wrapper">
+          <iframe
+            src="https://player.vimeo.com/video/482898747"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
       </div>
       <a href="/example/index.html"
         ><img
@@ -138,11 +164,8 @@
         src="/assets/img/projects/poster_1.1.1.jpg"
         alt="Description of image 3"
       />
-      <img
-        src="/assets/img/projects/reunion-bg.webp"
-        alt="Description of image 4"
-      />
-      <!-- Add more images as needed -->
+
+
     </section>
   </div>
 </div>
@@ -253,6 +276,7 @@
 
 <script src="/app/js/darkmode.js"></script>
 <script src="/app/js/footer.js"></script>
+<script src="/app/js/collapsible.js"></script>
 
 
 </body>

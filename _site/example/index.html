@@ -58,7 +58,7 @@
   <h2 class="visually-hidden">Header</h2>
   <div class="wrapper topnav__wrapper">
     <nav class="content">
-      <a href="/" class="topnav__homelink">
+      <a href="/" class="sidebar__logo">
         <img
           src="/assets/img/temp.svg"
           alt="Tifa Jade logo"
@@ -66,10 +66,35 @@
           width="50px"
         />
       </a>
-      <a href="/"><h1>Tifa Jade</h1></a>
+      <a href="/"><h1 class="sidebar__homelink">Tifa Jade</h1></a>
       <ul class="topnav__links">
         <li class="topnav__item">
-          <a href="/index.html" class="topnav__link">Work</a>
+          <a class="topnav__link collapsible">Work</a>
+          <div class="reveal">
+            <ul class="topnav__links">
+              <li class="topnav__item">
+                <a href="" class="topnav__link">Fortnite</a>
+              </li>
+              <li class="topnav__item">
+                <a href="" class="topnav__link">Mountain Dew</a>
+              </li>
+              <li class="topnav__item">
+                <a href="" class="topnav__link">Obama</a>
+              </li>
+              <li class="topnav__item">
+                <a href="" class="topnav__link">Apex Legends</a>
+              </li>
+              <li class="topnav__item">
+                <a href="" class="topnav__link">Trump 2024</a>
+              </li>
+              <li class="topnav__item">
+                <a href="" class="topnav__link">Paper Factory</a>
+              </li>
+              <li class="topnav__item">
+                <a href="" class="topnav__link">The Mall</a>
+              </li>
+            </ul>
+          </div>
         </li>
         <li class="topnav__item">
           <a href="/about/index.html" class="topnav__link">About</a>
@@ -80,9 +105,21 @@
 </aside>
 
 <div class="wrapper wrapper-home">
-  <div class="layout-main wrapper-m">
-    <h1>Example Project</h1>
-    <P>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus doloribus dolore ipsa veritatis sit quam. Sequi tempore voluptas sunt numquam tenetur blanditiis ipsum? In, perspiciatis tempora dicta minima laborum, doloribus eligendi rerum sequi voluptate repudiandae corrupti voluptatum incidunt eum ea animi voluptates sed nesciunt! Tenetur molestias suscipit voluptates. Sapiente quaerat, voluptas nemo harum totam adipisci dolorem laboriosam? Natus ipsum veniam quod tempore optio accusamus. Corporis dolorum nihil voluptatibus ratione quos veniam laudantium praesentium accusamus illo hic ipsum ducimus ullam, beatae fugit, maiores reiciendis blanditiis! Quia assumenda explicabo ea pariatur dolorem?</P>
+  <div class="layout-main wrapper-m project-layout">
+    <h1 class="project-title">Example project Page</h1>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
+      doloribus dolore ipsa veritatis sit quam. Sequi tempore voluptas sunt
+      numquam tenetur blanditiis ipsum? In, perspiciatis tempora dicta minima
+      laborum, doloribus eligendi rerum sequi voluptate repudiandae corrupti
+      voluptatum incidunt eum ea animi voluptates sed nesciunt! Tenetur
+      molestias suscipit voluptates. Sapiente quaerat, voluptas nemo harum totam
+      adipisci dolorem laboriosam? Natus ipsum veniam quod tempore optio
+      accusamus. Corporis dolorum nihil voluptatibus ratione quos veniam
+      laudantium praesentium accusamus illo hic ipsum ducimus ullam, beatae
+      fugit, maiores reiciendis blanditiis! Quia assumenda explicabo ea pariatur
+      dolorem?
+    </p>
     <img
       src="/assets/img/projects/influencer comp.webp"
       alt="Description of image 2"
@@ -210,6 +247,7 @@
 
 <script src="/app/js/darkmode.js"></script>
 <script src="/app/js/footer.js"></script>
+<script src="/app/js/collapsible.js"></script>
 
 
 </body>
