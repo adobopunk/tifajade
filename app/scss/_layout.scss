@@ -1,3 +1,5 @@
+@use "../scss/util/" as u;
+
 body {
   overflow: auto;
   scrollbar-width: none;
@@ -11,6 +13,9 @@ body {
 }
 
 .footer {
+  position: relative;
+  // background-color: var(--pico-background-color);
+
   z-index: 100;
   &__legal {
     display: flex;
@@ -29,15 +34,15 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5vh;
+  gap: u.rem(20);
 }
 
 .two-col {
   display: flex;
   flex-direction: row;
-  gap: 10%;
+  gap: 5%;
 
-  @media (orientation: portrait) {
+  @include u.breakpoint-down(medium) {
     flex-direction: column;
   }
 }
@@ -46,13 +51,27 @@ form {
 }
 
 img {
-  // width: clamp(250px, 25vw, 500px);
   height: auto;
   display: block;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
+}
 
-  @media (orientation: portrait) {
-    width: 75vw;
+.about-layout {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  margin-bottom: 25px;
+
+  @include u.breakpoint(small) {
+    padding-left: clamp(100px, 10vw, 175px);
+  }
+
+  @include u.breakpoint(medium) {
+    margin-inline: 5vw;
+  }
+
+  @include u.breakpoint-down(medium) {
+    flex-direction: column;
   }
 }

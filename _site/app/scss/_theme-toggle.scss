@@ -1,0 +1,35 @@
+@use "../scss/util/" as u;
+
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  box-shadow: none;
+  margin-top: u.rem(25) !important;
+  display: block;
+  margin: 0 auto;
+  justify-self: center;
+  @include u.breakpoint-down(small) {
+    display: none;
+  }
+}
+
+#theme-toggle:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+#theme-icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+#moon-icon {
+  display: none;
+}
+
+[data-theme="dark"] #theme-icon {
+  transform: rotate(180deg);
+}

@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .visually-hidden {
   position: absolute;
   left: -10000px;
@@ -22,11 +26,7 @@
   box-sizing: border-box;
 }
 
-#theme-toggle {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
+
 
 .intro-sub {
   transition: opacity 1s ease;
@@ -35,4 +35,22 @@
 
 .intro-sub.fade-out {
   opacity: 0;
+}
+
+.back {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.back:hover {
+  cursor: pointer;
+}
+
+.back-container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
 }
