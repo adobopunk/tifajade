@@ -1,17 +1,18 @@
 @use "../scss/util/" as u;
-
+.topnav__wrapper {
+  position: relative;
+}
 .sidebar {
   z-index: 1;
-  position: absolute; // Keep the sidebar fixed in place
-  width: clamp(150px, 15vw, 150px); // Maintain the desired width
-  height: 100vh; // Make the sidebar full height of the viewport
+  position: absolute;
+  width: clamp(150px, 15vw, 150px);
   padding: 20px;
   box-sizing: border-box;
   margin-inline: 2vw;
-
+  overflow: hidden;
   display: flex;
-  flex-direction: column; // Stack elements vertically
-  align-items: center; // Center horizontally by default
+  flex-direction: column;
+  align-items: center;
 
   @include u.breakpoint-down(medium) {
     width: clamp(150px, 10vw, 150px);
@@ -64,17 +65,77 @@ nav {
   }
 }
 
-.topnav__link {
-  padding: auto 0;
-  line-height: 1;
-}
+.topnav {
+  &__link {
+    padding: auto 0;
+    line-height: 1;
+  }
 
-.topnav__links {
-  @include u.breakpoint-down(small) {
-    display: none;
+  &__links {
+    @include u.breakpoint-down(small) {
+      display: none;
+    }
+  }
+  &__item {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
 .reveal .topnav__link {
   font-size: 90%;
+}
+
+.collapsible {
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  outline: none;
+  width: 100%;
+}
+
+.reveal {
+  background-color: rgba(255, 255, 255, 0);
+  max-height: 0; /* Start collapsed */
+  overflow: hidden; /* Hide overflowing content */
+  transition: max-height 0.3s ease, opacity 0.3s ease; /* Smooth transition for height and opacity */
+  margin-top: 10px; /* Space above the revealed content */
+  padding: 0; /* Adjust as needed */
+  padding-left: 10px; /* Add left padding */
+  padding-bottom: 10px;
+  opacity: 0; /* Start hidden */
+}
+
+.collapsible.active + .reveal {
+  max-height: 100vh; /* Allow for dynamic max-height */
+  opacity: 1; /* Fade in when expanded */
+}
+
+.collapsible:not(.active) + .reveal {
+  padding: 0; /* No padding when collapsed to prevent spacing */
+}
+
+.collapsible:after {
+  content: "+"; /* Unicode character for "plus" sign (+) */
+  font-size: 24px;
+  color: var(--pico-primary);
+  // float: right;
+  margin-left: 10px;
+}
+
+.active:after {
+  content: "−"; /* Unicode character for "minus" sign (-) */
+}
+.socials {
+  margin-block-start: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  @include u.breakpoint-down(small) {
+    display: none;
+  }
+}
+.social {
+  width: 20px;
 }

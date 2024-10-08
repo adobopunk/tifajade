@@ -23,8 +23,9 @@
   }
 }
 .gallery img,
-.vimeo-contaier {
+.vimeo-container {
   width: 100%; /* Ensures images fill the grid cell */
   border-radius: 2px; /* Optional: rounded corners */
   object-fit: cover;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
