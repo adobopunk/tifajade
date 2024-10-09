@@ -1,4 +1,55 @@
-@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400&display=swap");
+@import url(/assets/fonts/Crimson_Pro/CrimsonPro-VariableFont_wght.ttf);
+@import url(/assets/fonts/Bebas_Neue/BebasNeue-Regular.ttf);
+@import url("/assets/fonts/NewYork/New.woff2");
+@import url("/assets/fonts/NewYork/New.woff");
+
+/* Light weight (300) */
+@font-face {
+  font-family: "Avantgarde";
+  src: url("/assets/fonts/avantgarde/AvantgardeLight.woff2") format("woff2"),
+    url("/assets/fonts/avantgarde/AvantgardeLight.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular weight (400) */
+@font-face {
+  font-family: "Avantgarde";
+  src: url("/assets/fonts/avantgarde/AvantgardeRegular.woff2") format("woff2"),
+    url("/assets/fonts/avantgarde/AvantgardeRegular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold weight (700) */
+@font-face {
+  font-family: "Avantgarde";
+  src: url("/assets/fonts/avantgarde/AvantgardeBold.woff2") format("woff2"),
+    url("/assets/fonts/avantgarde/AvantgardeBold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "New";
+  src: url("/assets/fonts/NewYork/New.woff2") format("woff2"),
+    url("/assets/fonts/NewYork/New.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "York";
+  src: url("/assets/fonts/NewYork/York.woff2") format("woff2"),
+    url("/assets/fonts/NewYork/York.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 body {
   font-family: "Crimson Pro", serif;
@@ -10,12 +61,18 @@ body {
 h1,
 h2,
 h3 {
-  font-family: "Crimson Pro", serif;
-  font-weight: 600; /* Regular weight */
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 700; /* Bold */
   margin: 20px 0;
   line-height: 1;
 }
 
 p {
-  line-height: 1.5;
+  font-family: "Crimson Pro", serif;
+  line-height: 1.6em;
+  font-weight: 200;
+}
+
+nav {
+  font-family: "Bebas Neue", sans-serif;
 }
