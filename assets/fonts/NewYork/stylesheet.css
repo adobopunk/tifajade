@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'New';
+    src: url('New.woff2') format('woff2'),
+        url('New.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'York';
+    src: url('York.woff2') format('woff2'),
+        url('York.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
