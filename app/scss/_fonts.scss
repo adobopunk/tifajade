@@ -1,37 +1,37 @@
-@import url("https://api.fonts.coollabs.io/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap");
+// @import url("https://api.fonts.coollabs.io/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap");
 
-@import url("https://api.fonts.coollabs.io/css2?family=Hahmlet:wght@100..900&display=swap");
+// @import url("https://api.fonts.coollabs.io/css2?family=Hahmlet:wght@100..900&display=swap");
 
-@import url("https://api.fonts.coollabs.io/css2?family=Parisienne&display=swap");
+// @import url("https://api.fonts.coollabs.io/css2?family=Parisienne&display=swap");
 
-// @font-face {
-//   font-family: "Parisienne";
-//   src: url("/assets/fonts/Parisienne/Parisienne-regular.woff2") format("woff2"),
-//     url("/assets/fontsParisienne/Parisienne-regular.woff") format("woff"),
-//     url("/assets/fontParisienne/Parisienne-regular.ttf") format("truetype");
+@font-face {
+  font-family: "Parisienne";
+  src: url("/assets/fonts/Parisienne/Parisienne-regular.woff2") format("woff2"),
+    url("/assets/fontsParisienne/Parisienne-regular.woff") format("woff"),
+    url("/assets/fontParisienne/Parisienne-regular.ttf") format("truetype");
 
-//   font-weight: normal;
-//   font-style: normal;
-// }
+  font-weight: normal;
+  font-style: normal;
+}
 
-// @font-face {
-//   font-family: "Rethink Sans";
-//   src: url("/assets/fonts/Rethink-Sans/RethinkSans-Regular.woff2")
-//       format("woff2"),
-//     url("/assets/fonts/Rethink-Sans/RethinkSans-Regular.woff") format("woff"),
-//     url("/assets/fonts/Rethink-Sans/RethinkSans-Regular.ttf") format("truetype");
-//   font-weight: 100;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: "Rethink Sans";
+  src: url("/assets/fonts/Rethink-Sans/RethinkSans-Regular.woff2")
+      format("woff2"),
+    url("/assets/fonts/Rethink-Sans/RethinkSans-Regular.woff") format("woff"),
+    url("/assets/fonts/Rethink-Sans/RethinkSans-Regular.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
 
-// @font-face {
-//   font-family: "Hahmlet", serif;
-//   src: url("/assets/fonts/hahmlet/Hahmlet-Regular.woff2") format("woff2"),
-//     url("/assets/fonts/hahmlet/Hahmlet-Regular.woff") format("woff"),
-//     url("/assets/fonts/hahmlet/Hahmlet-Regular.ttf") format("truetype");
-//   font-weight: 100;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: "Hahmlet", serif;
+  src: url("/assets/fonts/hahmlet/Hahmlet-Regular.woff2") format("woff2"),
+    url("/assets/fonts/hahmlet/Hahmlet-Regular.woff") format("woff"),
+    url("/assets/fonts/hahmlet/Hahmlet-Regular.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
 
 body {
   font-family: "Hahmlet", serif;
@@ -47,7 +47,7 @@ h1,
 h2,
 h3 {
   font-family: "Rethink Sans", "Arial", "Helvetica", sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   margin: 20px 0;
   line-height: 1;
 }
