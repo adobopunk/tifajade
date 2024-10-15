@@ -15,21 +15,27 @@
   }
 }
 
+#theme-icon {
+  width: 30px;
+  height: 30px;
+  fill: var(--pico-primary);
+  transition: transform 0.3s ease;
+  transform: scale(0.8); /* Scale down the icon size */
+}
+
 #theme-toggle:focus {
   outline: none;
   box-shadow: none;
 }
 
-#theme-icon {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.3s ease;
+#theme-toggle {
+  visibility: hidden;
+}
+
+.js #theme-toggle {
+  visibility: visible;
 }
 
 #moon-icon {
   display: none;
-}
-
-[data-theme="dark"] #theme-icon {
-  transform: rotate(180deg);
 }

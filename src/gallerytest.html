@@ -1,0 +1,33 @@
+---
+layout: "layouts/base.html"
+title: "Tifa Jade"
+---
+
+{% include "includes/nav.html" %}
+<div class="wrapper wrapper-home">
+  <div class="layout-main wrapper-h">
+    <section class="gallery">
+      <div class="vimeo-container" style="overflow: hidden">
+        <div class="iframe-wrapper">
+          <iframe
+            src="https://player.vimeo.com/video/482898747"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      {% for project in collections.projects %}
+      <div class="image-container">
+        <a href="{{ project.url }}">
+          <img src="{{ project.data.image }}" alt="{{ project.data.title }}" />
+          <div class="image-title">{{ project.data.title }}</div>
+        </a>
+      </div>
+      {% endfor %}
+    </section>
+  </div>
+</div>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
