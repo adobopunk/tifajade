@@ -1,0 +1,25 @@
+<section class="gallery">
+  <div class="vimeo-container" style="overflow: hidden">
+    <div class="iframe-wrapper">
+      <iframe
+        src="https://player.vimeo.com/video/482898747"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+
+  {% for project in collections.projects %}
+  <div class="image-container">
+    <a href="{{ project.url }}">
+      <img src="{{ project.data.image }}" alt="{{ project.data.title }}" />
+      <div class="overlay"></div>
+      <div class="image-title">
+        <h2 class="gallery__title">{{ project.data.title }}</h2>
+        <p class="gallery__scope">{{ project.data.scope }}</p>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</section>

@@ -1,15 +1,42 @@
 module.exports = function (eleventyConfig) {
-	//copy `assets/` to `_site/assets/`
-	eleventyConfig.addPassthroughCopy('assets');
-	eleventyConfig.addPassthroughCopy('fonts');
-	eleventyConfig.addPassthroughCopy('img');
-	eleventyConfig.addPassthroughCopy('app');
+  // Copy assets
+  eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("fonts");
+  eleventyConfig.addPassthroughCopy("img");
+  eleventyConfig.addPassthroughCopy("app");
 
-	return {
-		dir: {
-			input: 'src',
-			output: '_site',
-			includes: '_templates',
-		},
-	};
+  // Set template formats
+  eleventyConfig.setTemplateFormats(["njk", "html"]); // Include njk for Nunjucks
+
+  // Add a collection for projects
+  eleventyConfig.addCollection("projects", function (collection) {
+    return collection.getFilteredByGlob("src/projects/*.njk"); // Adjust the path if necessary
+  });
+
+  // Add index filter
+  eleventyConfig.addFilter("index", function (array, value) {
+    return array.indexOf(value);
+  });
+
+  // Add filter for adjacent projects
+  eleventyConfig.addFilter(
+    "getAdjacentProjects",
+    (projects, currentProject) => {
+      const currentIndex = projects.findIndex(
+        (project) => project.fileSlug === currentProject.fileSlug
+      );
+      const previous = projects[currentIndex - 1] || null;
+      const next = projects[currentIndex + 1] || null;
+      return { previous, next };
+    }
+  );
+
+  return {
+    dir: {
+      input: "src",
+      output: "_site",
+      includes: "_templates",
+    },
+    templateFormats: ["njk", "html"],
+  };
 };

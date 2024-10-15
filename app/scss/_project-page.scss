@@ -1,20 +1,18 @@
 @use "../scss/util/" as u;
 
-.title {
-  margin-top: u.rem(50);
-}
-
 .project-layout > img {
   min-width: 100%;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-
+  margin-block: 20px;
   @include u.breakpoint-down(small) {
     min-width: 100vw;
   }
 }
 
 .title {
-  font-size: u.rem(64);
-  text-align: center;
-  line-height: 0.75;
+  font-family: "Rethink Sans", "Arial", "Helvetica", sans-serif;
+  font-size: 3rem;
+  font-size: clamp(3rem, 2.95rem + 0.25vw, 3.25rem);
+  text-align: left;
+  font-weight: 600;
 }
