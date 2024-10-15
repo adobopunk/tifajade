@@ -1,0 +1,47 @@
+{% include "includes/header.html" %}
+<main id="main">
+  <article>
+    <div id="top"></div>
+    {% include "includes/nav.html" %}
+    <div class="wrapper wrapper-home">
+      <div class="layout-main wrapper-m project-layout">
+        {{ content | safe }}
+
+{# Get the current project's URL #}
+{% set currentUrl = page.url %}
+{% set currentIndex = -1 %}
+
+{# Loop through the projects to find the current index #}
+{% for project in collections.projects %}
+  {% if project.url == currentUrl %}
+    {% set currentIndex = loop.index0 %} {# Use loop.index0 for 0-based index #}
+  {% endif %}
+{% endfor %}
+
+{# Set previous and next projects based on the current index #}
+{% set previous = collections.projects[currentIndex - 1] if currentIndex > 0 else null %}
+{% set next = collections.projects[currentIndex + 1] if currentIndex < collections.projects | length - 1 else null %}
+
+<nav class="project-navigation">
+{# Check if there is a next project #}
+{% if next %}
+   <h2> <a href="{{ next.url }}" class="next">Next: {{ next.data.title }}</a> </h2>
+{% else %}
+    {# If there is no next project, check for previous #}
+    {% if previous %}
+       <h2> <a href="{{ previous.url }}" class="previous">Previous: {{ previous.data.title }}</a> </h2>
+    {% else %}
+        <span class="previous">Previous: None</span>
+    {% endif %}
+{% endif %}
+
+        {% include "includes/backtotop.html" %}
+
+
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+{% include "includes/footer.html" %}

@@ -1,3 +1,5 @@
+@use "../scss/util/" as u;
+
 html {
   scroll-behavior: smooth;
 }
@@ -26,8 +28,6 @@ html {
   box-sizing: border-box;
 }
 
-
-
 .intro-sub {
   transition: opacity 1s ease;
   opacity: 1;
@@ -53,4 +53,8 @@ html {
   display: flex;
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
+}
+
+.to-top {
+  width: u.rem(12);
 }
