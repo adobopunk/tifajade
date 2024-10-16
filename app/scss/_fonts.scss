@@ -33,22 +33,32 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Bagnard";
+  src: url("/assets/fonts/Bagnard/Bagnard.woff2") format("woff2"),
+    url("/assets/fonts/Bagnard/Bagnard.woff") format("woff"),
+    url("/assets/fonts/Bagnard/Bagnard.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
-  font-family: "Hahmlet", serif;
+  font-family: "Rethink Sans", "Arial", "Helvetica", sans-serif;
   font-size: 1rem;
   font-size: clamp(1rem, 0.975rem + 0.125vw, 1.125rem);
 }
 
-nav * {
-  font-family: "Rethink Sans", sans-serif;
-}
+// nav * {
+//   font-family: "Rethink Sans", "Arial", "Helvetica", sans-serif;
+// }
 
 h1,
 h2,
 h3 {
-  font-family: "Rethink Sans", "Arial", "Helvetica", sans-serif;
-  font-weight: 600;
-  margin: 20px 0;
+  font-family: "Rethink Sans", serif;
+  font-weight: 200;
+  margin: 30px 0;
   line-height: 1;
 }
 
@@ -61,6 +71,21 @@ h3 span.jade {
 
 p {
   line-height: 1.6;
-  font-size: 1em;
-  max-width: 800px;
+  font-size: 0.9rem;
+}
+
+.title {
+  font-family: "Bagnard", serif;
+  font-size: 3rem;
+  font-size: clamp(3rem, 2.95rem + 0.25vw, 3.25rem);
+  text-align: left;
+  font-weight: 200;
+}
+
+.gallery__title,
+nav,
+.next,
+.previous,
+.back {
+  font-family: "Bagnard", serif;
 }

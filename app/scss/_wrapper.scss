@@ -8,22 +8,23 @@
 
 .wrapper-m {
   width: clamp(250px, 75vw, 1600px);
+
   @include u.breakpoint-down(medium) {
     width: clamp(250px, 98vw, 1080px);
     max-width: 98%;
   }
   @include u.breakpoint(medium) {
-    margin-left: clamp(175px, 15vw, 150px);
+    // margin-left: clamp(175px, 15vw, 150px);
   }
 }
 .wrapper-h {
-  width: clamp(250px, 75vw, 90vw);
+  width: 95vw;
   @include u.breakpoint-down(medium) {
-    width: clamp(250px, 98vw, 1080px);
+    width: clamp(250px, 98vw, 1600px);
     max-width: 98%;
   }
   @include u.breakpoint(medium) {
-    margin-left: clamp(175px, 15vw, 150px);
+    // margin-left: clamp(175px, 15vw, 150px);
   }
 }
 
@@ -53,6 +54,7 @@
   }
   @include u.breakpoint(medium) {
     margin-left: clamp(20px, 25vw, 250px);
+    margin-top: 250px;
   }
 }
 
@@ -84,6 +86,8 @@
 }
 
 .topnav__wrapper {
+  display: flex;
+  flex-direction: row;
   @include u.breakpoint-down(small) {
     // display: flex;
   }

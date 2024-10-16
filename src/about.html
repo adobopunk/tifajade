@@ -1,45 +1,56 @@
 ---
-layout: "layouts/primary.html"
+layout: "layouts/base.html"
 title: "About Tifa Jade"
 ---
 
-<h1 class="title visually-hidden">{{ title }}</h1>
-<div class="about-layout">
-  <div class="about__text">
-    <h2 class="">
-      <p>My friends call me TJ.</p>
-    </h2>
-    <p>
-      And if you're reading us, consider us friends! I’m a freelance 3D motion
-      designer and Animation Director at BoomTV, blending my love for motion
-      design, visual effects, and storytelling into every project. My journey
-      has been far from traditional—I'm a self-taught VFX artist who spent spent
-      four years as a video editor for
-      <a href="https://en.wikipedia.org/wiki/Ultimate_Fighting_Championship"
-        >UFC</a
-      >. These days I spend a lot of time doing R&D, exploring the intersection
-      of motion design and 3D art.
-    </p>
-    <p>
-      I'm always looking for ways to improve my capabilities. In fact, I learned
-      how to code just so I could make this portfolio, and I'm constantly
-      developing it. Hopefully you'll revisit it from time to time and see what
-      new features I've added! I’m always working on new ways to push my design
-      skills forward. I have a background in music production and love crafting
-      audioreactive visuals.
-    </p>
-    <p>
-      My passion for animation and motion design comes from the way different
-      disciplines coalesce into something whole. I studied film in college, and
-      my background as a filmmaker helped me realize I was interested in every
-      aspect of the process - art direction, cinematography, sound design, music
-      composition, etc. Eventually I realized: what better way to make use of
-      all these elements, than through a career in animation? Thanks for
-      checking out my portfolio, and I hope you enjoyed your time here!
-    </p>
-  </div>
+{% include "includes/nav.html" %}
+<div class="wrapper wrapper-home">
+  <div class="layout-main wrapper-a project-layout">
+    <h1 class="title visually-hidden">{{ title }}</h1>
+    <div class="about-layout">
+      <div class="about__text">
+        <h2 class="">My friends call me TJ.</h2>
+        <p>
+          <b>If you're reading us, consider us friends! </b>I’m an animator
+          passionate about telling stories through motion, blending artistic
+          vision with purposeful design to create meaningful experiences.
+          Previously, I was a video editor at
+          <a
+            href="https://en.wikipedia.org/wiki/Ultimate_Fighting_Championship"
+            target="_blank"
+            rel="noopener noreferrer"
+            >UFC</a
+          >. Currently, I'm a freelance motion designer and the Animation
+          Director at BoomTV. I have a multidisciplinary background that blends
+          my experience with video production, motion design, programming, and
+          3D animation. My work is driven by a passion to help improve everyday
+          lives, always striving to connect with and inspire the communities I
+          engage with.
+        </p>
+        <p>
+          I studied film, which allowed me to dive into every aspect of the
+          process—art direction, cinematography, sound design, music
+          composition, and more. Eventually, I realized: what better way to
+          bring all these elements together than through a career in animation?
+          In my free time you can developing film,
+          <a
+            href="https://github.com/adobopunk/tifajade"
+            target="_blank"
+            rel="noopener noreferrer"
+            >updating this website</a
+          >, or looking for the best tacos in Seattle. Thanks for checking out
+          my portfolio, and I hope you've enjoyed your time here!
+        </p>
+      </div>
 
-  <div class="about__image">
-    <img class="about-image" src="/assets/img/pfp.JPG" alt="" width="100%" />
+      <div class="about__image">
+        <img
+          class="about-image"
+          src="/assets/img/pfp.JPG"
+          alt=""
+          width="100%"
+        />
+      </div>
+    </div>
   </div>
 </div>

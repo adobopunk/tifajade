@@ -14,14 +14,15 @@ body {
 
 .footer {
   position: relative;
-  // background-color: var(--pico-background-color);
-
+  margin-block: u.rem(80);
   z-index: 100;
   &__legal {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: u.rem(20);
+    margin-top: u.rem(20);
   }
 }
 
@@ -34,7 +35,6 @@ form {
   margin-top: u.rem(25);
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: u.rem(20);
 
   @include u.breakpoint-down(small) {
@@ -64,6 +64,7 @@ img {
 .about-layout {
   max-width: 1200px;
   display: flex;
+  align-items: center;
   flex-direction: row;
   gap: 2vw;
   margin-bottom: 25px;
@@ -72,11 +73,7 @@ img {
     padding-left: clamp(100px, 10vw, 175px);
   }
 
-  @include u.breakpoint(medium) {
-    margin-inline: 5vw;
-  }
-
-  @include u.breakpoint-down(medium) {
+  @include u.breakpoint-down(small) {
     flex-direction: column;
   }
 }
