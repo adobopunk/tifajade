@@ -6,13 +6,9 @@
     auto-fill,
     minmax(500px, 1fr)
   ); // Responsive grid
-  gap: 1rem; /* Space between images */
+  gap: 4rem; /* Space between images */
   @include u.breakpoint(xlarge) {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include u.breakpoint(xxxlarge) {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   @include u.breakpoint-down(medium) {
