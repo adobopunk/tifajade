@@ -5,7 +5,7 @@
   flex-direction: column; /* Ensures a vertical layout */
   justify-content: center; /* Centers the content vertically */
   align-items: center; /* Centers the content horizontally */
-  width: clamp(250px, 30vw, 500px); /* Responsive width */
+  width: clamp(500px, 30vw, 500px); /* Responsive width */
   text-align: center; /* For centering text if needed */
   border-radius: 50%;
 
@@ -17,4 +17,10 @@
   width: 100%; /* Make sure the image scales within the parent */
   height: auto; /* Maintain aspect ratio */
   display: block; /* Removes any bottom spacing */
+}
+
+.about__text {
+  @include u.breakpoint(medium) {
+    max-width: 50%;
+  }
 }

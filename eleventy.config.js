@@ -8,9 +8,11 @@ module.exports = function (eleventyConfig) {
   // Set template formats
   eleventyConfig.setTemplateFormats(["njk", "html"]); // Include njk for Nunjucks
 
-  // Add a collection for projects
+  // Add a collection for projects sorted by date
   eleventyConfig.addCollection("projects", function (collection) {
-    return collection.getFilteredByGlob("src/projects/*.njk"); // Adjust the path if necessary
+    return collection.getFilteredByGlob("src/projects/*.njk").sort((a, b) => {
+      return b.date - a.date; // Sort by date, most recent first
+    });
   });
 
   // Add index filter

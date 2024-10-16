@@ -1,0 +1,59 @@
+<form name="contact" method="POST" data-netlify="true">
+    <h2>Spill The Tea...</h2>
+      <fieldset class="grid">
+          <p>
+              <label>Your First Name:
+              <input 
+              name="First Name"
+              placeholder="Tifa"
+              aria-label="Login"
+              autocomplete="username"
+            />
+          </p>
+          <p>
+              <label>Your Last Name:
+              <input 
+              name="Last Name"
+              placeholder="Jade"
+              aria-label="Login"
+              autocomplete="username"
+            />
+          </p>
+        </fieldset>
+      <p>
+        <label>Your Email: <input type="email" name="email" placeholder="hi@tifajade.com"  /></label>
+      </p>
+      <p>
+        <label>Your business or product name: <input type="text" name="business" placeholder="Awesome Inc."  /></label>
+      </p>
+      <p>
+        <label>Tell me about your exciting project! <textarea name="details"></textarea></label>
+      </p>
+      <p>
+        <label>Budget: 
+          <select name="budget" aria-label="Select one" required>
+            <option selected disabled value="">
+              Select one
+            </option>
+            <option>$5,000 - $10,000</option>
+            <option>$10,000 - $15,000</option>
+            <option>$15,000 - $20,000</option>
+            <option>$25,000 - $25,000</option>
+            <option>$25,000+</option>
+          </select>
+    </p>
+    
+     
+      <p>
+        <label>What interests you about working with me?<textarea name="work with me"></textarea></label>
+      </p>
+      <p>
+          <label>How did you hear about me? 
+            <textarea name="discovered by"></textarea></label>
+            
+      </p>
+    
+      <p>
+        <button type="submit">Send</button>
+      </p>
+    </form>

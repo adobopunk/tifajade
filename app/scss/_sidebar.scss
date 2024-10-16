@@ -1,145 +1,113 @@
 @use "../scss/util/" as u;
+
 .topnav__wrapper {
   position: relative;
-}
-.sidebar {
-  z-index: 1;
-  position: absolute;
-  width: clamp(150px, 15vw, 150px);
-  margin-block: u.rem(25);
-  padding-inline: 20px;
-  box-sizing: border-box;
-  margin-inline: 2vw;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @include u.breakpoint-down(medium) {
-    width: clamp(150px, 10vw, 150px);
-    margin-inline: 0;
-    margin-block: 0;
-  }
+  width: 95%; /* Full width wrapper */
 
   @include u.breakpoint-down(small) {
-    position: relative;
-    width: 100%; // Full width on small screens
-
-    flex-direction: row; // Change to row layout
-    justify-content: center; // Center elements horizontally
-    margin-inline: 0;
-  }
-
-  &__homelink {
-    font-size: u.rem(24);
-    text-align: center;
-    font-family: "Parisienne", "Brush Script MT", "Lucida Handwriting", serif;
-
-    // @include u.breakpoint-down(small) {
-    //   display: none;
-    // }
-  }
-
-  &__logo {
-    @include u.breakpoint-down(small) {
-      align-items: center;
-      justify-content: center;
-    }
+    width: 100%;
   }
 }
 
-.content {
-  flex-grow: 1;
+.sidebar {
+  z-index: 1;
+  position: relative; /* Make it relative for top positioning */
+  width: 100%; /* Full width */
+  display: flex;
+  flex-direction: row; /* Layout items horizontally */
+  justify-content: center; /* Center the elements */
+  align-items: center; /* Align items vertically centered */
+  padding: 10px 20px; /* Add padding for spacing */
+  box-sizing: border-box;
+  background-color: var(--pico-background); /* Optional background color */
 }
 
-.logo {
-  width: clamp(100px, 10vw, 350px);
-  box-shadow: none;
+.sidebar__homelink {
+  font-size: u.rem(24);
+  text-align: center;
+  font-family: "Parisienne", "Brush Script MT", "Lucida Handwriting", serif;
+  margin-right: auto; /* Push homelink to the left */
+}
+
+.sidebar__logo {
+  margin: 0 20px; /* Spacing for the logo */
+  align-items: center;
+  justify-content: center;
 }
 
 nav {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  position: relative;
+  justify-content: center;
   width: 100%;
-
-  @include u.breakpoint-down(small) {
-    flex-direction: row;
-  }
 }
 
 .topnav {
+  &__links {
+    display: flex;
+    flex-direction: row; /* Links arranged horizontally */
+    gap: 15px; /* Add spacing between links */
+    align-items: center;
+    justify-content: center;
+  }
   &__link {
-    padding: auto 0;
-    line-height: 1;
+    text-align: center;
+    font-size: u.rem(16);
+    line-height: 1.5;
   }
 
-  &__links {
-    margin-top: 5px;
+  &__socials {
     @include u.breakpoint-down(small) {
       display: none;
     }
   }
-  &__item {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
 }
 
-.reveal .topnav__link {
-  font-size: 90%;
+.socials {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2px;
 }
 
-.collapsible {
-  cursor: pointer;
-  border: none;
-  text-align: left;
-  outline: none;
-  width: 100%;
+.social {
+  display: block;
+  width: 18px; /* Icon size */
+  height: 18px; /* Icon size */
+}
+
+.logo {
+  width: clamp(100px, 10vw, 200px);
+  box-shadow: none;
 }
 
 .reveal {
-  background-color: rgba(255, 255, 255, 0);
-  max-height: 0; /* Start collapsed */
-  overflow: hidden; /* Hide overflowing content */
-  transition: max-height 0.3s ease, opacity 0.3s ease; /* Smooth transition for height and opacity */
-  margin-top: 10px; /* Space above the revealed content */
-  padding: 0; /* Adjust as needed */
-  padding-left: 10px; /* Add left padding */
-  padding-bottom: 10px;
-  opacity: 0; /* Start hidden */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
 }
 
 .collapsible.active + .reveal {
-  max-height: 100vh; /* Allow for dynamic max-height */
-  opacity: 1; /* Fade in when expanded */
-}
-
-.collapsible:not(.active) + .reveal {
-  padding: 0; /* No padding when collapsed to prevent spacing */
+  max-height: 100vh;
+  opacity: 1;
 }
 
 .collapsible:after {
-  content: "+"; /* Unicode character for "plus" sign (+) */
+  content: "+";
   font-size: 24px;
-  color: var(--pico-primary);
   margin-left: 2px;
 }
 
 .active:after {
-  content: "−"; /* Unicode character for "minus" sign (-) */
+  content: "−";
 }
-.socials {
-  margin-block-start: 20px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
 
-  @include u.breakpoint-down(small) {
-    display: none;
-  }
-}
-.social {
-  width: u.rem(12);
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
