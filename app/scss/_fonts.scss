@@ -1,3 +1,5 @@
+@use "../scss/util/" as u;
+
 // @import url("https://api.fonts.coollabs.io/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap");
 
 // @import url("https://api.fonts.coollabs.io/css2?family=Hahmlet:wght@100..900&display=swap");
@@ -75,11 +77,15 @@ p {
 }
 
 .title {
-  font-family: "Bagnard", serif;
+  font-family: "Bagnard", sans-serif;
   font-size: 3rem;
   font-size: clamp(3rem, 2.95rem + 0.25vw, 3.25rem);
   text-align: left;
   font-weight: 200;
+
+  @include u.breakpoint-down(small) {
+    text-align: center;
+  }
 }
 
 .gallery__title,
