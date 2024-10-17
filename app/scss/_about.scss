@@ -30,3 +30,36 @@
     text-align: center;
   }
 }
+
+.about__sig {
+  color: var(--pico-primary);
+  font-family: "Parisienne", "Brush Script MT", "Lucida Handwriting", serif;
+  font-size: u.rem(32);
+  text-align: right;
+  display: block;
+
+  @include u.breakpoint-down(small) {
+    text-align: center;
+  }
+}
+
+.about__info {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  gap: u.rem(40);
+  width: 100%;
+
+  @include u.breakpoint-down(small) {
+    flex-direction: column;
+  }
+}
+
+.about__info-column ul {
+  padding-left: 0;
+  font-size: 0.9rem;
+
+  @include u.breakpoint-down(small) {
+    text-align: center;
+  }
+}

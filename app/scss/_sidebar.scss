@@ -50,6 +50,10 @@ nav {
     gap: 15px; /* Add spacing between links */
     align-items: center;
     justify-content: center;
+
+    @include u.breakpoint-down(small) {
+      gap: 2px;
+    }
   }
   &__link {
     text-align: center;
