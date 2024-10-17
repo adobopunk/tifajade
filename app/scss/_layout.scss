@@ -74,6 +74,6 @@ img {
   }
 
   @include u.breakpoint-down(small) {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 }

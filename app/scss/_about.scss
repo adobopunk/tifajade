@@ -24,3 +24,9 @@
     max-width: 50%;
   }
 }
+
+.about__title {
+  @include u.breakpoint-down(small) {
+    text-align: center;
+  }
+}
