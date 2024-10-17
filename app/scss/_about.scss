@@ -7,7 +7,7 @@
   align-items: center; /* Centers the content horizontally */
   width: clamp(500px, 30vw, 500px); /* Responsive width */
   text-align: center; /* For centering text if needed */
-  border-radius: 50%;
+  // border-radius: 50%;
 
   @include u.breakpoint-down(small) {
     width: 95vw;
