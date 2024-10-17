@@ -15,6 +15,7 @@ body {
 .footer {
   position: relative;
   margin-block: u.rem(80);
+  margin-inline: u.rem(20);
   z-index: 100;
   &__legal {
     display: flex;
