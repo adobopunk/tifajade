@@ -1,11 +1,12 @@
 @use "../scss/util/" as u;
 
 .intro {
-  font-size: 1.75rem;
+  font-size: 1.8rem;
   text-align: center;
   max-width: 40ch;
   margin: 0 auto;
   margin-block-end: u.rem(40);
+  font-family: "Bagnard", sans-serif;
   @media (orientation: portrait) {
     max-width: 90%;
   }

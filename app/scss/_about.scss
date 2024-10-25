@@ -37,10 +37,7 @@
   font-size: u.rem(32);
   text-align: right;
   display: block;
-
-  @include u.breakpoint-down(small) {
-    text-align: center;
-  }
+  text-align: center;
 }
 
 .about__info {
