@@ -7,7 +7,7 @@
 }
 
 .wrapper-m {
-  width: clamp(250px, 75vw, 1600px);
+  width: clamp(250px, 90vw, 1920px);
 
   @include u.breakpoint-down(medium) {
     width: clamp(250px, 98vw, 1080px);
