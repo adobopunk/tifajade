@@ -1,115 +1,67 @@
 @use "../scss/util/" as u;
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(500px, 1fr)
-  ); // Responsive grid
-  gap: 2rem; /* Space between images */
-  @include u.breakpoint(medium) {
-    grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
+  gap: u.rem(40);
+  margin-block-start: 10vh;
+
+  &__title {
+    font-size: 2rem;
+    font-size: clamp(2rem, 1.9rem + 0.5vw, 2.5rem);
+    width: 100%;
+    margin: 0;
+
+    &:hover {
+      text-decoration: underline; // Adds an underline on hover
+    }
   }
 
-  @include u.breakpoint-down(small) {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  &__subtitle {
+    font-size: 1rem;
+    color: var(--pico-h1-color);
+    width: 100%;
+  }
+
+  &__title,
+  &__subtitle {
+    display: block;
+
+    @include u.breakpoint-down(small) {
+      width: 100%;
+    }
   }
 }
+
 .gallery img,
 .vimeo-container {
-  width: 100%; /* Ensures images fill the grid cell */
-  border-radius: 2px; /* Optional: rounded corners */
+  width: 100%;
+  border-radius: 2px;
   object-fit: cover;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .image-container {
-  position: relative; /* Establishes a positioning context for absolute positioning */
-  overflow: hidden; /* Ensures any overflow is hidden */
-}
-
-.image-container img {
-  width: 100%; /* Make sure the image fills the container */
-  transition: transform 0.3s ease; /* Smooth transition for image scaling */
-}
-
-.overlay {
-  position: absolute; /* Position the overlay absolutely within the container */
-  top: 0; /* Cover the top */
-  left: 0; /* Cover the left */
-  width: 100%; /* Cover the full width */
-  height: 100%; /* Cover the full height */
-  background-color: hsla(
-    160,
-    100%,
-    13%,
-    0.673
-  ); /* Dark overlay with transparency */
-  opacity: 0; /* Start hidden */
-  transition: opacity 0.3s ease; /* Smooth transition for the overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
 }
 
 .image-title {
-  position: absolute; /* Position the title absolutely within the container */
-  top: 50%; /* Center vertically */
-  left: u.rem(32); /* Align the text to the left of the image */
-  transform: translateY(-50%); /* Adjust the positioning to center vertically */
-  color: white; /* Change color to match your design */
-  opacity: 0; /* Start hidden */
-  transition: opacity 0.3s ease; /* Smooth transition for the hover effect */
-  text-align: left; /* Left align the text */
-  z-index: 50;
-
-  @include u.breakpoint-down(small) {
-    opacity: 1;
-  }
-}
-
-.image-container {
-  position: relative;
-}
-
-.image-container:hover img {
-  filter: blur(4px); /* Apply a blur effect on hover */
-}
-
-.image-container:hover .overlay {
-  opacity: 1; /* Show overlay on hover */
-}
-
-.image-container:hover .image-title {
-  opacity: 1; /* Show title on hover */
-}
-
-.image-container::after {
-  content: ""; /* Create a pseudo-element */
-  position: absolute; /* Position it absolutely within the container */
-  bottom: 0; /* Position at the bottom */
-  left: 0; /* Align to the left */
-  right: 0; /* Stretch to the right */
-  height: 90%; /* Cover the bottom half */
-  background: linear-gradient(
-    to top,
-    hsla(160, 100%, 6%, 0.928),
-    transparent
-  ); /* Dark to transparent gradient */
-  opacity: 0; /* Start hidden */
-  transition: opacity 0.3s ease; /* Smooth transition for hover effect */
-  pointer-events: none; /* Prevent it from blocking mouse events */
-
-  @include u.breakpoint-down(small) {
-    opacity: 1;
-  }
-}
-
-.gallery__scope,
-.gallery__title {
+  margin-top: 0.5rem; /* Space between image and title */
   color: white;
-}
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: u.rem(10);
+  width: 100%;
+  text-align: left;
+  margin-top: u.rem(24);
 
-.gallery__title {
-  font-size: 2rem;
-  font-size: clamp(2rem, 1.9rem + 0.5vw, 2.5rem);
+  @include u.breakpoint-down(small) {
+    flex-direction: column;
+    gap: u.rem(20);
+  }
 }
