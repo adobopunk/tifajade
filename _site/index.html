@@ -57,10 +57,6 @@
 
 <main id="main">
   <article>
-<!-- <div class="preloader">
-  <div class="loader"></div>
-</div> -->
-
 <aside class="sidebar">
   <h2 class="visually-hidden">Header</h2>
   <div class="wrapper topnav__wrapper">
@@ -117,10 +113,17 @@
         Tifa Jade is an animation director empowering brands with thoughtful
         motion design.<br />
       </h1>
-      <a href="/showreel"><button>See Showreel</button></a>
+      <button class="showreel">See Showreel</button>
     </div>
 
-    <section class="gallery">
+    <div class="chevron-container">
+      <a href="#gallery" class="scroll-down">
+        <div class="chevron">&#x25BC;</div>
+        <!-- Downward-facing chevron -->
+      </a>
+    </div>
+
+    <section class="gallery" id="gallery">
   
   <div class="image-container">
     <a href="/projects/tiny-pond/">
@@ -210,6 +213,27 @@
 
   </div>
 </div>
+
+<div id="showreel-overlay" class="overlay">
+  <div class="overlay-content">
+    <div class="vimeo-container" style="overflow: hidden">
+  <div class="iframe-wrapper">
+    <iframe
+      src="https://player.vimeo.com/video/482898747?dnt=1&responsive=1"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
+
+    <span class="close-overlay">&times;</span>
+  </div>
+</div>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+<script src="/app/js/showreel.js"></script>
 </article>
 </main>
 <footer class="footer" id="contact">
@@ -349,7 +373,6 @@
 
 </footer>
 <script src="/app/js/preloader.js"></script>
-<script src="https://player.vimeo.com/api/player.js"></script>
 <script src="/app/js/darkmode.js"></script>
 <script src="/app/js/footer.js"></script>
 <script src="/app/js/collapsible.js"></script>
