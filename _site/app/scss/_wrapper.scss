@@ -8,6 +8,7 @@
 
 .wrapper-m {
   width: clamp(250px, 90vw, 1920px);
+  margin-block-start: 80px;
 
   @include u.breakpoint-down(medium) {
     width: clamp(250px, 98vw, 1080px);
@@ -29,6 +30,8 @@
 }
 
 .wrapper-a {
+  margin-block-start: 80px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
