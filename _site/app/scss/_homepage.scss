@@ -1,17 +1,55 @@
 @use "../scss/util/" as u;
 
 .intro {
-  font-size: 1.8rem;
-  text-align: center;
-  max-width: 40ch;
-  margin: 0 auto;
+  margin-block-start: 30vh;
+  max-width: clamp(750px, 75vw, 1920px);
   margin-block-end: u.rem(40);
-  font-family: "Bagnard", sans-serif;
+  position: relative; // Ensure it is positioned relative to the video background
+
   @media (orientation: portrait) {
     max-width: 90%;
   }
 }
+
+.intro h1 {
+  font-size: 2.5rem;
+  font-size: clamp(2.5rem, 2.3rem + 1vw, 3.5rem);
+  font-family: "Rethink Sans", sans-serif;
+}
+
 .intro-sub {
   font-size: 1.2rem;
   text-align: left;
+}
+
+.video-background {
+  position: absolute; // Fixed to the viewport
+  top: 0; // Align to the top
+  left: 50%; // Center horizontally
+  width: 177.78vh; // Allow width to adjust
+  height: 100vh; // Set height to full viewport height
+  transform: translateX(-50%); // Center the video horizontally
+  overflow: hidden; // Hide overflow
+  z-index: 0; // Ensure it's behind the content
+
+  iframe {
+    position: absolute; // Position the iframe absolutely within the container
+    top: 50%; // Center vertically
+    left: 50%; // Center horizontally
+    width: 177.78vh; // Maintain a 16:9 ratio: 100vh * (16/9) = 177.78vh
+    height: 100vh; // Full viewport height
+    border: 0; // No borders
+    transform: translate(-50%, -50%); // Center the video
+    pointer-events: none; // Prevent interaction with the video
+    object-fit: cover; // Ensure video covers the area
+  }
+}
+.video-overlay {
+  position: fixed; // Fixed to the viewport
+  top: 0; // Align to the top
+  left: 0; // Align to the left
+  width: 100%; // Full width
+  height: 100vh; // Full viewport height
+  background: rgba(0, 0, 0, 0.6); // Light overlay with some transparency
+  z-index: 0; // Ensure it's above the video but below the text
 }
