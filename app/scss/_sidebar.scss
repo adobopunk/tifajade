@@ -11,7 +11,10 @@
 
 .sidebar {
   z-index: 1;
-  position: relative; /* Make it relative for top positioning */
+  position: fixed; /* Make it relative for top positioning */
+  height: 80px;
+  top: 0; /* Fix it at the top */
+  left: 0; /* Align to the left */
   width: 100%; /* Full width */
   display: flex;
   flex-direction: row; /* Layout items horizontally */
@@ -19,7 +22,10 @@
   align-items: center; /* Align items vertically centered */
   padding: 10px 20px; /* Add padding for spacing */
   box-sizing: border-box;
-  background-color: var(--pico-background); /* Optional background color */
+  background-color: var(
+    --pico-background-color
+  ); /* Use Pico background color */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Slight drop shadow */
 }
 
 .sidebar__homelink {

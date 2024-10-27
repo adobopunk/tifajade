@@ -4,10 +4,6 @@ title: "Tifa Jade"
 description:
 ---
 
-<!-- <div class="preloader">
-  <div class="loader"></div>
-</div> -->
-
 {% include "includes/nav.html" %}
 
 <!-- Video Background -->
@@ -28,9 +24,27 @@ description:
         Tifa Jade is an animation director empowering brands with thoughtful
         motion design.<br />
       </h1>
-      <a href="/showreel"><button>See Showreel</button></a>
+      <button class="showreel">See Showreel</button>
+    </div>
+
+    <div class="chevron-container">
+      <a href="#gallery" class="scroll-down">
+        <div class="chevron">&#x25BC;</div>
+        <!-- Downward-facing chevron -->
+      </a>
     </div>
 
     {% include "includes/gallery.html" %}
   </div>
 </div>
+
+<div id="showreel-overlay" class="overlay">
+  <div class="overlay-content">
+    {% include "includes/reel.html" %}
+    <span class="close-overlay">&times;</span>
+  </div>
+</div>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+<script src="/app/js/showreel.js"></script>
