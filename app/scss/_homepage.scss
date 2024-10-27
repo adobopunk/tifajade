@@ -34,6 +34,9 @@
   min-width: 100vw; // Ensure minimum width covers full viewport
   overflow: hidden;
   z-index: 0;
+  background: url("/assets/img/projects/poster_1.1.1.jpg") no-repeat center
+    center;
+  background-size: cover;
 
   iframe {
     position: absolute;
@@ -47,18 +50,22 @@
     border: none;
     pointer-events: none;
     object-fit: cover;
+    opacity: 0; /* Start hidden */
+    transition: opacity 1s ease; /* Fade transition */
   }
 }
+
 .video-overlay {
-  position: absolute; // Changed to fixed to keep it relative to the viewport
+  position: absolute; /* Correct use of absolute positioning */
   top: 0;
   left: 0;
   right: 0;
-  width: 100vw; // Full viewport width
-  height: 100vh; // Full viewport height
-  background: rgba(0, 0, 0, 0.4); // Semi-transparent overlay
-  z-index: 1; // Ensure it appears above the video background
-  pointer-events: none; // Prevent interaction with overlay
+  bottom: 0; /* Added to ensure full height coverage */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+  z-index: 1; /* Ensure it appears above the video background */
+  pointer-events: none; /* Prevent interaction with overlay */
 }
 
 .showreel {
