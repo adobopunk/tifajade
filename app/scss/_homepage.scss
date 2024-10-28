@@ -10,6 +10,10 @@
   @media (orientation: portrait) {
     max-width: 90%;
   }
+
+  @include u.breakpoint-down(small) {
+    margin-block-start: 40vh;
+  }
 }
 
 .intro h1 {
@@ -95,4 +99,21 @@
 
 .scroll-down:hover .chevron {
   transform: translateY(5px); /* Slightly move down on hover */
+}
+
+#time-weather {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+#weather {
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Center items vertically */
+}
+
+#weather img {
+  width: 24px; /* Set a width for the icon */
+  height: 24px; /* Set a height for the icon */
+  margin-left: 5px; /* Add some space between text and icon */
 }

@@ -3,8 +3,12 @@
 .gallery {
   display: flex;
   flex-direction: column;
-  gap: u.rem(40);
-  margin-block-start: 20vh;
+  gap: u.rem(80);
+  margin-block: 20vh;
+
+  @include u.breakpoint-down(small) {
+    margin-block-start: 40vh;
+  }
 
   &__title {
     font-size: 2rem;

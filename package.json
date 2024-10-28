@@ -10,10 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "dotenv": "^16.4.5"
   },
   "description": "",
   "prettier": {
-  "endOfLine": "lf"
-}
+    "endOfLine": "lf"
+  }
 }
