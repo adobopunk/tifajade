@@ -20,9 +20,16 @@
 }
 
 .about__text {
-  @include u.breakpoint(medium) {
-    max-width: 50%;
-  }
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-block: 30px;
+}
+
+.about__title,
+.about__p {
+  flex-basis: 1;
 }
 
 .about__title {
@@ -41,8 +48,8 @@
 }
 
 .about__info {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   margin: 0 auto;
   gap: u.rem(40);
   width: 100%;
