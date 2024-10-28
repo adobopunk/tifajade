@@ -8,14 +8,11 @@
 
 .wrapper-m {
   width: clamp(250px, 90vw, 1920px);
-  margin-block-start: 80px;
+  margin-block-start: 120px;
 
   @include u.breakpoint-down(medium) {
     width: clamp(250px, 98vw, 1080px);
     max-width: 98%;
-  }
-  @include u.breakpoint(medium) {
-    // margin-left: clamp(175px, 15vw, 150px);
   }
 }
 .wrapper-h {
@@ -24,27 +21,20 @@
     width: clamp(250px, 98vw, 1600px);
     max-width: 98%;
   }
-  @include u.breakpoint(medium) {
-    // margin-left: clamp(175px, 15vw, 150px);
-  }
 }
 
 .wrapper-a {
-  margin-block-start: 80px;
+  margin-block-start: 120px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: clamp(250px, 85vw, 2100px);
+  width: clamp(600px, 50vw, 2100px);
   gap: 10px;
 
   @include u.breakpoint-down(medium) {
     width: clamp(250px, 98vw, 1080px);
     max-width: 98%;
-  }
-  @include u.breakpoint(medium) {
-    margin-left: clamp(175px, 15vw, 150px);
-    margin-inline: 100px;
   }
 }
 
@@ -55,10 +45,6 @@
     width: clamp(250px, 98vw, 1080px);
     max-width: 98%;
   }
-  @include u.breakpoint(medium) {
-    margin-left: clamp(20px, 25vw, 250px);
-    margin-top: 250px;
-  }
 }
 
 .wrapper-c {
@@ -66,9 +52,6 @@
   @include u.breakpoint-down(medium) {
     width: clamp(250px, 98vw, 1080px);
     max-width: 98%;
-  }
-  @include u.breakpoint(medium) {
-    margin-left: clamp(175px, 15vw, 150px);
   }
 }
 
