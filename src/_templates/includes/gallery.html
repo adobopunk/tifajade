@@ -2,7 +2,25 @@
   {% for project in collections.projects %}
   <div class="image-container">
     <a href="{{ project.url }}">
-      <img src="{{ project.data.image }}" alt="{{ project.data.title }}" />
+      {% if project.data.videoID %}
+      <div class="vimeo-container">
+        <div class="iframe-wrapper">
+          <iframe
+            src="https://player.vimeo.com/video/{{ project.data.videoID }}?autoplay=1&muted=1&loop=1&dnt=1&background=1"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            title="{{ project.data.title }}"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      {% else %}
+      <img
+        src="{{ project.data.image }}"
+        alt="{{ project.data.title }}"
+        class="gallery__image"
+      />
+      {% endif %}
     </a>
     <div class="image-title">
       <a href="{{ project.url }}">

@@ -11,6 +11,7 @@ body::-webkit-scrollbar {
 body {
   overflow: -moz-scrollbars-none; /* Hides scrollbar */
   scrollbar-width: none; /* Hides scrollbar */
+  overflow-x: hidden;
 }
 
 fieldset.grid {

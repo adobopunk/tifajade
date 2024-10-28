@@ -1,5 +1,5 @@
 const city = "Seattle"; // Set the city you want
-const apiKey = "b7c269a9bbdf42f2ac2171439241710"; // Hard-coded for local development
+const apiKey = ""; // Hard-coded for local development
 const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 
 // Function to display current time for a specific time zone

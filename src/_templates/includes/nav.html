@@ -9,13 +9,28 @@
       >
 
       <ul class="topnav__links">
-        <li class="topnav__item">
+        <!-- <li class="topnav__item">
           <a href="/about/index.html" class="topnav__link">About</a>
+        </li> -->
+        <li class="topnav__item">
+          <button id="menu-toggle" class="hamburger">☰</button>
         </li>
 
         <li>
-          <a href="#contact"><button>Get Started</button></a>
+          <a href="/contact"><button>Get Started</button></a>
         </li>
+      </ul>
+    </nav>
+  </div>
+</aside>
+
+<div id="hamburger-menu-overlay" class="hamburger-overlay">
+  <div class="hamburger-overlay-content">
+    <nav class="menu">
+      <ul class="hamburger-links">
+        <li><a href="/about">About</a></li>
+        <li><a href="/showreel">Showreel</a></li>
+        <li><a href="/contact">Contact</a></li>
         <li class="topnav__item">
           <button id="theme-toggle" aria-label="Toggle Theme">
             <svg
@@ -32,5 +47,10 @@
         </li>
       </ul>
     </nav>
+    {% include "includes/legal.html" %}
+
+    <span id="close-hamburger-menu" class="close-hamburger-overlay"
+      >&times;</span
+    >
   </div>
-</aside>
+</div>
