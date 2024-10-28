@@ -1,18 +1,15 @@
 @use "../scss/util/" as u;
 
 .intro {
-  margin-block-start: 50vh;
-  transform: translateY(-50%);
+  min-height: 100vh;
+  padding-block-start: 50vh;
+  padding-block-end: 10vh;
+
   max-width: clamp(750px, 75vw, 1920px);
-  margin-block-end: u.rem(40);
   position: relative; // Ensure it is positioned relative to the video background
 
   @media (orientation: portrait) {
     max-width: 90%;
-  }
-
-  @include u.breakpoint-down(small) {
-    margin-block-start: 40vh;
   }
 }
 
