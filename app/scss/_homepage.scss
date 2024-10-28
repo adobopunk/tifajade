@@ -1,7 +1,7 @@
 @use "../scss/util/" as u;
 
 .intro {
-  margin-block-start: 60vh;
+  margin-block-start: 50vh;
   transform: translateY(-50%);
   max-width: clamp(750px, 75vw, 1920px);
   margin-block-end: u.rem(40);
@@ -28,7 +28,7 @@
   text-align: left;
 }
 .video-background {
-  margin-top: 80px;
+  margin-top: 79px;
   position: absolute;
   top: 0;
   left: 50%;
@@ -73,7 +73,7 @@
 }
 
 .showreel {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
 }
 
 .chevron-container {
