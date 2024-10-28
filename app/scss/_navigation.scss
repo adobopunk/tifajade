@@ -113,11 +113,87 @@ nav {
 }
 
 .active:after {
-  content: "−";
+  content: "";
 }
 
 .content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.hamburger-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 1); // Black background
+  background: var(--pico-background-color);
+  z-index: 15; // Ensure it appears above other overlays
+  display: none;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.hamburger-overlay-content {
+  color: var(--pico-h1-color);
+  max-width: 2160px;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+.hamburger-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.close-hamburger-overlay {
+  font-size: 60px;
+  color: var(--pico-primary);
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 40px;
+
+  &:hover {
+    color: var(--pico-primary-hover);
+  }
+}
+
+.menu {
+  width: 100%;
+  padding: 0;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    a {
+      // color: white;
+      text-decoration: none;
+      font-size: 24px;
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--pico-primary-hover);
+      }
+    }
+  }
+}
+
+.hamburger-links {
+  display: flex;
+  flex-direction: column;
+}
+.hamburger {
+  font-size: 32px;
+  background-color: transparent; /* Removes button background color */
+  border: none; /* Removes button border */
+  color: inherit; /* Inherits color from parent (or specify a color) */
+  cursor: pointer; /* Ensures pointer cursor on hover */
+  outline: none; /* Optional: removes outline when clicked */
 }
