@@ -3,6 +3,7 @@
 .project {
   &__info {
     display: flex;
+    gap: u.rem(60);
 
     @include u.breakpoint-down(small) {
       flex-direction: column;
@@ -19,14 +20,14 @@
   }
 
   &__info-L {
-    flex-basis: 90%;
+    flex-basis: 85%;
   }
 
   &__info-R {
-    flex-basis: 10%;
+    flex-basis: 15%;
 
     @include u.breakpoint(medium) {
-      margin-right: u.rem(100);
+      margin-right: u.rem(20);
     }
   }
 
@@ -95,4 +96,26 @@
 
 .center {
   align-self: center;
+}
+
+.side-by-side {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1.25rem;
+  max-width: 1600px;
+  align-items: center;
+  margin: 0 auto;
+
+  @include u.breakpoint-down(medium) {
+    flex-direction: column;
+  }
+}
+
+.side-by-side > * {
+  @include u.breakpoint(large) {
+    height: auto;
+    flex: 1;
+    width: 45%;
+  }
 }

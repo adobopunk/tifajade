@@ -32,12 +32,6 @@
   flex-basis: 1;
 }
 
-.about__title {
-  @include u.breakpoint-down(small) {
-    text-align: center;
-  }
-}
-
 .about__sig {
   color: var(--pico-primary);
   font-family: "Parisienne", "Brush Script MT", "Lucida Handwriting", serif;
