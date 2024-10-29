@@ -84,10 +84,6 @@ p {
   font-size: clamp(3rem, 2.95rem + 0.25vw, 3.25rem);
   text-align: left;
   font-weight: 200;
-
-  @include u.breakpoint-down(small) {
-    text-align: center;
-  }
 }
 .subtitle {
   font-size: 1.2rem;
