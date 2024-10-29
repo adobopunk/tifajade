@@ -2,11 +2,19 @@
 
 .intro {
   min-height: 100vh;
-  padding-block-start: 50vh;
+  padding-block-start: 40vh;
   padding-block-end: 10vh;
 
   max-width: clamp(750px, 75vw, 1920px);
-  position: relative; // Ensure it is positioned relative to the video background
+  position: relative;
+
+  @include u.breakpoint-down(large) {
+    padding-block-start: 30vh;
+  }
+
+  @include u.breakpoint-down(small) {
+    padding-block-start: 25vh;
+  }
 
   @media (orientation: portrait) {
     max-width: 90%;
@@ -24,7 +32,9 @@
   font-size: 1.2rem;
   text-align: left;
 }
+
 .video-background {
+  overflow-x: hidden;
   margin-top: 79px;
   position: absolute;
   top: 0;
