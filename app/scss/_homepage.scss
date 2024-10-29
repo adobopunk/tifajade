@@ -40,7 +40,7 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 177.78vh; // Maintain a 16:9 aspect ratio based on full viewport height
+
   height: 100vh;
   min-width: 100vw; // Ensure minimum width covers full viewport
   overflow: hidden;
@@ -50,6 +50,8 @@
   background-size: cover;
 
   iframe {
+    overflow-x: hidden;
+
     position: absolute;
     top: 50%;
     left: 50%;
@@ -67,6 +69,8 @@
 }
 
 .video-overlay {
+  overflow-x: hidden;
+
   position: absolute; /* Correct use of absolute positioning */
   top: 0;
   left: 0;
