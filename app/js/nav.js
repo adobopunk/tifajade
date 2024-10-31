@@ -7,18 +7,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Open hamburger menu overlay
   menuToggle.addEventListener("click", function () {
-    hamburgerMenuOverlay.classList.add("active");
+    hamburgerMenuOverlay.style.display = "flex"; // Ensure it's displayed before fade-in
+    setTimeout(() => {
+      hamburgerMenuOverlay.classList.add("active");
+    }, 10); // Small delay for transition to take effect
   });
 
   // Close hamburger menu overlay
   closeHamburgerMenu.addEventListener("click", function () {
     hamburgerMenuOverlay.classList.remove("active");
+    setTimeout(() => {
+      hamburgerMenuOverlay.style.display = "none"; // Hide after fade-out
+    }, 500); // Match this delay to your CSS transition duration
   });
 
   // Optional: Close the menu when clicking outside of it
   hamburgerMenuOverlay.addEventListener("click", function (e) {
     if (e.target === hamburgerMenuOverlay) {
       hamburgerMenuOverlay.classList.remove("active");
+      setTimeout(() => {
+        hamburgerMenuOverlay.style.display = "none";
+      }, 500);
     }
   });
 });
