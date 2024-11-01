@@ -102,6 +102,10 @@ p {
   font-size: clamp(0.75rem, 0.72rem + 0.15000000000000002vw, 0.9rem);
 }
 
+p.big {
+  font-size: 1.15rem;
+}
+
 .title,
 .subtitle {
   font-family: "Ringift", sans-serif;
