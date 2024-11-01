@@ -104,7 +104,7 @@
   justify-content: space-between;
   gap: 1.25rem;
   max-width: 1600px;
-  align-items: center;
+  // align-items: center;
   margin: 0 auto;
 
   @include u.breakpoint-down(medium) {
