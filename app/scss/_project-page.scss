@@ -4,7 +4,7 @@
   &__info {
     display: flex;
     gap: u.rem(60);
-    align-items: flex-end;
+    align-items: flex-start;
 
     @include u.breakpoint-down(large) {
       flex-direction: column;
