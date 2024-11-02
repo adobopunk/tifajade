@@ -5,38 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
 
-    <title>{{ title }}{% if subtitle %} {{ subtitle }}{% endif %}</title>
+    <title>{{ title }}{% if subtitle %} | {{ subtitle }}{% endif %}</title>
+
+    <!-- SEO -->
+
+    <meta name="description" content="{{ subtitle  }}" />
+
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="{{ subtitle }}" />
+    <meta property="og:url" content="{{ site.siteUrl }}{{ page.url | url }}" />
+    <meta property="og:image" content="{{ site.siteUrl }}/img/og-image.webp" />
+    <meta property="og:type" content="website" />
+
+    <!-- Favicon -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="/assets/favicon/apple-touch-icon.png"
     />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/assets/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/assets/favicon/favicon-16x16.png"
-    />
+    <meta name="apple-mobile-web-app-title" content="Tifa Jade" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <link
-      rel="mask-icon"
-      href="/assets/favicon/safari-pinned-tab.svg"
-      color="#5bbad5"
-    />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <link
-      rel="mask-icon"
-      href="/assets/favicon/safari-pinned-tab.svg"
-      color="#5bbad5"
-    />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="stylesheet" href="/assets/css/pico.jade.css" />
