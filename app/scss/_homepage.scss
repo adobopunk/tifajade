@@ -9,6 +9,10 @@
   margin-block-end: 20vh;
   width: 100%;
 
+  @include u.breakpoint-down(small) {
+    min-height: 80vh;
+  }
+
   position: relative;
 }
 
@@ -129,9 +133,11 @@
 
 #tifajade {
   font-family: "Ringift", "Times New Roman", "Serif";
-  font-size: 10rem;
-  font-size: clamp(10rem, 9rem + 5vw, 15rem);
   font-size: 22vw;
+
+  @include u.breakpoint-down(small) {
+    font-size: 33vw;
+  }
   width: 100%;
   margin: 0 auto;
   text-align: center;
