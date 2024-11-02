@@ -100,10 +100,20 @@ p {
   line-height: 1.6;
   font-size: 0.75rem;
   font-size: clamp(0.75rem, 0.72rem + 0.15000000000000002vw, 0.9rem);
+
+  @include u.breakpoint-down(medium) {
+    font-size: 1rem;
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+  }
 }
 
 p.big {
   font-size: 1.15rem;
+
+  @include u.breakpoint-down(medium) {
+    font-size: 1.6rem;
+    font-size: clamp(1.6rem, 1.56rem + 0.19999999999999996vw, 1.8rem);
+  }
 }
 
 .title,

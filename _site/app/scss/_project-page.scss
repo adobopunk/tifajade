@@ -4,9 +4,12 @@
   &__info {
     display: flex;
     gap: u.rem(60);
+    align-items: flex-end;
 
-    @include u.breakpoint-down(small) {
+    @include u.breakpoint-down(large) {
       flex-direction: column;
+      gap: u.rem(0);
+      align-items: flex-start;
     }
   }
 
@@ -61,6 +64,28 @@
   &__credits-R li {
     font-size: 0.9rem;
   }
+
+  &__steps {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: u.rem(40);
+
+    @include u.breakpoint-down(medium) {
+      flex-direction: column;
+      gap: u.rem(10);
+    }
+
+    > * {
+      flex: 1;
+    }
+  }
+}
+
+h2.project__step-title {
+  font-size: 3rem;
+  font-size: clamp(3rem, 2.8rem + 1vw, 4rem);
 }
 
 .project-layout > img {
@@ -104,8 +129,8 @@
   justify-content: space-between;
   gap: 1.25rem;
   max-width: 1600px;
-  // align-items: center;
   margin: 0 auto;
+  margin-block-end: u.rem(20);
 
   @include u.breakpoint-down(medium) {
     flex-direction: column;
