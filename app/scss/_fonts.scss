@@ -45,6 +45,16 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Ringift";
+  src: url("/assets/fonts/Ringift/Ringift.woff2") format("woff2"),
+    url("/assets/fonts/Ringift/Ringift.woff") format("woff"),
+    url("/assets/fonts/Ringift/Ringift.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   font-family: "Rethink Sans", "Arial", "Helvetica", sans-serif;
   font-size: 0.9rem;
@@ -58,10 +68,15 @@ body {
 h1,
 h2,
 h3 {
-  font-family: "Rethink Sans", serif;
+  font-family: "Ringift", serif;
   font-weight: 200;
   margin: 30px 0;
   line-height: 1;
+}
+
+h1 {
+  font-size: 3rem;
+  font-size: clamp(3rem, 2.8rem + 1vw, 4rem);
 }
 
 h1 span.jade,
@@ -69,25 +84,45 @@ h2 span.jade,
 h3 span.jade,
 p span.jade {
   color: var(--pico-primary);
-  font-family: "Parisienne", "Brush Script MT", "Lucida Handwriting", serif;
+  font-family: "Ringift", "Times New Roman", serif;
+}
+
+span.jade-hover {
+  font-family: "Ringift", "Times New Roman", serif;
+  transition: color 0.3s ease;
+}
+
+span.jade-hover:hover {
+  color: var(--pico-primary);
 }
 
 p {
   line-height: 1.6;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
+  font-size: clamp(0.75rem, 0.72rem + 0.15000000000000002vw, 0.9rem);
+
+  @include u.breakpoint-down(medium) {
+    font-size: 1rem;
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+  }
+}
+
+p.big {
+  font-size: 1.15rem;
+
+  @include u.breakpoint-down(medium) {
+    font-size: 1.6rem;
+    font-size: clamp(1.6rem, 1.56rem + 0.19999999999999996vw, 1.8rem);
+  }
 }
 
 .title,
 .subtitle {
-  font-family: "Rethink Sans", sans-serif;
+  font-family: "Ringift", sans-serif;
   font-size: 3rem;
-  font-size: clamp(3rem, 2.95rem + 0.25vw, 3.25rem);
+  font-size: clamp(3rem, 2.8rem + 1vw, 4rem);
   text-align: left;
   font-weight: 200;
-
-  @include u.breakpoint-down(small) {
-    text-align: center;
-  }
 }
 .subtitle {
   font-size: 1.2rem;
@@ -97,6 +132,19 @@ p {
 nav,
 .next,
 .previous,
-.back {
-  font-family: "Rethink Sans", serif;
+.back,
+.intro {
+  font-family: "Ringift", serif;
+}
+
+.button * {
+  font-family: inherit;
+}
+
+.button h1,
+.button h2,
+.button p,
+button *,
+button {
+  font-family: "Rethink Sans", sans-serif;
 }
