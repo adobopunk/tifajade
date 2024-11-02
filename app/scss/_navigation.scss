@@ -197,3 +197,9 @@ nav {
   cursor: pointer; /* Ensures pointer cursor on hover */
   outline: none; /* Optional: removes outline when clicked */
 }
+
+.hamburger-description {
+  @include u.breakpoint-down(medium) {
+    font-size: u.rem(32);
+  }
+}
