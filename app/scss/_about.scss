@@ -25,17 +25,17 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-block: 30px;
+
+  @include u.breakpoint-down(small) {
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(20);
+  }
 }
 
 .about__title,
 .about__p {
   flex-basis: 1;
-}
-
-.about__title {
-  @include u.breakpoint-down(small) {
-    text-align: center;
-  }
 }
 
 .about__sig {

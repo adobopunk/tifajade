@@ -1,16 +1,19 @@
 @use "../scss/util/" as u;
 
 .intro {
-  min-height: 100vh;
-  padding-block-start: 50vh;
-  padding-block-end: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  margin-block-end: 20vh;
+  width: 100%;
 
-  max-width: clamp(750px, 75vw, 1920px);
-  position: relative; // Ensure it is positioned relative to the video background
-
-  @media (orientation: portrait) {
-    max-width: 90%;
+  @include u.breakpoint-down(small) {
+    min-height: 80vh;
   }
+
+  position: relative;
 }
 
 .intro h1 {
@@ -18,19 +21,22 @@
   font-size: clamp(2.5rem, 2.3rem + 1vw, 3.5rem);
   font-family: "Rethink Sans", sans-serif;
   color: #f0f1f3;
+  text-align: center;
 }
 
 .intro-sub {
   font-size: 1.2rem;
   text-align: left;
 }
+
 .video-background {
+  overflow-x: hidden;
   margin-top: 79px;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 177.78vh; // Maintain a 16:9 aspect ratio based on full viewport height
+
   height: 100vh;
   min-width: 100vw; // Ensure minimum width covers full viewport
   overflow: hidden;
@@ -40,6 +46,8 @@
   background-size: cover;
 
   iframe {
+    overflow-x: hidden;
+
     position: absolute;
     top: 50%;
     left: 50%;
@@ -57,6 +65,8 @@
 }
 
 .video-overlay {
+  overflow-x: hidden;
+
   position: absolute; /* Correct use of absolute positioning */
   top: 0;
   left: 0;
@@ -70,7 +80,13 @@
 }
 
 .showreel {
+  opacity: 0;
   font-size: 1.25rem;
+  transition: opacity 1s ease;
+}
+
+.showreel.show {
+  opacity: 1;
 }
 
 .chevron-container {
@@ -113,4 +129,39 @@
   width: 24px; /* Set a width for the icon */
   height: 24px; /* Set a height for the icon */
   margin-left: 5px; /* Add some space between text and icon */
+}
+
+#tifajade {
+  font-family: "Ringift", "Times New Roman", "Serif";
+  font-size: 22vw;
+
+  @include u.breakpoint-down(small) {
+    font-size: 33vw;
+  }
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  cursor: default;
+
+  position: relative; /* Positioning to allow movement */
+  bottom: -100%; /* Start hidden below the container */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for centering */
+  animation: slide-up 1s forwards; /* Animation applied */
+}
+
+.slide-container {
+  overflow: hidden; /* Hide overflowing text */
+  position: relative; /* Ensure absolute positioning of the text */
+}
+
+@keyframes slide-up {
+  0% {
+    bottom: -100%; /* Start off screen */
+    opacity: 0; /* Start invisible */
+  }
+  100% {
+    bottom: 0; /* Move to the bottom of the container */
+    opacity: 1; /* End visible */
+  }
 }

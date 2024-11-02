@@ -31,7 +31,7 @@
 .sidebar__homelink {
   font-size: u.rem(24);
   text-align: center;
-  font-family: "Parisienne", "Brush Script MT", "Lucida Handwriting", serif;
+  font-family: "Ringift", "Times New ROman", serif;
   margin-right: auto; /* Push homelink to the left */
 }
 
@@ -196,4 +196,10 @@ nav {
   color: inherit; /* Inherits color from parent (or specify a color) */
   cursor: pointer; /* Ensures pointer cursor on hover */
   outline: none; /* Optional: removes outline when clicked */
+}
+
+.hamburger-description {
+  @include u.breakpoint-down(medium) {
+    font-size: u.rem(32);
+  }
 }
