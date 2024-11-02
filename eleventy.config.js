@@ -40,5 +40,9 @@ module.exports = function (eleventyConfig) {
       includes: "_templates",
     },
     templateFormats: ["njk", "html"],
+
+    data: {
+      siteUrl: "https://tifajade.com",
+    },
   };
 };
