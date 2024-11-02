@@ -38,29 +38,16 @@
   transform: translateX(-50%);
 
   height: 100vh;
-  min-width: 100vw; // Ensure minimum width covers full viewport
+  min-width: 100vw;
   overflow: hidden;
   z-index: 0;
-  background: url("/assets/img/projects/poster_1.1.1.jpg") no-repeat center
-    center;
+  // background: url("/assets/img/jade-poster.webp") no-repeat center center;
   background-size: cover;
 
-  iframe {
-    overflow-x: hidden;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 177.78vh; // Width set to 16:9 ratio based on viewport height
-    height: 100vh; // Full viewport height
-    min-width: 100vw; // Ensures full width coverage at minimum
-    min-height: 56.25vw; // Ensures the height maintains 16:9 ratio based on width
-    border: none;
-    pointer-events: none;
+  video {
     object-fit: cover;
-    opacity: 0; /* Start hidden */
-    transition: opacity 1s ease; /* Fade transition */
+    width: 100vw;
+    height: 100%;
   }
 }
 
@@ -133,7 +120,7 @@
 
 #tifajade {
   font-family: "Ringift", "Times New Roman", "Serif";
-  font-size: 22vw;
+  font-size: 18vw;
 
   @include u.breakpoint-down(small) {
     font-size: 33vw;
