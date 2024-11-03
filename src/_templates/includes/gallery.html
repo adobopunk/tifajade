@@ -1,5 +1,5 @@
 <section class="gallery" id="gallery">
-  {% for project in collections.projects %}
+  {% for project in collections.projects | sortFeaturedProjects %}
   <div class="image-container">
     <a href="{{ project.url }}">
       {% if project.data.videoID %}
