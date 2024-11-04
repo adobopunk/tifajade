@@ -82,7 +82,6 @@
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Offset the centering */
   cursor: pointer; /* Change cursor to pointer */
-  z-index: 10; /* Ensure it's above other elements */
   opacity: 0; /* Start hidden */
   transition: opacity 0.5s ease; /* Transition for fading effect */
 }
