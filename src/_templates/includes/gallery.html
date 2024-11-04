@@ -8,6 +8,8 @@
         {% if project.data.videoID %}
         <div class="vimeo-container-gallery">
           <div class="iframe-wrapper-gallery">
+            <!-- Clickable overlay -->
+
             <iframe
               src="https://player.vimeo.com/video/{{ project.data.videoID }}?autoplay=1&muted=1&loop=1&dnt=1&background=1"
               frameborder="0"
@@ -15,6 +17,9 @@
               title="{{ project.data.title }}"
               allowfullscreen
             ></iframe>
+            <div class="clickable-overlay">
+              <a href="{{ project.url }}"></a>
+            </div>
           </div>
         </div>
         {% else %}
@@ -41,13 +46,26 @@
     {% for project in collections.projects %} {% if project.data.feature == 'no'
     %}
     <div class="image-container non-featured-item">
-      <!-- Apply separate styling class -->
       <a href="{{ project.url }}">
+        {% if project.data.videoID %}
+        <div class="vimeo-container-gallery">
+          <div class="iframe-wrapper-gallery">
+            <iframe
+              src="https://player.vimeo.com/video/{{ project.data.videoID }}?autoplay=1&muted=1&loop=1&dnt=1&background=1"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              title="{{ project.data.title }}"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        {% else %}
         <img
           src="{{ project.data.image }}"
           alt="{{ project.data.title }}"
           class="gallery__image"
         />
+        {% endif %}
       </a>
       <div class="image-non-featured-title">
         <a href="{{ project.url }}">
