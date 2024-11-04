@@ -3,6 +3,7 @@
 .topnav__wrapper {
   position: relative;
   width: 95%; /* Full width wrapper */
+  z-index: 100;
 
   @include u.breakpoint-down(small) {
     width: 100%;
@@ -50,6 +51,8 @@ nav {
 }
 
 .topnav {
+  z-index: 100;
+
   &__links {
     display: flex;
     flex-direction: row; /* Links arranged horizontally */
