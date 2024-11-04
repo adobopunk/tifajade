@@ -187,7 +187,12 @@ nav {
 
 .hamburger-links {
   display: flex;
+  gap: 0px;
   flex-direction: column;
+}
+
+.hamburger-links li {
+  padding: u.rem(10);
 }
 .hamburger {
   font-size: 32px;
