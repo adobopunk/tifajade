@@ -6,14 +6,21 @@
   gap: u.rem(60);
   margin-block: 60px;
 
-  @include u.breakpoint-down(small) {
-    // margin-block-start: 20vh;
-  }
-
   &__title {
     font-size: 3rem;
     font-size: clamp(3rem, 2.8rem + 1vw, 4rem);
-    width: 100%;
+    display: inline-block;
+    margin: 0;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__non-featured-title {
+    font-size: 2rem;
+    font-size: clamp(2rem, 1.8rem + 1vw, 3rem);
+    display: inline-block;
     margin: 0;
 
     &:hover {
@@ -70,6 +77,24 @@
   }
 }
 
+.image-non-featured-title {
+  margin-top: 0.5rem;
+  color: white;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: u.rem(20);
+  width: 100%;
+  margin-top: u.rem(24);
+
+  @include u.breakpoint-down(small) {
+    flex-direction: column;
+    gap: u.rem(20);
+  }
+}
+
 .image-title > a {
   flex: 1;
 }
@@ -94,4 +119,41 @@
   width: 100%;
   height: 100%;
   border: none;
+}
+
+.featured-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: u.rem(60);
+  // margin-block-start: 60px;
+}
+
+.non-featured-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: u.rem(60);
+
+  @include u.breakpoint-down(medium) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.non-featured-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery .non-featured-gallery .image-container,
+.gallery .non-featured-gallery .image-container a {
+  position: relative;
+  overflow: hidden;
+}
+
+.non-featured-item img {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.04); /* Slightly scales up the image */
+  }
 }

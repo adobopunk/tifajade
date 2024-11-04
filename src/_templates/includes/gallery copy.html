@@ -1,0 +1,35 @@
+<section class="gallery" id="gallery">
+  {% for project in collections.projects | sortFeaturedProjects %}
+  <div class="image-container">
+    <a href="{{ project.url }}">
+      {% if project.data.videoID %}
+      <div class="vimeo-container-gallery">
+        <div class="iframe-wrapper-gallery">
+          <iframe
+            src="https://player.vimeo.com/video/{{ project.data.videoID }}?autoplay=1&muted=1&loop=1&dnt=1&background=1"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            title="{{ project.data.title }}"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      {% else %}
+      <img
+        src="{{ project.data.image }}"
+        alt="{{ project.data.title }}"
+        class="gallery__image"
+      />
+      {% endif %}
+    </a>
+    <div class="image-title">
+      <a href="{{ project.url }}">
+        <h2 class="gallery__title">{{ project.data.title }}</h2>
+      </a>
+      <a href="{{ project.url }}">
+        <p class="gallery__subtitle">{{ project.data.subtitle }}</p>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</section>
