@@ -127,9 +127,8 @@ h2.project__step-title,
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 1.25rem;
-  max-width: 1600px;
-  // margin: 0 auto;
+  gap: 1.5rem;
+  width: 100%;
   margin-block-end: u.rem(20);
 
   @include u.breakpoint-down(medium) {
@@ -141,12 +140,11 @@ h2.project__step-title,
   @include u.breakpoint(large) {
     height: auto;
     flex: auto;
-    width: 45%;
+    width: 25%;
   }
 }
 
 .video-wrapper {
-  // flex: 1;
   position: relative;
   overflow: hidden;
 
