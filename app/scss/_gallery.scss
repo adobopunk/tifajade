@@ -101,13 +101,40 @@
 
 .vimeo-container-gallery {
   width: 90vw;
-  // height: calc(90vw * 9 / 16);
   max-width: 1920px;
   margin: 0 auto;
 
   iframe {
-    filter: grayscale(100%); /* Initial black-and-white effect */
-    transition: filter 0.5s; /* Smooth transition */
+    position: relative;
+    z-index: 0;
+
+    @include u.breakpoint(medium) {
+      filter: grayscale(100%);
+      transition: filter 0.5s;
+    }
+  }
+
+  .clickable-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: transparent;
+    pointer-events: auto;
+  }
+
+  .clickable-overlay a {
+    display: block;
+    width: 100%;
+    // height: 100%;
+    cursor: pointer;
+    pointer-events: auto; /* Enable clicks through the overlay */
+  }
+
+  &:hover iframe {
+    filter: grayscale(0%); /* Transition to color on hover */
   }
 }
 
