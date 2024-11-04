@@ -55,6 +55,15 @@
   }
 }
 
+.wrapper-smaller {
+  width: clamp(400px, 50vw, 1200px);
+  margin: 0 auto;
+  @include u.breakpoint-down(medium) {
+    width: clamp(400px, 75vw, 1080px);
+    max-width: 98%;
+  }
+}
+
 .wrapper-home {
   display: flex;
   justify-content: center;

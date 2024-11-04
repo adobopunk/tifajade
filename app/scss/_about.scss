@@ -25,6 +25,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-block: 30px;
+  gap: u.rem(18);
 
   @include u.breakpoint-down(small) {
     display: flex;
@@ -36,6 +37,14 @@
 .about__title,
 .about__p {
   flex-basis: 1;
+}
+
+.about__title {
+  font-size: u.rem(36);
+
+  @include u.breakpoint-down(small) {
+    font-size: u.rem(48);
+  }
 }
 
 .about__sig {
