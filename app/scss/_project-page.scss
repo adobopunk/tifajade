@@ -96,6 +96,10 @@ h2.project__step-title,
 .previous-arrow {
   width: 20px;
   margin-inline: 10px;
+
+  @include u.breakpoint-down(small) {
+    width: 10px;
+  }
 }
 
 .project-navigation {
@@ -107,12 +111,20 @@ h2.project__step-title,
 .project-navigation .previous {
   text-align: left;
   font-size: u.rem(36);
+
+  @include u.breakpoint-down(small) {
+    font-size: u.rem(20);
+  }
 }
 
 .project-navigation .next {
   font-size: u.rem(36);
   text-align: right;
   margin-left: auto; /* Push the next link to the right */
+
+  @include u.breakpoint-down(small) {
+    font-size: u.rem(20);
+  }
 }
 
 .project-layout p {

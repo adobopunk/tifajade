@@ -75,11 +75,10 @@
   iframe {
     position: relative;
     z-index: 0;
-    filter: grayscale(100%);
     transition: filter 0.5s;
 
     @include u.breakpoint(medium) {
-      // Additional styles if needed
+      filter: grayscale(100%);
     }
   }
 
