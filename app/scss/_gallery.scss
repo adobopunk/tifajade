@@ -1,25 +1,14 @@
 @use "../scss/util/" as u;
 
 .gallery {
-  display: flex;
-  flex-direction: column;
-  gap: u.rem(60);
+  display: grid; /* Change from flex to grid */
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: u.rem(40); /* Space between items */
   margin-block: 60px;
 
   &__title {
     font-size: 3rem;
     font-size: clamp(3rem, 2.8rem + 1vw, 4rem);
-    display: inline-block;
-    margin: 0;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  &__non-featured-title {
-    font-size: 2rem;
-    font-size: clamp(2rem, 1.8rem + 1vw, 3rem);
     display: inline-block;
     margin: 0;
 
@@ -42,6 +31,10 @@
       width: 100%;
     }
   }
+
+  @include u.breakpoint-down(medium) {
+    grid-template-columns: 1fr; /* Switch to single column on small screens */
+  }
 }
 
 .gallery img {
@@ -60,25 +53,7 @@
 }
 
 .image-title {
-  margin-top: 0.5rem;
-  color: white;
-  text-align: left;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: u.rem(20);
-  width: 100%;
   margin-top: u.rem(24);
-
-  @include u.breakpoint-down(small) {
-    flex-direction: column;
-    gap: u.rem(20);
-  }
-}
-
-.image-non-featured-title {
-  margin-top: 0.5rem;
   color: white;
   text-align: left;
   display: flex;
@@ -87,22 +62,15 @@
   justify-content: space-between;
   gap: u.rem(20);
   width: 100%;
-  margin-top: u.rem(24);
-
-  @include u.breakpoint-down(small) {
-    flex-direction: column;
-    gap: u.rem(20);
-  }
-}
-
-.image-title > a {
-  flex: 1;
 }
 
 .vimeo-container-gallery {
-  width: 90vw;
+  width: 45vw;
   max-width: 1920px;
-  margin: 0 auto;
+
+  @include u.breakpoint-down(medium) {
+    width: 95vw;
+  }
 
   iframe {
     position: relative;
@@ -111,35 +79,13 @@
     transition: filter 0.5s;
 
     @include u.breakpoint(medium) {
+      // Additional styles if needed
     }
-  }
-
-  .clickable-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    // z-index: 1;
-    background: transparent;
-    pointer-events: auto;
-  }
-
-  .clickable-overlay a {
-    display: block;
-    width: 100%;
-    // height: 100%;
-    cursor: pointer;
-    pointer-events: auto; /* Enable clicks through the overlay */
   }
 
   &:hover iframe {
     filter: grayscale(0%); /* Transition to color on hover */
   }
-}
-
-.vimeo-container-gallery iframe:hover {
-  filter: grayscale(0%); /* Transition to color on hover */
 }
 
 .iframe-wrapper-gallery {
@@ -155,41 +101,4 @@
   width: 100%;
   height: 100%;
   border: none;
-}
-
-.featured-gallery {
-  display: flex;
-  flex-direction: column;
-  gap: u.rem(60);
-  // margin-block-start: 60px;
-}
-
-.non-featured-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: u.rem(60);
-
-  @include u.breakpoint-down(medium) {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-.non-featured-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.gallery .non-featured-gallery .image-container,
-.gallery .non-featured-gallery .image-container a {
-  position: relative;
-  overflow: hidden;
-}
-
-.non-featured-item img {
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.04); /* Slightly scales up the image */
-  }
 }

@@ -196,6 +196,10 @@ nav {
 
 .hamburger-links li {
   padding: u.rem(10);
+
+  @include u.breakpoint(xlarge) {
+    padding: u.rem(20);
+  }
 }
 .hamburger {
   font-size: 32px;

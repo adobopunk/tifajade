@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add a delay before showing the button
     setTimeout(() => {
       showreelButton.classList.add("show"); // Add the 'show' class after 800ms
-    }, 800); // 800ms delay
+    }, 500);
   } else {
     console.error("Showreel button not found!"); // Debugging message if button is not found
   }
