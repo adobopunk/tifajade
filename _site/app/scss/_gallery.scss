@@ -11,9 +11,11 @@
     font-size: clamp(3rem, 2.8rem + 1vw, 4rem);
     display: inline-block;
     margin: 0;
+    color: var(--pico-primary);
 
     &:hover {
       text-decoration: underline;
+      color: var(--pico-primary-hover);
     }
   }
 
