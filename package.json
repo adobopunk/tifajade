@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "eleventy-plugin-seo": "^0.5.2"
   },
   "description": "",
   "prettier": {
