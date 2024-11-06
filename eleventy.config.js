@@ -1,3 +1,5 @@
+const pluginSEO = require("eleventy-plugin-seo");
+
 module.exports = function (eleventyConfig) {
   // Copy assets
   eleventyConfig.addPassthroughCopy("assets");
@@ -11,14 +13,12 @@ module.exports = function (eleventyConfig) {
   // Add a collection for projects sorted by featured status and then by date
   eleventyConfig.addCollection("projects", function (collection) {
     return collection.getFilteredByGlob("src/projects/*.njk").sort((a, b) => {
-      const aFeatured = a.data.feature === "yes"; // true if featured
-      const bFeatured = b.data.feature === "yes"; // true if featured
+      const aFeatured = a.data.feature === "yes";
+      const bFeatured = b.data.feature === "yes";
 
-      // Sort by feature status (featured projects first)
-      if (aFeatured && !bFeatured) return -1; // a is featured, comes first
-      if (!aFeatured && bFeatured) return 1; // b is featured, comes first
+      if (aFeatured && !bFeatured) return -1;
+      if (!aFeatured && bFeatured) return 1;
 
-      // If both have the same feature status, sort by date (most recent first)
       return new Date(b.data.date) - new Date(a.data.date);
     });
   });
@@ -41,6 +41,14 @@ module.exports = function (eleventyConfig) {
     }
   );
 
+  // Add SEO plugin configuration
+  eleventyConfig.addPlugin(pluginSEO, {
+    title: (data) => data.site.title,
+    description: (data) => data.site.description,
+    url: (data) => data.site.url,
+    author: (data) => data.site.author,
+  });
+
   return {
     dir: {
       input: "src",
@@ -48,7 +56,6 @@ module.exports = function (eleventyConfig) {
       includes: "_templates",
     },
     templateFormats: ["njk", "html"],
-
     data: {
       siteUrl: "https://tifajade.com",
     },
