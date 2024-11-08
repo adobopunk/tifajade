@@ -5,6 +5,7 @@
   collections.projects | where: "data.feature", "no" | sort: "date" | reverse %}
   {% assign sorted_projects = featured_projects | concat: non_featured_projects
   %}
+
   <!-- Combine featured and non-featured -->
 
   {% for project in sorted_projects %}
@@ -13,7 +14,10 @@
   >
     <a href="{{ project.url }}" class="video-link">
       {% if project.data.videoID %}
-      <div class="vimeo-container-gallery">
+      <div
+        class="vimeo-container-gallery"
+        style="background-image: url('{{ project.data.image | default: '/assets/img/og-image.jpg' }}');"
+      >
         <div class="iframe-wrapper-gallery">
           <iframe
             src="https://player.vimeo.com/video/{{ project.data.videoID }}?autoplay=1&muted=1&loop=1&dnt=1&background=1"
@@ -21,14 +25,17 @@
             allow="autoplay; fullscreen; picture-in-picture"
             title="{{ project.data.title }}"
             allowfullscreen
+            style="background: transparent"
           ></iframe>
         </div>
       </div>
       {% else %}
+      <!-- Display image if no video is present -->
       <img
-        src="{{ project.data.image }}"
-        alt="{{ project.data.title }}"
+        src="{{ project.data.image | default: '/assets/img/og-image.jpg' }}"
+        alt="Placeholder for {{ project.data.title }}"
         class="gallery__image"
+        loading="lazy"
       />
       {% endif %}
     </a>
