@@ -1,11 +1,10 @@
-const pluginSEO = require("eleventy-plugin-seo");
-
 module.exports = function (eleventyConfig) {
   // Copy assets
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("app");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
 
   // Set template formats
   eleventyConfig.setTemplateFormats(["njk", "html"]); // Include njk for Nunjucks
@@ -40,14 +39,6 @@ module.exports = function (eleventyConfig) {
       return { previous, next };
     }
   );
-
-  // Add SEO plugin configuration
-  eleventyConfig.addPlugin(pluginSEO, {
-    title: (data) => data.site.title,
-    description: (data) => data.site.description,
-    url: (data) => data.site.url,
-    author: (data) => data.site.author,
-  });
 
   return {
     dir: {
