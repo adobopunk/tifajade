@@ -1,4 +1,5 @@
-<form name="contact" method="POST"   netlify-honeypot="bot-field" data-netlify="true">
+<form name="contact" method="POST"   netlify-honeypot="bot-field" data-netlify="true"   data-netlify-recaptcha="true"
+>
     <h2>Spill The Tea...</h2>
       <fieldset class="grid">
         <p class="visually-hidden">
@@ -57,6 +58,8 @@
             <textarea name="discovered by"></textarea></label>
             
       </p>
+
+      <div data-netlify-recaptcha="true"></div>
     
       <p>
         <button type="submit">Send</button>
