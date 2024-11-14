@@ -9,13 +9,20 @@
 
     <!-- SEO -->
 
-    <meta name="description" content="{{ site.description }}" />
-    <meta property="og:title" content="{{ site.title }}" />
-    <meta property="og:description" content="{{ site.description }}" />
+    <meta
+      name="description"
+      content="{% if subtitle %}{{ subtitle }}{% else %}{{ site.description }}{% endif %}"
+    />
+
+    <meta property="og:title" content="{{ title or site.title }}" />
+    <meta
+      property="og:description"
+      content="{% if subtitle %}{{ subtitle }}{% else %}{{ site.description }}{% endif %}"
+    />
     <meta property="og:url" content="{{ site.url }}{{ page.url | url }}" />
     <meta
       property="og:image"
-      content="{{ site.url }}/assets/img/og-image.jpg"
+      content="{{ site.url }}{% if image %}{{ image }}{% else %}/assets/img/og-image.jpg{% endif %}"
     />
 
     <meta property="og:type" content="website" />
