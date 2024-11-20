@@ -1,6 +1,5 @@
 @use "../scss/util/" as u;
 
-
 @font-face {
   font-family: "Parisienne";
   src: url("/assets/fonts/Parisienne/Parisienne-regular.woff2") format("woff2"),
@@ -52,8 +51,8 @@
 
 body {
   font-family: "Rethink Sans", "Arial", "Helvetica", sans-serif;
-  font-size: 0.9rem;
-  font-size: clamp(1rem, 0.975rem + 0.125vw, 1.125rem);
+  // font-size: 0.9rem;
+  // font-size: clamp(1rem, 0.975rem + 0.125vw, 1.125rem);
 }
 
 // nav * {
@@ -103,11 +102,12 @@ p {
 }
 
 p.big {
-  font-size: 1.15rem;
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
 
   @include u.breakpoint-down(medium) {
-    font-size: 1.6rem;
-    font-size: clamp(1.6rem, 1.56rem + 0.19999999999999996vw, 1.8rem);
+    font-size: 1.25rem;
+    font-size: clamp(1.25rem, 1.2rem + 0.25vw, 1.5rem);
   }
 }
 
@@ -133,7 +133,7 @@ nav,
 }
 
 .button * {
-  font-family: inherit;
+  font-family: "inherit";
 }
 
 .button h1,
@@ -141,5 +141,5 @@ nav,
 .button p,
 button *,
 button {
-  font-family: "Rethink Sans", sans-serif;
+  font-family: "Ringift", serif;
 }

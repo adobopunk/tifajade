@@ -56,7 +56,7 @@ nav {
   &__links {
     display: flex;
     flex-direction: row; /* Links arranged horizontally */
-    gap: 15px; /* Add spacing between links */
+    gap: 5px; /* Add spacing between links */
     align-items: center;
     justify-content: center;
 
@@ -195,11 +195,7 @@ nav {
 }
 
 .hamburger-links li {
-  padding: u.rem(10);
-
-  @include u.breakpoint(xlarge) {
-    padding: u.rem(20);
-  }
+  padding: 5px;
 }
 .hamburger {
   font-size: 32px;
@@ -211,7 +207,6 @@ nav {
 }
 
 .hamburger-description {
-  @include u.breakpoint-down(medium) {
-    font-size: u.rem(32);
-  }
+  font-size: u.rem(32);
+  max-width: 32ch;
 }
