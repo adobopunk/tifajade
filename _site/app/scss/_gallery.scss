@@ -4,7 +4,7 @@
   display: grid; /* Change from flex to grid */
   grid-template-columns: repeat(2, 1fr); /* Two columns */
   gap: u.rem(40); /* Space between items */
-  margin-block: 60px;
+  margin-block-end: 60px;
 
   &__title {
     font-size: 3rem;
