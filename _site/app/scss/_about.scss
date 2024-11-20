@@ -111,7 +111,9 @@ figcaption {
 }
 
 .about__title {
-  text-align: center;
+  @include u.breakpoint-down(small) {
+    text-align: center;
+  }
 }
 
 ul {
