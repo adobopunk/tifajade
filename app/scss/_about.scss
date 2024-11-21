@@ -116,7 +116,7 @@ figcaption {
   }
 }
 
-ul {
+.about__p ul {
   @include u.breakpoint-down(small) {
     text-align: center;
   }
