@@ -9,17 +9,26 @@ module.exports = function (eleventyConfig) {
   // Set template formats
   eleventyConfig.setTemplateFormats(["njk", "html"]); // Include njk for Nunjucks
 
-  // Add a collection for projects sorted by featured status and then by date
-  eleventyConfig.addCollection("projects", function (collection) {
-    return collection.getFilteredByGlob("src/projects/*.njk").sort((a, b) => {
-      const aFeatured = a.data.feature === "yes";
-      const bFeatured = b.data.feature === "yes";
-
-      if (aFeatured && !bFeatured) return -1;
-      if (!aFeatured && bFeatured) return 1;
-
-      return new Date(b.data.date) - new Date(a.data.date);
-    });
+  eleventyConfig.addCollection("animation", function (collection) {
+    return collection
+      .getFilteredByGlob("src/projects-animation/*.njk")
+      .sort((a, b) => {
+        return new Date(b.data.date) - new Date(a.data.date);
+      });
+  });
+  eleventyConfig.addCollection("video", function (collection) {
+    return collection
+      .getFilteredByGlob("src/projects-video/*.njk")
+      .sort((a, b) => {
+        // First, prioritize 'featured' items
+        if (a.data.feature === "yes" && b.data.feature !== "yes") {
+          return -1; // a should come first
+        } else if (a.data.feature !== "yes" && b.data.feature === "yes") {
+          return 1; // b should come first
+        }
+        // Then, sort by date (if both have the same 'feature' value)
+        return new Date(b.data.date) - new Date(a.data.date);
+      });
   });
 
   // Add index filter

@@ -151,3 +151,21 @@
     opacity: 1; /* End visible */
   }
 }
+
+.profile {
+  border-radius: 50%;
+  max-width: 350px;
+}
+
+.homepage-intro {
+  flex: 1;
+}
+
+.homepage-intro > * {
+  @include u.breakpoint(large) {
+    height: auto;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
+}

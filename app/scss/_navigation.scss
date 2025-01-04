@@ -59,9 +59,11 @@ nav {
     gap: 5px; /* Add spacing between links */
     align-items: center;
     justify-content: center;
+  }
 
-    @include u.breakpoint-down(small) {
-      gap: 2px;
+  &__links a {
+    @include u.breakpoint-down(medium) {
+      display: none;
     }
   }
   &__link {
@@ -209,4 +211,14 @@ nav {
 .hamburger-description {
   font-size: u.rem(32);
   max-width: 32ch;
+}
+.topnav__link.current-page {
+  color: red; /* Change this to whatever color you want */
+  font-weight: bold; /* Optional: Makes the active link stand out */
+}
+
+.hide-on-small {
+  @include u.breakpoint-down(medium) {
+    display: none;
+  }
 }
