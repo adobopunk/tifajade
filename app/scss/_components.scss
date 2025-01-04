@@ -139,4 +139,8 @@ button {
   height: 100%;
   border: none;
 }
-  
+figcaption {
+  text-align: center;
+  font-size: 0.75rem;
+  font-size: clamp(0.75rem, 0.725rem + 0.125vw, 0.875rem);
+}
