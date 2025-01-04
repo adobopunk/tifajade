@@ -81,16 +81,39 @@
       >
 
       <ul class="topnav__links">
-        <!-- <li class="topnav__item">
-          <a href="/about/index.html" class="topnav__link">About</a>
-        </li> -->
+        <li class="topnav__item">
+  <a
+    href="/index.html"
+    class="topnav__link "
+    >Animation</a
+  >
+</li>
+<li class="topnav__item">
+  <a href="/video/index.html" class="topnav__link">Video</a>
+</li>
+<li class="topnav__item">
+  <a
+    href="/about/index.html"
+    class="topnav__link "
+    >About Me</a
+  >
+</li>
+<li class="topnav__item">
+  <a
+    href="/contact/index.html"
+    class="topnav__link "
+    >Connect</a
+  >
+</li>
+
+
         <li class="topnav__item">
           <button id="menu-toggle" class="hamburger">☰</button>
         </li>
-
+        <!-- 
         <li>
           <a href="/contact"><button>Get Started</button></a>
-        </li>
+        </li> -->
       </ul>
     </nav>
   </div>
@@ -104,13 +127,32 @@
           Tifa Jade is an animation director, motion designer, and storyteller
           crafting impactful visuals for global brands.
         </h1>
-        <li>
-          <a href="/about"><button class="important">Learn More</button></a>
-        </li>
+        <li class="topnav__item">
+  <a
+    href="/index.html"
+    class="topnav__link "
+    >Animation</a
+  >
+</li>
+<li class="topnav__item">
+  <a href="/video/index.html" class="topnav__link">Video</a>
+</li>
+<li class="topnav__item">
+  <a
+    href="/about/index.html"
+    class="topnav__link "
+    >About Me</a
+  >
+</li>
+<li class="topnav__item">
+  <a
+    href="/contact/index.html"
+    class="topnav__link "
+    >Connect</a
+  >
+</li>
 
-        <li><a href="/">Work</a></li>
-        <li><a href="/showreel">Showreel</a></li>
-        <li><a href="/contact">Contact</a></li>
+
         <li class="topnav__item">
           <button id="theme-toggle" aria-label="Toggle Theme">
             <svg
@@ -189,535 +231,326 @@
 </div>
 
 
-<!-- Video Background -->
-<div class="video-background">
-  <video
-    autoplay
-    loop
-    muted
-    playsinline
-    poster="/assets/img/jade-poster.webp"
-    style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    "
-  >
-    <source src="/assets/img/Jade Loop.webm" type="video/webm" />
-    Your browser does not support the video tag.
-  </video>
-  <div class="video-overlay"></div>
-</div>
-
 <div class="wrapper wrapper-home">
   <div class="layout-main wrapper-h">
-    <div class="intro">
-      <!-- <h1>
-        Tifa Jade is an animation director empowering brands with thoughtful
-        motion design.<br />
-      </h1> -->
-      <div class="slide-container">
-        <h1 class="stagger" id="tifajade">
-          TIFA <span class="jade-hover">JADE</span>
-        </h1>
-      </div>
-      <button class="showreel important" id="showreelButton">
-        See Showreel
-      </button>
+    <div class="gallery__intro">
+      <h2>I'm TJ. Welcome to my portfolio!</h2>
+      <p>
+        Below you can see a collection of my featured animation work. Feel free
+        to explore each individual project to learn more about them. For samples
+        of my video editing and production, see
+        <a href="/video/index.html">this page.</a>
+      </p>
+
+      <p>
+        This portfolio was designed from scratch, and is constantly being
+        updated. I learned coding to create a custom portfolio, and I'm
+        constantly adding new features and projects. You can see the updates to
+        this website on
+        <a href="https://github.com/adobopunk" target="_blank">my Github.</a>
+        Thanks for stopping by!
+      </p>
     </div>
 
-    <div class="chevron-container">
-      <a href="#gallery" class="scroll-down">
-        <div class="chevron">&#x25BC;</div>
-      </a>
-    </div>
-    <section class="gallery" id="gallery">
+    <button class="showreel">See My Showreel!</button>
+
+    <div class="intro"><section class="gallery" id="gallery">
   <h2 class="visually-hidden">Gallery</h2>
    
-  
-
-  <!-- Combine featured and non-featured -->
-
-  
-  <div
-    class="image-container featured-item"
-  >
-    <a href="/projects/off-the-grid-all-stars/" class="video-link">
+  <div class="image-container">
+    <a href="/projects-animation/boomtv-2024/" class="video-link">
       
-      <div
-        class="vimeo-container-gallery"
-        style="background-image: url('/assets/img/og-image.jpg');"
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="gallery__video"
+        poster="/assets/img/og-image.jpg"
       >
-        <div class="iframe-wrapper-gallery">
-          <iframe
-            src="https://player.vimeo.com/video/1031855861?autoplay=1&muted=1&loop=1&dnt=1&background=1"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="Off The Grid All Stars"
-            allowfullscreen
-            style="background: transparent"
-          ></iframe>
-        </div>
-      </div>
+        <source src="/assets/img/videos/boomtv_2024_end_of_year_animation (1080p).mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       
     </a>
-    <div class="image-title">
-      <a href="/projects/off-the-grid-all-stars/">
-        <h2
-          class="gallery__title "
-        >
-          Off The Grid All Stars
-        </h2>
-      </a>
-      <!-- <a href="/projects/off-the-grid-all-stars/">
-        <p class="gallery__subtitle">Designing what $600,000 of battle royale action looks like</p>
-      </a> -->
-    </div>
+  </div>
+  <div class="image-title">
+    <a href="/projects-animation/boomtv-2024/">
+      <h2 class="gallery__title">BoomTV Wrapped 2024</h2>
+    </a>
+    <a href="/projects-animation/boomtv-2024/">
+      <p class="gallery__subtitle">Animation Direction, 3D Modeling & Animation</p>
+    </a>
   </div>
   
-  <div
-    class="image-container featured-item"
-  >
-    <a href="/projects/tiny-pond/" class="video-link">
+  <div class="image-container">
+    <a href="/projects-animation/off-the-grid-all-stars/" class="video-link">
       
-      <div
-        class="vimeo-container-gallery"
-        style="background-image: url('/assets/img/projects/poster_1.1.1.jpg');"
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="gallery__video"
+        poster="/assets/img/og-image.jpg"
       >
-        <div class="iframe-wrapper-gallery">
-          <iframe
-            src="https://player.vimeo.com/video/1026235970?autoplay=1&muted=1&loop=1&dnt=1&background=1"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="Tiny Pond"
-            allowfullscreen
-            style="background: transparent"
-          ></iframe>
-        </div>
-      </div>
+        <source src="/assets/img/videos/otg_all_stars_loop (1080p).mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       
     </a>
-    <div class="image-title">
-      <a href="/projects/tiny-pond/">
-        <h2
-          class="gallery__title "
-        >
-          Tiny Pond
-        </h2>
-      </a>
-      <!-- <a href="/projects/tiny-pond/">
-        <p class="gallery__subtitle">Building a visual motion identity for an independent creative studio bursting with talent.</p>
-      </a> -->
-    </div>
+  </div>
+  <div class="image-title">
+    <a href="/projects-animation/off-the-grid-all-stars/">
+      <h2 class="gallery__title">Off The Grid All Stars</h2>
+    </a>
+    <a href="/projects-animation/off-the-grid-all-stars/">
+      <p class="gallery__subtitle">Animation Direction, Motion Design, Broadcast Design</p>
+    </a>
   </div>
   
-  <div
-    class="image-container featured-item"
-  >
-    <a href="/projects/proving-grounds/" class="video-link">
+  <div class="image-container">
+    <a href="/projects-animation/chica/" class="video-link">
       
-      <div
-        class="vimeo-container-gallery"
-        style="background-image: url('/assets/img/projects/proving-grounds/PG Imgs/apexladies.webp');"
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="gallery__video"
+        poster="/assets/img/og-image.jpg"
       >
-        <div class="iframe-wrapper-gallery">
-          <iframe
-            src="https://player.vimeo.com/video/1025757611?autoplay=1&muted=1&loop=1&dnt=1&background=1"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="Proving Grounds"
-            allowfullscreen
-            style="background: transparent"
-          ></iframe>
-        </div>
-      </div>
+        <source src="/assets/img/videos/chicainvitational_announcement_june9_hd (1080p).mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       
     </a>
-    <div class="image-title">
-      <a href="/projects/proving-grounds/">
-        <h2
-          class="gallery__title "
-        >
-          Proving Grounds
-        </h2>
-      </a>
-      <!-- <a href="/projects/proving-grounds/">
-        <p class="gallery__subtitle">Designing a modern motion identity for a classic esports community tournament series.</p>
-      </a> -->
-    </div>
+  </div>
+  <div class="image-title">
+    <a href="/projects-animation/chica/">
+      <h2 class="gallery__title">Chica Invitational</h2>
+    </a>
+    <a href="/projects-animation/chica/">
+      <p class="gallery__subtitle">Animation Direction, Motion Design, Broadcast Design</p>
+    </a>
   </div>
   
-  <div
-    class="image-container featured-item"
-  >
-    <a href="/projects/porsche-911-turbo/" class="video-link">
+  <div class="image-container">
+    <a href="/projects-animation/proving-grounds/" class="video-link">
       
-      <div
-        class="vimeo-container-gallery"
-        style="background-image: url('/assets/img/projects/porsche-911/screencaps/porsche-bg.webp');"
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="gallery__video"
+        poster="/assets/img/projects/proving-grounds/PG Imgs/apexladies.webp"
       >
-        <div class="iframe-wrapper-gallery">
-          <iframe
-            src="https://player.vimeo.com/video/1025976777?autoplay=1&muted=1&loop=1&dnt=1&background=1"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="Porsche 911 Turbo Invitational"
-            allowfullscreen
-            style="background: transparent"
-          ></iframe>
-        </div>
-      </div>
+        <source src="/assets/img/videos/pg_previewloop (1080p).mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       
     </a>
-    <div class="image-title">
-      <a href="/projects/porsche-911-turbo/">
-        <h2
-          class="gallery__title "
-        >
-          Porsche 911 Turbo Invitational
-        </h2>
-      </a>
-      <!-- <a href="/projects/porsche-911-turbo/">
-        <p class="gallery__subtitle">Debuting a high-octane tournament experience for Porsche and Rocket League.</p>
-      </a> -->
-    </div>
+  </div>
+  <div class="image-title">
+    <a href="/projects-animation/proving-grounds/">
+      <h2 class="gallery__title">Proving Grounds</h2>
+    </a>
+    <a href="/projects-animation/proving-grounds/">
+      <p class="gallery__subtitle">Motion Design System, Broadcast Design, Animation Direction</p>
+    </a>
   </div>
   
-  <div
-    class="image-container featured-item"
-  >
-    <a href="/projects/fortnite-reunion/" class="video-link">
+  <div class="image-container">
+    <a href="/projects-animation/code-red/" class="video-link">
       
-      <div
-        class="vimeo-container-gallery"
-        style="background-image: url('/assets/img/projects/fortnite-reunion/broadcast/Starting soon.webp');"
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="gallery__video"
+        poster="/assets/img/og-image.jpg"
       >
-        <div class="iframe-wrapper-gallery">
-          <iframe
-            src="https://player.vimeo.com/video/1026360987?autoplay=1&muted=1&loop=1&dnt=1&background=1"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="Fortnite Reunion"
-            allowfullscreen
-            style="background: transparent"
-          ></iframe>
-        </div>
-      </div>
+        <source src="/assets/img/videos/codered_web.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       
     </a>
-    <div class="image-title">
-      <a href="/projects/fortnite-reunion/">
-        <h2
-          class="gallery__title "
-        >
-          Fortnite Reunion
-        </h2>
-      </a>
-      <!-- <a href="/projects/fortnite-reunion/">
-        <p class="gallery__subtitle">Helping Epic Games celebrate Fortnite's return to form with a legendary tournament, featuring an oh-so-sweet tribute to the map that started it all.</p>
-      </a> -->
-    </div>
+  </div>
+  <div class="image-title">
+    <a href="/projects-animation/code-red/">
+      <h2 class="gallery__title">BoomTV: Code Red</h2>
+    </a>
+    <a href="/projects-animation/code-red/">
+      <p class="gallery__subtitle">Motion Design System, Broadcast Design, Animation Direction, Trailer Direction</p>
+    </a>
   </div>
   
-  <div
-    class="image-container featured-item"
-  >
-    <a href="/projects/midnight-society/" class="video-link">
+  <div class="image-container">
+    <a href="/projects-animation/porsche-911-turbo/" class="video-link">
       
-      <div
-        class="vimeo-container-gallery"
-        style="background-image: url('/assets/img/og-image.jpg');"
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="gallery__video"
+        poster="/assets/img/projects/porsche-911/screencaps/porsche-bg.webp"
       >
-        <div class="iframe-wrapper-gallery">
-          <iframe
-            src="https://player.vimeo.com/video/1026695987?autoplay=1&muted=1&loop=1&dnt=1&background=1"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="Midnight Society"
-            allowfullscreen
-            style="background: transparent"
-          ></iframe>
-        </div>
-      </div>
+        <source src="/assets/img/videos/porsche_main_loop (1080p).mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       
     </a>
-    <div class="image-title">
-      <a href="/projects/midnight-society/">
-        <h2
-          class="gallery__title "
-        >
-          Midnight Society
-        </h2>
-      </a>
-      <!-- <a href="/projects/midnight-society/">
-        <p class="gallery__subtitle">Directing a series of features around the upcoming game release Deadrop.</p>
-      </a> -->
-    </div>
+  </div>
+  <div class="image-title">
+    <a href="/projects-animation/porsche-911-turbo/">
+      <h2 class="gallery__title">Porsche 911 Turbo Invitational</h2>
+    </a>
+    <a href="/projects-animation/porsche-911-turbo/">
+      <p class="gallery__subtitle"> Animation Direction, Broadcast Design, Trailer Direction </p>
+    </a>
   </div>
   
-  <div
-    class="image-container featured-item"
-  >
-    <a href="/projects/mountain-dew-cs2-showdown/" class="video-link">
+  <div class="image-container">
+    <a href="/projects-animation/fortnite-reunion/" class="video-link">
       
-      <div
-        class="vimeo-container-gallery"
-        style="background-image: url('/assets/img/og-image.jpg');"
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="gallery__video"
+        poster="/assets/img/projects/fortnite-reunion/broadcast/Starting soon.webp"
       >
-        <div class="iframe-wrapper-gallery">
-          <iframe
-            src="https://player.vimeo.com/video/885424173?autoplay=1&muted=1&loop=1&dnt=1&background=1"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="Mountain Dew CS2 Showdown"
-            allowfullscreen
-            style="background: transparent"
-          ></iframe>
-        </div>
-      </div>
+        <source src="/assets/img/videos/reunion_loop (1080p).mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       
     </a>
-    <div class="image-title">
-      <a href="/projects/mountain-dew-cs2-showdown/">
-        <h2
-          class="gallery__title "
-        >
-          Mountain Dew CS2 Showdown
-        </h2>
-      </a>
-      <!-- <a href="/projects/mountain-dew-cs2-showdown/">
-        <p class="gallery__subtitle">Assembling the ultimate PC for Mountain Dew's big Counter-Strike showdown.</p>
-      </a> -->
-    </div>
+  </div>
+  <div class="image-title">
+    <a href="/projects-animation/fortnite-reunion/">
+      <h2 class="gallery__title">Fortnite Reunion</h2>
+    </a>
+    <a href="/projects-animation/fortnite-reunion/">
+      <p class="gallery__subtitle">Animation Direction, Broadcast Design, Motion Design, Trailer Direction</p>
+    </a>
   </div>
   
-  <div
-    class="image-container featured-item"
-  >
-    <a href="/projects/mountain-dew-champions-cup/" class="video-link">
+  <div class="image-container">
+    <a href="/projects-animation/tfue-tuesday/" class="video-link">
       
-      <div
-        class="vimeo-container-gallery"
-        style="background-image: url('/assets/img/projects/mountain-dew-champions-cup/mtndew-viewport-city.webp');"
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="gallery__video"
+        poster="/assets/img/og-image.jpg"
       >
-        <div class="iframe-wrapper-gallery">
-          <iframe
-            src="https://player.vimeo.com/video/1026261557?autoplay=1&muted=1&loop=1&dnt=1&background=1"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="Mountain Dew Champions Cup"
-            allowfullscreen
-            style="background: transparent"
-          ></iframe>
-        </div>
-      </div>
+        <source src="/assets/img/videos/tfue_tuesday_announcement_teaser (1080p).mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       
     </a>
-    <div class="image-title">
-      <a href="/projects/mountain-dew-champions-cup/">
-        <h2
-          class="gallery__title "
-        >
-          Mountain Dew Champions Cup
-        </h2>
-      </a>
-      <!-- <a href="/projects/mountain-dew-champions-cup/">
-        <p class="gallery__subtitle">A skyscraper sized announcement for a monumental gaming brand.</p>
-      </a> -->
-    </div>
+  </div>
+  <div class="image-title">
+    <a href="/projects-animation/tfue-tuesday/">
+      <h2 class="gallery__title">Tfue Tuesday</h2>
+    </a>
+    <a href="/projects-animation/tfue-tuesday/">
+      <p class="gallery__subtitle">Animation Direction, Motion Design, Trailer Direction</p>
+    </a>
   </div>
   
-  <div
-    class="image-container "
-  >
-    <a href="/projects/intel-inspires/" class="video-link">
+  <div class="image-container">
+    <a href="/projects-animation/boomtv-2023/" class="video-link">
       
-      <div
-        class="vimeo-container-gallery"
-        style="background-image: url('/assets/img/og-image.jpg');"
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="gallery__video"
+        poster="/assets/img/projects/BoomTV-wrapped/wrappedThumb.jpg"
       >
-        <div class="iframe-wrapper-gallery">
-          <iframe
-            src="https://player.vimeo.com/video/1026298680?autoplay=1&muted=1&loop=1&dnt=1&background=1"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="Intel Inspires"
-            allowfullscreen
-            style="background: transparent"
-          ></iframe>
-        </div>
-      </div>
+        <source src="/assets/img/videos/wrapped_loop (1080p).mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       
     </a>
-    <div class="image-title">
-      <a href="/projects/intel-inspires/">
-        <h2
-          class="gallery__title gallery__non-featured-title"
-        >
-          Intel Inspires
-        </h2>
-      </a>
-      <!-- <a href="/projects/intel-inspires/">
-        <p class="gallery__subtitle">Designing a branding and motion system for the leading student esports summit presented by industry titan Intel.</p>
-      </a> -->
-    </div>
+  </div>
+  <div class="image-title">
+    <a href="/projects-animation/boomtv-2023/">
+      <h2 class="gallery__title">BoomTV Wrapped 2023</h2>
+    </a>
+    <a href="/projects-animation/boomtv-2023/">
+      <p class="gallery__subtitle">Creative Direction, Animation Direction, Motion Design</p>
+    </a>
   </div>
   
-  <div
-    class="image-container "
-  >
-    <a href="/projects/tfue-tuesday/" class="video-link">
+  <div class="image-container">
+    <a href="/projects-animation/mountain-dew-cs2-showdown/" class="video-link">
       
-      <div
-        class="vimeo-container-gallery"
-        style="background-image: url('/assets/img/og-image.jpg');"
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="gallery__video"
+        poster="/assets/img/og-image.jpg"
       >
-        <div class="iframe-wrapper-gallery">
-          <iframe
-            src="https://player.vimeo.com/video/1026622499?autoplay=1&muted=1&loop=1&dnt=1&background=1"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="Tfue Tuesday"
-            allowfullscreen
-            style="background: transparent"
-          ></iframe>
-        </div>
-      </div>
+        <source src="/assets/img/videos/mtn_dew_code_red_cs_showdown_promo (1080p).mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       
     </a>
-    <div class="image-title">
-      <a href="/projects/tfue-tuesday/">
-        <h2
-          class="gallery__title gallery__non-featured-title"
-        >
-          Tfue Tuesday
-        </h2>
-      </a>
-      <!-- <a href="/projects/tfue-tuesday/">
-        <p class="gallery__subtitle">Unveiling an elite tournament franchise for one of Fortnite's biggest influencers.</p>
-      </a> -->
-    </div>
+  </div>
+  <div class="image-title">
+    <a href="/projects-animation/mountain-dew-cs2-showdown/">
+      <h2 class="gallery__title">Mountain Dew CS2 Showdown</h2>
+    </a>
+    <a href="/projects-animation/mountain-dew-cs2-showdown/">
+      <p class="gallery__subtitle">Animation Direction, Broadcast Design, Trailer Direction</p>
+    </a>
   </div>
   
-  <div
-    class="image-container "
-  >
-    <a href="/projects/skyblock-showdown/" class="video-link">
+  <div class="image-container">
+    <a href="/projects-animation/mountain-dew-champions-cup/" class="video-link">
       
-      <div
-        class="vimeo-container-gallery"
-        style="background-image: url('/assets/img/projects/skyblock-showdown/skyblockThumb.jpg');"
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="gallery__video"
+        poster="/assets/img/projects/mountain-dew-champions-cup/mtndew-viewport-city.webp"
       >
-        <div class="iframe-wrapper-gallery">
-          <iframe
-            src="https://player.vimeo.com/video/1026362847?autoplay=1&muted=1&loop=1&dnt=1&background=1"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="Minecraft: Skyblock Showdown"
-            allowfullscreen
-            style="background: transparent"
-          ></iframe>
-        </div>
-      </div>
+        <source src="/assets/img/videos/mtn_dew_champions_cup_looping_video (1080p).mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       
     </a>
-    <div class="image-title">
-      <a href="/projects/skyblock-showdown/">
-        <h2
-          class="gallery__title gallery__non-featured-title"
-        >
-          Minecraft: Skyblock Showdown
-        </h2>
-      </a>
-      <!-- <a href="/projects/skyblock-showdown/">
-        <p class="gallery__subtitle">Designing a trailer full of mystery and intrigue for Verizon's Minecraft tournament, with high quality cinematics captured on a custom in-game map.</p>
-      </a> -->
-    </div>
   </div>
-  
-  <div
-    class="image-container "
-  >
-    <a href="/projects/boomtv-2023/" class="video-link">
-      
-      <div
-        class="vimeo-container-gallery"
-        style="background-image: url('/assets/img/projects/BoomTV-wrapped/wrappedThumb.jpg');"
-      >
-        <div class="iframe-wrapper-gallery">
-          <iframe
-            src="https://player.vimeo.com/video/1026354061?autoplay=1&muted=1&loop=1&dnt=1&background=1"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="BoomTV Wrapped"
-            allowfullscreen
-            style="background: transparent"
-          ></iframe>
-        </div>
-      </div>
-      
+  <div class="image-title">
+    <a href="/projects-animation/mountain-dew-champions-cup/">
+      <h2 class="gallery__title">Mountain Dew Champions Cup</h2>
     </a>
-    <div class="image-title">
-      <a href="/projects/boomtv-2023/">
-        <h2
-          class="gallery__title gallery__non-featured-title"
-        >
-          BoomTV Wrapped
-        </h2>
-      </a>
-      <!-- <a href="/projects/boomtv-2023/">
-        <p class="gallery__subtitle">Celebrating a year of outstanding events crafted by the incomparable creative team at BoomTV.</p>
-      </a> -->
-    </div>
-  </div>
-  
-  <div
-    class="image-container "
-  >
-    <a href="/projects/next-level/" class="video-link">
-      
-      <div
-        class="vimeo-container-gallery"
-        style="background-image: url('/assets/img/projects/next-level/nextLevel_thumb.jpg');"
-      >
-        <div class="iframe-wrapper-gallery">
-          <iframe
-            src="https://player.vimeo.com/video/1026353184?autoplay=1&muted=1&loop=1&dnt=1&background=1"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="Next Level"
-            allowfullscreen
-            style="background: transparent"
-          ></iframe>
-        </div>
-      </div>
-      
+    <a href="/projects-animation/mountain-dew-champions-cup/">
+      <p class="gallery__subtitle">Animation Direction, Broadcast Design, Trailer Direction</p>
     </a>
-    <div class="image-title">
-      <a href="/projects/next-level/">
-        <h2
-          class="gallery__title gallery__non-featured-title"
-        >
-          Next Level
-        </h2>
-      </a>
-      <!-- <a href="/projects/next-level/">
-        <p class="gallery__subtitle">Telling the story of a rising star in the esports world, who came from humble beginnings.</p>
-      </a> -->
-    </div>
   </div>
   
 </section>
-
-  </div>
+<a href="/video/index.html  "><button>See Video Projects</button></a>
 </div>
+  </div>
 
-<div id="showreel-overlay" class="overlay">
-  <div class="overlay-content">
-    <div class="vimeo-container" style="overflow: hidden">
+  <div id="showreel-overlay" class="overlay">
+    <div class="overlay-content">
+      <div class="vimeo-container" style="overflow: hidden">
   <div class="iframe-wrapper">
     <iframe
       src="https://player.vimeo.com/video/1025754996?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
@@ -729,13 +562,14 @@
   </div>
 </div>
 
-    <span class="close-overlay">&times;</span>
+      <span class="close-overlay">&times;</span>
+    </div>
   </div>
-</div>
 
-<script src="/app/js/homepage.js"></script>
-<script src="/app/js/hover.js"></script>
-<script src="/app/js/showreel.js" defer></script>
+  <script src="/app/js/homepage.js"></script>
+  <script src="/app/js/hover.js"></script>
+  <script src="/app/js/showreel.js" defer></script>
+</div>
 </article>
 </main>
 <footer class="footer" id="contact">
@@ -744,24 +578,23 @@
       <div class="footer__info">
         <h2>Let's Connect!</h2>
 <p>
-  If you’re interested in collaborating, please fill out this quick form to help
-  me get the big picture of your project. Don't skimp on details - the more
-  specific you can be, the better!
+  Hey there! If you're interested in connecting, like what you see on my site,
+  or just want to talk about animation / video editing & production, please feel
+  free to get in touch! I love connecting with fellow creators, and anyone
+  looking to put my skills to good use.
 </p>
 
 <p>
-  I prioritize projects that feel like a great fit, but as long as you have a
-  serious inquiry I <b>will</b> get back to you. I'm especially enthusiastic
-  about collaborating on projects that prioritize social impact and humanitarian
-  efforts. If your work aims to promote equality and tackle social issues, I
-  would love to connect and explore how we can work together.
+  I'm especially enthusiastic about collaborating on projects that prioritize
+  social impact and humanitarian efforts. If your work aims to promote equality
+  and tackle social issues, I would love to connect and explore how we can work
+  together.
 </p>
 <p>
   I enjoy having my creative capabilities challenged. If you don't see an exact
-  example of what you're looking for within my portfolio, don't let that
-  dissuade you. Research and development are my forte, and I have a knack for
-  finding creative solutions to problems. If you'd like to just send me a
-  friendly message,
+  example of what you're looking for within my portfolio, know that research and
+  development are my forte, and I have a knack for finding creative solutions to
+  problems. If you'd like to just send me a friendly message,
   <a href="" class="copy-email" data-tooltip="Click to copy email"
     >shoot me an email!</a
   >
@@ -802,32 +635,23 @@
         <label>Your Email: <input type="email" name="email" placeholder="hi@tifajade.com"  /></label>
       </p>
       <p>
-        <label>Your business or product name: <input type="text" name="business" placeholder="Awesome Inc."  /></label>
-      </p>
-      <p>
-        <label>Tell me about your exciting project! <textarea name="details"></textarea></label>
-      </p>
-      <p>
-        <label>Budget: 
-          <select name="budget" aria-label="Select one" required>
+        <label>Inquiry Type: 
+          <select name="subject " aria-label="Select one" required>
             <option selected disabled value="">
               Select one
             </option>
-            <option>$5,000 - $10,000</option>
-            <option>$10,000 - $15,000</option>
-            <option>$15,000 - $20,000</option>
-            <option>$25,000 - $25,000</option>
-            <option>$25,000+</option>
+            <option>Freelance Work</option>
+            <option>Recruitment</option>
+            <option>Networking</option>
+            <option>Collaboration</option>
+            <option>Industry Advice</option>
+            <option>Other</option>
           </select>
     </p>
-    
-     
+
       <p>
-        <label>What interests you about working with me?<textarea name="work with me"></textarea></label>
-      </p>
-      <p>
-          <label>How did you hear about me? 
-            <textarea name="discovered by"></textarea></label>
+          <label>Your message
+            <textarea name="message text"></textarea></label>
             
       </p>
 

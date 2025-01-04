@@ -3,7 +3,91 @@
     
         
         <url>
-            <loc>/projects/next-level/</loc>
+            <loc>/projects-video/KNDU/</loc>
+            
+            
+            <lastmod>2016-01-01T00:00:00.000Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects-video/drafts/ethernaut/</loc>
+            
+            
+            <lastmod>2016-01-01T00:00:00.000Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects-video/fear-none/</loc>
+            
+            
+            <lastmod>2018-01-01T00:00:00.000Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects-video/impact-gaming/</loc>
+            
+            
+            <lastmod>2018-01-01T00:00:00.000Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects-video/ufc-promos/</loc>
+            
+            
+            <lastmod>2021-01-01T00:00:00.000Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects-video/p3-aljamain/</loc>
+            
+            
+            <lastmod>2021-05-02T00:00:00.000Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects-video/ufc-olympic-features/</loc>
+            
+            
+            <lastmod>2021-05-02T00:00:00.000Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects-video/next-level/</loc>
             
             
             <lastmod>2022-05-01T00:00:00.000Z</lastmod>
@@ -15,7 +99,7 @@
     
         
         <url>
-            <loc>/projects/mountain-dew-champions-cup/</loc>
+            <loc>/projects-animation/mountain-dew-champions-cup/</loc>
             
             
             <lastmod>2022-07-01T00:00:00.000Z</lastmod>
@@ -27,7 +111,7 @@
     
         
         <url>
-            <loc>/projects/mountain-dew-cs2-showdown/</loc>
+            <loc>/projects-animation/mountain-dew-cs2-showdown/</loc>
             
             
             <lastmod>2022-12-15T00:00:00.000Z</lastmod>
@@ -39,7 +123,7 @@
     
         
         <url>
-            <loc>/projects/boomtv-2023/</loc>
+            <loc>/projects-animation/boomtv-2023/</loc>
             
             
             <lastmod>2022-12-31T00:00:00.000Z</lastmod>
@@ -51,7 +135,7 @@
     
         
         <url>
-            <loc>/projects/skyblock-showdown/</loc>
+            <loc>/projects-video/skyblock-showdown/</loc>
             
             
             <lastmod>2023-01-23T00:00:00.000Z</lastmod>
@@ -63,7 +147,7 @@
     
         
         <url>
-            <loc>/projects/tfue-tuesday/</loc>
+            <loc>/projects-animation/tfue-tuesday/</loc>
             
             
             <lastmod>2023-02-07T00:00:00.000Z</lastmod>
@@ -75,7 +159,7 @@
     
         
         <url>
-            <loc>/projects/midnight-society/</loc>
+            <loc>/projects-video/midnight-society/</loc>
             
             
             <lastmod>2023-03-17T00:00:00.000Z</lastmod>
@@ -87,7 +171,7 @@
     
         
         <url>
-            <loc>/projects/intel-inspires/</loc>
+            <loc>/projects-video/intel-inspires/</loc>
             
             
             <lastmod>2023-05-01T00:00:00.000Z</lastmod>
@@ -99,7 +183,7 @@
     
         
         <url>
-            <loc>/projects/fortnite-reunion/</loc>
+            <loc>/projects-animation/fortnite-reunion/</loc>
             
             
             <lastmod>2023-06-04T00:00:00.000Z</lastmod>
@@ -111,7 +195,7 @@
     
         
         <url>
-            <loc>/projects/porsche-911-turbo/</loc>
+            <loc>/projects-animation/porsche-911-turbo/</loc>
             
             
             <lastmod>2023-12-15T00:00:00.000Z</lastmod>
@@ -123,7 +207,7 @@
     
         
         <url>
-            <loc>/projects/proving-grounds/</loc>
+            <loc>/projects-animation/code-red/</loc>
             
             
             <lastmod>2024-01-01T00:00:00.000Z</lastmod>
@@ -135,7 +219,31 @@
     
         
         <url>
-            <loc>/projects/tiny-pond/</loc>
+            <loc>/projects-animation/proving-grounds/</loc>
+            
+            
+            <lastmod>2024-01-01T00:00:00.000Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects-animation/chica/</loc>
+            
+            
+            <lastmod>2024-06-09T00:00:00.000Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects-animation/drafts/tiny-pond/</loc>
             
             
             <lastmod>2024-07-01T00:00:00.000Z</lastmod>
@@ -183,10 +291,46 @@
     
         
         <url>
-            <loc>/projects/off-the-grid-all-stars/</loc>
+            <loc>/projects-animation/off-the-grid-all-stars/</loc>
             
             
             <lastmod>2024-11-20T00:00:00.000Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects-animation/boomtv-2024/</loc>
+            
+            
+            <lastmod>2025-01-01T00:00:00.000Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects-animation/drafts/index copy/</loc>
+            
+            
+            <lastmod>2025-01-03T19:49:27.982Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/video/</loc>
+            
+            
+            <lastmod>2025-01-03T22:12:57.356Z</lastmod>
             
 
             <changefreq>monthly</changefreq>

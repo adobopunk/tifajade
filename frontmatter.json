@@ -50,11 +50,8 @@
   "frontMatter.preview.host": "http://localhost:8080",
   "frontMatter.content.pageFolders": [
     {
-      "title": "projects",
-      "path": "[[workspace]]/src/projects"
-    },
-    {
-      "path": "[[workspace]]/src/blog"
+      "path": "[[workspace]]/src/blog",
+      "title": "blog"
     },
     {
       "title": "sketches",
