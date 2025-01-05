@@ -206,6 +206,10 @@ nav {
   color: inherit; /* Inherits color from parent (or specify a color) */
   cursor: pointer; /* Ensures pointer cursor on hover */
   outline: none; /* Optional: removes outline when clicked */
+
+  @include u.breakpoint(large) {
+    // display: none;
+  }
 }
 
 .hamburger-description {

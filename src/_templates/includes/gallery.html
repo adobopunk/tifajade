@@ -26,15 +26,16 @@
       />
       {% endif %}
     </a>
+    <div class="image-title">
+      <a href="{{ project.url }}">
+        <h2 class="gallery__title">{{ project.data.title }}</h2>
+      </a>
+      <a href="{{ project.url }}">
+        <p class="gallery__subtitle">{{ project.data.subtitle }}</p>
+      </a>
+    </div>
   </div>
-  <div class="image-title">
-    <a href="{{ project.url }}">
-      <h2 class="gallery__title">{{ project.data.title }}</h2>
-    </a>
-    <a href="{{ project.url }}">
-      <p class="gallery__subtitle">{{ project.data.subtitle }}</p>
-    </a>
-  </div>
+
   {% endfor %}
 </section>
 <a href="/video/index.html  "><button>See Video Projects</button></a>
