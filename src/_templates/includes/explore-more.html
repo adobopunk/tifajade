@@ -1,35 +1,75 @@
 <nav class="project-navigation">
-  {# Check if there is a next project #} {% if previous or next %} {% if
-  previous %}
-  <h3 class="previous">
-    <a href="{{ previous.url }}">
-      <svg
-        class="previous-arrow"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 320 512"
-      >
-        <path
-          d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l169.3-169.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
-        />
-      </svg>
-      {{ previous.data.title }}
-    </a>
-    
-  </h3>
-  {% endif %} {% if next %}
-  <h3 class="next">
-    <a href="{{ next.url }}">
-      {{ next.data.title }}
-      <svg
-        class="next-arrow"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 320 512"
-      >
-        <path
-          d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
-        />
-      </svg>
-    </a>
-  </h3>
-  {% endif %} {% endif %}
+  <section class="gallery">
+    {% if next1 or next2 %} {% if next1 %}
+    <div class="image-container">
+      <a href="{{ next1.url }}">
+        <div class="image-preview-container">
+          {% if next1.data.video %}
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            class="gallery__video"
+            poster="{{ next1.data.image }}"
+          >
+            <source src="{{ next1.data.video }}" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          {% else %}
+          <img
+            src="{{ next1.data.image }}"
+            alt="Placeholder for {{ next1.data.title }}"
+            class="gallery__image"
+            loading="lazy"
+          />
+          {% endif %}
+        </div>
+        <div class="image-preview-title">
+          <a href="{{ next1.url }}">
+            <h3 class="gallery__title">{{ next1.data.title }}</h3>
+          </a>
+          <a href="{{ next1.url }}">
+            <p class="gallery__subtitle">{{ next1.data.subtitle }}</p>
+          </a>
+        </div>
+      </a>
+    </div>
+    {% endif %} {% if next2 %}
+    <div class="image-container">
+      <a href="{{ next2.url }}">
+        <div class="image-preview-container">
+          {% if next2.data.video %}
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            class="gallery__video"
+            poster="{{ next2.data.image }}"
+          >
+            <source src="{{ next2.data.video }}" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          {% else %}
+          <img
+            src="{{ next2.data.image }}"
+            alt="Placeholder for {{ next2.data.title }}"
+            class="gallery__image"
+            loading="lazy"
+          />
+          {% endif %}
+        </div>
+        <div class="image-preview-title">
+          <a href="{{ next2.url }}">
+            <h3 class="gallery__title">{{ next2.data.title }}</h3>
+          </a>
+          <a href="{{ next2.url }}">
+            <p class="gallery__subtitle">{{ next2.data.subtitle }}</p>
+          </a>
+        </div>
+      </a>
+    </div>
+    {% endif %} {% endif %}
+  </section>
 </nav>
