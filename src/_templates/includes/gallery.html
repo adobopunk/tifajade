@@ -1,6 +1,10 @@
 <section class="gallery" id="gallery">
   <h2 class="visually-hidden">Gallery</h2>
-  {% assign all_projects = collections.animation | sort: "date" | reverse %} {%
+
+  {% assign all_projects = collections.animation | sort: "feature" %} {% assign
+  featured_projects = all_projects | where: "data.feature", "yes" %} {% assign
+  non_featured_projects = all_projects | where: "data.feature", "no" %} {%
+  assign all_projects = featured_projects | concat: non_featured_projects %} {%
   for project in all_projects %}
   <div class="image-container">
     <a href="{{ project.url }}" class="video-link">
@@ -35,7 +39,7 @@
       </a>
     </div>
   </div>
-
   {% endfor %}
 </section>
-<a href="/video/index.html  "><button>See Video Projects</button></a>
+
+<a href="/video/index.html"><button>See Video Projects</button></a>
