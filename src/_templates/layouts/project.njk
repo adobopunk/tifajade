@@ -7,15 +7,17 @@
       <div class="layout-main wrapper-m project-layout">
         {{ content | safe }}
 
+        <h2>More Projects:</h2>
+
         {# Get the current project's URL #} {% set currentUrl = page.url %} {%
         set currentIndex = -1 %} {# Loop through the projects to find the
         current index #} {% for project in collections.animation %} {% if
-        project.url == currentUrl %} {% set currentIndex = loop.index0 %} {# Use
-        loop.index0 for 0-based index #} {% endif %} {% endfor %} {# Set
-        previous and next projects based on the current index #} {% set previous
-        = collections.animation[currentIndex - 1] if currentIndex > 0 else null
-        %} {% set next = collections.animation[currentIndex + 1] if currentIndex
-        < collections.animation | length - 1 else null %} {% include
+        project.url == currentUrl %} {% set currentIndex = loop.index0 %} {%
+        endif %} {% endfor %} {# Set next1 and next2 to always show the next two
+        projects, wrapping around #} {% set next1 =
+        collections.animation[(currentIndex + 1) % collections.animation |
+        length] %} {% set next2 = collections.animation[(currentIndex + 2) %
+        collections.animation | length] %} {% include
         "includes/explore-more.html" %}
       </div>
     </div>
