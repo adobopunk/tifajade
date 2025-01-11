@@ -6,8 +6,7 @@
     <meta name="color-scheme" content="dark" />
 
     <title>
-      {% if page.url == "/" %}{{ title }} | {{ subtitle }}{% else %}{{ title }}
-      | Tifa Jade - Animation Portfolio{% endif %}
+     {{ title }}
     </title>
     <!-- SEO -->
 
@@ -16,9 +15,7 @@
       content="{% if subtitle %}{{ subtitle }}{% else %}{{ site.description }}{% endif %}"
     />
 
-    <meta property="og:title" content=" {% if page.url == "/" %}{{ title }} | {{
-    subtitle }}{% else %}{{ title }} | Tifa Jade - Animation Portfolio{% endif
-    %}" />
+    <meta property="og:title" content="{{ title }}" />
     <meta
       property="og:description"
       content="{% if subtitle %}{{ subtitle }}{% else %}{{ site.description }}{% endif %}"
