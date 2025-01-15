@@ -216,6 +216,10 @@ nav {
 .hamburger-description {
   font-size: u.rem(32);
   max-width: 32ch;
+
+  @include u.breakpoint-down(small) {
+    font-size: u.rem(24);
+  }
 }
 .topnav__link.current-page {
   color: red; /* Change this to whatever color you want */
