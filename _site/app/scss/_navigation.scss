@@ -62,10 +62,11 @@ nav {
   }
 
   &__links a {
-    @include u.breakpoint-down(medium) {
+    @include u.breakpoint-down(small) {
       display: none;
     }
   }
+
   &__link {
     text-align: center;
     font-size: u.rem(16);
@@ -223,6 +224,12 @@ nav {
 
 .hide-on-small {
   @include u.breakpoint-down(medium) {
+    display: none;
+  }
+}
+
+.topnav__links .topnav__item .showreel {
+  @include u.breakpoint-down(small) {
     display: none;
   }
 }

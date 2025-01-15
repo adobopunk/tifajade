@@ -9,8 +9,28 @@
       >
 
       <ul class="topnav__links">
-        {% include "includes/links.html" %} {% include
-        "includes/themetoggle.html" %}
+        <li class="topnav__item">
+          <button class="showreel">Showreel</button>
+        </li>
+        <li class="topnav__item">
+          <a
+            href="/index.html"
+            class="topnav__link {% if page.url == '/index.html' %}current-page{% endif %}"
+            >Animation</a
+          >
+        </li>
+        <li class="topnav__item">
+          <a href="/video/index.html" class="topnav__link">Video</a>
+        </li>
+
+        <li class="topnav__item">
+          <a
+            href="/about/index.html"
+            class="topnav__link {% if page.url == '/about/index.html' %}current-page{% endif %}"
+            >About Me</a
+          >
+        </li>
+        {% include "includes/themetoggle.html" %}
 
         <li class="topnav__item">
           <button id="menu-toggle" class="hamburger">☰</button>

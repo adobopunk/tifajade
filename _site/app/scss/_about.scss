@@ -94,10 +94,6 @@
 figure {
   display: flex;
   flex-direction: column;
-
-  @include u.breakpoint-down(small) {
-    align-items: center;
-  }
 }
 
 .about__text figcaption {
