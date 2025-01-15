@@ -69,6 +69,10 @@
 .showreel {
   // opacity: 0;
   font-size: 1rem;
+
+  @include u.breakpoint-down(small) {
+    font-size: u.rem(24);
+  }
 }
 
 .showreel.show {
