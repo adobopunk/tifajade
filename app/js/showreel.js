@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const showreelButton = document.querySelector(".showreel");
+  const showreelButtons = document.querySelectorAll(".showreel"); // Get all buttons
   const overlay = document.getElementById("showreel-overlay");
   const closeButton = document.querySelector(".close-overlay");
   const iframe = document.querySelector(
@@ -7,14 +7,16 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   const player = new Vimeo.Player(iframe); // Initialize Vimeo player for this iframe
 
-  // Show overlay and play video when button is clicked
-  showreelButton.addEventListener("click", function () {
-    overlay.classList.add("active");
-    overlay.style.display = "flex";
-    setTimeout(() => {
-      overlay.style.opacity = "1";
-      player.play(); // Start playing the video on overlay open
-    }, 10);
+  // Iterate over each showreel button and apply event listener
+  showreelButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      overlay.classList.add("active");
+      overlay.style.display = "flex";
+      setTimeout(() => {
+        overlay.style.opacity = "1";
+        player.play(); // Start playing the video on overlay open
+      }, 10);
+    });
   });
 
   // Hide overlay, reset video time, and stop playback when close button is clicked
