@@ -282,7 +282,7 @@
             <loc>/contact/</loc>
             
             
-            <lastmod>2024-10-28T04:15:16.853Z</lastmod>
+            <lastmod>2024-10-28T19:56:33.609Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -315,10 +315,22 @@
     
         
         <url>
+            <loc>/about/</loc>
+            
+            
+            <lastmod>2025-01-05T23:15:20.035Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
             <loc>/projects-animation/drafts/index copy/</loc>
             
             
-            <lastmod>2025-01-03T19:49:27.982Z</lastmod>
+            <lastmod>2025-01-05T23:15:20.037Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -330,31 +342,7 @@
             <loc>/video/</loc>
             
             
-            <lastmod>2025-01-03T22:12:57.356Z</lastmod>
-            
-
-            <changefreq>monthly</changefreq>
-        </url>
-        
-    
-        
-        <url>
-            <loc>/about/</loc>
-            
-            
-            <lastmod>2025-01-06T04:12:47.616Z</lastmod>
-            
-
-            <changefreq>monthly</changefreq>
-        </url>
-        
-    
-        
-        <url>
-            <loc>/</loc>
-            
-            
-            <lastmod>2025-01-06T04:12:47.616Z</lastmod>
+            <lastmod>2025-01-05T23:15:20.042Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -367,6 +355,18 @@
             
             
             <lastmod>2025-01-13T00:00:00.000Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/</loc>
+            
+            
+            <lastmod>2025-01-13T17:49:25.407Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
