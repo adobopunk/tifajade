@@ -1,4 +1,4 @@
-const themeToggleButton = document.getElementById("theme-toggle");
+const themeToggleButtons = document.querySelectorAll(".theme-toggle");
 const themeIconPath = document.querySelector("#theme-icon path");
 
 // Define the paths for sun and moon icons
@@ -20,19 +20,22 @@ themeIconPath.setAttribute(
 // Add the 'js' class to show the toggle button after setting the theme
 document.documentElement.classList.add("js");
 
-themeToggleButton.addEventListener("click", () => {
-  const newTheme =
-    document.documentElement.getAttribute("data-theme") === "light"
-      ? "dark"
-      : "light";
+// Add event listeners to all theme-toggle buttons
+themeToggleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const newTheme =
+      document.documentElement.getAttribute("data-theme") === "light"
+        ? "dark"
+        : "light";
 
-  // Toggle theme and save it in local storage
-  document.documentElement.setAttribute("data-theme", newTheme);
-  localStorage.setItem("theme", newTheme);
+    // Toggle theme and save it in local storage
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
 
-  // Switch the icon based on the new theme
-  themeIconPath.setAttribute(
-    "d",
-    newTheme === "dark" ? moonIconPath : sunIconPath
-  );
+    // Switch the icon based on the new theme
+    themeIconPath.setAttribute(
+      "d",
+      newTheme === "dark" ? moonIconPath : sunIconPath
+    );
+  });
 });
