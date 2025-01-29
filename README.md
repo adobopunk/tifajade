@@ -49,7 +49,7 @@ The site is automatically deployed to Netlify on every push to the `main` branch
 
 Check out my portfolio live at [tifajade.com](https://tifajade.com) or connect with me on:
 
-- [Email](hi@tifajade.com)
+- [Email](mailto:hi@tifajade.com)
 - [LinkedIn](https://www.linkedin.com/in/tifajade/)
 
 Thanks for stopping by!
