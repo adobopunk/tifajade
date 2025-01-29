@@ -2,7 +2,7 @@
 .gallery {
   display: grid;
   grid-template-columns: 1fr;
-  gap: u.rem(40);
+  gap: u.rem(16);
   margin-block-end: 60px;
 
   @include u.breakpoint(large) {
