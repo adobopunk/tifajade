@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /admin/         # Example of blocking a folder; adjust if needed
-
-Sitemap: https://tifajade.com/sitemap.xml
