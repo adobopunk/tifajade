@@ -1,13 +1,17 @@
 {% include "includes/header.html" %}
 <section class="hero">
   <div class="video-background">
-    <iframe
-      src="https://player.vimeo.com/video/1025754996?autoplay=1&loop=1&muted=1&background=1"
-      frameborder="0"
-      allow="autoplay; fullscreen"
-      allowfullscreen
-    >
-    </iframe>
+    <video class="video-background" autoplay muted loop playsinline>
+      <source
+        src="/assets/img/videos/Tifa Jade - Hero Loop_h264_crf23.mp4"
+        type="video/mp4"
+      />
+      <source
+        src="/assets/img/videos/Tifa Jade - Hero Loop.webm"
+        type="video/webm"
+      />
+      Your browser does not support the video tag.
+    </video>
   </div>
 
   <a href="#scroll-point" class="scroll-arrow">↓</a>
