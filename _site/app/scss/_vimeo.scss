@@ -1,40 +1,3 @@
-.vimeo-container {
-  overflow-x: hidden;
-
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  width: 100%;
-  box-sizing: border-box;
-  transform: none;
-}
-
-.iframe-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden; /* Ensure it hides any overflow */
-}
-
-.vimeo-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none; /* Ensure no borders */
-}
-
-.hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  overflow: hidden;
-}
 .hero {
   position: relative;
   height: 100vh;
@@ -55,7 +18,7 @@
   overflow: hidden;
 }
 
-.video-background iframe {
+.video-background video {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -66,7 +29,7 @@
 }
 
 @media (max-aspect-ratio: 16/9) {
-  .video-background iframe {
+  .video-background video {
     width: 177.78vh; /* 16:9 aspect ratio (100vh * 16/9) */
     height: 100vh;
   }
