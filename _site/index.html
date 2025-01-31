@@ -101,15 +101,23 @@
         <li class="topnav__item">
           <button class="showreel">Showreel</button>
         </li>
-        <li class="topnav__item">
-          <a
-            href="/index.html#animation"
-            class="topnav__link "
-            >Animation</a
-          >
-        </li>
-        <li class="topnav__item">
-          <a href="/video/index.html" class="topnav__link">Video</a>
+
+        <!-- Projects Dropdown -->
+        <li
+          class="topnav__item topnav__link dropdown dropdown-toggle mobile-hide"
+        >
+          Projects
+
+          <ul class="dropdown-menu">
+            <li>
+              <a
+                href="/index.html#animation"
+                class="topnav__link "
+                >Animation</a
+              >
+            </li>
+            <li><a href="/video/index.html" class="topnav__link">Video</a></li>
+          </ul>
         </li>
 
         <li class="topnav__item">
@@ -142,6 +150,7 @@
   </div>
 </aside>
 
+<!-- Hamburger Menu -->
 <div id="hamburger-menu-overlay" class="hamburger-overlay">
   <div class="hamburger-overlay-content">
     <nav class="menu">
@@ -263,7 +272,6 @@
     &copy; <span class="currentYear"></span> Tifa Jade. All rights reserved.
   </p>
 </div>
-
 
     <span id="close-hamburger-menu" class="close-hamburger-overlay"
       >&times;</span
