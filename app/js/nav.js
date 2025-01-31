@@ -30,4 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 500);
     }
   });
+
+  // Dropdown toggle for "Projects" menu (Animation + Video)
+  document
+    .querySelectorAll(".topnav__item.dropdown")
+    .forEach(function (dropdown) {
+      dropdown.addEventListener("click", function () {
+        this.classList.toggle("active");
+      });
+    });
 });

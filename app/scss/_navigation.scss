@@ -53,6 +53,14 @@ nav {
 .topnav {
   z-index: 100;
 
+  &__item {
+    position: relative;
+
+    &:hover {
+      color: var(--pico-primary);
+    }
+  }
+
   &__links {
     display: flex;
     flex-direction: row; /* Links arranged horizontally */
@@ -71,12 +79,23 @@ nav {
     text-align: center;
     font-size: u.rem(16);
     line-height: 1.5;
+    color: var(--pico-h1-color);
+
+    &:hover {
+      color: var(--pico-primary) !important;
+    }
   }
 
   &__socials {
     @include u.breakpoint-down(small) {
       display: none;
     }
+  }
+}
+
+.mobile-hide {
+  @include u.breakpoint-down(small) {
+    display: none;
   }
 }
 
@@ -236,4 +255,47 @@ nav {
   @include u.breakpoint-down(small) {
     display: none;
   }
+}
+
+.dropdown {
+  position: relative;
+  cursor: default;
+}
+
+.topnav__item .dropdown-toggle {
+  background: transparent;
+  border: none;
+  font-size: u.rem(16);
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--pico-background-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 999;
+}
+
+.dropdown-menu li {
+  padding: 10px 20px;
+  color: var(--pico-h1-color);
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: var(--pico-primary);
+  }
+}
+
+.topnav__item:hover .dropdown-menu {
+  display: block;
 }
