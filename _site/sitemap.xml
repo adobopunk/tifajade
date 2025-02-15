@@ -159,18 +159,6 @@
     
         
         <url>
-            <loc>/projects-animation/tfue-tuesday/</loc>
-            
-            
-            <lastmod>2023-02-07T00:00:00.000Z</lastmod>
-            
-
-            <changefreq>monthly</changefreq>
-        </url>
-        
-    
-        
-        <url>
             <loc>/projects-video/midnight-society/</loc>
             
             
@@ -199,6 +187,18 @@
             
             
             <lastmod>2023-06-04T00:00:00.000Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects-animation/tfue-tuesday/</loc>
+            
+            
+            <lastmod>2023-11-21T00:00:00.000Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -282,7 +282,7 @@
             <loc>/contact/</loc>
             
             
-            <lastmod>2024-10-28T19:56:33.609Z</lastmod>
+            <lastmod>2024-10-28T04:15:16.853Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -318,7 +318,19 @@
             <loc>/projects-animation/drafts/index copy/</loc>
             
             
-            <lastmod>2025-01-05T23:15:20.037Z</lastmod>
+            <lastmod>2025-01-03T19:49:27.982Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/video/</loc>
+            
+            
+            <lastmod>2025-01-03T22:12:57.356Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -339,10 +351,10 @@
     
         
         <url>
-            <loc>/about/</loc>
+            <loc>/projects-animation/pg2025/</loc>
             
             
-            <lastmod>2025-01-22T21:12:06.342Z</lastmod>
+            <lastmod>2025-01-29T00:00:00.000Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -354,7 +366,7 @@
             <loc>/</loc>
             
             
-            <lastmod>2025-01-22T21:12:06.343Z</lastmod>
+            <lastmod>2025-01-30T08:51:01.480Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -363,22 +375,10 @@
     
         
         <url>
-            <loc>/video/</loc>
+            <loc>/about/</loc>
             
             
-            <lastmod>2025-01-22T21:12:06.344Z</lastmod>
-            
-
-            <changefreq>monthly</changefreq>
-        </url>
-        
-    
-        
-        <url>
-            <loc>/projects-animation/pg2025/</loc>
-            
-            
-            <lastmod>2025-01-29T00:00:00.000Z</lastmod>
+            <lastmod>2025-02-14T19:22:03.963Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
