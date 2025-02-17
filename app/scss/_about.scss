@@ -34,6 +34,21 @@
     align-items: center;
   }
 }
+.about__bio {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin-block: 30px;
+  gap: u.rem(18);
+
+  @include u.breakpoint-down(small) {
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(20);
+    align-items: center;
+  }
+}
 
 .about__title,
 .about__p {
@@ -112,8 +127,20 @@ figure {
   }
 }
 
-.about__p ul {
+.about__p li {
+  line-height: 2;
+}
+
+.specialties {
   @include u.breakpoint-down(small) {
     text-align: center;
   }
+}
+.profile {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.project__info-R ul {
+  line-height: 2;
 }

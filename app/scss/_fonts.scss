@@ -50,21 +50,15 @@
 }
 
 body {
-  font-family: "Rethink Sans", "Arial", "Helvetica", sans-serif;
-  // font-size: 0.9rem;
-  // font-size: clamp(1rem, 0.975rem + 0.125vw, 1.125rem);
+  font-family: "Hahmlet", "Arial", "Helvetica", sans-serif;
 }
-
-// nav * {
-//   font-family: "Rethink Sans", "Arial", "Helvetica", sans-serif;
-// }
 
 h1,
 h2,
 h3 {
   font-family: "Ringift", serif;
   font-weight: 200;
-  margin: 30px 0;
+  margin-block-start: 30px;
   line-height: 1;
 }
 
@@ -91,23 +85,21 @@ span.jade-hover:hover {
 }
 
 p {
-  line-height: 1.6;
+  line-height: 2;
   font-size: 0.75rem;
-  font-size: clamp(0.75rem, 0.72rem + 0.15000000000000002vw, 0.9rem);
+  font-size: clamp(0.75rem, 0.72rem + 0.16vw, 0.9rem);
+}
 
-  @include u.breakpoint-down(medium) {
-    font-size: 1rem;
-    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
-  }
+li {
+  font-size: 0.75rem;
+  font-size: clamp(0.75rem, 0.72rem + 0.16vw, 0.9rem);
 }
 
 p.big {
-  font-size: 1rem;
-  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+  font-size: 1.2rem;
+  font-size: clamp(1.2rem, 1.15rem + 0.25vw, 1.45rem);
 
   @include u.breakpoint-down(medium) {
-    font-size: 1.25rem;
-    font-size: clamp(1.25rem, 1.2rem + 0.25vw, 1.5rem);
   }
 }
 
