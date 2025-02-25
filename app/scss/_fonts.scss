@@ -50,7 +50,7 @@
 }
 
 body {
-  font-family: "Hahmlet", "Arial", "Helvetica", sans-serif;
+  font-family: "Hahmlet", "Times New Roman", serif;
 }
 
 h1,
@@ -98,9 +98,11 @@ li {
 p.big {
   font-size: 1.2rem;
   font-size: clamp(1.2rem, 1.15rem + 0.25vw, 1.45rem);
-
-  @include u.breakpoint-down(medium) {
-  }
+}
+p.med,
+li {
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.96rem + 0.19999999999999996vw, 1.2rem);
 }
 
 .title,
