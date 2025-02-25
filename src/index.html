@@ -8,12 +8,14 @@ description: "Tifa Jade is an animator empowering others with thoughtful motion 
 {% include "includes/nav.html" %}
 
 <div id="scroll-point" class="wrapper wrapper-home">
-  <div class="layout-main wrapper-h">
-    <h2 id="animation">
-      Creative producer crafting stories that build connections since 2016.
-    </h2>
+  <div class="layout-main wrapper-h-home">
+    <div class="layout-main wrapper-a-home">
+      {% include "includes/about_bio.html" %}
+    </div>
 
-    <div class="intro">{% include "includes/gallery.html" %}</div>
+    <div class="intro" id="animation">
+      {% include "includes/gallery.html" %}
+    </div>
   </div>
 
   <script src="/app/js/hover.js"></script>

@@ -26,9 +26,32 @@
     max-width: 98%;
   }
 }
+.wrapper-h-home {
+  display: flex;
+  align-items: center;
+  width: clamp(250px, 90vw, 1920px);
+
+  @include u.breakpoint-down(medium) {
+    width: clamp(250px, 98vw, 1080px);
+    max-width: 98%;
+  }
+}
 
 .wrapper-a {
   margin-block-start: 120px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: clamp(250px, 90vw, 1280px);
+  gap: 10px;
+
+  @include u.breakpoint-down(medium) {
+    width: clamp(250px, 98vw, 1080px);
+    max-width: 98%;
+  }
+}
+.wrapper-a-home {
 
   display: flex;
   flex-direction: column;
