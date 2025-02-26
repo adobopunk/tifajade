@@ -14,7 +14,7 @@
         </li>
 
         <!-- Projects Dropdown -->
-        <li
+        <!-- <li
           class="topnav__item topnav__link dropdown dropdown-toggle mobile-hide"
         >
           Projects
@@ -29,8 +29,15 @@
             </li>
             <li><a href="/video/index.html" class="topnav__link">Video</a></li>
           </ul>
-        </li>
+        </li> -->
 
+        <li class="topnav__link">
+          <a
+            href="/index.html"
+            class="topnav__link {% if page.url == '/about/index.html' %}current-page{% endif %}"
+            >Projects</a
+          >
+        </li>
         <li class="topnav__link">
           <a
             href="/about/index.html"
