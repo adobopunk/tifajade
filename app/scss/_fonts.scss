@@ -56,7 +56,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: "Ringift", serif;
+  font-family: "Rethink Sans", serif;
   font-weight: 200;
   margin-block-start: 30px;
   line-height: 1;
@@ -107,7 +107,7 @@ li {
 
 .title,
 .subtitle {
-  font-family: "Ringift", sans-serif;
+  font-family: "rethink sans", sans-serif;
   font-size: 3rem;
   font-size: clamp(3rem, 2.8rem + 1vw, 4rem);
   text-align: left;
@@ -122,8 +122,9 @@ nav,
 .next,
 .previous,
 .back,
-.intro {
-  font-family: "Ringift", serif;
+.intro,
+figcaption {
+  font-family: "Rethink Sans", serif;
 }
 
 .button * {
