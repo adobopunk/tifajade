@@ -18,8 +18,9 @@
 
   &__title {
     font-size: 1rem;
-    margin: 0;
     color: var(--pico-primary);
+    margin: 0;
+    margin-block-end: u.rem(5);
 
     &:hover {
       color: var(--pico-primary-hover);
@@ -94,6 +95,7 @@
 }
 
 .image-preview-title {
+  margin-block-start: u.rem(10);
   color: white;
   text-align: left;
   display: flex;
