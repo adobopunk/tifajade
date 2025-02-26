@@ -6,7 +6,7 @@
     gap: u.rem(60);
     align-items: flex-start;
 
-    @include u.breakpoint-down(large) {
+    @include u.breakpoint-down(medium) {
       flex-direction: column;
       gap: u.rem(0);
       align-items: flex-start;

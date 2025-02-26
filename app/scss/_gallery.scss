@@ -1,4 +1,5 @@
 @use "../scss/util/" as u;
+
 .gallery {
   display: grid;
   grid-template-columns: 1fr;
@@ -16,12 +17,11 @@
   }
 
   &__title {
-    font-size: 2rem;
+    font-size: 1rem;
     margin: 0;
     color: var(--pico-primary);
 
     &:hover {
-      text-decoration: underline;
       color: var(--pico-primary-hover);
     }
   }
@@ -58,26 +58,35 @@
   border-radius: 2px;
   object-fit: cover;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
 }
 
 .image-container,
 .image-preview-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center video/image below title */
+  align-items: center;
   gap: u.rem(16);
   width: 100%;
   max-width: 1080px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Ensures scaled images remain within the container */
+}
 
-  &:hover {
-    transform: scale(1.02);
-  }
+.image-container a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Prevents overflow when zooming */
+}
+
+.image-container a:hover img,
+.image-container a:hover video {
+  transform: scale(1.05); /* Zoom effect on hover */
 }
 
 .image-title {
   color: white;
-  text-align: left; /* Center title and description */
+  text-align: left;
   display: flex;
   flex-direction: column;
   gap: u.rem(8);
@@ -86,7 +95,7 @@
 
 .image-preview-title {
   color: white;
-  text-align: left; /* Center title and description */
+  text-align: left;
   display: flex;
   flex-direction: column;
   gap: u.rem(8);
@@ -129,8 +138,4 @@
 .iframe-wrapper-gallery iframe {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
 }
