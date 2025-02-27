@@ -59,7 +59,12 @@
   border-radius: 2px;
   object-fit: cover;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.image-container a:hover img,
+.image-container a:hover video {
+  opacity: 0.5 !important; /* Slight fade effect */
 }
 
 .image-container,
@@ -80,9 +85,11 @@
   overflow: hidden; /* Prevents overflow when zooming */
 }
 
-.image-container a:hover img,
-.image-container a:hover video {
-  transform: scale(1.05); /* Zoom effect on hover */
+.image-container a:hover {
+  img,
+  video {
+    opacity: 0.5 !important;
+  }
 }
 
 .image-title {
