@@ -17,7 +17,6 @@ function hasNoAnimation(element) {
   return element.closest(".no-animation") !== null;
 }
 
-// Fade-in animations
 function setupFadeInAnimations() {
   if (isMobileDevice()) return () => {};
 
