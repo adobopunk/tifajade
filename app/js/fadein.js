@@ -9,22 +9,32 @@ function debug(message) {
 
 // Mobile device check
 function isMobileDevice() {
-  return window.innerWidth <= 900; // You can adjust this threshold as needed
+  return window.innerWidth <= 900; // Adjust threshold as needed
+}
+
+// Helper function to check if an element or its parents have .no-animation
+function hasNoAnimation(element) {
+  return element.closest(".no-animation") !== null;
 }
 
 // Fade-in animations
 function setupFadeInAnimations() {
+  if (isMobileDevice()) return () => {};
+
   const animatedTags = selectAll(
     ".hero h1, h1, .about h1, h2, .hero h3, p, .about__img, button, .footer__img, .topnav__homelink, .topnav__item, .footer__logo, .footer__links, .subfeature__img, .subfeature__feature-img, .subfeature__content-text, .about img, .about__headshot, div.divider, .about__bio, .projects-directory img, figure, h3, form, div.simple-divider, .project img, .project video, .project h1, .project h2, .project p, .footer img, figcaption, li, header, video, a, iframe"
   );
 
   debug(`Found ${animatedTags.length} animated tags`);
 
-  animatedTags.forEach((tag) => (tag.style.opacity = 0));
+  animatedTags.forEach((tag) => {
+    if (!hasNoAnimation(tag)) tag.style.opacity = 0;
+  });
 
   function fadeIn() {
     let delay = 0;
     animatedTags.forEach((tag) => {
+      if (hasNoAnimation(tag)) return;
       const tagTop = tag.getBoundingClientRect().top;
       const tagBottom = tag.getBoundingClientRect().bottom;
       if (
@@ -43,8 +53,12 @@ function setupFadeInAnimations() {
 
 // Accent animations
 function setupAccentAnimations() {
-  const breathers = selectAll(".breathe");
-  const spinners = selectAll(".rotate");
+  if (isMobileDevice()) return;
+
+  const breathers = selectAll(
+    ".breathe:not(.no-animation) :not(.no-animation)"
+  );
+  const spinners = selectAll(".rotate:not(.no-animation) :not(.no-animation)");
 
   debug(
     `Found ${breathers.length} breather elements and ${spinners.length} spinner elements`
@@ -79,6 +93,9 @@ function setupAccentAnimations() {
 
 // Parallax effects
 function setupParallaxEffects() {
+  if (isMobileDevice())
+    return { applyHeroParallax: () => {}, applyFeaturesParallax: () => {} };
+
   const heroSection = select(".hero");
   const featuresContainer = select(".features");
   const sections = selectAll(".features .subfeature");
@@ -90,39 +107,17 @@ function setupParallaxEffects() {
   );
 
   function applyHeroParallax() {
-    if (!heroSection) {
-      debug("Hero section not found, skipping hero parallax");
-      return;
-    }
-
-    if (isMobileDevice()) {
-      debug("Mobile device detected, skipping hero parallax");
-      return;
-    }
-
+    if (!heroSection) return;
     const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    const parallaxTags = heroSection.querySelectorAll("[data-parallax]");
-
-    debug(`Applying hero parallax to ${parallaxTags.length} elements`);
-
-    parallaxTags.forEach((tag) => {
+    heroSection.querySelectorAll("[data-parallax]").forEach((tag) => {
+      if (hasNoAnimation(tag)) return;
       const speed = parseFloat(tag.getAttribute("data-parallax"));
-      const yPos = scrollY * speed;
-      tag.style.transform = `translate3d(0, ${yPos}px, 0)`;
+      tag.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`;
     });
   }
 
   function applyFeaturesParallax() {
-    if (!featuresContainer) {
-      debug("Features container not found, skipping features parallax");
-      return;
-    }
-
-    if (isMobileDevice()) {
-      debug("Mobile device detected, skipping features parallax");
-      return;
-    }
-
+    if (!featuresContainer) return;
     const scrollY = window.scrollY || document.documentElement.scrollTop;
     const viewportHeight = window.innerHeight;
     const featuresTop = featuresContainer.offsetTop;
@@ -131,41 +126,14 @@ function setupParallaxEffects() {
       const topSection = section.offsetTop + featuresTop;
       const midSection = topSection + section.offsetHeight / 2;
       const distanceToSection = scrollY + viewportHeight / 2 - midSection;
-      const parallaxTags = section.querySelectorAll("[data-parallax]");
 
-      debug(
-        `Applying parallax to section ${index + 1}, ${
-          parallaxTags.length
-        } parallax elements`
-      );
-
-      parallaxTags.forEach((tag) => {
+      section.querySelectorAll("[data-parallax]").forEach((tag) => {
+        if (hasNoAnimation(tag)) return;
         const speed = parseFloat(tag.getAttribute("data-parallax"));
         tag.style.transform = `translate3d(0, ${
           distanceToSection * speed
         }px, 0)`;
       });
-
-      // Background color change logic
-      const dataBackground = section.getAttribute("data-background");
-      if (dataBackground) {
-        const sectionVisibility =
-          (scrollY + viewportHeight / 2 - topSection) / section.offsetHeight;
-        if (sectionVisibility > 0 && sectionVisibility < 1) {
-          let backgroundColor = dataBackground;
-          if (backgroundColor.startsWith("var(")) {
-            backgroundColor = getComputedStyle(
-              document.documentElement
-            ).getPropertyValue(backgroundColor.slice(4, -1).trim());
-          }
-          featuresContainer.style.backgroundColor = backgroundColor;
-          debug(
-            `Changed background color to ${backgroundColor} for section ${
-              index + 1
-            }`
-          );
-        }
-      }
     });
   }
 
@@ -175,22 +143,17 @@ function setupParallaxEffects() {
 // Main initialization
 function initializeAnimationsAndParallax() {
   debug("Initializing animations and parallax effects");
-
   const fadeIn = setupFadeInAnimations();
   setupAccentAnimations();
   const { applyHeroParallax, applyFeaturesParallax } = setupParallaxEffects();
 
-  // Combine all effects into a single scroll handler
   function handleScroll() {
     fadeIn();
     applyHeroParallax();
     applyFeaturesParallax();
   }
 
-  // Initial application
   handleScroll();
-
-  // Throttle scroll events for better performance
   let ticking = false;
   window.addEventListener("scroll", () => {
     if (!ticking) {
@@ -201,17 +164,10 @@ function initializeAnimationsAndParallax() {
       ticking = true;
     }
   });
-
-  // Handle resize events
-  window.addEventListener("resize", () => {
-    handleScroll();
-    debug(`Window resized. Is mobile device: ${isMobileDevice()}`);
-  });
-
+  window.addEventListener("resize", handleScroll);
   debug("Initialization complete, event listeners attached");
 }
 
-// Run initialization when the DOM is fully loaded
 if (document.readyState === "loading") {
   document.addEventListener(
     "DOMContentLoaded",
@@ -221,22 +177,15 @@ if (document.readyState === "loading") {
   initializeAnimationsAndParallax();
 }
 
-// Add CSS for fade-in animation if it doesn't exist
 if (!document.querySelector("style#fade-in-animation")) {
   const style = document.createElement("style");
   style.id = "fade-in-animation";
   style.textContent = `
-        @keyframes fadein {
-            0% {
-                opacity: 0;
-
-            }
-            100% {
-                opacity: 1;
-
-            }
-        }
-    `;
+    @keyframes fadein {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  `;
   document.head.appendChild(style);
   debug("Added fade-in animation CSS");
 }
