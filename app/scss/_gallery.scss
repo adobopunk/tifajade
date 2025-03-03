@@ -59,7 +59,7 @@
   border-radius: 2px;
   object-fit: cover;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 
 .image-container a:hover img,
@@ -83,6 +83,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden; /* Prevents overflow when zooming */
+  transition: opacity 1s ease-in-out;
 }
 
 .image-container a:hover {
