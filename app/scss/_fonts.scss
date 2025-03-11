@@ -11,6 +11,15 @@
 }
 
 @font-face {
+  font-family: "Ohno Blazeface";
+  src: url("/assets/fonts/OhnoBlazeface/Ohno\ Blazeface\ 16\ Point.ttf") format
+    ("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Rethink Sans";
   src: url("/assets/fonts/Rethink-Sans/RethinkSans-Regular.woff2")
       format("woff2"),
@@ -77,11 +86,11 @@ h2 span.jade,
 h3 span.jade,
 p span.jade {
   color: var(--pico-primary);
-  font-family: "Ringift", "Times New Roman", serif;
+  font-family: "Ohno Blazeface", "Times New Roman", serif;
 }
 
 span.jade-hover {
-  font-family: "Ringift", "Times New Roman", serif;
+  font-family: "Ohno Blazeface", "Times New Roman", serif;
   transition: color 0.3s ease;
 }
 
@@ -117,6 +126,14 @@ p.med,
 li {
   font-size: 1rem;
   font-size: clamp(1rem, 0.96rem + 0.2vw, 1.2rem);
+}
+
+p.small {
+  font-size: 0.75rem;
+
+  @include u.breakpoint-down(small) {
+    font-size: 0.6rem;
+  }
 }
 
 .title,

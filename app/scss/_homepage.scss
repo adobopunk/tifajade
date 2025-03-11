@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   min-height: 80vh;
-  margin-block-end: 20vh;
+  // margin-block-end: 20vh;
   width: 100%;
 
   @include u.breakpoint-down(small) {
