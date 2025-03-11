@@ -33,7 +33,21 @@
   font-size: u.rem(24);
   text-align: center;
   font-family: "Ringift", "Times New ROman", serif;
-  margin-right: auto; /* Push homelink to the left */
+  margin-right: auto;
+  max-height: 50px;
+
+  @include u.breakpoint-down(small) {
+    display: none;
+  }
+}
+
+.sidebar__homelink-alt {
+  height: 50px;
+  min-width: 50px;
+
+  @include u.breakpoint(small) {
+    display: none;
+  }
 }
 
 .sidebar__logo {
@@ -221,15 +235,11 @@ nav {
 }
 .hamburger {
   font-size: 32px;
-  background-color: transparent; /* Removes button background color */
-  border: none; /* Removes button border */
-  color: inherit; /* Inherits color from parent (or specify a color) */
-  cursor: pointer; /* Ensures pointer cursor on hover */
-  outline: none; /* Optional: removes outline when clicked */
-
-  @include u.breakpoint(large) {
-    // display: none;
-  }
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
 }
 
 .hamburger-description {
@@ -241,8 +251,8 @@ nav {
   }
 }
 .topnav__link.current-page {
-  color: red; /* Change this to whatever color you want */
-  font-weight: bold; /* Optional: Makes the active link stand out */
+  color: red;
+  font-weight: bold;
 }
 
 .hide-on-small {
