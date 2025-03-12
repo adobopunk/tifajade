@@ -40,10 +40,30 @@
     display: none;
   }
 }
+.sidebar__homelink-svg {
+  margin-right: auto;
+  max-height: 50px;
+  width: 100%; /* Icon size */
+  height: 50px; /* Icon size */
+
+  @include u.breakpoint-down(small) {
+    display: none;
+  }
+}
 
 .sidebar__homelink-alt {
   height: 50px;
   min-width: 50px;
+
+  @include u.breakpoint(small) {
+    display: none;
+  }
+}
+.sidebar__homelink-alt-svg {
+  margin-right: auto;
+  max-height: 50px;
+  width: 100%; /* Icon size */
+  height: 50px; /* Icon size */
 
   @include u.breakpoint(small) {
     display: none;
