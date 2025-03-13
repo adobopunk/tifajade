@@ -16,7 +16,9 @@
   &__credits {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    // display: none;
   }
 
   &__info-L {
@@ -126,7 +128,7 @@ h2.project__step-title,
 }
 
 .project-layout p {
-  max-width: 800px;
+  max-width: 850px;
 }
 
 .center {
@@ -202,4 +204,8 @@ h2.project__step-title,
 .context h2 {
   font-size: 2.5rem;
   font-size: clamp(2.5rem, 2.3rem + 1vw, 3.5rem);
+}
+
+.contributions {
+  text-align: center;
 }
