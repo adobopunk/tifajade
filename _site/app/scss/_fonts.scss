@@ -103,13 +103,8 @@ span.jade-hover:hover {
 
 p {
   line-height: 2;
-  font-size: 0.75rem;
-  font-size: clamp(0.75rem, 0.72rem + 0.16vw, 0.9rem);
-
-  @include u.breakpoint-down(small) {
-    font-size: 1rem;
-    font-size: clamp(1rem, 0.96rem + 0.2vw, 1.2rem);
-  }
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.2rem);
 }
 
 li {
@@ -118,12 +113,8 @@ li {
 }
 
 p.big {
-  font-size: 1.2rem;
-  font-size: clamp(1.2rem, 1.15rem + 0.25vw, 1.45rem);
-
-  @include u.breakpoint-down(small) {
-    font-size: 1.5rem;
-  }
+  font-size: 1.45rem;
+  font-size: clamp(1.45rem, 1.44rem + 0.050000000000000044vw, 1.5rem);
 }
 p.med,
 li {
@@ -156,7 +147,6 @@ nav,
 .next,
 .previous,
 .back,
-.intro,
 figcaption {
   font-family: "Rethink Sans", sans-serif;
 }
