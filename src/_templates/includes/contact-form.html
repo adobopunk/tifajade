@@ -1,6 +1,6 @@
 <form name="contact" method="POST"   netlify-honeypot="bot-field" data-netlify="true"   data-netlify-recaptcha="true"
 >
-    <h2 style="font-family: 'ringift'">Spill The Tea...</h2>
+    <h3 >Spill The Tea...</h3>
       <fieldset class="grid">
         <p class="visually-hidden">
           <label>
@@ -8,19 +8,10 @@
           </label>
         </p>
           <p>
-              <label>Your First Name:
+              <label>Your Name:
               <input 
-              name="First Name"
-              placeholder="Tifa"
-              aria-label="Login"
-              autocomplete="username"
-            />
-          </p>
-          <p>
-              <label>Your Last Name:
-              <input 
-              name="Last Name"
-              placeholder="Jade"
+              name="Name"
+              placeholder="Tifa Jade"
               aria-label="Login"
               autocomplete="username"
             />
@@ -30,28 +21,42 @@
         <label>Your Email: <input type="email" name="email" placeholder="hi@tifajade.com"  /></label>
       </p>
       <p>
-        <label>Inquiry Type: 
+        <label>Subject: 
           <select name="subject " aria-label="Select one" required>
             <option selected disabled value="">
-              Select one
+              What's this about?
             </option>
+            <option>Project Inquiry</option>
             <option>Freelance Work</option>
             <option>Recruitment</option>
             <option>Networking</option>
             <option>Collaboration</option>
-            <option>Inquiry</option>
+            <option>Just Saying Hi</option>
           </select>
     </p>
 
       <p>
           <label>Your message
-            <textarea name="message text"></textarea></label>
+            <textarea name="message text" placeholder="Tell me a little about what you’re looking for and how I can help."></textarea></label>
             
       </p>
+      <p>
+        <label>How did you find me?
+          <select name="subject " aria-label="Select one">
+            <option selected disabled value="">
+              Where did you hear about my work?
+            </option>
+            <option>Linkedin</option>
+            <option>Other Social Media</option>
+            <option>Referral</option>
+            <option>Search Engine</option>
+            <option>Other</option>
+          </select>
+    </p>
 
       <div data-netlify-recaptcha="true"></div>
     
       <p>
-        <button type="submit">Send</button>
+        <button type="submit">Send Message</button>
       </p>
     </form>
