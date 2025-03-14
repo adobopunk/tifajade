@@ -1,6 +1,6 @@
 # Tifa Jade's Portfolio
 
-Welcome to the repository for my personal portfolio website! This is a fully custom-built site showcasing my work as an animation director, 3D motion designer, and video editor.
+Welcome to the repository for my personal portfolio website! This is a fully custom-built site showcasing my work as a creative director. The site is fully open-source, made with Pico CSS and deploys via 11ty on Netlify.
 
 ## Features
 
