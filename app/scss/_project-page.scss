@@ -1,6 +1,10 @@
 @use "../scss/util/" as u;
 
 .project {
+  li::before {
+    content: "▶ ";
+    font-size: 0.5em;
+  }
   &__info {
     display: flex;
     gap: u.rem(60);
@@ -10,6 +14,11 @@
       flex-direction: column;
       gap: u.rem(0);
       align-items: flex-start;
+    }
+
+    li::before {
+      content: "▶ ";
+      font-size: 0.5em;
     }
   }
 
@@ -127,8 +136,12 @@ h2.project__step-title,
   }
 }
 
-.project-layout p {
-  max-width: 850px;
+.project-layout {
+  p {
+    @include u.breakpoint(large) {
+      max-width: 50%;
+    }
+  }
 }
 
 .center {
@@ -145,6 +158,9 @@ h2.project__step-title,
 
   @include u.breakpoint-down(medium) {
     flex-direction: column;
+  }
+  p {
+    max-width: 100% !important;
   }
 }
 
@@ -207,5 +223,11 @@ h2.project__step-title,
 }
 
 .contributions {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.goal {
+  margin: 0 auto;
   text-align: center;
 }

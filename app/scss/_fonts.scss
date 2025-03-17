@@ -115,6 +115,7 @@ li {
 p.big {
   font-size: 1.45rem;
   font-size: clamp(1.45rem, 1.44rem + 0.050000000000000044vw, 1.5rem);
+  max-width: none !important;
 }
 p.med,
 li {
