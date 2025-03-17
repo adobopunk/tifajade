@@ -279,18 +279,6 @@
     
         
         <url>
-            <loc>/contact/</loc>
-            
-            
-            <lastmod>2024-10-28T19:56:33.609Z</lastmod>
-            
-
-            <changefreq>monthly</changefreq>
-        </url>
-        
-    
-        
-        <url>
             <loc>/projects-animation/off-the-grid-all-stars/</loc>
             
             
@@ -315,18 +303,6 @@
     
         
         <url>
-            <loc>/projects-animation/drafts/index copy/</loc>
-            
-            
-            <lastmod>2025-01-05T23:15:20.037Z</lastmod>
-            
-
-            <changefreq>monthly</changefreq>
-        </url>
-        
-    
-        
-        <url>
             <loc>/projects-animation/staring-at-the-sun/</loc>
             
             
@@ -339,10 +315,10 @@
     
         
         <url>
-            <loc>/about/</loc>
+            <loc>/projects-animation/pg2025/</loc>
             
             
-            <lastmod>2025-01-22T21:12:06.342Z</lastmod>
+            <lastmod>2025-01-29T00:00:00.000Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -351,10 +327,22 @@
     
         
         <url>
-            <loc>/</loc>
+            <loc>/contact/</loc>
             
             
-            <lastmod>2025-01-22T21:12:06.343Z</lastmod>
+            <lastmod>2025-02-24T20:01:50.122Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects-animation/drafts/index copy/</loc>
+            
+            
+            <lastmod>2025-02-24T20:01:50.123Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -366,7 +354,7 @@
             <loc>/video/</loc>
             
             
-            <lastmod>2025-01-22T21:12:06.344Z</lastmod>
+            <lastmod>2025-02-24T20:01:50.126Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -375,10 +363,22 @@
     
         
         <url>
-            <loc>/projects-animation/pg2025/</loc>
+            <loc>/about/</loc>
             
             
-            <lastmod>2025-01-29T00:00:00.000Z</lastmod>
+            <lastmod>2025-02-25T22:54:33.442Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/</loc>
+            
+            
+            <lastmod>2025-03-13T15:01:05.916Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
