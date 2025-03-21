@@ -112,9 +112,11 @@
 }
 
 /* Show overlay on hover for non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  .image-container a:hover .hover-overlay {
-    opacity: 1;
+@include u.breakpoint(small) {
+  @media (hover: hover) and (pointer: fine) {
+    .image-container a:hover .hover-overlay {
+      opacity: 1;
+    }
   }
 }
 
