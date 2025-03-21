@@ -43,7 +43,9 @@
 .gallery img,
 .gallery video,
 .image-preview-container img,
-.image-preview-container video {
+.image-preview-container video,
+.featured-gallery img,
+.featured-gallery video {
   width: 100%;
   border-radius: 2px;
   object-fit: cover;
@@ -58,7 +60,9 @@
 }
 
 .image-container a:hover img,
-.image-container a:hover video {
+.image-container a:hover video,
+.featured-gallery a:hover img,
+.featured-gallery a:hover video {
   opacity: 0.85; /* Less fade effect */
   filter: grayscale(0%);
 }
@@ -86,6 +90,52 @@
     filter: grayscale(0%);
   }
 }
+
+.image-container {
+  position: relative;
+}
+
+.hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* This aligns content to the bottom */
+  padding-bottom: 1.5rem; /* Add some padding at the bottom */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Show overlay on hover for non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .image-container a:hover .hover-overlay {
+    opacity: 1;
+  }
+}
+
+/* Style for the subtitle displayed in the overlay */
+.hover-overlay .gallery__title,
+.hover-overlay .gallery__subtitle {
+  color: white;
+  text-align: center; /* Align text to the left instead of center */
+  padding: 0 1.5rem; /* Increase horizontal padding */
+  margin: 0.25rem 0; /* Reduce vertical margins */
+}
+
+.hover-overlay .gallery__title {
+  margin-bottom: 0.25rem;
+}
+
+.hover-overlay .gallery__subtitle {
+  // font-size: 0.9rem;
+  margin-top: 0;
+}
+
 .image-title {
   color: white;
   text-align: left;
@@ -223,7 +273,6 @@
     top: 0;
     left: 0;
     z-index: 1;
-    // filter: grayscale(100%);
 
     /* Default display settings for poster */
     display: none;
@@ -237,7 +286,7 @@
   }
 
   /* Make sure videos are hidden on mobile */
-  @include u.breakpoint-down(medium) {
+  @include u.breakpoint-down(small) {
     video.featured-media {
       display: none;
     }
@@ -258,6 +307,7 @@
     margin-bottom: u.rem(8);
     color: var(--pico-primary);
     transition: color 0.3s ease;
+    // text-align: center;
 
     &:hover {
       color: var(--pico-primary-hover);
