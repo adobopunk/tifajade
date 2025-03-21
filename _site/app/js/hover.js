@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const videos = document.querySelectorAll(
-    ".gallery video, .image-preview-container video"
+    ".gallery video, .image-preview-container video, .featured-gallery video"
   );
 
   // Function to check if we're on a mobile device
