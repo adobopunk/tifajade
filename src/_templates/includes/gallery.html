@@ -22,7 +22,6 @@
           Your browser does not support the video tag.
         </video>
         {% else %}
-        <!-- Display image if no video is present -->
         <img
           src="{{ project.data.image | default: '/assets/img/og-image.jpg' }}"
           alt="Placeholder for {{ project.data.title }}"
@@ -30,6 +29,11 @@
           loading="lazy"
         />
         {% endif %}
+        <div class="hover-overlay">
+          <p class="gallery__subtitle small" style="font-family: Rethink Sans">
+            {{ project.data.subtitle }}
+          </p>
+        </div>
       </a>
       <div class="image-title">
         <a href="{{ project.url }}">
