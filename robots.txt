@@ -1,5 +1,5 @@
 User-agent: *
-Disallow: /admin/         # Example of blocking a folder; adjust if needed
+Disallow: /admin/     
 
 # Allow major search engines
 User-agent: Googlebot
