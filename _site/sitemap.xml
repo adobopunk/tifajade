@@ -327,46 +327,22 @@
     
         
         <url>
+            <loc>/about/</loc>
+            
+            
+            <lastmod>2025-04-07T04:16:47.168Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
             <loc>/contact/</loc>
             
             
-            <lastmod>2025-02-24T20:01:50.122Z</lastmod>
-            
-
-            <changefreq>monthly</changefreq>
-        </url>
-        
-    
-        
-        <url>
-            <loc>/projects-animation/drafts/index copy/</loc>
-            
-            
-            <lastmod>2025-02-24T20:01:50.123Z</lastmod>
-            
-
-            <changefreq>monthly</changefreq>
-        </url>
-        
-    
-        
-        <url>
-            <loc>/video/</loc>
-            
-            
-            <lastmod>2025-02-24T20:01:50.126Z</lastmod>
-            
-
-            <changefreq>monthly</changefreq>
-        </url>
-        
-    
-        
-        <url>
-            <loc>/</loc>
-            
-            
-            <lastmod>2025-03-19T21:39:06.056Z</lastmod>
+            <lastmod>2025-04-07T04:16:47.168Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -378,7 +354,7 @@
             <loc>/highlights/</loc>
             
             
-            <lastmod>2025-03-21T00:07:15.316Z</lastmod>
+            <lastmod>2025-04-07T04:16:47.168Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -387,10 +363,34 @@
     
         
         <url>
-            <loc>/about/</loc>
+            <loc>/</loc>
             
             
-            <lastmod>2025-03-28T06:42:18.414Z</lastmod>
+            <lastmod>2025-04-07T04:16:47.169Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects-animation/drafts/index copy/</loc>
+            
+            
+            <lastmod>2025-04-07T04:16:47.171Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/video/</loc>
+            
+            
+            <lastmod>2025-04-07T04:16:47.177Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
