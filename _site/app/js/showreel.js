@@ -1,40 +1,52 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const showreelButtons = document.querySelectorAll(".showreel"); // Get all buttons
+  const showreelButtons = document.querySelectorAll(".showreel");
   const overlay = document.getElementById("showreel-overlay");
   const closeButton = document.querySelector(".close-overlay");
   const iframe = document.querySelector(
     "#showreel-overlay .vimeo-container iframe"
   );
-  const player = new Vimeo.Player(iframe); // Initialize Vimeo player for this iframe
+  const player = new Vimeo.Player(iframe);
+  const overlayContent = document.querySelector(".overlay-content");
 
-  // Iterate over each showreel button and apply event listener
-  showreelButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      overlay.classList.add("active");
-      overlay.style.display = "flex";
-      setTimeout(() => {
-        overlay.style.opacity = "1";
-        player.play(); // Start playing the video on overlay open
-      }, 10);
-    });
-  });
+  function openOverlay() {
+    overlay.classList.add("reelon");
+    overlay.style.display = "flex";
+    setTimeout(() => {
+      overlay.style.opacity = "1";
+      player.play();
+    }, 10);
+  }
 
-  // Hide overlay, reset video time, and stop playback when close button is clicked
-  closeButton.addEventListener("click", function () {
-    overlay.style.opacity = "0"; // Fade out effect
+  function closeOverlay() {
+    overlay.style.opacity = "0";
     overlay.addEventListener(
       "transitionend",
       function () {
-        overlay.classList.remove("active");
+        overlay.classList.remove("reelon");
         overlay.style.display = "none";
         player
-          .setCurrentTime(0) // Reset video to start
-          .then(() => player.pause()) // Stop playback after resetting time
-          .catch(function (error) {
-            console.error("Error stopping playback:", error);
-          });
+          .setCurrentTime(0)
+          .then(() => player.pause())
+          .catch(console.error);
       },
       { once: true }
-    ); // Listener removed after running once
+    );
+  }
+
+  showreelButtons.forEach((button) => {
+    button.addEventListener("click", openOverlay);
+  });
+
+  closeButton.addEventListener("click", closeOverlay);
+
+  overlay.addEventListener("click", function (e) {
+    if (e.target === overlay) {
+      closeOverlay();
+    }
+  });
+
+  // Prevent clicks inside content from closing overlay
+  overlayContent.addEventListener("click", function (e) {
+    e.stopPropagation();
   });
 });
