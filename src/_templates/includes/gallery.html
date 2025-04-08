@@ -30,8 +30,19 @@
         />
         {% endif %}
         <div class="hover-overlay">
-          <p class="gallery__title"><b>{{ project.data.title }}</b></p>
-          <p class="gallery__subtitle small" style="font-family: Rethink Sans">
+          <p
+            class="gallery__client no-animation"
+            style="font-family: Rethink Sans"
+          >
+            {{ project.data.client }}
+          </p>
+          <p class="gallery__title no-animation">
+            <b>{{ project.data.title }}</b>
+          </p>
+          <p
+            class="gallery__subtitle small no-animation"
+            style="font-family: Rethink Sans"
+          >
             {{ project.data.scope }}
           </p>
         </div>

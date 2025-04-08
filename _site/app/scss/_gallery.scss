@@ -102,14 +102,17 @@
   width: 100%;
   height: 100%;
 
-  background-color: rgba(0, 0, 0, 0.2); /* slight dark overlay */
-
+  background: linear-gradient(
+    to top,
+    rgba(0, 101, 67, 0.9),
+    rgba(0, 0, 0, 0) /* Transparent at the top */
+  );
   display: flex;
   flex-direction: column;
   justify-content: flex-end; /* This aligns content to the bottom */
   padding-bottom: 1.5rem; /* Add some padding at the bottom */
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 1s ease;
   pointer-events: none;
 }
 
@@ -124,7 +127,8 @@
 
 /* Style for the subtitle displayed in the overlay */
 .hover-overlay .gallery__title,
-.hover-overlay .gallery__subtitle {
+.hover-overlay .gallery__subtitle,
+.hover-overlay .gallery__client {
   color: white;
   text-align: center; /* Align text to the left instead of center */
   padding: 0 1.5rem; /* Increase horizontal padding */
@@ -143,14 +147,23 @@
   font-size: 0.9rem;
   margin-top: 0;
 }
+.hover-overlay .gallery__client {
+  @include u.breakpoint-down(medium) {
+    display: none;
+  }
+}
 
 .image-title {
-  color: white;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: u.rem(8);
-  width: 100%;
+  display: none;
+  @include u.breakpoint-down(medium) {
+    display: block;
+    color: white;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(8);
+    width: 100%;
+  }
 }
 .image-preview-title {
   margin-block-start: u.rem(10);
