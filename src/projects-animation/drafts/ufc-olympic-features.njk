@@ -1,6 +1,6 @@
 ---
 layout: "layouts/project.njk"
-title: "UFC Performance Institute"
+client: "UFC Performance Institute"
 video: "/assets/img/videos/olympicteam_h264_crf23.mp4"
 image: "/assets/img/projects/olympic team/vlcsnap-2025-02-26-19h51m09s524.webp"
 videoID: "598548715"
@@ -21,7 +21,7 @@ feature: "no"
   ></iframe>
 </div>
 
-<h1 class="title">{{ title }}</h1>
+<h1 class="title">{{ client }}{% if title %} | {{ title }}{% endif %}</h1>
 
 <div class="project__info">
   <div class="project__info-L">

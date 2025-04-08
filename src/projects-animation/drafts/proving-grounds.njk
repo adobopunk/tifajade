@@ -1,6 +1,6 @@
 ---
 layout: "layouts/project.njk"
-title: "Proving Grounds"
+client: "Proving Grounds"
 videoID: "1025757611"
 subtitle: "Motion Design System, Broadcast Design, Animation Direction"
 video: "/assets/img/videos/pg_previewloop (1080p).mp4"
@@ -11,7 +11,7 @@ scope: "Broadcast Animation"
 feature: "no"
 ---
 
-<h1 class="title">{{ title }}</h1>
+<h1 class="title">{{ client }}{% if title %} | {{ title }}{% endif %}</h1>
 
 <div style="padding: 56.25% 0 0 0; position: relative">
   <iframe

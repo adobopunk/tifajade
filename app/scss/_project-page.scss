@@ -233,8 +233,22 @@ h2.project__step-title,
 }
 
 .details {
-  justify-content: space-around;
-  // text-align: center;
+  display: flex;
+  justify-content: space-between;
+
+  @include u.breakpoint(medium) {
+    // flex-direction: row;
+    // align-items: flex-start;
+    gap: u.rem(30);
+  }
+
+  @include u.breakpoint(large) {
+    max-width: clamp(50%, 50%, 100%);
+  }
+
+  @include u.breakpoint-down(small) {
+    text-align: center;
+  }
 }
 .testimonial {
   // text-align: center;

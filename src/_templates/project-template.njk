@@ -1,6 +1,6 @@
 ---
 layout: "layouts/project.njk"
-title: "Valorant Select"
+client: "Valorant Select"
 description: "Tifa Jade - Reel | Montage of my favorite keyframed work"
 image: "/assets/img/projects/influencer comp.webp"
 date: 2024-10-02
@@ -13,7 +13,7 @@ scope: "Motion Design & Animation Direction"
   alt="Description of image 2"
 />
 
-<h1 class="title">{{ title }}</h1>
+<h1 class="title">{{ client }}{% if title %} | {{ title }}{% endif %}</h1>
 
 <div class="project__info">
   <div class="project__info-L">

@@ -1,6 +1,6 @@
 ---
 layout: "layouts/project.njk"
-title: "Next Level"
+client: "Next Level"
 videoID: "1026353184"
 subtitle: "Direction, Video Editing, Project Management"
 video: "/assets/img/videos/zsmit_loop (1080p).mp4"
@@ -22,7 +22,7 @@ feature: "no"
   ></iframe>
 </div>
 
-<h1 class="title">{{ title }}</h1>
+<h1 class="title">{{ client }}{% if title %} | {{ title }}{% endif %}</h1>
 
 <div class="project__info">
   <div class="project__info-L">

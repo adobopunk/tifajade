@@ -1,6 +1,6 @@
 ---
 layout: "layouts/project.njk"
-title: "KNDU-TV"
+client: "KNDU-TV"
 subtitle: "Directing, Video Editing, Videography, Motion Design, Project Management"
 video: "/assets/img/videos/kndu sizzle_h264_crf21.mp4"
 image: "/assets/img/projects/kndu/kndu-thumb.jpg"
@@ -25,7 +25,7 @@ feature: "no"
   </figcaption>
 </figure>
 
-<h1 class="title">{{ title }}</h1>
+<h1 class="title">{{ client }}{% if title %} | {{ title }}{% endif %}</h1>
 
 <div class="project__info">
   <div class="project__info-L">

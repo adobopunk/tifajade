@@ -1,6 +1,6 @@
 ---
 layout: "layouts/project.njk"
-title: "The Ethernaut"
+client: "The Ethernaut"
 subtitle: "Writing, Directing, Editing, VFX"
 image: "/assets/img/projects/student/ethernaut.jpg"
 date: 2016-01-01
@@ -19,7 +19,7 @@ feature: "no"
   ></iframe>
 </div>
 
-<h1 class="title">{{ title }}</h1>
+<h1 class="title">{{ client }}{% if title %} | {{ title }}{% endif %}</h1>
 
 <div class="project__info">
   <div class="project__info-L">
