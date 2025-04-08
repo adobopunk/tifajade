@@ -1,6 +1,6 @@
 ---
 layout: "layouts/project.njk"
-title: "BoomTV Wrapped 2023"
+client: "BoomTV Wrapped 2023"
 videoID: "1026354061"
 subtitle: "Creative Direction, Animation Direction, Motion Design"
 video: "/assets/img/videos/wrapped_loop (1080p).mp4"
@@ -25,7 +25,7 @@ feature: "no"
   </div>
   <div class="project__info">
     <div class="project__info-L">
-      <h1 class="title">{{ title }}</h1>
+      <h1 class="title">{{ client }}{% if title %} | {{ title }}{% endif %}</h1>
 
       <p class="big">A peek inside the creative sketchbook.</p>
 

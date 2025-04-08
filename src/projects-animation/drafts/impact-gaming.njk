@@ -1,6 +1,6 @@
 ---
 layout: "layouts/project.njk"
-title: "Impact Gaming"
+client: "Impact Gaming"
 subtitle: "Directing, Video Editing, Videography, Project Management"
 image: "/assets/img/projects/impact/impact thumb.jpg"
 date: 2018-01-01
@@ -19,7 +19,7 @@ feature: "no"
   ></iframe>
 </div>
 
-<h1 class="title">{{ title }}</h1>
+<h1 class="title">{{ client }}{% if title %} | {{ title }}{% endif %}</h1>
 
 <div class="project__info">
   <div class="project__info-L">

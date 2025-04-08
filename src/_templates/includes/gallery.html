@@ -24,20 +24,21 @@
         {% else %}
         <img
           src="{{ project.data.image | default: '/assets/img/og-image.jpg' }}"
-          alt="Placeholder for {{ project.data.title }}"
+          alt="Placeholder for {{ project.data.client }}"
           class="gallery__image"
           loading="lazy"
         />
         {% endif %}
         <div class="hover-overlay">
-          <!-- <p class="gallery__subtitle small" style="font-family: Rethink Sans">
-            {{ project.data.subtitle }}
-          </p> -->
+          <p class="gallery__title"><b>{{ project.data.title }}</b></p>
+          <p class="gallery__subtitle small" style="font-family: Rethink Sans">
+            {{ project.data.scope }}
+          </p>
         </div>
       </a>
       <div class="image-title">
         <a href="{{ project.url }}">
-          <h2 class="gallery__title">{{ project.data.title }}</h2>
+          <h2 class="gallery__title">{{ project.data.client }}</h2>
         </a>
       </div>
     </div>

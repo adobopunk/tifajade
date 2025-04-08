@@ -1,6 +1,6 @@
 ---
 layout: "layouts/project.njk"
-title: "Mountain Dew CS2 Showdown"
+client: "Mountain Dew CS2 Showdown"
 videoID: "885424173"
 subtitle: "Animation Direction, Broadcast Design, 3D Modeling, Motion Design, Trailer Direction"
 video: "/assets/img/videos/mtn_dew_code_red_cs_showdown_promo (1080p).mp4"
@@ -21,7 +21,7 @@ feature: "no"
   ></iframe>
 </div>
 
-<h1 class="title">{{ title }}</h1>
+<h1 class="title">{{ client }}{% if title %} | {{ title }}{% endif %}</h1>
 
 <div class="project__info">
   <div class="project__info-L">

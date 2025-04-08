@@ -101,6 +101,9 @@
   left: 0;
   width: 100%;
   height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2); /* slight dark overlay */
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end; /* This aligns content to the bottom */
@@ -126,14 +129,18 @@
   text-align: center; /* Align text to the left instead of center */
   padding: 0 1.5rem; /* Increase horizontal padding */
   margin: 0.25rem 0; /* Reduce vertical margins */
+  margin: 0 auto;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6); /* Horizontal, Vertical, Blur, Color */
+  line-height: 2rem;
 }
 
 .hover-overlay .gallery__title {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.1rem;
+  font-size: 2rem;
 }
 
 .hover-overlay .gallery__subtitle {
-  // font-size: 0.9rem;
+  font-size: 0.9rem;
   margin-top: 0;
 }
 

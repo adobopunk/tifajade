@@ -1,6 +1,6 @@
 ---
 layout: "layouts/project.njk"
-title: "Tiny Pond Studio"
+client: "Tiny Pond Studio"
 videoID: "1026235970"
 subtitle: "Building a visual motion identity for an independent creative studio bursting with talent."
 image: "/assets/img/projects/poster_1.1.1.jpg"
@@ -19,7 +19,7 @@ feature: "yes"
   ></iframe>
 </div>
 
-<h1 class="title">{{ title }}</h1>
+<h1 class="title">{{ client }}{% if title %} | {{ title }}{% endif %}</h1>
 
 <div class="project__info">
   <div class="project__info-L">
