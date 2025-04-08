@@ -246,10 +246,6 @@ h2.project__step-title,
     max-width: clamp(50%, 50%, 100%);
   }
 
-  @include u.breakpoint-down(small) {
-    text-align: center;
-  }
-
   & * {
     font-family: "Rethink Sans";
   }
