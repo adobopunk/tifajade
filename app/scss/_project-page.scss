@@ -235,7 +235,7 @@ h2.project__step-title,
 .details {
   display: flex;
   justify-content: space-between;
-
+  font-family: "Ohno Blazeface";
   @include u.breakpoint(medium) {
     // flex-direction: row;
     // align-items: flex-start;
@@ -248,6 +248,10 @@ h2.project__step-title,
 
   @include u.breakpoint-down(small) {
     text-align: center;
+  }
+
+  & * {
+    font-family: "Rethink Sans";
   }
 }
 .testimonial {
