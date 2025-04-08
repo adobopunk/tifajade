@@ -21,7 +21,7 @@ function setupFadeInAnimations() {
   if (isMobileDevice()) return () => {};
 
   const animatedTags = selectAll(
-    ".hero h1, h1, .about h1, h2, .hero h3, p, .about__img, button, img, figure, figcaption, h3, form, div.simple-divider, .project img, .project video, .project h1, .project h2, .project p, .footer img, figcaption, li, header, video, a, iframe, h4, h5, h6, blockquote, div.details"
+    ".hero h1, h1, .about h1, h2, .hero h3, p, .about__img, button, img, figure, figcaption, h3, form, div.simple-divider, .project img, .project video, .project h1, .project h2, .project p, .footer img, figcaption, li, header, video, a, iframe, h4, h5, h6, blockquote, div.details, cite"
   );
 
   debug(`Found ${animatedTags.length} animated tags`);
