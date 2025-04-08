@@ -148,7 +148,7 @@
   margin-top: 0;
 }
 .hover-overlay .gallery__client {
-  @include u.breakpoint-down(medium) {
+  @include u.breakpoint-down(small) {
     display: none;
   }
 }
