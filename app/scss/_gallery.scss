@@ -15,8 +15,8 @@
   &__title {
     font-size: 1rem;
     color: var(--pico-primary);
-    margin: 0;
-    margin-block-end: u.rem(5);
+
+    margin-block: u.rem(20);
     &:hover {
       color: var(--pico-primary-hover);
     }
@@ -35,9 +35,6 @@
   &__intro {
     max-width: 75ch;
     text-align: left;
-  }
-  @include u.breakpoint-down(medium) {
-    grid-template-columns: 1fr;
   }
 }
 .gallery img,
@@ -117,7 +114,7 @@
 }
 
 /* Show overlay on hover for non-touch devices */
-@include u.breakpoint(small) {
+@include u.breakpoint(medium) {
   @media (hover: hover) and (pointer: fine) {
     .image-container a:hover .hover-overlay {
       opacity: 1;
@@ -148,7 +145,7 @@
   margin-top: 0;
 }
 .hover-overlay .gallery__client {
-  @include u.breakpoint-down(small) {
+  @include u.breakpoint-down(medium) {
     display: none;
   }
 }
@@ -297,20 +294,6 @@
 
     /* Default display settings for poster */
     display: none;
-
-    /* Show poster on mobile by default */
-    @include u.breakpoint-down(medium) {
-      display: block;
-      position: relative;
-      height: auto;
-    }
-  }
-
-  /* Make sure videos are hidden on mobile */
-  @include u.breakpoint-down(small) {
-    video.featured-media {
-      display: none;
-    }
   }
 
   .featured-content {
