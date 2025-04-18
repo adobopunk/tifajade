@@ -14,9 +14,32 @@ module.exports = function (eleventyConfig) {
     return collection
       .getFilteredByGlob("src/projects-animation/*.njk")
       .sort((a, b) => {
-        return new Date(b.data.date) - new Date(a.data.date);
+        const aFeature = a.data.feature === "yes" ? 1 : 0;
+        const bFeature = b.data.feature === "yes" ? 1 : 0;
+  
+        // Prioritize featured projects
+        if (aFeature !== bFeature) {
+          return bFeature - aFeature;
+        }
+  
+        // If both are featured projects
+        if (aFeature && bFeature) {
+          const aOrder = a.data.order !== undefined ? a.data.order : Infinity;
+          const bOrder = b.data.order !== undefined ? b.data.order : Infinity;
+  
+          if (aOrder !== bOrder) {
+            return aOrder - bOrder; // lower order first
+          }
+        }
+  
+        // Fallback to date sorting (newest first)
+        const aDate = new Date(a.data.date);
+        const bDate = new Date(b.data.date);
+  
+        return bDate - aDate;
       });
   });
+  
   eleventyConfig.addCollection("video", function (collection) {
     return collection
       .getFilteredByGlob("src/projects-video/*.njk")
