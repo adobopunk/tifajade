@@ -127,8 +127,13 @@ figure {
 .slideshow-video {
   width: 100%;
   height: auto;
-  display: block;
   object-fit: cover;
+  display: inline-block;
+  margin: 0 auto;
+
+  @include u.breakpoint-down(medium) {
+    width: 85%;
+  }
 }
 
 .slideshow-video,
@@ -202,17 +207,18 @@ figure {
   }
 
   @media only screen and (orientation: portrait) {
-    bottom: 10%;
-    padding-inline: 10vw;
+    bottom: 50%;
     justify-content: space-between;
     gap: 10px;
   }
 
   @include u.breakpoint-down(medium) {
-    bottom: 10%;
-    padding-inline: 10vw;
     justify-content: space-between;
     gap: 10px;
+
+    & svg {
+      transform: scale(0.75);
+    }
   }
 
   & svg {
