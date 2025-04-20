@@ -48,11 +48,8 @@
   object-fit: cover;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   transition: opacity 1s ease-in-out, filter 0.5s ease-in-out;
-
-  @include u.breakpoint(small) {
-    @media (hover: hover) and (pointer: fine) {
-      filter: grayscale(100%);
-    }
+  @media (hover: hover) and (pointer: fine) {
+    filter: grayscale(100%);
   }
 }
 
@@ -114,11 +111,10 @@
 }
 
 /* Show overlay on hover for non-touch devices */
-@include u.breakpoint(medium) {
-  @media (hover: hover) and (pointer: fine) {
-    .image-container a:hover .hover-overlay {
-      opacity: 1;
-    }
+
+@media (hover: hover) and (pointer: fine) {
+  .image-container a:hover .hover-overlay {
+    opacity: 1;
   }
 }
 
@@ -145,14 +141,14 @@
   margin-top: 0;
 }
 .hover-overlay .gallery__client {
-  @include u.breakpoint-down(medium) {
+  @include u.breakpoint-down(small) {
     display: none;
   }
 }
 
 .image-title {
   display: none;
-  @include u.breakpoint-down(medium) {
+  @include u.breakpoint-down(small) {
     display: block;
     color: white;
     text-align: left;

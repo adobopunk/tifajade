@@ -118,6 +118,11 @@ nav {
     &:hover {
       color: var(--pico-primary) !important;
     }
+
+    @include u.breakpoint-down(small) {
+      font-size: u.rem(20);
+      line-height: 2;
+    }
   }
 
   &__socials {
