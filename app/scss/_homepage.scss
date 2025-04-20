@@ -58,6 +58,7 @@
   @include u.breakpoint-down(small) {
     margin: 0 auto;
     display: block;
+    font-size: u.rem(20);
   }
 }
 
