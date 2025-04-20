@@ -43,7 +43,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: clamp(250px, 90vw, 1280px);
+  width: clamp(250px, 90vw, 1080px);
   gap: 10px;
 
   @include u.breakpoint-down(medium) {
@@ -51,8 +51,114 @@
     max-width: 98%;
   }
 }
-.wrapper-a-home {
 
+.slideshow-copy {
+  text-align: center;
+  max-width: 980px;
+}
+
+.slideshow-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.slideshow-video,
+.slideshow-copy {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.slideshow-video,
+.slideshow-copy {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slideshow-video.move-out {
+  animation: moveRightOut 0.5s forwards;
+}
+
+.slideshow-video.move-in {
+  animation: moveLeftIn 0.5s forwards;
+}
+
+.slideshow-copy.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slideshow-copy.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Keyframe for moving video off-screen to the right */
+@keyframes moveRightOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw); /* Moves off screen to the right */
+  }
+}
+
+/* Keyframe for bringing video back from the left */
+@keyframes moveLeftIn {
+  0% {
+    transform: translateX(-100vw); /* Starts off-screen from the left */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slideshow-controls {
+  position: absolute;
+  width: 100%;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 2vw;
+  gap: 1180px;
+  margin-top: 20px;
+
+  & svg {
+    transform: scale(1.5);
+  }
+
+  @media only screen and (orientation: portrait) {
+    bottom: 15%;
+    padding-inline: 10vw;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  & svg {
+    cursor: pointer;
+    fill: var(--pico-primary);
+  }
+
+  & :hover {
+    fill: var(--pico-primary-hover);
+  }
+
+  /* Portrait adjustments */
+  @media only screen and (orientation: portrait) {
+    .slideshow-controls {
+      margin-top: 10px; /* Reduce the space above controls for portrait mode */
+    }
+  }
+}
+
+.wrapper-a-home {
   display: flex;
   flex-direction: column;
   align-items: center;
