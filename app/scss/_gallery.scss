@@ -141,6 +141,12 @@
   margin-top: 0;
 }
 .hover-overlay .gallery__client {
+  // Always show on touch devices
+  @media (pointer: coarse) {
+    display: block;
+  }
+
+  // Hide on small non-touch devices
   @include u.breakpoint-down(small) {
     display: none;
   }
@@ -148,16 +154,28 @@
 
 .image-title {
   display: none;
-  @include u.breakpoint-down(small) {
-    display: block;
+
+  // For all touch devices
+  @media (pointer: coarse) {
+    display: flex;
     color: white;
     text-align: left;
+    flex-direction: column;
+    gap: u.rem(8);
+    width: 100%;
+  }
+
+  // Fallback for small non-touch devices
+  @include u.breakpoint-down(small) {
     display: flex;
+    color: white;
+    text-align: left;
     flex-direction: column;
     gap: u.rem(8);
     width: 100%;
   }
 }
+
 .image-preview-title {
   margin-block-start: u.rem(10);
   color: white;

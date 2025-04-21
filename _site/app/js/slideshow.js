@@ -5,31 +5,31 @@ let pageNumber = 0;
 const pages = [
   {
     copy: " I’m a Creative Director and Producer with a big love for ambitious ideas, animation that turns heads, and stories that genuinely move people. I thrive in fast-paced, high-stakes projects where bold ideas meet beautiful, buttoned-up execution and heart.",
-    src: "/assets/img/projects/mountain-dew-champions-cup/Champions Cup Loop 1.mp4",
+    src: "/assets/img/videos/AboutLoop1_h264_crf23.mp4",
   },
   {
     copy: " My creative journey started early in Eastern WA, making backyard movies with friends, sneaking into student film contests, and getting obsessed with action films and VFX. I taught myself After Effects in 5th grade and basically haven’t stopped creating since.",
-    src: "/assets/img/videos/codered_web.mp4",
+    src: "/assets/img/videos/AboutLoop2_h264_crf23.mp4",
   },
   {
-    copy: " I studied film at Eastern Washington University, directing four short films that screened at the Spokane International Film Festival. I earned “Most Promising Filmmaker,” was voted best director, landed scholarships, and learned how to lead a great crew.",
-    src: "/assets/img/projects/mountain-dew-champions-cup/Champions Cup Loop 1.mp4",
+    copy: "I studied film at Eastern Washington University, directing four short films selected by the Spokane International Film Festival, where I was named “Most Promising Filmmaker.” I earned multiple scholarshps for my work, but more importantly I learned how to tell meaningful stories, how to direct successful projects end-to-end, and how to lead a great crew.",
+    src: "/assets/img/videos/AboutLoop3_h264_crf23.mp4",
   },
   {
     copy: " That same creative spark landed me my first leadership role as Creative Services Director at an NBC affiliate. I pitched, directed, edited, designed, and quickly picked up motion graphics — falling deeper in love with storytelling in every form I could touch.",
-    src: "/assets/img/videos/codered_web.mp4",
+    src: "/assets/img/videos/AboutLoop4_h264_crf23.mp4",
   },
   {
-    copy: " Ambition led me to pitch a docuseries about a high school football team. Shockingly, my boss said yes. A championship season, thousands of hours of footage, and many late nights later, I had produced an entire series barely a year after graduating college.",
-    src: "/assets/img/projects/mountain-dew-champions-cup/Champions Cup Loop 1.mp4",
+    copy: "I was ambitious, and knew I wanted to keep telling deeper stories. I pitched a documentary series about a rising high school football team to my boss at the station, and convinced him to say yes. A championship season, thousands of hours of footage, and many late night editing sessions later, I had a solo-produced, TV-aired docuseries under my belt barely a year after graduating college.",
+    src: "/assets/img/videos/AboutLoop5_h264_crf23.mp4",
   },
   {
     copy: " In 2018, the esports boom hit — and I drove cross-country to join a Las Vegas startup called Impact Gaming. I shaped their brand identity, built partnerships, and filmed yet another docuseries, while falling headfirst into the wild, growing world of esports.",
-    src: "/assets/img/videos/codered_web.mp4",
+    src: "/assets/img/videos/AboutLoop4_h264_crf23.mp4",
   },
   {
     copy: " Next came UFC — four wild years directing features, building global campaigns, and telling deeply personal stories inside one of the world’s most intense, fast-paced production environments. It sharpened my skills, instincts, and love for strong creative teams.",
-    src: "/assets/img/projects/mountain-dew-champions-cup/Champions Cup Loop 1.mp4",
+    src: "/assets/img/videos/AboutLoop5_h264_crf23.mp4",
   },
   {
     copy: " At BoomTV, I combined esports with creative direction, leading 400+ branded events and campaigns seen by over 100 million viewers. I directed trailers, shaped creative brands, and worked with huge names like Xbox, Fortnite, Mountain Dew, and so many more.",
