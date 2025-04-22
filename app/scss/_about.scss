@@ -123,6 +123,10 @@ figure {
   text-align: center;
   max-width: 980px;
   font-size: u.rem(14);
+
+  @include u.breakpoint-down(small) {
+    text-align: left;
+  }
 }
 
 .slideshow-video {
