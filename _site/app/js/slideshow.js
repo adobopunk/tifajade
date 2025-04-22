@@ -25,15 +25,15 @@ const pages = [
     src: "/assets/img/videos/AboutLoop6_h264_preview.mp4",
   },
   {
-    copy: "My storytelling portfolio and motion design work opened the door to UFC’s original content department, where I spent four years producing branded content, editing social media and long-form programming, and marketing record-breaking sports events. I thrived in one of the world’s most intense, fast-paced creative environments — sharpening my creative instincts and leadership skills.",
+    copy: "My portfolio opened the door to UFC’s original content department, where I spent four years producing branded content, editing social media / long-form programming, and marketing record-breaking events. I thrived in one of the world’s fastest-paced, intense production environments — sharpening my creative instincts and leadership abilities.",
     src: "/assets/img/videos/AboutLoop7_h264_preview.mp4",
   },
   {
-    copy: "I reconnected my love of storytelling with my passion for video games when I was asked to lead BoomTV's video production team. Directing creative projects at a games marketing agency meant partnering with names like Fortnite, Halo, and Call of Duty, designing events that earned millions of impressions, and recognition from industry veterans at the highest levels of game marketing.",
+    copy: "I reconnected my love of storytelling with my interest in gaming when I was asked to lead BoomTV's video production team. Directing creative projects for a games marketing agency meant partnering with names like Fortnite, Halo, and Call of Duty, designing experiences that earned millions of impressions, and recognition from industry veterans.",
     src: "/assets/img/videos/AboutLoop9_h264_preview.mp4",
   },
   {
-    copy: "Across massive global brands, fast-growing startups, and scrappy creative teams, I’ve applied storytelling, strategy, and production leadership to solve numerous creative challenges. No matter what the mission is, I'm there because I love the craft — bringing bold ideas to life, building workflows that dismantle creative roadblocks, and pushing the boundaries of visual storytelling.",
+    copy: "Across massive global brands, fast-growing startups, and scrappy creative teams, I’ve applied storytelling expertise and creative leadership to solve creative challenges. No matter what the mission is, I'm there because I love the craft — bringing bold ideas to life, building workflows that dismantle creative roadblocks, and pushing the boundaries of visual storytelling.",
     src: "/assets/img/videos/AboutLoop8_h264_preview.mp4",
   },
   {
