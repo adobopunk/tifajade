@@ -37,7 +37,7 @@ const pages = [
     src: "/assets/img/videos/AboutLoop8_h264_preview.mp4",
   },
   {
-    copy: "Today, I’m a freelance Creative Director running my agency, Tiny Pond, and producing events for the games industry through our venture In Queue. If you’re building bold, high-impact projects and need a creative leader who thrives under pressure and lives for ambitious, slightly crazy ideas — let’s connect. You might just be my Slide 11.",
+    copy: `Today, I’m a freelance Creative Director running my agency, <a data-tooltip="tinypond.studio" href="https://tinypond.studio" target="_blank" rel="noopener">Tiny Pond</a>, and producing events for the games industry through our venture <a data-tooltip="playinqueue.com" href="https://playinqueue.com" target="_blank" rel="noopener">In Queue</a>. If you’re building bold, high-impact projects and need a creative leader who thrives under pressure and lives for ambitious, slightly crazy ideas — let’s connect. You might just be my Slide 11.`,
     src: "/assets/img/videos/AboutLoop10_h264_preview.mp4",
   },
 ];
