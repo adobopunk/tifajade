@@ -17,19 +17,19 @@ const pages = [
     src: "/assets/img/videos/AboutLoop4_h264_preview.mp4",
   },
   {
-    copy: "Eager to push beyond small-town markets, I pitched a docuseries about a rising high school football team to my boss, and convinced him to say yes. I filmed what became a championship season, edited down thousands of hours of footage, and delivered the entire project to air on TV as a solo director/producer, barely a year after graduating college, which caught the attention of a big name in sports...",
+    copy: "Eager to push beyond small-town markets, I pitched a docuseries about a rising high school football team to my boss, and convinced him to say yes. I filmed what became a championship season, edited down thousands of hours of footage, and delivered the entire project to air on TV as a solo director/producer, barely a year after graduating college.",
     src: "/assets/img/videos/AboutLoop5_h264_preview.mp4",
   },
   {
-    copy: "But first, I joined an esports startup called Impact Gaming, relocating to Las Vegas. I shaped their brand identity and content strategy, and even produced another docuseries. I wasn't an expert in esports—nor had I been an expert in football. But I knew how to build trust, capture honest stories, and craft emotional narratives that connect with audiences.",
+    copy: "Next I joined an esports startup called Impact Gaming, relocating to Las Vegas. I shaped their brand identity and content strategy, and even produced another docuseries. I wasn't an expert in esports—nor had I been an expert in football. But I knew how to build trust, capture honest stories, and craft emotional narratives that connect with audiences.",
     src: "/assets/img/videos/AboutLoop6_h264_preview.mp4",
   },
   {
-    copy: "My portfolio caught the attention of UFC’s original content department, where I spent four years producing branded content for social media and long-form programming, and marketing record-breaking events. I thrived in one of the world’s fastest-paced, most intense production environments, sharpening my creative instincts and leadership abilities.",
+    copy: "My portfolio caught the attention of UFC’s original content department, and I joined the team producing branded content for their massive social media following. I worked on long-form programming for Fight Pass and ESPN, and helped market record-breaking Pay-Per-View events. I thrived in one of the world’s fastest-paced, most intense production environments, sharpening my creative instincts and leadership abilities.",
     src: "/assets/img/videos/AboutLoop7_h264_preview.mp4",
   },
   {
-    copy: "I reconnected my love of storytelling with my interest in gaming when I was asked to lead BoomTV's video production team. Directing creative projects for a games marketing agency meant partnering with names like Fortnite, Halo, and Sea of Thieves, designing experiences that earned millions of impressions, and recognition from industry veterans.",
+    copy: "After four years at UFC, I reconnected my love of storytelling with my interest in gaming when I was asked to lead BoomTV's video production team. Directing creative projects for a games marketing agency meant partnering with names like Fortnite, Halo, and Sea of Thieves, designing experiences that earned millions of impressions, and recognition from industry veterans.",
     src: "/assets/img/videos/AboutLoop9_h264_preview.mp4",
   },
   {
