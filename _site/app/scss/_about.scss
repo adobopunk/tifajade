@@ -145,20 +145,6 @@ figure {
 .fade-out {
   opacity: 0;
 }
-
-.slideshow-video,
-.slideshow-copy {
-  transition: opacity 0.5s ease-in-out;
-}
-
-.slideshow-video.move-out {
-  animation: moveRightOut 0.5s forwards;
-}
-
-.slideshow-video.move-in {
-  animation: moveLeftIn 0.5s forwards;
-}
-
 .slideshow-copy.fade-out {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -169,20 +155,58 @@ figure {
   transition: opacity 0.5s ease-in-out;
 }
 
-/* Keyframe for moving video off-screen to the right */
+.slideshow-video,
+.slideshow-copy {
+  transition: opacity 0.5s ease-in-out;
+}
+.slideshow-video.move-out-left {
+  animation: moveLeftOut 0.5s forwards;
+}
+
+.slideshow-video.move-in-right {
+  animation: moveRightIn 0.5s forwards;
+}
+
+.slideshow-video.move-out-right {
+  animation: moveRightOut 0.5s forwards;
+}
+
+.slideshow-video.move-in-left {
+  animation: moveLeftIn 0.5s forwards;
+}
+
+/* Keyframes */
+
+@keyframes moveLeftOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes moveRightIn {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 @keyframes moveRightOut {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(100vw); /* Moves off screen to the right */
+    transform: translateX(100vw);
   }
 }
 
-/* Keyframe for bringing video back from the left */
 @keyframes moveLeftIn {
   0% {
-    transform: translateX(-100vw); /* Starts off-screen from the left */
+    transform: translateX(-100vw);
   }
   100% {
     transform: translateX(0);
@@ -236,5 +260,16 @@ figure {
     .slideshow-controls {
       margin-top: 10px; /* Reduce the space above controls for portrait mode */
     }
+  }
+}
+
+.slideshow-contact {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
