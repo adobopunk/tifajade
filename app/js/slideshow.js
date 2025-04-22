@@ -1,126 +1,135 @@
-//page number data
-let pageNumber = 0;
-
 //page content
 const pages = [
   {
-    copy: " I’m a Creative Director and Producer with a big love for ambitious ideas, animation that turns heads, and stories that genuinely move people. I thrive in fast-paced, high-stakes projects where bold ideas meet beautiful, buttoned-up execution and heart.",
-    src: "/assets/img/videos/AboutLoop1_h264_crf23.mp4",
+    copy: "I’m a Creative Director and Video Producer with a lot of ambition and an obsession with visual storytelling. You can often catch me staring down the barrel of a camera lens while framing my shot. I live in Seattle with my cat Rogue, where I also build computers and enjoy cooking Mexican food. Here's how I got here.",
+    src: "/assets/img/videos/AboutLoop1_h264_preview.mp4",
   },
   {
-    copy: " My creative journey started early in Eastern WA, making backyard movies with friends, sneaking into student film contests, and getting obsessed with action films and VFX. I taught myself After Effects in 5th grade and basically haven’t stopped creating since.",
+    copy: "I grew up in Richland, Washington, making backyard movies with friends. I loved action films like The Matrix and Mission: Impossible. I taught myself After Effects in 5th grade, entered student art competitions and earned a spot in independent study programs to create original projects and sharpen my filmmaking skills long before high school.",
     src: "/assets/img/videos/AboutLoop2_h264_crf23.mp4",
   },
   {
-    copy: "I studied film at Eastern Washington University, directing four short films selected by the Spokane International Film Festival, where I was named “Most Promising Filmmaker.” I earned multiple scholarshps for my work, but more importantly I learned how to tell meaningful stories, how to direct successful projects end-to-end, and how to lead a great crew.",
+    copy: "I studied film at Eastern Washington University, where four of my short films screened at the Spokane International Film Festival and I was named “Most Promising Filmmaker.” I earned multiple scholarships, but most importantly, I learned how to tell meaningful stories, lead a great crew, and direct successful projects end-to-end. By the time I graduated, I knew I wanted to keep telling stories for a living, and I carried those skills into every role since.",
     src: "/assets/img/videos/AboutLoop3_h264_crf23.mp4",
   },
   {
-    copy: " That same creative spark landed me my first leadership role as Creative Services Director at an NBC affiliate. I pitched, directed, edited, designed, and quickly picked up motion graphics — falling deeper in love with storytelling in every form I could touch.",
+    copy: "My creative path led me to my first leadership role as Creative Services Director at an NBC affiliate, where the pay was terrible and the experience was invaluable. I pitched, directed, edited, and designed campaigns while rapidly developing my motion graphics skills. I built strong partnerships with local business owners and produced the station’s first Spanish-language newscast for Telemundo — a milestone in community outreach for the area.",
     src: "/assets/img/videos/AboutLoop4_h264_crf23.mp4",
   },
   {
-    copy: "I was ambitious, and knew I wanted to keep telling deeper stories. I pitched a documentary series about a rising high school football team to my boss at the station, and convinced him to say yes. A championship season, thousands of hours of footage, and many late night editing sessions later, I had a solo-produced, TV-aired docuseries under my belt barely a year after graduating college.",
+    copy: "Eager to push beyond small-town markets, I pitched a docuseries about a rising high school football team to my boss, and convinced him to say yes. I filmed what became a championship season, edited down thousands of hours of footage, and delivered the entire project to air on TV as a solo director/producer, barely a year after graduating college. That experience opened the door to an unforgettable opportunity in Las Vegas.",
     src: "/assets/img/videos/AboutLoop5_h264_crf23.mp4",
   },
   {
-    copy: " In 2018, the esports boom hit — and I drove cross-country to join a Las Vegas startup called Impact Gaming. I shaped their brand identity, built partnerships, and filmed yet another docuseries, while falling headfirst into the wild, growing world of esports.",
-    src: "/assets/img/videos/AboutLoop4_h264_crf23.mp4",
+    copy: "In 2018, I relocated to Las Vegas to join an esports startup called Impact Gaming. I shaped their brand identity and content strategy, producing another docuseries. I wasn't an expert in esports—nor had I been any sort of expert in football. But I knew how to build trust, capture honest stories, and craft emotionally resonant narratives that connect with audiences.",
+    src: "/assets/img/videos/AboutLoop6_h264_crf23.mp4",
   },
   {
-    copy: " Next came UFC — four wild years directing features, building global campaigns, and telling deeply personal stories inside one of the world’s most intense, fast-paced production environments. It sharpened my skills, instincts, and love for strong creative teams.",
-    src: "/assets/img/videos/AboutLoop5_h264_crf23.mp4",
+    copy: "My storytelling portfolio and motion design work opened the door to UFC’s original content department, where I spent four years producing branded content, editing social media and long-form programming, and marketing record-breaking sports events. I thrived in one of the world’s most intense, fast-paced creative environments — sharpening my creative instincts and leadership skills.",
+    src: "/assets/img/videos/AboutLoop7_h264_crf23.mp4",
   },
   {
-    copy: " At BoomTV, I combined esports with creative direction, leading 400+ branded events and campaigns seen by over 100 million viewers. I directed trailers, shaped creative brands, and worked with huge names like Xbox, Fortnite, Mountain Dew, and so many more.",
-    src: "/assets/img/videos/codered_web.mp4",
+    copy: "I reconnected my love of storytelling with my passion for video games when I was asked to lead BoomTV's video production team. Directing creative projects at a games marketing agency meant partnering with names like Fortnite, Halo, and Call of Duty, designing events that earned millions of impressions, and recognition from industry veterans at the highest levels of game marketing.",
+    src: "/assets/img/videos/AboutLoop9_h264_crf23.mp4",
   },
   {
-    copy: " I’ve worked with huge brands, but what drives me is the craft — bringing big ideas to life, building workflows that solve creative headaches, and pushing the limits of what’s possible with smart, scalable, creative-first processes made for speed and soul.",
-    src: "/assets/img/projects/mountain-dew-champions-cup/Champions Cup Loop 1.mp4",
+    copy: "Across massive global brands, fast-growing startups, and scrappy creative teams, I’ve applied storytelling, strategy, and production leadership to solve numerous creative challenges. No matter what the mission is, I'm there because I love the craft — bringing bold ideas to life, building workflows that dismantle creative roadblocks, and pushing the boundaries of visual storytelling.",
+    src: "/assets/img/videos/AboutLoop8_h264_crf23.mp4",
   },
   {
-    copy: " If you’re building something bold and need a creative partner who thrives under pressure, sweats the small stuff, and lives to chase ambitious, slightly crazy ideas — let’s connect. I’d love to hear what you’re dreaming up and how I can help make it real.",
-    src: "/assets/img/videos/codered_web.mp4",
+    copy: "Today, I’m a freelance Creative Director running my agency, Tiny Pond, and producing events for the games industry through our venture In Queue. If you’re building bold, high-impact projects and need a creative leader who thrives under pressure and lives for ambitious, slightly crazy ideas — let’s connect. You might just be my Slide 11.",
+    src: "/assets/img/videos/AboutLoop10_h264_preview.mp4",
   },
 ];
 
 let maxPages = pages.length - 1;
+let pageNumber = 0;
 
-//select tags
+// Select tags
 const nextTag = document.querySelector("svg.next");
 const prevTag = document.querySelector("svg.previous");
 const outputTag = document.querySelector("p.slideshow-copy");
 const videoTag = document.querySelector("video.slideshow-video");
 const bodyTag = document.querySelector("body");
+const contactButton = document.querySelector(".slideshow-contact");
+const counterTag = document.querySelector("p.slideshow-counter"); // ← grab the counter
 
-//increase and decrease page numbers
+// Increase and decrease page numbers
 const next = function () {
-  pageNumber = pageNumber + 1;
-
-  if (pageNumber > maxPages) {
-    pageNumber = 0;
-  }
-
-  updateSection();
+  pageNumber = pageNumber + 1 > maxPages ? 0 : pageNumber + 1;
+  updateSection("next");
 };
 
 const previous = function () {
-  pageNumber = pageNumber - 1;
-
-  if (pageNumber < 0) {
-    pageNumber = maxPages;
-  }
-
-  updateSection();
+  pageNumber = pageNumber - 1 < 0 ? maxPages : pageNumber - 1;
+  updateSection("previous");
 };
 
 const random = function () {
   pageNumber = Math.floor(Math.random() * pages.length);
-
-  updateSection();
+  updateSection("random"); // can decide default behavior here
 };
 
-//update section content
-const updateSection = function () {
-  // Add classes for video movement
-  videoTag.classList.add("move-out");
+// Update section content
+const updateSection = function (direction) {
+  let moveOutClass = "";
+  let moveInClass = "";
+
+  // Determine animation classes based on direction
+  if (direction === "next") {
+    moveOutClass = "move-out-left";
+    moveInClass = "move-in-right";
+  } else if (direction === "previous") {
+    moveOutClass = "move-out-right";
+    moveInClass = "move-in-left";
+  } else {
+    // fallback or random
+    moveOutClass = "move-out-left";
+    moveInClass = "move-in-right";
+  }
+
+  // Add animation classes
+  videoTag.classList.add(moveOutClass);
   outputTag.classList.add("fade-out");
 
   setTimeout(() => {
     outputTag.innerHTML = pages[pageNumber].copy;
     videoTag.src = pages[pageNumber].src;
 
-    videoTag.classList.remove("move-out");
+    // Remove old classes
+    videoTag.classList.remove(moveOutClass);
     outputTag.classList.remove("fade-out");
 
-    // Apply classes to move video back and fade text in
-    videoTag.classList.add("move-in");
+    // Apply move-in and fade-in classes
+    videoTag.classList.add(moveInClass);
     outputTag.classList.add("fade-in");
 
-    // Remove classes after animation completes
+    counterTag.innerHTML = `${pageNumber + 1} / ${pages.length}`;
+
+    // Show contact button if on final slide, hide otherwise
+    if (pageNumber === maxPages) {
+      contactButton.classList.add("visible");
+    } else {
+      contactButton.classList.remove("visible");
+    }
+
+    // Remove move-in and fade-in after animation
     setTimeout(() => {
-      videoTag.classList.remove("move-in");
+      videoTag.classList.remove(moveInClass);
       outputTag.classList.remove("fade-in");
-    }, 500); // Matches the duration of the fade transition
-  }, 500); // Matches the duration of the move-out transition
+    }, 500); // matches CSS duration
+  }, 500); // matches CSS duration
 };
 
-//add event listeners and function triggers to buttons
-nextTag.addEventListener("click", function () {
-  next();
-});
-prevTag.addEventListener("click", function () {
-  previous();
-});
+// Add event listeners
+nextTag.addEventListener("click", next);
+prevTag.addEventListener("click", previous);
 
-//add keypress functions
+// Add keypress functions
 document.addEventListener("keyup", function (event) {
-  console.log(event);
-
-  if (event.key == "ArrowRight") {
+  if (event.key === "ArrowRight") {
     next();
-  } else if (event.key == "ArrowLeft") {
+  } else if (event.key === "ArrowLeft") {
     previous();
   }
 });
