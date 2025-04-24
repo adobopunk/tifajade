@@ -17,7 +17,7 @@ function hasNoAnimation(element) {
   return element.closest(".no-animation") !== null;
 }
 
-function setupFadeInAnimations() {
+function setupLazyFadeInAnimations() {
   if (isMobileDevice()) return () => {};
 
   const animatedTags = selectAll(
@@ -30,24 +30,30 @@ function setupFadeInAnimations() {
     if (!hasNoAnimation(tag)) tag.style.opacity = 0;
   });
 
-  function fadeIn() {
-    let delay = 0;
-    animatedTags.forEach((tag) => {
-      if (hasNoAnimation(tag)) return;
-      const tagTop = tag.getBoundingClientRect().top;
-      const tagBottom = tag.getBoundingClientRect().bottom;
-      if (
-        tagTop < window.innerHeight - 75 &&
-        tagBottom > 0 &&
-        tag.style.opacity == 0
-      ) {
-        tag.style.animation = `fadein-scale 1s ease-out ${delay}s both`;
-        delay += 0.02;
-      }
-    });
+  function fadeIn(tag) {
+    tag.style.animation = `fadein-scale 1s ease-out 0s both`;
+    tag.style.opacity = 1;
   }
 
-  return fadeIn;
+  // Intersection Observer for lazy loading fade-in
+  const observer = new IntersectionObserver(
+    (entries, observerInstance) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const tag = entry.target;
+          if (!hasNoAnimation(tag)) {
+            fadeIn(tag);
+          }
+          observerInstance.unobserve(tag);
+        }
+      });
+    },
+    { threshold: 0.25 }
+  ); // Trigger when 25% of the element is visible
+
+  animatedTags.forEach((tag) => {
+    observer.observe(tag);
+  });
 }
 
 // Accent animations
@@ -142,12 +148,11 @@ function setupParallaxEffects() {
 // Main initialization
 function initializeAnimationsAndParallax() {
   debug("Initializing animations and parallax effects");
-  const fadeIn = setupFadeInAnimations();
+  setupLazyFadeInAnimations(); // Lazy fade-in
   setupAccentAnimations();
   const { applyHeroParallax, applyFeaturesParallax } = setupParallaxEffects();
 
   function handleScroll() {
-    fadeIn();
     applyHeroParallax();
     applyFeaturesParallax();
   }
