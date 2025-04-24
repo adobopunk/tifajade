@@ -242,7 +242,7 @@ h2.project__step-title,
     gap: u.rem(30);
   }
 
-  @include u.breakpoint(large) {
+  @include u.breakpoint(xlarge) {
     max-width: clamp(50%, 50%, 100%);
   }
 
