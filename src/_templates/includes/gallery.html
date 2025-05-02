@@ -12,18 +12,31 @@
           loop
           playsinline
           class="gallery__video"
-          poster="{{ project.data.image | default: '/assets/img/og-image.jpg' }}"
+          poster="{{ project.data.image.webp | default: project.data.image.jpg | default: project.data.image | default: '/assets/img/og-image.jpg' }}"
         >
-          <source data-src="{{ project.data.video }}" type="video/mp4" />
+          <source
+            data-src="{{ project.data.video.webm | default: project.data.video.mp4 | default: project.data.video }}"
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
         {% else %}
-        <img
-          src="{{ project.data.image | default: '/assets/img/og-image.jpg' }}"
-          alt="Placeholder for {{ project.data.client }}"
-          class="gallery__image"
-          loading="lazy"
-        />
+        <picture>
+          <source
+            srcset="{{ project.data.image.webp | default: '/assets/img/og-image.webp' }}"
+            type="image/webp"
+          />
+          <source
+            srcset="{{ project.data.image.jpg | default: project.data.image | default: '/assets/img/og-image.jpg' }}"
+            type="image/jpeg"
+          />
+          <img
+            src="{{ project.data.image.webp | default:project.data.image.jpg | default: project.data.image | default: '/assets/img/og-image.jpg' }}"
+            alt="Placeholder for {{ project.data.client }}"
+            class="gallery__image"
+            loading="lazy"
+          />
+        </picture>
         {% endif %}
         <div class="hover-overlay">
           <p
