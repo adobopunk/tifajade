@@ -41,12 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
         video.style.display = "block";
         poster.style.display = "none";
 
-        video.setAttribute("preload", "auto");
-        video.load();
-        video.pause();
-        video.currentTime = 0.1;
+        video.setAttribute("preload", "none");
 
         container.onmouseenter = () => {
+          const source = video.querySelector("source");
+          if (source && !source.src && source.dataset.src) {
+            source.src = source.dataset.src;
+            video.load();
+          }
           video.play().catch((e) => console.log("Playback error:", e));
         };
 

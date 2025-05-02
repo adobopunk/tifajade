@@ -296,9 +296,14 @@
     <h1 class="visually-hidden"></h1>
 
     <h2 class="about__title">I'm Tifa Jade, but you can call me TJ.</h2>
+
 <video class="slideshow-video no-animation" autoplay loop muted playsinline>
   <source
-    src="/assets/img/videos/AboutLoop1_h264_preview.mp4"
+    src="https://tifajade.b-cdn.net/About%20Me/AboutLoop1.webm"
+    type="video/webm"
+  />
+  <source
+    src="https://tifajade.b-cdn.net/About%20Me/AboutLoop1_h264_preview.mp4"
     type="video/mp4"
   />
   Your browser does not support the video tag.
@@ -314,9 +319,15 @@
 
 <p class="big slideshow-counter no-animation">1/10</p>
 
-<a href="/contact"
-  ><button class="slideshow-contact no-animation">Connect with me!</button></a
->
+<a href="/contact">
+  <button
+    class="slideshow-contact no-animation"
+    aria-label="Connect with Tifa Jade"
+  >
+    Connect with me!
+  </button>
+</a>
+
 <div class="slideshow-controls no-animation">
   <svg
     class="previous"
@@ -325,6 +336,7 @@
     viewBox="0 0 22 21"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    aria-label="Previous slide"
   >
     <path
       fill-rule="evenodd"
@@ -339,6 +351,7 @@
     viewBox="0 0 23 21"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    aria-label="Next slide"
   >
     <path
       fill-rule="evenodd"
@@ -359,12 +372,11 @@
     <div class="vimeo-container no-animation" style="overflow: hidden">
   <div class="iframe-wrapper no-animation">
     <iframe
-      src="https://player.vimeo.com/video/1025754996?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&muted=1"
-      frameborder="0"
-      allow="autoplay; fullscreen; picture-in-picture; clipboard-write;"
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
-      title="Tifa Jade | Animation Reel"
-      class="no-animation"
+      src="https://iframe.mediadelivery.net/embed/418879/c3060459-276c-44c7-a595-693bcadfdab8?autoplay=true&loop=false&muted=true&preload=true&responsive=true"
+      loading="lazy"
+      style="border: 0; position: absolute; top: 0; height: 100%; width: 100%"
+      allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
+      allowfullscreen
     ></iframe>
   </div>
 </div>
@@ -623,7 +635,7 @@
 <script src="/app/js/tooltip.js" defer></script>
 <script src="/app/js/hover.js" defer></script>
 <!-- <script src="/app/js/funfacts.js"></script> -->
-<!-- <script src="https://player.vimeo.com/api/player.js"></script> -->
+<script src="https://player.vimeo.com/api/player.js"></script>
 
 </body>
 </html>
