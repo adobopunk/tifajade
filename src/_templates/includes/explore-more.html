@@ -6,19 +6,23 @@
         <div class="image-preview-container">
           {% if next1.data.video %}
           <video
-            autoplay
             muted
             loop
             playsinline
             class="gallery__video"
-            poster="{{ next1.data.image }}"
+            poster="{{ next1.data.image.jpg or next1.data.image or '/assets/img/og-image.jpg' }}"
           >
-            <source src="{{ next1.data.video }}" type="video/mp4" />
-            Your browser does not support the video tag.
+            {% if next1data.video.webm %}
+            <source src="{{ next1.data.video.webm }}" type="video/webm" />
+            {% elif next1.data.video.mp4 %}
+            <source src="{{ next1.data.video.mp4 }}" type="video/mp4" />
+            {% elif next1.data.video %}
+            <source src="{{ next1.data.video }}" />
+            {% endif %} Your browser does not support the video tag.
           </video>
           {% else %}
           <img
-            src="{{ next1.data.image }}"
+            src="{{ next1.data.image.jpg or next1.data.image or '/assets/img/og-image.jpg' }}"
             alt="Placeholder for {{ next1.data.client }}"
             class="gallery__image"
             loading="lazy"
@@ -36,19 +40,23 @@
         <div class="image-preview-container">
           {% if next2.data.video %}
           <video
-            autoplay
             muted
             loop
             playsinline
             class="gallery__video"
-            poster="{{ next2.data.image }}"
+            poster="{{ next2.data.image.jpg or next2.data.image or '/assets/img/og-image.jpg' }}"
           >
-            <source src="{{ next2.data.video }}" type="video/mp4" />
-            Your browser does not support the video tag.
+            {% if next2.data.video.webm %}
+            <source src="{{ next2.data.video.webm }}" type="video/webm" />
+            {% elif next2.data.video.mp4 %}
+            <source src="{{ next2.data.video.mp4 }}" type="video/mp4" />
+            {% elif next2.data.video %}
+            <source src="{{ next2.data.video }}" />
+            {% endif %} Your browser does not support the video tag.
           </video>
           {% else %}
           <img
-            src="{{ next2.data.image }}"
+            src="{{ next2.data.image.jpg or next2.data.image or '/assets/img/og-image.jpg' }}"
             alt="Placeholder for {{ next2.data.client }}"
             class="gallery__image"
             loading="lazy"
