@@ -6,7 +6,8 @@
     <div class="wrapper wrapper-home">
       <div class="layout-main wrapper-m project-layout">
         <h1 class="title">
-          {{ client }}{% if title %} | {{ title }}{% endif %}
+          {% if client %}{{ client }}{% endif %}{% if title %} | {{ title }}{%
+          endif %}
         </h1>
 
         {% include "includes/details.html" %}
