@@ -1,16 +1,11 @@
-{% include "includes/header-project.html" %}
+{% include "includes/header.html" %}
+
 <main id="main">
   <article>
     <div id="top"></div>
     {% include "includes/nav.html" %}
     <div class="wrapper wrapper-home">
       <div class="layout-main wrapper-m project-layout">
-        <h1 class="title">
-          {% if client %}{{ client }}{% endif %}{% if title %} | {{ title }}{%
-          endif %}
-        </h1>
-
-        {% include "includes/details.html" %}
         {{ content | safe }}
         <h2>More Projects:</h2>
         {# First, create a list of featured projects #} {% set featured_projects
@@ -37,4 +32,5 @@
     </div>
   </article>
 </main>
+
 {% include "includes/footer.html" %}
