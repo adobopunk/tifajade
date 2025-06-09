@@ -1,6 +1,6 @@
 const pages = [
   {
-    copy: "I’m a Creative Director and Video Producer with a lot of ambition and a knack for visual storytelling. Typically behind the scenes and behind the camera, but like any good filmmaker you'll catch me staring down the barrel of a lens while framing a shot. I live in Seattle with my cat Rogue, where I build computers and enjoy cooking Mexican food. Here's how I got here.",
+    copy: "I’m a Creative Producer and Video Content Strategist with a lot of ambition and a knack for visual storytelling. Typically behind the scenes and behind the camera, like any good director you'll catch me staring down the barrel of a lens while framing a shot. I live in Seattle with my cat Rogue, where I build computers and enjoy cooking Mexican food. Here's how I got here.",
     src: [
       "https://tifajade.b-cdn.net/About%20Me/AboutLoop1.webm",
       "https://tifajade.b-cdn.net/About%20Me/AboutLoop1_h264_preview.mp4",
