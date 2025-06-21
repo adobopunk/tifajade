@@ -5,25 +5,32 @@ document.addEventListener("DOMContentLoaded", function () {
   const iframe = document.querySelector("#showreel-overlay iframe");
   const overlayContent = document.querySelector(".overlay-content");
 
+  iframe.setAttribute("data-original-src", iframe.getAttribute("src"));
+
   function openOverlay() {
     overlay.classList.add("reelon");
     overlay.style.display = "flex";
+
     setTimeout(() => {
       overlay.style.opacity = "1";
-      // Bunny autoplays via URL param, so no JS control needed
+      // Restore the video src when opening
+      const originalSrc = iframe.getAttribute("data-original-src");
+      if (originalSrc) {
+        iframe.src = originalSrc;
+      }
     }, 10);
   }
 
   function closeOverlay() {
+    // Immediately stop playback by blanking the iframe
+    iframe.src = "about:blank";
+
     overlay.style.opacity = "0";
     overlay.addEventListener(
       "transitionend",
       function () {
         overlay.classList.remove("reelon");
         overlay.style.display = "none";
-        // Reload iframe to stop video and reset it
-        const src = iframe.getAttribute("src");
-        iframe.setAttribute("src", src);
       },
       { once: true }
     );
