@@ -342,7 +342,7 @@
             <loc>/about-old/</loc>
             
             
-            <lastmod>2025-04-07T04:16:47.168Z</lastmod>
+            <lastmod>2025-04-22T20:37:24.019Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -354,7 +354,7 @@
             <loc>/about/</loc>
             
             
-            <lastmod>2025-04-07T04:16:47.168Z</lastmod>
+            <lastmod>2025-04-22T20:37:24.020Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -366,7 +366,7 @@
             <loc>/contact/</loc>
             
             
-            <lastmod>2025-04-07T04:16:47.168Z</lastmod>
+            <lastmod>2025-04-22T20:37:24.020Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -378,19 +378,7 @@
             <loc>/highlights/</loc>
             
             
-            <lastmod>2025-04-07T04:16:47.168Z</lastmod>
-            
-
-            <changefreq>monthly</changefreq>
-        </url>
-        
-    
-        
-        <url>
-            <loc>/</loc>
-            
-            
-            <lastmod>2025-04-07T04:16:47.169Z</lastmod>
+            <lastmod>2025-04-22T20:37:24.020Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -402,7 +390,7 @@
             <loc>/projects-animation/drafts/index copy/</loc>
             
             
-            <lastmod>2025-04-07T04:16:47.171Z</lastmod>
+            <lastmod>2025-04-22T20:37:24.022Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -414,7 +402,7 @@
             <loc>/video/</loc>
             
             
-            <lastmod>2025-04-07T04:16:47.177Z</lastmod>
+            <lastmod>2025-04-22T20:37:24.026Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
@@ -426,7 +414,31 @@
             <loc>/animation/</loc>
             
             
-            <lastmod>2025-05-31T22:03:53.370Z</lastmod>
+            <lastmod>2025-06-12T00:05:07.314Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/projects/</loc>
+            
+            
+            <lastmod>2025-07-07T18:34:40.951Z</lastmod>
+            
+
+            <changefreq>monthly</changefreq>
+        </url>
+        
+    
+        
+        <url>
+            <loc>/</loc>
+            
+            
+            <lastmod>2025-07-14T03:29:44.368Z</lastmod>
             
 
             <changefreq>monthly</changefreq>
