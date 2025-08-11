@@ -1,6 +1,6 @@
 const pages = [
   {
-    copy: "I’m a Creative Producer and Video Content Strategist with a lot of ambition and a knack for visual storytelling. Typically behind the scenes and behind the camera, like any good director you'll catch me staring down the barrel of a lens while framing a shot. I live in Seattle with my cat Rogue, where I build computers and enjoy cooking Mexican food. Here's how I got here.",
+    copy: "I’m a Creative Director with a lot of ambition and a knack for visual storytelling. Typically behind the scenes and behind the camera, like any good director you'll catch me staring down the barrel of a lens while framing a shot. Here's how I got here.",
     src: [
       "https://tifajade.b-cdn.net/About%20Me/AboutLoop1.webm",
       "https://tifajade.b-cdn.net/About%20Me/AboutLoop1_h264_preview.mp4",
@@ -21,7 +21,7 @@ const pages = [
     ],
   },
   {
-    copy: "My journey led me to become Creative Services Director for my hometown NBC affiliate, where the pay was awful but the experience was invaluable. I pitched, directed, edited, and designed campaigns while rapidly developing my motion graphics skills. I built strong partnerships with local business owners and directed the station’s first Spanish newscast for Telemundo — a milestone in community outreach for the area.",
+    copy: "My journey led me to become Creative Services Director for my hometown NBC affiliate, where I pitched, directed, edited, and designed campaigns while rapidly developing my design skills. I built strong partnerships with local business owners and directed the station’s first Spanish newscast for Telemundo — a milestone in community outreach for the area.",
     src: [
       "https://tifajade.b-cdn.net/About%20Me/AboutLoop4.webm",
       "https://tifajade.b-cdn.net/About%20Me/AboutLoop4_h264_preview.mp4",
@@ -56,7 +56,7 @@ const pages = [
     ],
   },
   {
-    copy: "Across massive global brands, fast-growing startups, and scrappy creative teams, I’ve applied storytelling expertise and creative leadership to solve creative challenges. No matter what the mission is, I'm there because I love the craft — bringing bold ideas to life while building workflows that dismantle creative roadblocks, always pushing the boundaries of visual storytelling.",
+    copy: "Across massive global brands, fast-growing startups, and scrappy creative teams, I’ve applied storytelling expertise and creative leadership to solve creative challenges. I animate, design websites, and direct videos. I'm here because I love the craft, bringing bold ideas to life, building workflows that dismantle creative roadblocks, and always pushing the boundaries of visual storytelling.",
     src: [
       "https://tifajade.b-cdn.net/About%20Me/AboutLoop9.webm",
       "https://tifajade.b-cdn.net/About%20Me/AboutLoop9_h264_preview.mp4",
