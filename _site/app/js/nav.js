@@ -45,6 +45,8 @@ window.addEventListener("load", () => {
   const stickyNavbar = document.querySelector(".sticky-navbar");
   const footer = document.querySelector(".footer");
 
+  if (!stickyNavbar || !footer) return;
+
   const footerHeight = footer.offsetHeight;
   stickyNavbar.style.marginBottom = `${footerHeight}px`;
 });
