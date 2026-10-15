@@ -1,0 +1,84 @@
+---
+layout: "layouts/site.njk"
+bodyClass: "page-story"
+---
+{#- A Story. Front matter: title, date, kind ("photo" or "essay"), description,
+    cover, cover_alt, location, camera, topics, gallery [{ image, alt, caption,
+    size: full | wide | half | portrait }]. -#}
+{%- set published = collections.stories | reverse -%}
+{%- set next = published | nextAfter(page) -%}
+<article class="story story--{{ kind }}">
+  {%- if kind == "photo" and cover %}
+  <header class="story-cover">
+    {%- set src = cover %}{% set alt = cover_alt %}{% set eager = true %}
+    {% include "partials/story-image.njk" %}
+    <div class="story-cover__shade" aria-hidden="true"></div>
+    <div class="story-cover__text container">
+      <p class="label">Story · {{ page.date | readableDate }}</p>
+      <h1 class="display" data-split>{{ title }}</h1>
+      {%- if description %}<p class="lede">{{ description }}</p>{% endif %}
+    </div>
+  </header>
+  {%- else %}
+  <header class="story-head container container--narrow">
+    <a href="/stories/" class="case-back link-arrow link-arrow--back" data-reveal>All stories</a>
+    <p class="label" data-reveal>Story · {{ page.date | readableDate }}</p>
+    <h1 class="headline" data-split>{{ title }}</h1>
+    {%- if description %}<p class="lede story-head__dek" data-reveal>{{ description }}</p>{% endif %}
+  </header>
+  {%- if cover %}
+  <figure class="story-lead container" data-reveal>
+    <div class="frame">
+      {%- set src = cover %}{% set alt = cover_alt %}{% set eager = true %}{% set sizes = "(min-width: 1680px) 1580px, 94vw" %}
+      {% include "partials/story-image.njk" %}
+    </div>
+  </figure>
+  {%- endif %}
+  {%- endif %}
+
+  <div class="story-meta container container--narrow" data-reveal>
+    <dl class="story-meta__list">
+      <div><dt class="label">Published</dt><dd><time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time></dd></div>
+      {%- if location %}<div><dt class="label">Location</dt><dd>{{ location }}</dd></div>{% endif %}
+      {%- if camera %}<div><dt class="label">Camera</dt><dd>{{ camera }}</dd></div>{% endif %}
+      {%- if topics and topics.length %}
+      <div><dt class="label">Topics</dt><dd class="cluster" style="--cluster-space: 0.35rem">{% for t in topics %}<span class="tag">{{ t }}</span>{% endfor %}</dd></div>
+      {%- endif %}
+    </dl>
+  </div>
+
+  {%- if content | trim %}
+  <div class="story-body prose container container--narrow">
+    {{ content | safe }}
+  </div>
+  {%- endif %}
+
+  {%- if gallery and gallery.length %}
+  <div class="story-gallery container">
+    {%- for photo in gallery %}
+    {%- set size = photo.size or "wide" %}
+    <figure class="story-photo story-photo--{{ size }}" data-reveal>
+      {%- set src = photo.image %}{% set alt = photo.alt %}{% set eager = false %}
+      {%- set sizes = "100vw" if size == "full" else ("(min-width: 900px) 46vw, 94vw" if size in ["half", "portrait"] else "(min-width: 1680px) 1580px, 94vw") %}
+      {% include "partials/story-image.njk" %}
+      {%- if photo.caption %}<figcaption class="meta">{{ photo.caption }}</figcaption>{% endif %}
+    </figure>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+
+  {%- if next and next.url != page.url %}
+  <nav class="case-next" aria-label="Next story">
+    <a href="{{ next.url }}" class="case-next__link container">
+      <span class="label">Next story</span>
+      <span class="case-next__client display" data-split>{{ next.data.title }}</span>
+      {%- if next.data.description %}<span class="case-next__title lede">{{ next.data.description }}</span>{% endif %}
+      {%- if next.data.cover %}
+      <span class="frame case-next__media" aria-hidden="true">
+        <img src="{{ next.data.cover | sizedImage(1024) }}" alt="" loading="lazy" decoding="async" />
+      </span>
+      {%- endif %}
+    </a>
+  </nav>
+  {%- endif %}
+</article>

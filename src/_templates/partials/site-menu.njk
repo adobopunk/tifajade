@@ -8,7 +8,7 @@
       <ul class="site-menu__links">
         {%- for item in site.nav %}
         <li style="--i: {{ loop.index0 }}">
-          <a href="{{ item.url }}"{% if page.url.startsWith(item.url) %} aria-current="page"{% endif %}>
+          <a href="{{ item.url }}"{% if page.url and page.url.startsWith(item.url) %} aria-current="page"{% endif %}>
             <span class="index">0{{ loop.index }}</span>{{ item.label }}
           </a>
         </li>
