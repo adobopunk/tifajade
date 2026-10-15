@@ -3,9 +3,19 @@ layout: "layouts/site.njk"
 bodyClass: "page-case"
 ---
 {#- Project case study. Front matter: client, title, subtitle, agency, scope,
-    length, date, category, quote/author/citation, image, video. -#}
+    length, date, category, quote/author/citation, image, video, and
+    optionally headerImage to override the faded image behind the title. -#}
 {%- set next = collections.projects | nextAfter(page) -%}
 <article class="case">
+  {#- Faded header image: `headerImage` if set, otherwise the project's poster
+      (a still from its loop). It drifts slower than the page as you scroll. -#}
+  {%- set headSrc = (headerImage or (image | poster)) -%}
+  <div class="case-hero" aria-hidden="true">
+    <div class="case-hero__image" data-parallax="0.35">
+      <img src="{{ headSrc | sizedImage(2400) }}" alt="" fetchpriority="high" decoding="async" />
+    </div>
+  </div>
+
   <header class="case-head container">
     <a href="/projects/" class="case-back link-arrow link-arrow--back" data-reveal>All projects</a>
     <p class="label" data-reveal>{{ client }}</p>
