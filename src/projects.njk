@@ -1,0 +1,29 @@
+---
+layout: "layouts/site.njk"
+title: "Projects"
+description: "Film, documentary and motion projects by Tifa Jade for brands, agencies, local businesses and campaigns."
+permalink: "/projects/"
+---
+{%- set all = collections.projects -%}
+<section class="section projects-head" data-project-filter>
+  <div class="container">
+    <div class="section-head section-head--wrap">
+      <div class="stack">
+        <p class="label" data-reveal>{{ all.length }} projects</p>
+        <h1 class="headline" data-split>Every <span class="flourish">project.</span></h1>
+      </div>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button type="button" class="filter" data-filter="all" aria-pressed="true">All <sup>{{ all.length }}</sup></button>
+        {%- for cat in ["film", "motion"] %}
+        <button type="button" class="filter" data-filter="{{ cat }}" aria-pressed="false">{{ cat | capitalize }} <sup>{{ (all | byCategory(cat)).length }}</sup></button>
+        {%- endfor %}
+      </div>
+    </div>
+
+    <ul class="project-grid" role="list" data-reveal-stagger>
+      {%- for p in all %}
+      {% include "partials/project-card.njk" %}
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

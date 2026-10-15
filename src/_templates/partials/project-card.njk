@@ -1,0 +1,27 @@
+{#- One project in a grid. Expects `p` (a project page). -#}
+<li class="project-card" data-category="{{ p.data.category }}" data-reveal>
+  <a href="{{ p.url }}" class="project-card__link">
+    <div class="frame project-card__media">
+      <img src="{{ p.data.image | poster }}" alt="" loading="lazy" decoding="async" />
+      {%- set sources = p.data.video | videoSources %}
+      {%- if sources.length %}
+      <video muted loop playsinline preload="none" aria-hidden="true" data-card-video>
+        {%- for s in sources %}
+        <source src="{{ s.src }}" type="{{ s.type }}" />
+        {%- endfor %}
+      </video>
+      {%- endif %}
+      <span class="project-card__overlay" aria-hidden="true">
+        <span class="project-card__play">
+          <svg viewBox="0 0 16 16"><path fill="currentColor" d="M4 2.5v11l9-5.5z" /></svg>
+        </span>
+        <span class="project-card__overlay-title">{{ p.data.title }}</span>
+      </span>
+    </div>
+    <div class="project-card__meta">
+      <h3 class="project-card__client">{{ p.data.client }}</h3>
+      <span class="tag">{{ p.data.category }}</span>
+    </div>
+    <p class="project-card__title">{{ p.data.title }}</p>
+  </a>
+</li>

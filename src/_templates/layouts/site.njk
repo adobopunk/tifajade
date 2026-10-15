@@ -1,6 +1,7 @@
 {#- Base layout for the redesign. Pages opt in with `layout: layouts/site.njk`.
-    Front matter: title, description, image, headerVariant ("overlay" for full-bleed heroes), bodyClass. -#}
-{%- set pageTitle = (title + " | Tifa Jade") if title else site.title -%}
+    Front matter: title (or metaTitle to override the <title>), description, image, headerVariant ("overlay" for full-bleed heroes), bodyClass. -#}
+{%- set namedTitle = metaTitle or title -%}
+{%- set pageTitle = (namedTitle + " | Tifa Jade") if namedTitle else site.title -%}
 {%- set pageDescription = description or site.description -%}
 <!doctype html>
 <html lang="en">
