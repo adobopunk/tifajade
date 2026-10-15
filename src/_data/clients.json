@@ -1,0 +1,18 @@
+[
+  { "name": "Mountain Dew", "project": "mountain-dew-champions-cup" },
+  { "name": "UFC", "project": "ufc-promos" },
+  { "name": "Intel", "project": "intel-inspires" },
+  { "name": "Verizon", "project": "verizon" },
+  { "name": "Xbox", "project": "verizon" },
+  { "name": "Epic Games", "project": "tfue-tuesday" },
+  { "name": "Fortnite", "project": "fortnite" },
+  { "name": "Porsche", "project": "porsche-911-turbo" },
+  { "name": "Rocket League", "project": "porsche-911-turbo" },
+  { "name": "US Army National Guard", "project": "code-freedom-2024" },
+  { "name": "Gunzilla Games", "project": "off-the-grid-all-stars" },
+  { "name": "Midnight Society", "project": "midnight-society" },
+  { "name": "P3 Protein", "project": "p3" },
+  { "name": "BoomTV", "project": "boomtv-2024" },
+  { "name": "KNDU-TV", "project": "fear-none" },
+  { "name": "Good Loser", "project": "good-loser" }
+]

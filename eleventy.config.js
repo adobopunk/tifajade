@@ -81,6 +81,56 @@ module.exports = function (eleventyConfig) {
       });
   });
 
+  // Redesign: homepage carousel, ordered by each project's `carousel` number
+  eleventyConfig.addCollection("carousel", (collection) =>
+    collection
+      .getFilteredByGlob("src/projects-animation/*.njk")
+      .filter((p) => p.data.carousel)
+      .sort((a, b) => a.data.carousel - b.data.carousel)
+  );
+
+  // Redesign: featured projects for the homepage grid, newest first
+  eleventyConfig.addCollection("featuredProjects", (collection) =>
+    collection
+      .getFilteredByGlob("src/projects-animation/*.njk")
+      .filter((p) => p.data.feature === "yes")
+      .sort((a, b) => b.date - a.date)
+  );
+
+  // Some media paths in front matter are already URL-encoded (Bunny CDN), some
+  // aren't (local files with spaces). Normalize both.
+  const safeUrl = (src) => encodeURI(decodeURI(src));
+
+  // Project front matter stores video as a string or as { webm, mp4 }.
+  // Returns [{ src, type }] with WebM first so browsers pick the smaller file.
+  eleventyConfig.addFilter("videoSources", (video) => {
+    if (!video) return [];
+    const typeOf = (src) => (src.endsWith(".webm") ? "video/webm" : "video/mp4");
+    if (typeof video === "string") return [{ src: safeUrl(video), type: typeOf(video) }];
+    return ["webm", "mp4"]
+      .filter((key) => video[key])
+      .map((key) => ({ src: safeUrl(video[key]), type: `video/${key}` }));
+  });
+
+  // Same idea for posters: a string or { webp, jpg }
+  eleventyConfig.addFilter("poster", (image) => {
+    const src = typeof image === "string" ? image : image?.webp || image?.jpg;
+    return safeUrl(src || "/assets/img/og-image.jpg");
+  });
+
+  // Projects in one category (film, motion)
+  eleventyConfig.addFilter("byCategory", (pages, category) =>
+    (pages || []).filter((p) => p.data.category === category)
+  );
+
+  // 1 → "01"
+  eleventyConfig.addFilter("pad2", (n) => String(n).padStart(2, "0"));
+
+  // Look up a page in a collection by its file slug
+  eleventyConfig.addFilter("bySlug", (pages, slug) =>
+    (pages || []).find((p) => p.fileSlug === slug)
+  );
+
   // Absolute URLs for canonical/Open Graph tags
   const siteUrl = "https://tifajade.com";
   eleventyConfig.addFilter("absoluteUrl", (path) => siteUrl + encodeURI(path));
