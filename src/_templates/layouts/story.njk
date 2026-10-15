@@ -3,7 +3,7 @@ layout: "layouts/site.njk"
 bodyClass: "page-story"
 ---
 {#- A Story. Front matter: title, date, kind ("photo" or "essay"), description,
-    cover, cover_alt, location, camera, topics, gallery [{ image, alt, caption,
+    cover, cover_alt, gallery [{ image, alt, caption,
     size: full | wide | half | portrait }]. -#}
 {%- set published = collections.stories | reverse -%}
 {%- set next = published | nextAfter(page) -%}
@@ -35,17 +35,6 @@ bodyClass: "page-story"
   </figure>
   {%- endif %}
   {%- endif %}
-
-  <div class="story-meta container container--narrow" data-reveal>
-    <dl class="story-meta__list">
-      <div><dt class="label">Published</dt><dd><time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time></dd></div>
-      {%- if location %}<div><dt class="label">Location</dt><dd>{{ location }}</dd></div>{% endif %}
-      {%- if camera %}<div><dt class="label">Camera</dt><dd>{{ camera }}</dd></div>{% endif %}
-      {%- if topics and topics.length %}
-      <div><dt class="label">Topics</dt><dd class="cluster" style="--cluster-space: 0.35rem">{% for t in topics %}<span class="tag">{{ t }}</span>{% endfor %}</dd></div>
-      {%- endif %}
-    </dl>
-  </div>
 
   {%- if content | trim %}
   <div class="story-body prose container container--narrow">

@@ -67,26 +67,6 @@
   margin-bottom: var(--space-l);
 }
 
-// Details row under the header
-
-.story-meta {
-  padding-top: var(--space-l);
-}
-
-.story-meta__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-m) var(--space-xl);
-  padding-bottom: var(--space-l);
-  border-bottom: 1px solid var(--line);
-
-  dd {
-    margin: 0.3rem 0 0;
-    font-size: var(--step--1);
-    font-weight: 500;
-  }
-}
-
 // Body text
 
 .story-body {

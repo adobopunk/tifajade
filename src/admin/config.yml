@@ -94,22 +94,6 @@ collections:
         required: false
         hint: What's in the photo, for people using screen readers.
 
-      - label: Location
-        name: location
-        widget: string
-        required: false
-
-      - label: Camera / lens
-        name: camera
-        widget: string
-        required: false
-
-      - label: Topics
-        name: topics
-        widget: list
-        required: false
-        hint: Comma-separated, e.g. Portraits, Events
-
       - label: Story
         name: body
         widget: markdown

@@ -6,9 +6,6 @@ kind: essay
 description: "A placeholder to show how a written story looks. It's a draft, so it only appears on your computer."
 cover: /assets/img/projects/good-loser/flying-z.webp
 cover_alt: "A musician seated outside a DIY venue"
-location: "Benton City, WA"
-topics:
-  - Sample
 ---
 
 Essays put the writing first. The text is set in a readable serif column,
