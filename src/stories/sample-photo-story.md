@@ -6,10 +6,6 @@ kind: photo
 description: "A placeholder to show how a photo story looks. It's a draft, so it only appears on your computer. Delete it once real stories are up."
 cover: /assets/img/projects/good-loser/indigenous-joy-dabke.webp
 cover_alt: "Dabke dancers mid-step on an outdoor stage"
-location: "Kennewick, WA"
-camera: "Sample camera · 35mm"
-topics:
-  - Sample
 gallery:
   - image: /assets/img/projects/good-loser/may-day-dancer.webp
     alt: "A dancer in a feathered headdress"

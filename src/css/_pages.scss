@@ -244,6 +244,10 @@
   padding-top: var(--space-l);
   border-top: 1px solid var(--line);
 
+  .btn {
+    justify-self: start;
+  }
+
   a:not(.btn) {
     font-size: var(--step-2);
     font-weight: 600;

@@ -1,0 +1,219 @@
+// Projects page: sliding pill filter and a tight grid of project loops.
+
+.projects-page {
+  padding-top: var(--space-l);
+  padding-bottom: var(--space-xl);
+}
+
+.projects-page__filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-l);
+}
+
+// Three-way pill toggle. The thumb slides under whichever option is pressed;
+// JS sets its position and width from the pressed button.
+.segmented {
+  position: relative;
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: auto;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--paper) 40%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.segmented__thumb {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 0;
+  width: var(--thumb-w, 0);
+  transform: translateX(var(--thumb-x, 0));
+  border: 1px solid color-mix(in srgb, var(--ink) 35%, transparent);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--ink) 9%, transparent);
+  transition:
+    transform var(--dur-med) var(--ease-out),
+    width var(--dur-med) var(--ease-out);
+  pointer-events: none;
+
+  // Hidden, and not animating, until JS has measured where it goes
+  opacity: 0;
+
+  .segmented:not(.is-ready) & {
+    transition: none;
+  }
+
+  .segmented.is-ready & {
+    opacity: 1;
+  }
+}
+
+.segmented__option {
+  position: relative;
+  padding: 0.75em 1.4em;
+  border-radius: var(--radius-pill);
+  font-size: var(--step--1);
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink-muted);
+  transition: color var(--dur-fast) var(--ease-out);
+
+  &:hover,
+  &[aria-pressed="true"] {
+    color: var(--ink);
+  }
+
+  // Without JS, the pressed option shows its own background instead
+  .segmented:not(.is-ready) &[aria-pressed="true"] {
+    background: color-mix(in srgb, var(--ink) 9%, transparent);
+  }
+
+  @media (max-width: 420px) {
+    padding-inline: 1em;
+    letter-spacing: 0.06em;
+  }
+}
+
+// Grid
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xs);
+  list-style: none;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 1100px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.project-card {
+  &[hidden] {
+    display: none;
+  }
+
+  // Cards easing back in after a filter change
+  &.is-filtering-in {
+    animation: card-in var(--dur-med) var(--ease-out) both;
+    animation-delay: calc(var(--filter-i, 0) * 30ms);
+  }
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+.project-card__link {
+  display: block;
+  text-decoration: none;
+}
+
+.project-card__media {
+  > video {
+    opacity: 0;
+    transition: opacity var(--dur-med) var(--ease-out);
+  }
+
+  > img {
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+}
+
+.project-card.is-playing .project-card__media > video {
+  opacity: 1;
+}
+
+// Hover overlay: client large in the top left, title small in the bottom right
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-m);
+  color: #f4f2ed;
+  background: linear-gradient(
+    160deg,
+    rgb(5 7 6 / 0.65) 0%,
+    rgb(5 7 6 / 0.1) 45%,
+    rgb(5 7 6 / 0.1) 60%,
+    rgb(5 7 6 / 0.6) 100%
+  );
+  opacity: 0;
+  transition: opacity var(--dur-med) var(--ease-out);
+}
+
+.project-card__overlay-client {
+  max-width: 14ch;
+  font-size: var(--step-4);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  transform: translateY(-8px);
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.project-card__overlay-title {
+  align-self: flex-end;
+  max-width: 24ch;
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-align: right;
+  transform: translateY(8px);
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+// Names below the image are for touch screens, which can't hover
+.project-card__meta {
+  display: grid;
+  gap: 0.1rem;
+  padding: var(--space-xs) 0 var(--space-s);
+}
+
+.project-card__client {
+  font-size: var(--step-1);
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+.project-card__title {
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card__meta {
+    display: none;
+  }
+
+  .project-card__link:hover,
+  .project-card__link:focus-visible {
+    .project-card__overlay {
+      opacity: 1;
+    }
+
+    .project-card__overlay-client,
+    .project-card__overlay-title {
+      transform: none;
+    }
+
+    .project-card__media > img {
+      transform: scale(1.03);
+    }
+  }
+}
