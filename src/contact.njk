@@ -16,45 +16,67 @@ permalink: "/contact/"
 
       <div class="contact__direct" data-reveal>
         <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-        <a href="{{ site.calendly }}" class="btn btn--primary btn--large" target="_blank" rel="noopener">Book a 30-minute call</a>
+        <a href="#book" class="btn btn--primary btn--large" data-contact-show="book">{{ site.booking.label }}</a>
       </div>
     </div>
 
-    {#- Handled by Netlify Forms. Field names match the previous form so
-        existing submissions stay together in the Netlify dashboard. -#}
-    <form
-      class="form"
-      name="contact"
-      method="POST"
-      action="/contact/thanks/"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      data-reveal
-    >
-      <input type="hidden" name="form-name" value="contact" />
-      <p class="honeypot" aria-hidden="true">
-        <label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-      </p>
-
-      <div class="field">
-        <label for="contact-name">Name</label>
-        <input id="contact-name" name="Name" autocomplete="name" required />
+    <div class="contact__panels" data-contact-panels>
+      <div class="contact__switch" data-reveal>
+        <div class="segmented" role="tablist" aria-label="How to get in touch" data-segmented>
+          <span class="segmented__thumb" aria-hidden="true"></span>
+          <button type="button" class="segmented__option" role="tab" id="tab-message" aria-controls="panel-message" aria-selected="true" data-value="message">Send a message</button>
+          <button type="button" class="segmented__option" role="tab" id="tab-book" aria-controls="panel-book" aria-selected="false" tabindex="-1" data-value="book">Book a call</button>
+        </div>
       </div>
 
-      <div class="field">
-        <label for="contact-email">Email</label>
-        <input id="contact-email" type="email" name="email" autocomplete="email" required />
-      </div>
+      {#- Handled by Netlify Forms. Field names match the previous form so
+          existing submissions stay together in the Netlify dashboard. -#}
+      <form
+        id="panel-message"
+        role="tabpanel"
+        aria-labelledby="tab-message"
+        class="form"
+        name="contact"
+        method="POST"
+        action="/contact/thanks/"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        data-reveal
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="honeypot" aria-hidden="true">
+          <label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
 
-      <div class="field field--full">
-        <label for="contact-message">About the project</label>
-        <textarea id="contact-message" name="message text" rows="6" required placeholder="What are you making, who is it for, and when do you need it?"></textarea>
-      </div>
+        <div class="field">
+          <label for="contact-name">Name</label>
+          <input id="contact-name" name="Name" autocomplete="name" required />
+        </div>
 
-      <div class="form__actions">
-        <button type="submit" class="btn btn--primary btn--large">Send message</button>
-        <p class="meta">Prefer to talk it through? <a href="{{ site.calendly }}" target="_blank" rel="noopener">Book a call</a> instead.</p>
+        <div class="field">
+          <label for="contact-email">Email</label>
+          <input id="contact-email" type="email" name="email" autocomplete="email" required />
+        </div>
+
+        <div class="field field--full">
+          <label for="contact-message">About the project</label>
+          <textarea id="contact-message" name="message text" rows="6" required placeholder="What are you making, who is it for, and when do you need it?"></textarea>
+        </div>
+
+        <div class="form__actions">
+          <button type="submit" class="btn btn--primary btn--large">Send message</button>
+          <p class="meta">Prefer to talk it through? <a href="#book" data-contact-show="book">Book a call</a> instead.</p>
+        </div>
+      </form>
+
+      {#- Cal.com calendar, loaded when this tab opens. Without JavaScript both
+          panels show and the link below goes to the booking page. -#}
+      <div class="contact__booking" id="panel-book" role="tabpanel" aria-labelledby="tab-book" data-booking-inline="{{ site.booking.calLink }}">
+        <div class="contact__booking-fallback">
+          <p class="lede">Pick a time that works for you.</p>
+          <a href="{{ site.booking.url }}" class="btn btn--primary btn--large" target="_blank" rel="noopener">{{ site.booking.label }}</a>
+        </div>
       </div>
-    </form>
+    </div>
   </div>
 </section>

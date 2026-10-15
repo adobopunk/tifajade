@@ -9,6 +9,8 @@ import { initProjectGrid } from "./modules/project-grid.js";
 import { initClientReel } from "./modules/client-reel.js";
 import { initAboutStory } from "./modules/about-story.js";
 import { initParallax } from "./modules/parallax.js";
+import { initSegmented } from "./modules/segmented.js";
+import { initBooking } from "./modules/booking.js";
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -17,6 +19,8 @@ initHeader();
 const lenis = initSmoothScroll({ reducedMotion });
 initDialogs({ lenis });
 initReveal({ reducedMotion });
+initSegmented();
+initBooking();
 
 // Page-specific behavior; each does nothing if its markup isn't on the page
 initCarousel({ reducedMotion });
