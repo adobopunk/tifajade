@@ -66,12 +66,14 @@
   transition: color var(--dur-fast) var(--ease-out);
 
   &:hover,
-  &[aria-pressed="true"] {
+  &[aria-pressed="true"],
+  &[aria-selected="true"] {
     color: var(--ink);
   }
 
-  // Without JS, the pressed option shows its own background instead
-  .segmented:not(.is-ready) &[aria-pressed="true"] {
+  // Without JS, the chosen option shows its own background instead
+  .segmented:not(.is-ready) &[aria-pressed="true"],
+  .segmented:not(.is-ready) &[aria-selected="true"] {
     background: color-mix(in srgb, var(--ink) 9%, transparent);
   }
 

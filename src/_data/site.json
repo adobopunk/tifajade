@@ -4,7 +4,11 @@
   "url": "https://tifajade.com",
   "author": "Tifa Jade",
   "email": "hi@tifajade.com",
-  "calendly": "https://calendly.com/connect-tifajade/30min",
+  "booking": {
+    "url": "https://cal.com/tifajade/15min",
+    "calLink": "tifajade/15min",
+    "label": "Book a 15-minute call"
+  },
   "reel": "https://iframe.mediadelivery.net/embed/418879/c3060459-276c-44c7-a595-693bcadfdab8?autoplay=true&loop=false&muted=false&preload=true&responsive=true",
   "nav": [
     { "label": "Projects", "url": "/projects/" },

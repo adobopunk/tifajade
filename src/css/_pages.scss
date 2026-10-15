@@ -260,6 +260,46 @@
   }
 }
 
+.contact__panels {
+  display: grid;
+  gap: var(--space-m);
+  align-content: start;
+}
+
+// The switch only works with JavaScript; without it both panels show
+.contact__switch {
+  display: none;
+
+  .js & {
+    display: block;
+  }
+}
+
+.contact__booking {
+  min-height: 640px;
+  padding: var(--space-m);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+  overflow: hidden;
+
+  // Once the calendar is placed, it fills the panel edge to edge
+  &.is-embedded {
+    padding: 0;
+    min-height: 0;
+
+    .contact__booking-fallback {
+      display: none;
+    }
+  }
+}
+
+.contact__booking-fallback {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-m);
+}
+
 .form {
   display: grid;
   gap: var(--space-m);

@@ -51,42 +51,20 @@ export function initProjectGrid({ reducedMotion }) {
 
   document.querySelectorAll("[data-project-filter]").forEach((section) => {
     const toggle = section.querySelector("[data-segmented]");
-    const thumb = toggle?.querySelector(".segmented__thumb");
-    const buttons = [...section.querySelectorAll("[data-filter]")];
     const cards = [...section.querySelectorAll(".project-card")];
 
-    // Slide the thumb under the pressed option
-    function moveThumb() {
-      const pressed = buttons.find((b) => b.getAttribute("aria-pressed") === "true");
-      if (!toggle || !thumb || !pressed) return;
-      toggle.style.setProperty("--thumb-x", `${pressed.offsetLeft}px`);
-      toggle.style.setProperty("--thumb-w", `${pressed.offsetWidth}px`);
-    }
-
-    moveThumb();
-    // Show the thumb only after its first position is set, so it doesn't
-    // slide in from the left edge on page load
-    requestAnimationFrame(() => toggle?.classList.add("is-ready"));
-    window.addEventListener("resize", moveThumb);
-    document.fonts?.ready.then(moveThumb);
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const filter = button.dataset.filter;
-        buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
-        moveThumb();
-
-        let shown = 0;
-        cards.forEach((card) => {
-          const match = filter === "all" || card.dataset.category === filter;
-          card.classList.remove("is-filtering-in");
-          card.hidden = !match;
-          if (match) {
-            card.style.setProperty("--filter-i", shown++);
-            void card.offsetWidth;
-            card.classList.add("is-filtering-in");
-          }
-        });
+    toggle?.addEventListener("segmented:change", (e) => {
+      const filter = e.detail.value;
+      let shown = 0;
+      cards.forEach((card) => {
+        const match = filter === "all" || card.dataset.category === filter;
+        card.classList.remove("is-filtering-in");
+        card.hidden = !match;
+        if (match) {
+          card.style.setProperty("--filter-i", shown++);
+          void card.offsetWidth;
+          card.classList.add("is-filtering-in");
+        }
       });
     });
   });
