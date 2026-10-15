@@ -55,6 +55,13 @@ module.exports = function (eleventyConfig) {
       });
   });
 
+  // Absolute URLs for canonical/Open Graph tags
+  const siteUrl = "https://tifajade.com";
+  eleventyConfig.addFilter("absoluteUrl", (path) => siteUrl + encodeURI(path));
+  eleventyConfig.addFilter("absoluteImage", (path) =>
+    siteUrl + encodeURI(path || "/assets/img/og-image.jpg")
+  );
+
   // Add index filter
   eleventyConfig.addFilter("index", function (array, value) {
     return array.indexOf(value);
@@ -80,8 +87,5 @@ module.exports = function (eleventyConfig) {
       includes: "_templates",
     },
     templateFormats: ["njk", "html"],
-    data: {
-      siteUrl: "https://tifajade.com",
-    },
   };
 };
