@@ -107,7 +107,7 @@ permalink: "/"
 
     <div class="service-list">
       {%- for s in services %}
-      {%- set sp = collections.animation | bySlug(s.project) if s.project else none %}
+      {%- set sp = collections.projects | bySlug(s.project) if s.project else none %}
       <details class="service" name="services" data-reveal {% if loop.first %}open{% endif %}>
         <summary class="service__summary">
           <span class="index">{{ loop.index | pad2 }}</span>

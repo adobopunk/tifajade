@@ -1,4 +1,5 @@
 {
   "noindex": true,
-  "eleventyExcludeFromCollections": true
+  "eleventyExcludeFromCollections": true,
+  "permalink": false
 }

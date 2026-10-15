@@ -7,6 +7,7 @@ import { initReveal } from "./modules/reveal.js";
 import { initCarousel } from "./modules/carousel.js";
 import { initProjectGrid } from "./modules/project-grid.js";
 import { initClientReel } from "./modules/client-reel.js";
+import { initAboutStory } from "./modules/about-story.js";
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -20,3 +21,4 @@ initReveal({ reducedMotion });
 initCarousel({ reducedMotion });
 initProjectGrid({ reducedMotion });
 initClientReel({ reducedMotion });
+initAboutStory({ reducedMotion });

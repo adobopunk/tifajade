@@ -1,0 +1,50 @@
+---
+layout: "layouts/site.njk"
+title: "About"
+description: "Tifa Jade is a director, producer and content strategist. From backyard movies in Richland to UFC, BoomTV and Good Loser, here's the story so far."
+permalink: "/about/"
+---
+{%- set cdn = "https://tifajade.b-cdn.net/About%20Me/" -%}
+<section class="section about-hero">
+  <div class="container">
+    <p class="label" data-reveal>About</p>
+    <h1 class="display" data-split>I'm Tifa Jade, but you can call me <span class="flourish">TJ.</span></h1>
+    <p class="lede" data-reveal>Ten chapters, from backyard movies to directing for some of the biggest names in sports and gaming. Scroll to read the story.</p>
+  </div>
+</section>
+
+<section class="section about" data-about-story>
+  <div class="container about-story">
+    <div class="about-story__media" aria-hidden="true">
+      <div class="frame">
+        {%- for ch in about %}
+        {#- Nothing loads until a chapter is on screen; the script starts each loop -#}
+        <video muted loop playsinline preload="none" data-chapter-video="{{ loop.index0 }}"{% if loop.first %} class="is-active"{% endif %}>
+          <source src="{{ cdn }}{{ ch.video }}.webm" type="video/webm" />
+          <source src="{{ cdn }}{{ ch.video }}_h264_preview.mp4" type="video/mp4" />
+        </video>
+        {%- endfor %}
+      </div>
+      <p class="about-counter label"><span data-chapter-current>01</span> / {{ about.length | pad2 }}</p>
+    </div>
+
+    <ol class="about-story__chapters" role="list">
+      {%- for ch in about %}
+      <li class="chapter{% if loop.last %} chapter--last{% endif %}" data-chapter="{{ loop.index0 }}">
+        <div class="frame frame--portrait chapter__media" aria-hidden="true">
+          <video muted loop playsinline preload="none">
+            <source src="{{ cdn }}{{ ch.video }}.webm" type="video/webm" />
+            <source src="{{ cdn }}{{ ch.video }}_h264_preview.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <p class="label chapter__place" data-reveal>{{ loop.index | pad2 }} · {{ ch.place }}</p>
+        <h2 class="chapter__title" data-split>{{ ch.title }}</h2>
+        <div class="prose" data-reveal><p>{{ ch.copy | safe }}</p></div>
+        {%- if loop.last %}
+        <a href="/contact/" class="btn btn--primary btn--large" data-reveal>Let's talk</a>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>

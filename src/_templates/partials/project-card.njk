@@ -19,7 +19,7 @@
       </span>
     </div>
     <div class="project-card__meta">
-      <h3 class="project-card__client">{{ p.data.client }}</h3>
+      <{{ cardHeading or "h3" }} class="project-card__client">{{ p.data.client }}</{{ cardHeading or "h3" }}>
       <span class="tag">{{ p.data.category }}</span>
     </div>
     <p class="project-card__title">{{ p.data.title }}</p>

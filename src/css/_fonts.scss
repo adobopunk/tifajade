@@ -26,8 +26,9 @@
 
 @font-face {
   font-family: "Ohno Blazeface";
-  src: url("/assets/fonts/OhnoBlazeface/Ohno Blazeface 16 Point.ttf")
-    format("truetype");
+  src:
+    url("/assets/fonts/OhnoBlazeface/OhnoBlazeface-16pt.woff2") format("woff2"),
+    url("/assets/fonts/OhnoBlazeface/Ohno Blazeface 16 Point.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;

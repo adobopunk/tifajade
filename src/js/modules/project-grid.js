@@ -38,9 +38,10 @@ export function initProjectGrid({ reducedMotion }) {
     previewVideo(card, card.querySelector("a"), { reducedMotion });
   });
 
-  // Service rows reuse the same preview behavior on their media panel
+  // Service rows (homepage accordion, Services page sections) reuse the same
+  // preview behavior on their media panel
   document.querySelectorAll(".service__media").forEach((media) => {
-    previewVideo(media, media.closest(".service"), { reducedMotion });
+    previewVideo(media, media.closest(".service, .service-detail"), { reducedMotion });
   });
 
   document.querySelectorAll("[data-project-filter]").forEach((section) => {
