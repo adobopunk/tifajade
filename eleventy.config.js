@@ -8,6 +8,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("app");
   eleventyConfig.addPassthroughCopy("robots.txt");
+  eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
   eleventyConfig.addPassthroughCopy("pdf");
 
   // Redesign: scripts and vendored libraries
@@ -81,6 +82,23 @@ module.exports = function (eleventyConfig) {
       });
   });
 
+  // Redesign: every published project, newest first
+  eleventyConfig.addCollection("projects", (collection) =>
+    collection
+      .getFilteredByGlob("src/projects-animation/*.njk")
+      .sort((a, b) => b.date - a.date)
+  );
+
+  // The project after this one in a list, wrapping around to the first
+  eleventyConfig.addFilter("nextAfter", (pages, page) => {
+    const i = pages.findIndex((p) => p.url === page.url);
+    return pages[(i + 1) % pages.length];
+  });
+
+  eleventyConfig.addFilter("year", (date) =>
+    (date instanceof Date ? date : new Date()).getFullYear()
+  );
+
   // Redesign: homepage carousel, ordered by each project's `carousel` number
   eleventyConfig.addCollection("carousel", (collection) =>
     collection
@@ -137,9 +155,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("absoluteImage", (path) =>
     siteUrl + encodeURI(path || "/assets/img/og-image.jpg")
   );
-
-  // Current year, for the footer copyright line
-  eleventyConfig.addFilter("year", () => new Date().getFullYear());
 
   // Add index filter
   eleventyConfig.addFilter("index", function (array, value) {

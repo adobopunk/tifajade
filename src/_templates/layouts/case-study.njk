@@ -1,0 +1,85 @@
+---
+layout: "layouts/site.njk"
+bodyClass: "page-case"
+---
+{#- Project case study. Front matter: client, title, subtitle, agency, scope,
+    length, date, category, quote/author/citation, image, video. -#}
+{%- set next = collections.projects | nextAfter(page) -%}
+<article class="case">
+  <header class="case-head container">
+    <a href="/projects/" class="case-back link-arrow link-arrow--back" data-reveal>All projects</a>
+    <p class="label" data-reveal>{{ client }}</p>
+    <h1 class="headline case-title" data-split>{{ title or client }}</h1>
+    {%- if subtitle %}
+    <p class="lede case-subtitle" data-reveal>{{ subtitle }}</p>
+    {%- endif %}
+  </header>
+
+  <div class="case-layout container">
+    <aside class="case-meta" aria-label="Project details">
+      <dl class="case-meta__list">
+        <div>
+          <dt class="label">Client</dt>
+          <dd>{{ client }}</dd>
+        </div>
+        {%- if agency and agency != client %}
+        <div>
+          <dt class="label">Agency</dt>
+          <dd>{{ agency }}</dd>
+        </div>
+        {%- endif %}
+        {%- if scope %}
+        <div>
+          <dt class="label">Role</dt>
+          <dd>{{ scope }}</dd>
+        </div>
+        {%- endif %}
+        <div>
+          <dt class="label">Year</dt>
+          <dd>{{ page.date | year }}</dd>
+        </div>
+        {%- if length %}
+        <div>
+          <dt class="label">Timeline</dt>
+          <dd>{{ length }}</dd>
+        </div>
+        {%- endif %}
+        {%- if category %}
+        <div>
+          <dt class="label">Type</dt>
+          <dd><span class="tag">{{ category }}</span></dd>
+        </div>
+        {%- endif %}
+      </dl>
+      <a href="/contact/" class="btn btn--primary case-meta__cta">Start a project like this</a>
+    </aside>
+
+    <div class="case-body">
+      {%- if quote %}
+      <figure class="case-quote" data-reveal>
+        <blockquote>{{ quote }}</blockquote>
+        {%- if author %}
+        <figcaption class="meta">
+          {%- if citation %}<a href="{{ citation }}" target="_blank" rel="noopener">{{ author }}</a>{% else %}{{ author }}{% endif -%}
+        </figcaption>
+        {%- endif %}
+      </figure>
+      {%- endif %}
+
+      {{ content | safe }}
+    </div>
+  </div>
+
+  {%- if next and next.url != page.url %}
+  <nav class="case-next" aria-label="Next project">
+    <a href="{{ next.url }}" class="case-next__link container">
+      <span class="label">Next project</span>
+      <span class="case-next__client display" data-split>{{ next.data.client }}</span>
+      <span class="case-next__title lede">{{ next.data.title }}</span>
+      <span class="frame case-next__media" aria-hidden="true">
+        <img src="{{ next.data.image | poster }}" alt="" loading="lazy" decoding="async" />
+      </span>
+    </a>
+  </nav>
+  {%- endif %}
+</article>

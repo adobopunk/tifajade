@@ -1,0 +1,386 @@
+// Project case studies. The body styles below also restyle the markup the
+// existing case studies were written with (.side-by-side, .big,
+// .project__info, .contributions, .project__credits…), so their content
+// works in the new design without being rewritten.
+
+.case-head {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-s);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+.case-back {
+  margin-bottom: var(--space-m);
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+
+  &:hover {
+    color: var(--ink);
+  }
+}
+
+// Arrow on the left, sliding left on hover
+.link-arrow--back {
+  flex-direction: row-reverse;
+
+  &::after {
+    content: "←";
+  }
+
+  &:hover::after {
+    transform: translateX(-0.25em);
+  }
+}
+
+.case-title {
+  max-width: 18ch;
+}
+
+.case-subtitle {
+  max-width: 40ch;
+  color: var(--ink-muted);
+}
+
+// Sidebar + body
+
+.case-layout {
+  display: grid;
+  gap: var(--space-xl) var(--gutter);
+  align-items: start;
+
+  @media (min-width: 1100px) {
+    grid-template-columns: minmax(220px, 3fr) 9fr;
+  }
+}
+
+.case-meta {
+  display: grid;
+  gap: var(--space-l);
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--line);
+
+  @media (min-width: 1100px) {
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-m));
+  }
+}
+
+.case-meta__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--space-m) var(--gutter);
+
+  @media (min-width: 1100px) {
+    grid-template-columns: 1fr;
+  }
+
+  dd {
+    margin: 0.3rem 0 0;
+    font-size: var(--step--1);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+}
+
+.case-meta__cta {
+  justify-self: start;
+}
+
+.case-quote {
+  margin-bottom: var(--space-xl);
+  padding-left: var(--space-m);
+  border-left: 2px solid var(--accent);
+
+  blockquote {
+    font-family: var(--font-serif);
+    font-size: var(--step-2);
+    font-weight: 350;
+    line-height: 1.35;
+    text-wrap: pretty;
+
+    &::before {
+      content: "“";
+    }
+    &::after {
+      content: "”";
+    }
+  }
+
+  figcaption {
+    margin-top: var(--space-s);
+
+    &::before {
+      content: "— ";
+    }
+  }
+}
+
+// Body content
+
+.case-body {
+  min-width: 0;
+
+  > * + * {
+    margin-top: var(--space-l);
+  }
+
+  h2 {
+    margin-top: var(--space-2xl);
+    font-size: var(--step-4);
+    letter-spacing: -0.035em;
+  }
+
+  h2 + * {
+    margin-top: var(--space-m);
+  }
+
+  h3 {
+    font-size: var(--step-1);
+  }
+
+  p {
+    font-family: var(--font-serif);
+    font-size: var(--step-1);
+    font-weight: 350;
+    line-height: 1.6;
+    max-width: var(--measure);
+    text-wrap: pretty;
+  }
+
+  p + p {
+    margin-top: 1em;
+  }
+
+  // Lead-in lines: sans, bigger, tighter
+  p.big {
+    font-family: var(--font-sans);
+    font-size: var(--step-2);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    max-width: 24ch;
+    text-wrap: balance;
+  }
+
+  p.small {
+    font-size: var(--step--1);
+  }
+
+  a:not([class]) {
+    color: var(--accent);
+  }
+
+  // Media fill the column and get the same rounded corners as the grid
+  img,
+  video {
+    width: 100%;
+    border-radius: var(--radius-s);
+    background: var(--surface);
+  }
+
+  iframe {
+    border-radius: var(--radius-s);
+  }
+
+  // Embeds wrapped in an inline-styled padding box keep their ratio
+  div[style*="padding"] {
+    border-radius: var(--radius-s);
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    margin-top: var(--space-xs);
+    font-family: var(--font-sans);
+    font-size: var(--step--1);
+    color: var(--ink-muted);
+    text-align: left;
+  }
+
+  ul {
+    padding-left: 1.1em;
+  }
+
+  // Two-up rows: text beside text, text beside media, or media pairs
+  .side-by-side {
+    display: grid;
+    gap: var(--space-m) var(--gutter);
+    align-items: start;
+
+    // One equal column per child, however many there are
+    @media (min-width: 760px) {
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(0, 1fr);
+    }
+
+    > * {
+      min-width: 0;
+      margin: 0;
+    }
+
+    // Empty rows left over in some case studies
+    &:empty {
+      display: none;
+    }
+  }
+
+  // Narrow (vertical) media
+  .wrapper-smaller {
+    max-width: 420px;
+  }
+
+  // Story + roles list
+  .project__info {
+    display: grid;
+    gap: var(--space-m) var(--gutter);
+
+    @media (min-width: 760px) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  .project__info-L > * + * {
+    margin-top: 1em;
+  }
+
+  .project__info-R ul,
+  .contributions ul,
+  .project__credits ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+    list-style: none;
+    padding: 0;
+    align-content: start;
+
+    li {
+      padding: 0.35em 0.8em;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-pill);
+      font-size: var(--step--1);
+    }
+
+    li:empty {
+      display: none;
+    }
+  }
+
+  .contributions {
+    padding-top: var(--space-l);
+    border-top: 1px solid var(--line);
+
+    h2,
+    h3 {
+      margin-top: 0;
+      margin-bottom: var(--space-s);
+      font-size: var(--step-1);
+      letter-spacing: -0.01em;
+    }
+  }
+
+  .project__credits {
+    display: grid;
+    gap: var(--space-s);
+    padding-top: var(--space-l);
+    border-top: 1px solid var(--line);
+
+    h3 {
+      font-size: var(--step-1);
+    }
+
+    // Hide credits blocks that never got any names
+    &:has(ul:empty) {
+      display: none;
+    }
+  }
+
+  .project__step-title {
+    font-size: var(--step-3);
+  }
+
+  .testimonial {
+    padding-left: var(--space-m);
+    border-left: 2px solid var(--accent);
+
+    .quote {
+      font-family: var(--font-serif);
+      font-size: var(--step-2);
+      font-weight: 350;
+      line-height: 1.35;
+    }
+
+    .author {
+      display: block;
+      margin-top: var(--space-s);
+      font-size: var(--step--1);
+      font-style: normal;
+      color: var(--ink-muted);
+    }
+  }
+}
+
+// Next project
+
+.case-next {
+  margin-top: var(--space-2xl);
+  border-top: 1px solid var(--line);
+}
+
+.case-next__link {
+  display: grid;
+  gap: var(--space-xs);
+  padding-block: var(--space-2xl) 0;
+  text-decoration: none;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr minmax(0, 0.8fr);
+    column-gap: var(--gutter);
+
+    > :not(.case-next__media) {
+      grid-column: 1;
+    }
+  }
+}
+
+.case-next__client {
+  transition: color var(--dur-fast) var(--ease-out);
+
+  .case-next__link:hover & {
+    color: var(--accent);
+  }
+}
+
+.case-next__title {
+  color: var(--ink-muted);
+}
+
+.case-next__media {
+  margin-top: var(--space-m);
+
+  @media (min-width: 900px) {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    margin-top: 0;
+    align-self: end;
+  }
+
+  img {
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+
+  .case-next__link:hover & img {
+    transform: scale(1.04);
+  }
+}
+
+// Projects index
+
+.projects-head {
+  padding-top: var(--space-xl);
+}

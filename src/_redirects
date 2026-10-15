@@ -1,0 +1,4 @@
+# Netlify redirects. Case studies moved from /projects-animation/ to /projects/.
+/projects-animation/drafts/*   /projects/   301
+/projects-animation/*          /projects/:splat   301
+/projects-video/*              /projects/   301
