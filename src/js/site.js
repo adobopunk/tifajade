@@ -6,6 +6,7 @@ import { initSmoothScroll } from "./modules/smooth-scroll.js";
 import { initReveal } from "./modules/reveal.js";
 import { initCarousel } from "./modules/carousel.js";
 import { initProjectGrid } from "./modules/project-grid.js";
+import { initClientReel } from "./modules/client-reel.js";
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -18,3 +19,4 @@ initReveal({ reducedMotion });
 // Page-specific behavior; each does nothing if its markup isn't on the page
 initCarousel({ reducedMotion });
 initProjectGrid({ reducedMotion });
+initClientReel({ reducedMotion });

@@ -51,15 +51,3 @@
     grid-column: auto;
   }
 }
-
-// Oversized wordmark that bleeds off the bottom of the page
-.site-footer__mark {
-  margin-top: var(--space-l);
-  margin-bottom: calc(var(--space-l) * -1);
-  opacity: 0.95;
-
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
