@@ -1,0 +1,135 @@
+// Full-screen menu and showreel player. Both are native <dialog>s,
+// which gives focus trapping and Escape-to-close for free.
+
+.overlay-dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #f4f2ed;
+  background: #0b0e0c;
+  opacity: 0;
+  transition:
+    opacity var(--dur-med) var(--ease-out),
+    display var(--dur-med) allow-discrete,
+    overlay var(--dur-med) allow-discrete;
+
+  &[open] {
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  &::backdrop {
+    background: transparent;
+  }
+}
+
+.overlay-dialog__close {
+  position: absolute;
+  top: calc((var(--header-h) - 2.5rem) / 2);
+  right: var(--gutter);
+  z-index: 2;
+
+  &:hover {
+    background: rgb(255 255 255 / 0.1);
+  }
+}
+
+// Menu
+
+.site-menu__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  min-height: 100%;
+  padding-block: calc(var(--header-h) + var(--space-l)) var(--space-l);
+}
+
+.site-menu__links {
+  list-style: none;
+  padding: 0;
+
+  a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35em;
+    font-size: clamp(2.6rem, 11vw, 6rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-out);
+
+    &:hover,
+    &[aria-current="page"] {
+      color: var(--jade-300);
+    }
+  }
+
+  .index {
+    font-size: var(--step--1);
+    letter-spacing: 0;
+    color: rgb(244 242 237 / 0.5);
+  }
+
+  li {
+    opacity: 0;
+    transform: translateY(1.2rem);
+    transition:
+      opacity var(--dur-slow) var(--ease-out),
+      transform var(--dur-slow) var(--ease-out);
+    transition-delay: calc(var(--i, 0) * 55ms + 80ms);
+  }
+}
+
+.site-menu[open] .site-menu__links li {
+  opacity: 1;
+  transform: none;
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(1.2rem);
+  }
+}
+
+.site-menu__foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-m);
+  color: rgb(244 242 237 / 0.7);
+  font-size: var(--step--1);
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      color: #f4f2ed;
+    }
+  }
+}
+
+// Showreel
+
+.reel-dialog {
+  display: grid;
+  place-items: center;
+  background: rgb(5 6 6 / 0.94);
+
+  &:not([open]) {
+    display: none;
+  }
+}
+
+.reel-dialog__player {
+  width: min(92vw, calc(86svh * 16 / 9));
+}

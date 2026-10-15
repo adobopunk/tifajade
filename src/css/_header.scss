@@ -1,0 +1,152 @@
+// Fixed site header. Hides on scroll down, returns on scroll up.
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  height: var(--header-h);
+  color: var(--ink);
+  transition:
+    transform var(--dur-med) var(--ease-out),
+    background-color var(--dur-med) var(--ease-out),
+    border-color var(--dur-med) var(--ease-out);
+  border-bottom: 1px solid transparent;
+
+  &[data-scrolled="true"] {
+    background: color-mix(in srgb, var(--paper) 82%, transparent);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border-color: var(--line);
+  }
+
+  &[data-hidden="true"] {
+    transform: translateY(-100%);
+  }
+
+  // Over a full-bleed hero: light text, no background until scrolled
+  &[data-variant="overlay"]:not([data-scrolled="true"]) {
+    --ink: #f4f2ed;
+    --line: rgb(244 242 237 / 0.3);
+    color: var(--ink);
+
+    .logo-light {
+      display: none;
+    }
+    .logo-dark {
+      display: block;
+    }
+  }
+}
+
+// Push content below the fixed header, except on pages with a hero underneath it
+body:not(.has-overlay-header) main {
+  padding-top: var(--header-h);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  height: 100%;
+}
+
+.site-logo {
+  display: block;
+  flex: none;
+  width: clamp(110px, 9vw, 140px);
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.logo-dark {
+  display: none;
+}
+
+@mixin logo-dark {
+  .logo-light {
+    display: none;
+  }
+  .logo-dark {
+    display: block;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include logo-dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  @include logo-dark;
+}
+
+.site-nav {
+  display: none;
+
+  @media (min-width: 960px) {
+    display: block;
+  }
+
+  ul {
+    display: flex;
+    gap: clamp(1.25rem, 2.2vw, 2.25rem);
+    list-style: none;
+    padding: 0;
+  }
+
+  a {
+    font-size: var(--step--1);
+    font-weight: 550;
+    letter-spacing: 0.01em;
+  }
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.site-header__cta,
+.site-header__reel {
+  display: none;
+
+  @media (min-width: 640px) {
+    display: inline-flex;
+  }
+}
+
+.site-header__menu-btn {
+  @media (min-width: 960px) {
+    display: none;
+  }
+}
+
+// Sun icon in dark mode, moon icon in light mode
+.theme-icon-sun {
+  display: none;
+}
+
+@mixin theme-icons-dark {
+  .theme-icon-sun {
+    display: block;
+  }
+  .theme-icon-moon {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include theme-icons-dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  @include theme-icons-dark;
+}

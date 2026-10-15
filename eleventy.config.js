@@ -1,3 +1,6 @@
+const path = require("node:path");
+const sass = require("sass");
+
 module.exports = function (eleventyConfig) {
   // Copy assets
   eleventyConfig.addPassthroughCopy("assets");
@@ -7,8 +10,31 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("pdf");
 
-  // Set template formats
-  eleventyConfig.setTemplateFormats(["njk", "html"]); // Include njk for Nunjucks
+  // Redesign: scripts and vendored libraries
+  eleventyConfig.addPassthroughCopy({ "src/js": "js" });
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/lenis/dist/lenis.min.js": "js/vendor/lenis.min.js",
+  });
+
+  // Redesign: compile src/css/*.scss (partials starting with _ are skipped)
+  eleventyConfig.addTemplateFormats("scss");
+  eleventyConfig.addExtension("scss", {
+    outputFileExtension: "css",
+    useLayouts: false,
+    compile: async function (inputContent, inputPath) {
+      const parsed = path.parse(inputPath);
+      if (parsed.name.startsWith("_")) return;
+
+      const result = sass.compileString(inputContent, {
+        loadPaths: [parsed.dir || "."],
+        style: "compressed",
+        sourceMap: false,
+        charset: false,
+      });
+      this.addDependencies(inputPath, result.loadedUrls);
+      return async () => result.css;
+    },
+  });
 
   eleventyConfig.addCollection("animation", function (collection) {
     return collection
@@ -62,6 +88,9 @@ module.exports = function (eleventyConfig) {
     siteUrl + encodeURI(path || "/assets/img/og-image.jpg")
   );
 
+  // Current year, for the footer copyright line
+  eleventyConfig.addFilter("year", () => new Date().getFullYear());
+
   // Add index filter
   eleventyConfig.addFilter("index", function (array, value) {
     return array.indexOf(value);
@@ -86,6 +115,6 @@ module.exports = function (eleventyConfig) {
       output: "_site",
       includes: "_templates",
     },
-    templateFormats: ["njk", "html"],
+    templateFormats: ["njk", "html", "scss"],
   };
 };

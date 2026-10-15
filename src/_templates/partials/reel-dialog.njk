@@ -1,0 +1,11 @@
+<dialog class="overlay-dialog reel-dialog" aria-label="Showreel" data-reel>
+  <button type="button" class="icon-btn overlay-dialog__close" data-dialog-close aria-label="Close showreel">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6 6 18" /></svg>
+  </button>
+  <div class="reel-dialog__player">
+    {#- src is filled in on open and cleared on close so the reel stops playing -#}
+    <div class="frame">
+      <iframe data-src="{{ site.reel }}" title="Tifa Jade showreel" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
+</dialog>

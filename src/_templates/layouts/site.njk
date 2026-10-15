@@ -1,0 +1,63 @@
+{#- Base layout for the redesign. Pages opt in with `layout: layouts/site.njk`.
+    Front matter: title, description, image, headerVariant ("overlay" for full-bleed heroes), bodyClass. -#}
+{%- set pageTitle = (title + " | Tifa Jade") if title else site.title -%}
+{%- set pageDescription = description or site.description -%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ pageTitle }}</title>
+    <meta name="description" content="{{ pageDescription }}" />
+    <link rel="canonical" href="{{ page.url | absoluteUrl }}" />
+    {% if noindex %}<meta name="robots" content="noindex, nofollow" />{% endif %}
+
+    <meta property="og:site_name" content="Tifa Jade" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ pageTitle }}" />
+    <meta property="og:description" content="{{ pageDescription }}" />
+    <meta property="og:url" content="{{ page.url | absoluteUrl }}" />
+    <meta property="og:image" content="{{ (image.jpg or image) | absoluteImage }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+    <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <meta name="theme-color" content="#f4f2ed" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0e0c" media="(prefers-color-scheme: dark)" />
+
+    <link rel="preload" href="/assets/fonts/Rethink-Sans/RethinkSans-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/css/site.css" />
+
+    <script>
+      // Apply a saved theme choice before first paint; otherwise follow the OS.
+      // Also flag that JS is running so reveal animations can hide content.
+      (function () {
+        var root = document.documentElement;
+        root.classList.add("js");
+        try {
+          var saved = localStorage.getItem("theme");
+          if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+        } catch (e) {}
+      })();
+    </script>
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="ea3f477a-b6a7-4c4a-9b2e-25379e9fb80a"></script>
+  </head>
+  <body class="{{ bodyClass }}{% if headerVariant == 'overlay' %} has-overlay-header{% endif %}">
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    {% include "partials/site-header.njk" %}
+
+    <main id="main">
+      {{ content | safe }}
+    </main>
+
+    {% include "partials/site-footer.njk" %}
+    {% include "partials/site-menu.njk" %}
+    {% include "partials/reel-dialog.njk" %}
+
+    <script src="/js/vendor/lenis.min.js" defer></script>
+    <script src="/js/site.js" type="module"></script>
+  </body>
+</html>

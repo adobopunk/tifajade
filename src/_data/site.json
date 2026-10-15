@@ -1,6 +1,16 @@
 {
-  "title": "Tifa Jade | Creative Producer",
-  "description": "Tifa Jade is a creative producer with 10 years of experience taking animated projects from concept to delivery.",
+  "title": "Tifa Jade | Director, Producer & Content Strategist",
+  "description": "Tifa Jade is a film director, video producer and content strategist making work for brands, agencies, local businesses and campaigns.",
   "url": "https://tifajade.com",
-  "author": "Tifa Jade"
+  "author": "Tifa Jade",
+  "email": "hi@tifajade.com",
+  "calendly": "https://calendly.com/connect-tifajade/30min",
+  "reel": "https://iframe.mediadelivery.net/embed/418879/c3060459-276c-44c7-a595-693bcadfdab8?autoplay=true&loop=false&muted=false&preload=true&responsive=true",
+  "nav": [
+    { "label": "Projects", "url": "/projects/" },
+    { "label": "Stories", "url": "/stories/" },
+    { "label": "Services", "url": "/services/" },
+    { "label": "About", "url": "/about/" },
+    { "label": "Contact", "url": "/contact/" }
+  ]
 }
