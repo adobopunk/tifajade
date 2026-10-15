@@ -1,0 +1,12 @@
+{#- The email address as click-to-copy. Optional `copyClass` adds classes
+    (e.g. "btn btn--large"). Without JavaScript it's a normal mailto link. -#}
+<a href="mailto:{{ site.email }}" class="copy-email {{ copyClass }}" data-copy-email="{{ site.email }}" title="Copy email address" aria-label="{{ site.email }}, copy email address">
+  <span class="copy-email__text">
+    <span class="copy-email__label">{{ site.email }}</span>
+    <span class="copy-email__done" aria-hidden="true">
+      <svg class="copy-email__icon copy-email__icon--check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5" /></svg>
+      Copied!
+    </span>
+  </span>
+  <svg class="copy-email__icon copy-email__icon--copy" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="8.5" y="8.5" width="11" height="11" rx="2" /><path d="M15.5 8.5V6.5a2 2 0 0 0-2-2h-7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2" /></g></svg>
+</a>

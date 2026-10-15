@@ -11,6 +11,7 @@ import { initAboutStory } from "./modules/about-story.js";
 import { initParallax } from "./modules/parallax.js";
 import { initSegmented } from "./modules/segmented.js";
 import { initBooking } from "./modules/booking.js";
+import { initCopyEmail } from "./modules/copy-email.js";
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -21,6 +22,7 @@ initDialogs({ lenis });
 initReveal({ reducedMotion });
 initSegmented();
 initBooking();
+initCopyEmail();
 
 // Page-specific behavior; each does nothing if its markup isn't on the page
 initCarousel({ reducedMotion });

@@ -7,7 +7,8 @@
       </p>
       <div class="cluster" data-reveal>
         <a href="{{ site.booking.url }}" class="btn btn--primary btn--large" target="_blank" rel="noopener" data-booking="{{ site.booking.calLink }}">Book a call</a>
-        <a href="mailto:{{ site.email }}" class="btn btn--large">{{ site.email }}</a>
+        {%- set copyClass = "btn btn--large" %}
+        {% include "partials/copy-email.njk" %}
       </div>
     </div>
 
