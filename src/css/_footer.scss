@@ -1,0 +1,65 @@
+.site-footer {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.site-footer__cta {
+  display: grid;
+  gap: var(--space-l);
+  padding-bottom: var(--space-2xl);
+
+  .display {
+    max-width: 14ch;
+  }
+
+  .display a {
+    text-decoration: none;
+  }
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-l) var(--gutter);
+  padding-block: var(--space-l);
+  border-top: 1px solid var(--line);
+
+  @media (min-width: 900px) {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+    margin-top: var(--space-s);
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.site-footer__intro {
+  grid-column: 1 / -1;
+  max-width: 34ch;
+
+  @media (min-width: 900px) {
+    grid-column: auto;
+  }
+}
+
+// Oversized wordmark that bleeds off the bottom of the page
+.site-footer__mark {
+  margin-top: var(--space-l);
+  margin-bottom: calc(var(--space-l) * -1);
+  opacity: 0.95;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

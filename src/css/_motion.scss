@@ -1,0 +1,121 @@
+// Scroll reveals, headline word reveals and page transitions.
+// Everything here switches off under prefers-reduced-motion.
+
+// Elements only start hidden once JS has confirmed it can reveal them
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+  transition-delay: calc(var(--reveal-i, 0) * 80ms);
+}
+
+.js [data-reveal="fade"] {
+  transform: none;
+}
+
+.js [data-reveal="scale"] {
+  transform: scale(1.04);
+  transform-origin: center;
+}
+
+.js [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+// Headline words slide up from behind a mask
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  // The mask needs room for descenders and for glyphs that overhang their
+  // box (Ohno Blazeface especially). Padding widens the mask; the matching
+  // negative margin keeps the words' spacing and line height unchanged.
+  padding: 0.04em 0.12em 0.22em;
+  margin: -0.04em -0.12em -0.22em;
+}
+
+.split-word > span {
+  display: inline-block;
+}
+
+.js [data-split] .split-word > span {
+  transform: translateY(105%);
+  transition: transform 1s var(--ease-out);
+  transition-delay: calc(var(--word-i, 0) * 45ms);
+}
+
+.js [data-split].is-revealed .split-word > span {
+  transform: none;
+}
+
+// Cross-document page transitions (Chrome, Edge and Safari 18.2+;
+// other browsers simply navigate normally)
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: vt-out 260ms var(--ease-in-out) both;
+}
+
+::view-transition-new(root) {
+  animation: vt-in 520ms var(--ease-out) both;
+}
+
+// Keep the header still while the page underneath changes
+.site-header {
+  view-transition-name: site-header;
+}
+
+@keyframes vt-out {
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes vt-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .js [data-reveal],
+  .js [data-split] .split-word > span {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Lenis smooth scroll housekeeping
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}

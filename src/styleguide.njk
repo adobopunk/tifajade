@@ -1,0 +1,193 @@
+---
+layout: "layouts/site.njk"
+title: "Styleguide"
+description: "Design foundation for the tifajade.com redesign."
+permalink: "/styleguide/"
+noindex: true
+eleventyExcludeFromCollections: true
+swatches:
+  - { name: "Paper", token: "--paper" }
+  - { name: "Surface", token: "--surface" }
+  - { name: "Ink", token: "--ink" }
+  - { name: "Ink muted", token: "--ink-muted" }
+  - { name: "Accent", token: "--accent" }
+  - { name: "Jade 500", token: "--jade-500" }
+  - { name: "Jade 300", token: "--jade-300" }
+steps:
+  - { token: "--step-6", use: "Display: hero statements" }
+  - { token: "--step-5", use: "Headline: page titles" }
+  - { token: "--step-4", use: "H2: section titles" }
+  - { token: "--step-3", use: "Title: project names" }
+  - { token: "--step-2", use: "Lede / H3" }
+  - { token: "--step-1", use: "Prose: long-form reading" }
+  - { token: "--step-0", use: "Body" }
+  - { token: "--step--1", use: "UI, captions" }
+  - { token: "--step--2", use: "Labels" }
+---
+
+<section class="section">
+  <div class="container">
+    <p class="label" data-reveal>Phase 1 · Design foundation</p>
+    <h1 class="display" data-split style="margin-top: var(--space-m)">
+      Stories that move <span class="flourish">people.</span>
+    </h1>
+    <p class="lede" data-reveal style="margin-top: var(--space-l)">
+      A reference for every color, type size and component the redesign is
+      built from. Toggle the theme in the header to check dark mode.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="title" data-reveal>Color</h2>
+      <p class="meta">Follows your system theme until you choose one.</p>
+    </div>
+    <div class="sg-swatches" data-reveal-stagger>
+      {%- for s in swatches %}
+      <div class="sg-swatch" data-reveal>
+        <div class="sg-swatch__chip" style="background: var({{ s.token }})"></div>
+        <p class="label">{{ s.name }}</p>
+        <code class="meta">{{ s.token }}</code>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="title" data-reveal>Type</h2>
+      <p class="meta">Rethink Sans · Hahmlet · Ohno Blazeface</p>
+    </div>
+
+    <div class="sg-scale">
+      {%- for s in steps %}
+      <div class="sg-scale__row" data-reveal>
+        <code class="meta">{{ s.token }}</code>
+        <p style="font-size: var({{ s.token }}); font-weight: {% if loop.index < 4 %}700{% else %}500{% endif %}; letter-spacing: {% if loop.index < 4 %}-0.04em{% else %}-0.01em{% endif %}; line-height: 1">Director</p>
+        <p class="meta">{{ s.use }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+
+    <div class="grid" style="margin-top: var(--space-xl)">
+      <div class="span-5 stack" data-reveal>
+        <p class="label">Client · Mountain Dew</p>
+        <p class="title">Designing the City of Champions</p>
+        <p class="lede">An esports identity as loud and neon as the brand itself.</p>
+      </div>
+      <div class="span-7 prose" data-reveal>
+        <p>
+          Long-form text is set in Hahmlet, the serif from the current site, so
+          project pages and Stories posts read like an editorial page
+          rather than a slide. Lines stay under about 62 characters.
+        </p>
+        <p>
+          A single <span class="flourish">flourish</span> word in Ohno Blazeface
+          carries the brand's playful side, used sparingly for emphasis.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="title" data-reveal>Components</h2>
+    </div>
+    <div class="cluster" data-reveal-stagger>
+      <a href="#" class="btn btn--primary" data-reveal>Primary button</a>
+      <a href="#" class="btn" data-reveal>Secondary button</a>
+      <a href="#" class="btn btn--primary btn--large" data-reveal>Large</a>
+      <button type="button" class="btn" data-reel-open data-reveal>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.5v11l9-5.5z" /></svg>
+        Showreel
+      </button>
+      <a href="#" class="link-arrow" data-reveal>Text link</a>
+      <a href="#" class="link-underline" data-reveal>Underline link</a>
+      <span class="tag" data-reveal>Film</span>
+      <span class="tag" data-reveal>Motion</span>
+      <span class="tag" data-reveal>Stories</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="title" data-reveal>Grid &amp; media frames</h2>
+      <p class="meta">12 columns on desktop, one column on phones.</p>
+    </div>
+    <div class="grid" data-reveal-stagger>
+      <figure class="span-8" data-reveal>
+        <div class="frame">
+          <img src="/assets/img/projects/good-loser/indigenous-joy-dabke.webp" alt="Dabke dancers at Indigenous Joy Festival" loading="lazy" />
+        </div>
+        <figcaption class="meta" style="margin-top: var(--space-2xs)">16:9 frame</figcaption>
+      </figure>
+      <figure class="span-4" data-reveal>
+        <div class="frame frame--portrait">
+          <img src="/assets/img/projects/good-loser/hayes-noble.webp" alt="Hayes Noble" loading="lazy" />
+        </div>
+        <figcaption class="meta" style="margin-top: var(--space-2xs)">4:5 frame</figcaption>
+      </figure>
+      <figure class="span-4" data-reveal>
+        <div class="frame frame--square">
+          <img src="/assets/img/projects/good-loser/may-day-dancer.webp" alt="May Day dancer" loading="lazy" />
+        </div>
+      </figure>
+      <figure class="span-4" data-reveal>
+        <div class="frame frame--square">
+          <video src="/assets/img/projects/good-loser/good-loser-loop.mp4" muted loop playsinline autoplay></video>
+        </div>
+      </figure>
+      <figure class="span-4" data-reveal>
+        <div class="frame frame--square">
+          <img src="/assets/img/projects/good-loser/flying-z.webp" alt="Flying Z" loading="lazy" />
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sg-swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--space-m);
+  }
+  .sg-swatch__chip {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-m);
+    border: 1px solid var(--line);
+    margin-bottom: var(--space-2xs);
+  }
+  .sg-scale__row {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    align-items: baseline;
+    gap: var(--space-2xs) var(--space-m);
+    padding-block: var(--space-s);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .sg-scale__row > p:first-of-type {
+    white-space: nowrap;
+  }
+  .sg-scale__row .meta:last-child {
+    grid-column: 2;
+  }
+  @media (min-width: 900px) {
+    .sg-scale__row {
+      grid-template-columns: 7rem 1fr 16rem;
+    }
+    .sg-scale__row .meta:last-child {
+      grid-column: auto;
+      text-align: right;
+    }
+  }
+</style>

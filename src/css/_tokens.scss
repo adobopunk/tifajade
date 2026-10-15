@@ -1,0 +1,88 @@
+// Design tokens. Every color, size and timing in the redesign comes from here.
+
+:root {
+  // Brand
+  --jade-600: #00603f;
+  --jade-500: #007a50;
+  --jade-400: #00a36b;
+  --jade-300: #1fbf85;
+
+  // Light theme (default)
+  --paper: #f4f2ed;
+  --surface: #eae7e0;
+  --surface-2: #dfdbd2;
+  --ink: #111512;
+  --ink-muted: #5a615c;
+  --line: rgb(17 21 18 / 0.14);
+  --accent: var(--jade-500);
+  --accent-hover: var(--jade-600);
+  --on-accent: #ffffff;
+  --scrim: rgb(10 12 11 / 0.72);
+
+  // Type families
+  --font-sans: "Rethink Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Hahmlet", Georgia, "Times New Roman", serif;
+  --font-accent: "Ohno Blazeface", Georgia, serif;
+
+  // Fluid type scale (360px → 1600px viewport)
+  --step--2: clamp(0.72rem, 0.7rem + 0.08vw, 0.78rem);
+  --step--1: clamp(0.83rem, 0.8rem + 0.12vw, 0.92rem);
+  --step-0: clamp(1rem, 0.96rem + 0.18vw, 1.13rem);
+  --step-1: clamp(1.2rem, 1.12rem + 0.36vw, 1.5rem);
+  --step-2: clamp(1.44rem, 1.28rem + 0.7vw, 2rem);
+  --step-3: clamp(1.73rem, 1.44rem + 1.28vw, 2.8rem);
+  --step-4: clamp(2.07rem, 1.56rem + 2.28vw, 4rem);
+  --step-5: clamp(2.49rem, 1.6rem + 3.96vw, 5.8rem);
+  --step-6: clamp(2.99rem, 1.5rem + 6.6vw, 8.5rem);
+
+  // Spacing
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: clamp(1.25rem, 1.1rem + 0.6vw, 1.75rem);
+  --space-l: clamp(2rem, 1.6rem + 1.6vw, 3.25rem);
+  --space-xl: clamp(3rem, 2.2rem + 3.2vw, 5.5rem);
+  --space-2xl: clamp(4.5rem, 3rem + 6vw, 9rem);
+
+  // Layout
+  --gutter: clamp(16px, 3.6vw, 56px);
+  --max-width: 1680px;
+  --measure: 62ch;
+  --header-h: 72px;
+  --radius-s: 4px;
+  --radius-m: 10px;
+  --radius-pill: 999px;
+
+  // Motion
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur-med: 420ms;
+  --dur-slow: 900ms;
+
+  color-scheme: light;
+}
+
+@mixin dark-theme {
+  --paper: #0b0e0c;
+  --surface: #141815;
+  --surface-2: #1c211e;
+  --ink: #ecebe6;
+  --ink-muted: #9aa29d;
+  --line: rgb(236 235 230 / 0.14);
+  --accent: var(--jade-300);
+  --accent-hover: #4fd6a3;
+  --on-accent: #06120c;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include dark-theme;
+  }
+}
+
+:root[data-theme="dark"] {
+  @include dark-theme;
+}

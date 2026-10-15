@@ -1,0 +1,47 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__cta">
+      <p class="label" data-reveal>Have a project in mind?</p>
+      <p class="display" data-split>
+        <a href="/contact/">Let's make something <span class="flourish">great.</span></a>
+      </p>
+      <div class="cluster" data-reveal>
+        <a href="{{ site.calendly }}" class="btn btn--primary btn--large" target="_blank" rel="noopener">Book a call</a>
+        <a href="mailto:{{ site.email }}" class="btn btn--large">{{ site.email }}</a>
+      </div>
+    </div>
+
+    <div class="site-footer__grid">
+      <div class="site-footer__intro">
+        <p class="label">Tifa Jade</p>
+        <p class="meta" style="margin-top: var(--space-s)">
+          Director, producer and content strategist making films for brands,
+          agencies, local businesses and campaigns.
+        </p>
+      </div>
+
+      <div>
+        <p class="label">Explore</p>
+        <ul>
+          {%- for item in site.nav %}
+          <li><a href="{{ item.url }}" class="link-underline">{{ item.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <p class="label">Colophon</p>
+        <ul class="meta">
+          <li>&copy; {{ "now" | year }} Tifa Jade</li>
+          <li>Designed &amp; built by TJ</li>
+          <li><a href="/feed.xml" class="link-underline">RSS feed</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__mark" data-reveal="fade" aria-hidden="true">
+      <img class="logo-light" src="/assets/img/logo_lightmode/TifaJade-_Light_Mode-09.png" alt="" width="1102" height="272" loading="lazy" />
+      <img class="logo-dark" src="/assets/img/logo_darkmode/tifajade_logo.png" alt="" width="1102" height="272" loading="lazy" />
+    </div>
+  </div>
+</footer>

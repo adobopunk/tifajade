@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Rethink Sans";
+  src: url("/assets/fonts/Rethink-Sans/RethinkSans-Variable.woff2")
+    format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rethink Sans";
+  src: url("/assets/fonts/Rethink-Sans/RethinkSans-Variable-Italic.woff2")
+    format("woff2");
+  font-weight: 400 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hahmlet";
+  src: url("/assets/fonts/Hahmlet/Hahmlet-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ohno Blazeface";
+  src: url("/assets/fonts/OhnoBlazeface/Ohno Blazeface 16 Point.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

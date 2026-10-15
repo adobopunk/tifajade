@@ -1,0 +1,82 @@
+// Type styles used across pages. Apply as classes so markup controls hierarchy.
+
+.display {
+  font-size: var(--step-6);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.headline {
+  font-size: var(--step-5);
+  font-weight: 650;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.title {
+  font-size: var(--step-3);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  font-size: var(--step-2);
+  font-weight: 450;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  max-width: 30ch;
+  text-wrap: balance;
+}
+
+// Long-form reading text (project narratives, Stories posts)
+.prose {
+  font-family: var(--font-serif);
+  font-size: var(--step-1);
+  font-weight: 350;
+  line-height: 1.6;
+  max-width: var(--measure);
+
+  > * + * {
+    margin-top: 1em;
+  }
+
+  a {
+    color: var(--accent);
+  }
+}
+
+// Small uppercase label for metadata: client, year, role
+.label {
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.meta {
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+}
+
+// The brand flourish: a single word set in Ohno Blazeface
+.flourish {
+  font-family: var(--font-accent);
+  font-weight: normal;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+}
+
+.muted {
+  color: var(--ink-muted);
+}
+
+// Big numerals for counters and service indexes (01, 02…)
+.index {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
