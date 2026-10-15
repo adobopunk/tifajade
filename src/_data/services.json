@@ -8,7 +8,7 @@
       "Editing & color",
       "Cutdowns for every platform"
     ],
-    "project": "ufc-promos",
+    "project": "p3",
     "related": [
       "ufc-promos",
       "p3",
@@ -48,18 +48,19 @@
     ]
   },
   {
-    "title": "Campaign & Advocacy Video",
-    "summary": "Candidate stories, issue explainers and get-out-the-vote spots for campaigns and causes. Fast, accurate, and ready for every channel on a deadline that won't move.",
+    "title": "Video Editing & Post",
+    "summary": "Four years editing at UFC, from fight-week social cuts to long-form programming for Fight Pass and ESPN. Story-first editing for anything from a 15-second teaser to a full TV episode, on deadlines that don't move.",
     "deliverables": [
-      "Candidate & issue films",
-      "Rapid-response edits",
-      "Event coverage",
-      "Paid & organic social"
+      "Social cuts & teasers",
+      "Promos & trailers",
+      "Long-form & TV episodes",
+      "Interview & archive edits"
     ],
-    "project": "good-loser",
+    "project": "ufc-promos",
     "related": [
-      "good-loser",
-      "code-freedom-2024"
+      "ufc-promos",
+      "ufc-olympic-features",
+      "fear-none"
     ]
   },
   {
