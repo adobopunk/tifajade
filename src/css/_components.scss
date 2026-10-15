@@ -122,3 +122,79 @@
   border: 0;
   border-top: 1px solid var(--line);
 }
+
+// Click-to-copy email. The label and "Copied!" share one grid cell, so the
+// width never jumps when they swap.
+.copy-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  cursor: copy;
+}
+
+.copy-email__text {
+  display: inline-grid;
+
+  > * {
+    grid-area: 1 / 1;
+    transition:
+      opacity var(--dur-fast) var(--ease-out),
+      transform var(--dur-med) var(--ease-out);
+  }
+}
+
+.copy-email__done {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  opacity: 0;
+  transform: translateY(40%);
+  color: var(--accent);
+}
+
+.copy-email__icon {
+  width: 0.85em;
+  height: 0.85em;
+  flex: none;
+}
+
+.copy-email__icon--copy {
+  opacity: 0.6;
+  transition: opacity var(--dur-fast) var(--ease-out);
+
+  .copy-email:hover & {
+    opacity: 1;
+  }
+}
+
+.copy-email.is-copied {
+  .copy-email__label {
+    opacity: 0;
+    transform: translateY(-40%);
+  }
+
+  .copy-email__done {
+    opacity: 1;
+    transform: none;
+  }
+
+  // Keep its space so nothing shifts, just hide it
+  .copy-email__icon--copy {
+    visibility: hidden;
+  }
+
+  .copy-email__icon--check {
+    animation: copy-pop var(--dur-med) var(--ease-out);
+  }
+}
+
+// On a button, the outline turns the accent color too
+.btn.copy-email.is-copied {
+  --btn-border: var(--accent);
+}
+
+@keyframes copy-pop {
+  from {
+    transform: scale(0.4);
+  }
+}

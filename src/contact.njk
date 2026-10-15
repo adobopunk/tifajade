@@ -15,7 +15,8 @@ permalink: "/contact/"
       </p>
 
       <div class="contact__direct" data-reveal>
-        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        {%- set copyClass = "" %}
+        {% include "partials/copy-email.njk" %}
         <a href="#book" class="btn btn--primary btn--large" data-contact-show="book">{{ site.booking.label }}</a>
       </div>
     </div>
