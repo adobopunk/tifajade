@@ -3,11 +3,49 @@
 // .project__info, .contributions, .project__credits…), so their content
 // works in the new design without being rewritten.
 
+// Faded, slow-scrolling image behind the title area
+.case {
+  position: relative;
+  isolation: isolate;
+}
+
+.case-hero {
+  position: absolute;
+  inset: calc(var(--header-h) * -1) 0 auto;
+  z-index: -1;
+  height: calc(var(--header-h) + min(78svh, 760px));
+  overflow: hidden;
+  pointer-events: none;
+
+  // Fade into the page so the title and details stay readable
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, color-mix(in srgb, var(--paper) 55%, transparent) 0%, transparent 30%),
+      linear-gradient(to top, var(--paper) 0%, color-mix(in srgb, var(--paper) 70%, transparent) 45%, color-mix(in srgb, var(--paper) 35%, transparent) 100%);
+  }
+}
+
+.case-hero__image {
+  position: absolute;
+  inset: 0 0 -20%;
+  will-change: transform;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.45;
+  }
+}
+
 .case-head {
   display: grid;
   justify-items: start;
   gap: var(--space-s);
-  padding-top: var(--space-xl);
+  padding-top: var(--space-2xl);
   padding-bottom: var(--space-xl);
 }
 
