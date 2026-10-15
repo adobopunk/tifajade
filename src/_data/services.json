@@ -2,37 +2,92 @@
   {
     "title": "Brand & Commercial Film",
     "summary": "Commercials, brand films and launch videos, from the first idea to the final cut. Work that makes people feel something and remember who made it.",
-    "deliverables": ["Concept & scripting", "Directing & production", "Editing & color", "Cutdowns for every platform"],
-    "project": "ufc-promos"
+    "deliverables": [
+      "Concept & scripting",
+      "Directing & production",
+      "Editing & color",
+      "Cutdowns for every platform"
+    ],
+    "project": "ufc-promos",
+    "related": [
+      "ufc-promos",
+      "p3",
+      "intel-inspires"
+    ]
   },
   {
     "title": "Documentary & Storytelling",
     "summary": "Real people, real stakes. Documentary series, founder stories and community films, shot with the trust and access that let a story breathe.",
-    "deliverables": ["Interviews", "Field production", "Series development", "English & Spanish subtitles"],
-    "project": "fear-none"
+    "deliverables": [
+      "Interviews",
+      "Field production",
+      "Series development",
+      "English & Spanish subtitles"
+    ],
+    "project": "fear-none",
+    "related": [
+      "fear-none",
+      "good-loser",
+      "next-level"
+    ]
   },
   {
     "title": "Content Strategy & Social",
     "summary": "A plan for what to make, where it lives and how it grows. Series formats, vertical cuts and release calendars built around your audience, not the algorithm of the week.",
-    "deliverables": ["Content audits", "Series formats", "Vertical & social cutdowns", "Release planning"],
-    "project": "tfue-tuesday"
+    "deliverables": [
+      "Content audits",
+      "Series formats",
+      "Vertical & social cutdowns",
+      "Release planning"
+    ],
+    "project": "tfue-tuesday",
+    "related": [
+      "tfue-tuesday",
+      "code-red",
+      "verizon"
+    ]
   },
   {
     "title": "Campaign & Advocacy Video",
     "summary": "Candidate stories, issue explainers and get-out-the-vote spots for campaigns and causes. Fast, accurate, and ready for every channel on a deadline that won't move.",
-    "deliverables": ["Candidate & issue films", "Rapid-response edits", "Event coverage", "Paid & organic social"],
-    "project": "good-loser"
+    "deliverables": [
+      "Candidate & issue films",
+      "Rapid-response edits",
+      "Event coverage",
+      "Paid & organic social"
+    ],
+    "project": "good-loser",
+    "related": [
+      "good-loser",
+      "code-freedom-2024"
+    ]
   },
   {
     "title": "Motion & Broadcast Design",
     "summary": "Identity systems, title sequences and broadcast packages that move, from esports events seen by millions to product launches.",
-    "deliverables": ["Motion identity systems", "Broadcast packages", "3D & animation direction", "Trailers & stingers"],
-    "project": "mountain-dew-champions-cup"
+    "deliverables": [
+      "Motion identity systems",
+      "Broadcast packages",
+      "3D & animation direction",
+      "Trailers & stingers"
+    ],
+    "project": "mountain-dew-champions-cup",
+    "related": [
+      "mountain-dew-champions-cup",
+      "fortnite",
+      "off-the-grid-all-stars"
+    ]
   },
   {
     "title": "Photography",
     "summary": "Portraits, events and editorial photography, plus stills from every shoot, so a campaign's images are as strong as its video.",
-    "deliverables": ["Portraits", "Events", "Editorial & stories", "On-set stills"],
-    "image": "/assets/img/projects/good-loser/may-day-dancer.webp"
+    "deliverables": [
+      "Portraits",
+      "Events",
+      "Editorial & stories",
+      "On-set stills"
+    ],
+    "image": "/assets/img/projects/good-loser/may-day-dancer.webp",
+    "related": []
   }
 ]

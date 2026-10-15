@@ -2,3 +2,10 @@
 /projects-animation/drafts/*   /projects/   301
 /projects-animation/*          /projects/:splat   301
 /projects-video/*              /projects/   301
+
+# Pages retired in the redesign
+/animation/*     /projects/   301
+/video/*         /projects/   301
+/videography/*   /projects/   301
+/highlights/*    /            301
+/showreel/*      /            301

@@ -1,55 +1,41 @@
 # Tifa Jade's Portfolio
 
-Welcome to the repository for my personal portfolio website! This is a fully custom-built site showcasing my work as a creative director. The site is fully open-source, made with Pico CSS and deploys via 11ty on Netlify.
+The portfolio of Tifa Jade, director, producer and content strategist. Live at [tifajade.com](https://tifajade.com).
 
-## Features
+## What's here
 
-- **Custom Design**: Every aspect of the site was designed and coded from scratch.
-- **Responsive Layout**: Optimized for all screen sizes and devices.
-- **Hero Video Background**: A dynamic hero section with a custom embedded background video.
-- **Dark Mode Toggle**: Allows switching between light and dark mode for accessibility, and respects user preference on first visit.
-- **Modular Showcase**: Sections for 2D & 3D animation, motion design, and video production.
-- **Lightweight**: Images and videos compressed with ffmpeg to maintain quick load times.
+- **Projects**: film and motion case studies in `src/projects-animation/`, published at `/projects/<name>/`.
+- **Stories**: a photo journal of photo stories and essays in `src/stories/`, with RSS at `/feed.xml` and JSON Feed at `/feed.json`.
+- **Services, About, Contact**: `src/services.njk`, `src/about.njk` and `src/contact.njk`. Services, clients and About chapters are driven by files in `src/_data/`.
 
-## Tech Stack
+## Editing Stories
 
-- **Nunjucks**: Markup for structuring content.
-- **SCSS**: Custom styles, including responsive design and animations.
-- **JavaScript**: Interactive features and smooth scrolling.
-- **11ty (Eleventy)**: Static site generator for fast builds and deploys.
-- **Netlify**: Hosting and continuous deployment.
+Stories are written in the CMS at `/admin/` ([Sveltia CMS](https://sveltiacms.app/)). Every save is a commit to `main`, and Netlify rebuilds the site.
 
-## Installation
+- Sign in with GitHub, or with a fine-grained GitHub token (Contents: read and write on this repo).
+- New stories start as drafts. Turn off **Draft** to publish.
+- Uploaded photos are converted to WebP and capped at 2400px before they're saved.
+- Drafts appear on the local dev server only.
 
-To run this project locally:
+## Running locally
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/adobopunk/portfolio.git
-   ```
-2. Navigate to the project folder:
-   ```bash
-   cd portfolio
-   ```
-3. Install dependencies (requires Node.js):
-   ```bash
-   npm install
-   ```
-4. Start the development server:
-   ```bash
-   npx eleventy --serve
-   ```
-5. Open your browser at `http://localhost:8080` to view the site.
+Requires Node.js 22 or newer.
 
-## Deployment
+```bash
+npm install
+npm run dev
+```
 
-The site is automatically deployed to Netlify on every push to the `main` branch. To deploy manually, ensure you’ve set up your Netlify project and push changes to the repository.
+Then open `http://localhost:8080`. The design foundation (colors, type and components) is at `/styleguide/`.
 
-## Connect with Me
+## Tech
 
-Check out my portfolio live at [tifajade.com](https://tifajade.com) or connect with me on:
+- [Eleventy](https://www.11ty.dev/) with Nunjucks templates and Markdown
+- Sass compiled by Eleventy (`src/css/`)
+- Small ES modules in `src/js/`, plus [Lenis](https://lenis.darkroom.engineering/) for smooth scrolling
+- Netlify for hosting, forms, redirects (`src/_redirects`) and image resizing
+- Video on Bunny CDN and Bunny Stream
+
+## Connect
 
 - [Email](mailto:hi@tifajade.com)
-- [LinkedIn](https://www.linkedin.com/in/tifajade/)
-
-Thanks for stopping by!

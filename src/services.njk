@@ -1,0 +1,128 @@
+---
+layout: "layouts/site.njk"
+title: "Services"
+description: "Film direction, video production, content strategy, motion design and photography for brands, agencies, local businesses and campaigns."
+permalink: "/services/"
+audiences:
+  - title: "Brands & agencies"
+    copy: "A director who can own the idea and the production, slot into your team, and deliver on brand at the scale of a global launch."
+  - title: "Local businesses"
+    copy: "Films that make people want to walk through your door, made by someone who knows the community and won't overcomplicate it."
+  - title: "Campaigns & causes"
+    copy: "Candidate stories and issue films that are accurate, on message and ready before the news cycle moves on."
+  - title: "Creators & events"
+    copy: "Show packages, trailers and recaps for tournaments, launches and live events, from broadcast graphics to the highlight reel."
+process:
+  - title: "Discover"
+    copy: "A conversation about what you need, who it's for and what success looks like. You get a clear proposal and quote."
+  - title: "Plan"
+    copy: "Concept, script, schedule and shot list, plus where every piece will live once it's out in the world."
+  - title: "Produce"
+    copy: "Directing, shooting, interviews and design, handled by a small crew that moves fast and treats people well."
+  - title: "Deliver & grow"
+    copy: "The final cut, every cutdown and format you need, and a plan for getting it seen."
+---
+<section class="section services-hero">
+  <div class="container">
+    <p class="label" data-reveal>Services</p>
+    <h1 class="display" data-split>From the first idea to the final <span class="flourish">cut.</span></h1>
+    <p class="lede services-hero__lede" data-reveal>
+      Direction, production and strategy under one roof, so the story you
+      pitch is the one that ends up on screen, and the right people see it.
+    </p>
+    <nav class="services-jump cluster" aria-label="Jump to a service" data-reveal>
+      {%- for s in services %}
+      <a href="#{{ s.title | slugify }}" class="tag">{{ s.title }}</a>
+      {%- endfor %}
+    </nav>
+  </div>
+</section>
+
+{%- for s in services %}
+{%- set sp = collections.projects | bySlug(s.project) if s.project else none %}
+<section class="section service-detail" id="{{ s.title | slugify }}">
+  <div class="container grid">
+    <div class="span-5 stack service-detail__text">
+      <p class="index" data-reveal>{{ loop.index | pad2 }}</p>
+      <h2 class="headline" data-split>{{ s.title }}</h2>
+      <p class="lede" data-reveal>{{ s.summary }}</p>
+      <ul class="service__deliverables" role="list" data-reveal>
+        {%- for d in s.deliverables %}
+        <li>{{ d }}</li>
+        {%- endfor %}
+      </ul>
+    </div>
+
+    <div class="span-7 service-detail__media" data-reveal>
+      <div class="frame service__media">
+        {%- if sp %}
+        <img src="{{ sp.data.image | poster }}" alt="" loading="lazy" decoding="async" />
+        <video muted loop playsinline preload="none" aria-hidden="true">
+          {%- for v in sp.data.video | videoSources %}
+          <source src="{{ v.src }}" type="{{ v.type }}" />
+          {%- endfor %}
+        </video>
+        {%- elif s.image %}
+        <img src="{{ s.image }}" alt="" loading="lazy" decoding="async" />
+        {%- endif %}
+      </div>
+    </div>
+
+    {%- if s.related.length %}
+    <div class="span-12 service-detail__related">
+      <p class="label" data-reveal>Related projects</p>
+      <ul class="related-list" role="list" data-reveal-stagger>
+        {%- for slug in s.related %}
+        {%- set rp = collections.projects | bySlug(slug) %}
+        {%- if rp %}
+        <li data-reveal>
+          <a href="{{ rp.url }}" class="related-item">
+            <span class="related-item__client">{{ rp.data.client }}</span>
+            <span class="related-item__title">{{ rp.data.title }}</span>
+          </a>
+        </li>
+        {%- endif %}
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- elif s.title == "Photography" %}
+    <div class="span-12 service-detail__related">
+      <a href="/stories/" class="link-arrow" data-reveal>See photo stories</a>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+{%- endfor %}
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="headline" data-split>Who I work <span class="flourish">with.</span></h2>
+    </div>
+    <ul class="card-grid" role="list" data-reveal-stagger>
+      {%- for a in audiences %}
+      <li class="info-card" data-reveal>
+        <h3 class="info-card__title">{{ a.title }}</h3>
+        <p class="info-card__copy">{{ a.copy }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="headline" data-split>How it <span class="flourish">works.</span></h2>
+    </div>
+    <ol class="card-grid process-list" role="list" data-reveal-stagger>
+      {%- for step in process %}
+      <li class="info-card" data-reveal>
+        <span class="index">{{ loop.index | pad2 }}</span>
+        <h3 class="info-card__title">{{ step.title }}</h3>
+        <p class="info-card__copy">{{ step.copy }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
