@@ -1,12 +1,16 @@
-// Homepage: featured carousel, intro, services, stories, clients.
+// Homepage: featured carousel with the headline, services, stories, clients.
 
 // Featured carousel
 
 .hero {
   position: relative;
-  height: 88svh;
-  min-height: 560px;
-  max-height: 1100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  // At least most of the screen, and taller if the headline needs the room,
+  // so the text never runs up under the header
+  min-height: max(88svh, 560px);
+  padding-top: calc(var(--header-h) + var(--space-l));
   overflow: hidden;
   color: #f4f2ed;
   background: #0b0e0c;
@@ -53,63 +57,45 @@
 .hero__shade {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background:
-    linear-gradient(to top, rgb(5 7 6 / 0.88) 0%, rgb(5 7 6 / 0.35) 38%, transparent 62%),
+    linear-gradient(to top, rgb(5 7 6 / 0.9) 0%, rgb(5 7 6 / 0.55) 40%, rgb(5 7 6 / 0.15) 72%, transparent 100%),
     linear-gradient(to bottom, rgb(5 7 6 / 0.45) 0%, transparent 22%);
 }
 
+// The headline sits over every slide
 .hero__content {
-  position: absolute;
-  inset: auto 0 0;
-  padding-bottom: calc(var(--space-xl) + 4.5rem);
+  position: relative;
+  z-index: 1;
   display: grid;
   justify-items: start;
-  gap: var(--space-xs);
-
-  > * {
-    opacity: 0;
-    transform: translateY(18px);
-    transition:
-      opacity 0.8s var(--ease-out),
-      transform 0.8s var(--ease-out);
-  }
-
-  .is-active & > * {
-    opacity: 1;
-    transform: none;
-  }
-
-  .is-active & > :nth-child(2) {
-    transition-delay: 0.08s;
-  }
-  .is-active & > :nth-child(3) {
-    transition-delay: 0.16s;
-  }
-  .is-active & > :nth-child(4) {
-    transition-delay: 0.24s;
-  }
+  gap: var(--space-m);
+  padding-bottom: var(--space-xl);
 }
 
-.hero__client {
+.hero__eyebrow {
   color: rgb(244 242 237 / 0.75);
 }
 
-.hero__title {
-  max-width: 16ch;
-  font-size: var(--step-6);
+.hero__headline {
+  max-width: 17ch;
+  font-size: var(--step-5);
   font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: -0.045em;
-
-  a {
-    text-decoration: none;
-  }
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
-.hero__role {
-  font-size: var(--step-0);
-  color: rgb(244 242 237 / 0.8);
-  margin-bottom: var(--space-xs);
+.hero__lede {
+  max-width: 44ch;
+  font-size: var(--step-1);
+  line-height: 1.4;
+  color: rgb(244 242 237 / 0.85);
+
+  // Phones keep the hero to the headline and buttons
+  @media (max-width: 639px) {
+    display: none;
+  }
 }
 
 .btn--on-media {
@@ -126,19 +112,48 @@
 }
 
 .hero__ui {
-  position: absolute;
-  inset: auto 0 0;
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: var(--space-m);
   padding-bottom: var(--space-l);
+
+  // Phones: counter and arrows on one row, progress bars full width below
+  @media (max-width: 639px) {
+    grid-template-columns: 1fr auto;
+    row-gap: var(--space-2xs);
+
+    .hero__progress {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+  }
+}
+
+.hero__now {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-s);
+  min-width: 0;
 }
 
 .hero__count {
+  white-space: nowrap;
   font-variant-numeric: tabular-nums;
   font-weight: 600;
-  font-size: var(--step-0);
+  font-size: var(--step--1);
+}
+
+.hero__client {
+  font-size: var(--step--1);
+  white-space: nowrap;
+  color: rgb(244 242 237 / 0.85);
+
+  &:hover {
+    color: #f4f2ed;
+  }
 }
 
 .hero__count-total {
@@ -154,8 +169,7 @@
 
 .hero__bar {
   display: grid;
-  gap: 0.45rem;
-  padding-block: 0.5rem;
+  padding-block: 0.75rem;
   text-align: left;
   color: rgb(244 242 237 / 0.6);
   transition: color var(--dur-fast) var(--ease-out);
@@ -163,21 +177,6 @@
   &:hover,
   &.is-active {
     color: #f4f2ed;
-  }
-}
-
-.hero__bar-label {
-  font-size: var(--step--2);
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  // Five names don't fit side by side until the screen is wide
-  @media (max-width: 1099px) {
-    display: none;
   }
 }
 
@@ -235,25 +234,6 @@
   }
   .icon-pause {
     display: none;
-  }
-}
-
-// Intro
-
-.intro {
-  padding-top: var(--space-2xl);
-
-  .headline {
-    margin-top: var(--space-xs);
-  }
-}
-
-.intro__aside {
-  --stack-space: var(--space-l);
-  margin-top: var(--space-l);
-
-  @media (min-width: 900px) {
-    grid-column: 7 / span 6;
   }
 }
 

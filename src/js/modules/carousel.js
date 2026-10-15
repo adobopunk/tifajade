@@ -13,6 +13,8 @@ export function initCarousel({ reducedMotion }) {
   const bars = [...root.querySelectorAll("[data-carousel-goto]")];
   const current = root.querySelector("[data-carousel-current]");
   const toggle = root.querySelector("[data-carousel-toggle]");
+  const clientLink = root.querySelector("[data-carousel-client]");
+  const controls = root.querySelector(".hero__ui") || root;
   if (slides.length < 2) return;
 
   root.style.setProperty("--slide-duration", `${SLIDE_MS}ms`);
@@ -72,6 +74,10 @@ export function initCarousel({ reducedMotion }) {
     restartProgress(bars[index]);
 
     if (current) current.textContent = String(index + 1).padStart(2, "0");
+    if (clientLink) {
+      clientLink.textContent = slides[index].dataset.client;
+      clientLink.href = slides[index].dataset.url;
+    }
 
     if (prev !== index) pauseVideo(slides[prev]);
     playVideo(slides[index]);
@@ -93,24 +99,25 @@ export function initCarousel({ reducedMotion }) {
   bars.forEach((bar, i) => bar.addEventListener("click", () => go(i)));
   toggle?.addEventListener("click", () => setUserPaused(!userPaused));
 
-  // Pause while the pointer or keyboard focus is inside the carousel
-  root.addEventListener("pointerenter", (e) => {
+  // Pause while the pointer or keyboard focus is on the carousel controls.
+  // (Not the whole hero: people read the headline over the video.)
+  controls.addEventListener("pointerenter", (e) => {
     if (e.pointerType === "mouse") {
       hoverPaused = true;
       schedule();
     }
   });
-  root.addEventListener("pointerleave", () => {
+  controls.addEventListener("pointerleave", () => {
     hoverPaused = false;
     restartProgress(bars[index]);
     schedule();
   });
-  root.addEventListener("focusin", () => {
+  controls.addEventListener("focusin", () => {
     hoverPaused = true;
     schedule();
   });
-  root.addEventListener("focusout", (e) => {
-    if (!root.contains(e.relatedTarget)) {
+  controls.addEventListener("focusout", (e) => {
+    if (!controls.contains(e.relatedTarget)) {
       hoverPaused = false;
       schedule();
     }

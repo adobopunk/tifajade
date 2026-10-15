@@ -14,6 +14,8 @@ permalink: "/"
     <article
       class="hero__slide{% if loop.first %} is-active{% endif %}"
       data-slide
+      data-client="{{ p.data.client }}"
+      data-url="{{ p.url }}"
       aria-roledescription="slide"
       aria-label="{{ loop.index }} of {{ slides.length }}: {{ p.data.client }}"
       {% if not loop.first %}inert{% endif %}
@@ -32,27 +34,39 @@ permalink: "/"
         <source src="{{ s.src }}" type="{{ s.type }}" />
         {%- endfor %}
       </video>
-      <div class="hero__shade" aria-hidden="true"></div>
-
-      <div class="hero__content container">
-        <p class="label hero__client">{{ p.data.client }}</p>
-        <h2 class="hero__title"><a href="{{ p.url }}">{{ p.data.title }}</a></h2>
-        <p class="hero__role">{{ p.data.scope }}</p>
-        <a href="{{ p.url }}" class="btn btn--on-media">View project</a>
-      </div>
     </article>
     {%- endfor %}
   </div>
+  <div class="hero__shade" aria-hidden="true"></div>
+
+  <div class="hero__content container">
+    <p class="label hero__eyebrow" data-reveal>Tifa Jade · Director, Producer &amp; Content Strategist</p>
+    <h1 class="hero__headline" data-split>
+      Films that move people, for brands, agencies, local businesses and
+      <span class="flourish">campaigns.</span>
+    </h1>
+    <p class="hero__lede" data-reveal>
+      A filmmaker of 10+ years, I take ideas from first pitch to final cut
+      and plan how they reach people once they're out in the world.
+    </p>
+    <div class="cluster" data-reveal>
+      <button type="button" class="btn btn--primary btn--large" data-reel-open>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.5v11l9-5.5z" /></svg>
+        Watch the showreel
+      </button>
+      <a href="/contact/" class="btn btn--on-media btn--large">Start a project</a>
+    </div>
+  </div>
 
   <div class="hero__ui container">
-    <p class="hero__count" aria-hidden="true">
-      <span data-carousel-current>01</span><span class="hero__count-total"> / {{ slides.length | pad2 }}</span>
+    <p class="hero__now">
+      <span class="hero__count" aria-hidden="true"><span data-carousel-current>01</span><span class="hero__count-total"> / {{ slides.length | pad2 }}</span></span>
+      <a href="{{ slides[0].url }}" class="hero__client link-arrow" data-carousel-client>{{ slides[0].data.client }}</a>
     </p>
 
     <div class="hero__progress">
       {%- for p in slides %}
       <button type="button" class="hero__bar{% if loop.first %} is-active{% endif %}" data-carousel-goto="{{ loop.index0 }}" aria-label="Show {{ p.data.client }}"{% if loop.first %} aria-current="true"{% endif %}>
-        <span class="hero__bar-label">{{ p.data.client }}</span>
         <span class="hero__bar-track"><span class="hero__bar-fill"></span></span>
       </button>
       {%- endfor %}
@@ -69,30 +83,6 @@ permalink: "/"
       <button type="button" class="icon-btn" data-carousel-next aria-label="Next project">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
       </button>
-    </div>
-  </div>
-</section>
-
-{#- Intro -#}
-<section class="section intro">
-  <div class="container grid">
-    <p class="label span-12" data-reveal>Tifa Jade · Director, Producer &amp; Content Strategist</p>
-    <h1 class="headline span-11" data-split>
-      Films that move people, for brands, agencies, local businesses and
-      <span class="flourish">campaigns.</span>
-    </h1>
-    <div class="intro__aside span-12 stack" data-reveal>
-      <p class="lede">
-        A filmmaker of 10+ years, I take ideas from first pitch to final cut
-        and plan how they reach people once they're out in the world.
-      </p>
-      <div class="cluster">
-        <button type="button" class="btn btn--primary btn--large" data-reel-open>
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.5v11l9-5.5z" /></svg>
-          Watch the showreel
-        </button>
-        <a href="/contact/" class="btn btn--large">Start a project</a>
-      </div>
     </div>
   </div>
 </section>

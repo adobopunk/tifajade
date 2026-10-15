@@ -38,6 +38,11 @@ export function initProjectGrid({ reducedMotion }) {
     previewVideo(card, card.querySelector("a"), { reducedMotion });
   });
 
+  // The Next project preview at the end of each case study
+  document.querySelectorAll(".case-next__media").forEach((media) => {
+    previewVideo(media, media.closest(".case-next__link"), { reducedMotion });
+  });
+
   // Service rows (homepage accordion, Services page sections) reuse the same
   // preview behavior on their media panel
   document.querySelectorAll(".service__media").forEach((media) => {

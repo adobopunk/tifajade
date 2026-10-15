@@ -77,7 +77,15 @@ bodyClass: "page-case"
       <span class="case-next__client display" data-split>{{ next.data.client }}</span>
       <span class="case-next__title lede">{{ next.data.title }}</span>
       <span class="frame case-next__media" aria-hidden="true">
-        <img src="{{ next.data.image | poster }}" alt="" loading="lazy" decoding="async" />
+        <img src="{{ next.data.image | poster | sizedImage(1024) }}" alt="" loading="lazy" decoding="async" />
+        {%- set nextSources = next.data.video | videoSources %}
+        {%- if nextSources.length %}
+        <video muted loop playsinline preload="none">
+          {%- for s in nextSources %}
+          <source src="{{ s.src }}" type="{{ s.type }}" />
+          {%- endfor %}
+        </video>
+        {%- endif %}
       </span>
     </a>
   </nav>
