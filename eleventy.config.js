@@ -1,4 +1,5 @@
 const path = require("node:path");
+const { fileURLToPath } = require("node:url");
 const sass = require("sass");
 const { feedPlugin } = require("@11ty/eleventy-plugin-rss");
 
@@ -38,7 +39,11 @@ module.exports = function (eleventyConfig) {
         sourceMap: false,
         charset: false,
       });
-      this.addDependencies(inputPath, result.loadedUrls);
+      // Rebuild site.css whenever any partial it imports changes
+      this.addDependencies(
+        inputPath,
+        result.loadedUrls.filter((u) => u.protocol === "file:").map((u) => fileURLToPath(u))
+      );
       return async () => result.css;
     },
   });
@@ -56,8 +61,10 @@ module.exports = function (eleventyConfig) {
     return pages[(i + 1) % pages.length];
   });
 
+  // Front matter dates are midnight UTC; read them in UTC so January 1
+  // doesn't slip back a year in US time zones
   eleventyConfig.addFilter("year", (date) =>
-    (date instanceof Date ? date : new Date()).getFullYear()
+    (date instanceof Date ? date : new Date()).getUTCFullYear()
   );
 
   // Redesign: Stories (photo journal), oldest first like Eleventy's own

@@ -191,8 +191,38 @@
     background: var(--surface);
   }
 
+  // Only reset the sides and bottom, so the block spacing above still applies
   figure {
-    margin: 0;
+    margin-inline: 0;
+    margin-bottom: 0;
+  }
+
+  // Media gets a little more room than text-to-text
+  > * + figure,
+  > * + video,
+  > * + img,
+  > * + div[style*="padding"] {
+    margin-top: var(--space-xl);
+  }
+
+  // Embed wrappers that relied on the old stylesheet for their 16:9 box
+  .youtube-container,
+  .iframe-container,
+  .video-wrapper,
+  .vimeo-container:not([style*="padding"]) {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-s);
+    overflow: hidden;
+    background: var(--surface);
+
+    iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
   }
 
   figcaption {
@@ -370,11 +400,23 @@
     align-self: end;
   }
 
-  img {
-    transition: transform var(--dur-slow) var(--ease-out);
+  img,
+  video {
+    transition:
+      transform var(--dur-slow) var(--ease-out),
+      opacity var(--dur-med) var(--ease-out);
   }
 
-  .case-next__link:hover & img {
+  video {
+    opacity: 0;
+  }
+
+  &.is-playing video {
+    opacity: 1;
+  }
+
+  .case-next__link:hover & img,
+  .case-next__link:hover & video {
     transform: scale(1.04);
   }
 }
