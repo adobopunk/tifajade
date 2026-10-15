@@ -107,14 +107,6 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => a.data.carousel - b.data.carousel)
   );
 
-  // Redesign: featured projects for the homepage grid, newest first
-  eleventyConfig.addCollection("featuredProjects", (collection) =>
-    collection
-      .getFilteredByGlob("src/projects-animation/*.njk")
-      .filter((p) => p.data.feature === "yes")
-      .sort((a, b) => b.date - a.date)
-  );
-
   // Some media paths in front matter are already URL-encoded (Bunny CDN), some
   // aren't (local files with spaces). Normalize both.
   const safeUrl = (src) => encodeURI(decodeURI(src));
@@ -143,6 +135,11 @@ module.exports = function (eleventyConfig) {
 
   // 1 → "01"
   eleventyConfig.addFilter("pad2", (n) => String(n).padStart(2, "0"));
+
+  // Unique values of one key across a list of objects
+  eleventyConfig.addFilter("uniqueValues", (items, key) => [
+    ...new Set((items || []).map((item) => item[key]).filter(Boolean)),
+  ]);
 
   // Look up a page in a collection by its file slug
   eleventyConfig.addFilter("bySlug", (pages, slug) =>

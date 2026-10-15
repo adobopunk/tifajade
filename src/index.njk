@@ -97,32 +97,6 @@ permalink: "/"
   </div>
 </section>
 
-{#- Project grid -#}
-{%- set featured = collections.featuredProjects -%}
-<section class="section" id="projects" data-project-filter>
-  <div class="container">
-    <div class="section-head section-head--wrap">
-      <h2 class="headline" data-split>Selected <span class="flourish">projects.</span></h2>
-      <div class="filters" role="group" aria-label="Filter projects">
-        <button type="button" class="filter" data-filter="all" aria-pressed="true">All <sup>{{ featured.length }}</sup></button>
-        {%- for cat in ["film", "motion"] %}
-        <button type="button" class="filter" data-filter="{{ cat }}" aria-pressed="false">{{ cat | capitalize }} <sup>{{ (featured | byCategory(cat)).length }}</sup></button>
-        {%- endfor %}
-      </div>
-    </div>
-
-    <ul class="project-grid" role="list" data-reveal-stagger>
-      {%- for p in featured %}
-      {% include "partials/project-card.njk" %}
-      {%- endfor %}
-    </ul>
-
-    <p class="section-foot" data-reveal>
-      <a href="/projects/" class="btn btn--large">All projects</a>
-    </p>
-  </div>
-</section>
-
 {#- Services -#}
 <section class="section services" id="services">
   <div class="container">
@@ -171,15 +145,39 @@ permalink: "/"
   </div>
 </section>
 
-{#- Clients -#}
-<section class="section clients">
-  <div class="container">
+{#- Clients. Hovering a name plays that project's loop behind the list. -#}
+<section class="section clients" data-client-reel>
+  <div class="clients__media" aria-hidden="true">
+    {%- for slug in clients | uniqueValues("project") %}
+    {%- set cp = collections.projects | bySlug(slug) %}
+    {%- if cp %}
+    <div class="clients__media-item" data-client-media="{{ slug }}">
+      <img src="{{ cp.data.image | poster }}" alt="" loading="lazy" decoding="async" />
+      {%- set sources = cp.data.video | videoSources %}
+      {%- if sources.length %}
+      <video muted loop playsinline preload="none">
+        {%- for s in sources %}
+        <source src="{{ s.src }}" type="{{ s.type }}" />
+        {%- endfor %}
+      </video>
+      {%- endif %}
+    </div>
+    {%- endif %}
+    {%- endfor %}
+  </div>
+
+  <div class="container clients__inner">
     <p class="label" data-reveal>Clients &amp; collaborators</p>
     <ul class="client-cloud" role="list" data-reveal-stagger>
       {%- for c in clients %}
-      {%- set cp = collections.animation | bySlug(c.project) %}
-      <li data-reveal>{% if cp %}<a href="{{ cp.url }}">{{ c.name }}</a>{% else %}{{ c.name }}{% endif %}</li>
+      {%- set cp = collections.projects | bySlug(c.project) %}
+      <li data-reveal>
+        {%- if cp %}<a href="{{ cp.url }}" data-client="{{ c.project }}">{{ c.name }}</a>{% else %}{{ c.name }}{% endif -%}
+      </li>
       {%- endfor %}
     </ul>
+    <p class="clients__foot" data-reveal>
+      <a href="/projects/" class="btn btn--large">See all projects</a>
+    </p>
   </div>
 </section>
