@@ -29,23 +29,6 @@
     --line: rgb(244 242 237 / 0.3);
     color: var(--ink);
 
-    // A soft dark fade behind the logo and nav so they read over any footage
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto;
-      height: calc(var(--header-h) * 2);
-      z-index: -1;
-      background: linear-gradient(
-        to bottom,
-        rgb(5 7 6 / 0.7) 0%,
-        rgb(5 7 6 / 0.45) 45%,
-        rgb(5 7 6 / 0.15) 75%,
-        transparent 100%
-      );
-      pointer-events: none;
-    }
-
     .logo-light {
       display: none;
     }

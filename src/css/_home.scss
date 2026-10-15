@@ -59,6 +59,9 @@
   inset: 0;
   pointer-events: none;
   background:
+    // Darkest behind the headline, which sits bottom left
+    radial-gradient(ellipse 85% 75% at 0% 85%, rgb(5 7 6 / 0.75) 0%, rgb(5 7 6 / 0.45) 45%, transparent 75%),
+    linear-gradient(to right, rgb(5 7 6 / 0.55) 0%, rgb(5 7 6 / 0.25) 45%, transparent 70%),
     linear-gradient(to top, rgb(5 7 6 / 0.9) 0%, rgb(5 7 6 / 0.55) 40%, rgb(5 7 6 / 0.15) 72%, transparent 100%),
     linear-gradient(to bottom, rgb(5 7 6 / 0.45) 0%, transparent 22%);
 }
@@ -78,6 +81,7 @@
 }
 
 .hero__headline {
+  text-shadow: 0 2px 24px rgb(5 7 6 / 0.35);
   max-width: 17ch;
   font-size: var(--step-5);
   font-weight: 700;
