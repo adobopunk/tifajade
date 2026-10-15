@@ -145,6 +145,37 @@ permalink: "/"
   </div>
 </section>
 
+{#- Latest stories, once any are published -#}
+{%- set latestStories = (collections.stories | reverse).slice(0, 3) -%}
+{%- if latestStories.length %}
+<section class="section home-stories">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="headline" data-split>Latest <span class="flourish">stories.</span></h2>
+      <a href="/stories/" class="link-arrow" data-reveal>All stories</a>
+    </div>
+    <ul class="story-list" role="list" data-reveal-stagger>
+      {%- for post in latestStories %}
+      <li class="story-card" data-reveal>
+        <a href="{{ post.url }}" class="story-card__link">
+          <div class="frame frame--portrait">
+            {%- if post.data.cover %}
+            {%- set src = post.data.cover %}{% set alt = "" %}{% set eager = false %}{% set sizes = "(min-width: 900px) 30vw, 94vw" %}
+            {% include "partials/story-image.njk" %}
+            {%- endif %}
+          </div>
+          <div class="story-card__text">
+            <p class="label">{{ post.date | readableDate }}{% if post.data.location %} · {{ post.data.location }}{% endif %}</p>
+            <h3 class="story-card__title">{{ post.data.title }}</h3>
+          </div>
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+
 {#- Clients. Hovering a name plays that project's loop behind the list. -#}
 <section class="section clients" data-client-reel>
   <div class="clients__media" aria-hidden="true">

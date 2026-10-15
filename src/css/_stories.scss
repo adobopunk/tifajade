@@ -1,0 +1,252 @@
+// Stories: the photo journal index and individual stories.
+
+// Full-bleed cover for photo stories
+
+.story-cover {
+  position: relative;
+  height: 92svh;
+  min-height: 560px;
+  overflow: hidden;
+  color: #f4f2ed;
+  background: #0b0e0c;
+
+  > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.story-cover__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgb(5 7 6 / 0.85) 0%, rgb(5 7 6 / 0.25) 45%, transparent 70%),
+    linear-gradient(to bottom, rgb(5 7 6 / 0.4) 0%, transparent 22%);
+}
+
+.story-cover__text {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  gap: var(--space-s);
+  padding-bottom: var(--space-xl);
+
+  .label {
+    color: rgb(244 242 237 / 0.75);
+  }
+
+  .display {
+    max-width: 14ch;
+  }
+
+  .lede {
+    max-width: 40ch;
+    color: rgb(244 242 237 / 0.85);
+  }
+}
+
+// Text-led header for essays (and photo stories without a cover)
+
+.story-head {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-s);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-l);
+}
+
+.story-head__dek {
+  max-width: 40ch;
+  color: var(--ink-muted);
+}
+
+.story-lead {
+  margin-bottom: var(--space-l);
+}
+
+// Details row under the header
+
+.story-meta {
+  padding-top: var(--space-l);
+}
+
+.story-meta__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-m) var(--space-xl);
+  padding-bottom: var(--space-l);
+  border-bottom: 1px solid var(--line);
+
+  dd {
+    margin: 0.3rem 0 0;
+    font-size: var(--step--1);
+    font-weight: 500;
+  }
+}
+
+// Body text
+
+.story-body {
+  padding-block: var(--space-xl);
+
+  h2 {
+    margin-top: var(--space-xl);
+    font-family: var(--font-sans);
+    font-size: var(--step-3);
+  }
+
+  h3 {
+    margin-top: var(--space-l);
+    font-family: var(--font-sans);
+  }
+
+  img {
+    width: 100%;
+    margin-block: var(--space-m);
+    border-radius: var(--radius-s);
+  }
+
+  blockquote {
+    margin-block: var(--space-l);
+    padding-left: var(--space-m);
+    border-left: 2px solid var(--accent);
+    font-size: var(--step-2);
+    line-height: 1.35;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.2em;
+  }
+}
+
+// Photo layouts: wide spans the container, half and portrait pair up,
+// full bleeds to the edges of the screen
+
+.story-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-l) var(--gutter);
+  padding-block: var(--space-l) var(--space-xl);
+
+  @media (max-width: 759px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.story-photo {
+  margin: 0;
+  grid-column: 1 / -1;
+
+  img {
+    width: 100%;
+    border-radius: var(--radius-s);
+  }
+
+  figcaption {
+    margin-top: var(--space-xs);
+    max-width: var(--measure);
+  }
+}
+
+.story-photo--half,
+.story-photo--portrait {
+  grid-column: auto;
+}
+
+.story-photo--portrait img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.story-photo--half img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.story-photo--full {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+
+  img {
+    border-radius: 0;
+  }
+
+  figcaption {
+    padding-inline: var(--gutter);
+  }
+}
+
+// Stories index
+
+.stories-index .section-head {
+  align-items: end;
+}
+
+.story-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-xl) var(--gutter);
+  list-style: none;
+  padding: 0;
+
+  @media (min-width: 1100px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.story-card__link {
+  display: grid;
+  gap: var(--space-s);
+  text-decoration: none;
+
+  img {
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+
+  &:hover img {
+    transform: scale(1.04);
+  }
+}
+
+.story-card__title {
+  font-size: var(--step-2);
+  transition: color var(--dur-fast) var(--ease-out);
+
+  .story-card__link:hover & {
+    color: var(--accent);
+  }
+}
+
+.story-card__dek {
+  margin-top: var(--space-2xs);
+  color: var(--ink-muted);
+  max-width: 44ch;
+}
+
+// The newest story runs large across the top
+.story-card--lead {
+  grid-column: 1 / -1;
+
+  @media (min-width: 900px) {
+    .story-card__link {
+      grid-template-columns: 3fr 2fr;
+      align-items: end;
+      gap: var(--gutter);
+    }
+
+    .story-card__title {
+      font-size: var(--step-4);
+    }
+  }
+}
+
+// Homepage "Latest stories" row reuses the cards
+.home-stories .story-list {
+  @media (min-width: 1100px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

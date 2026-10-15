@@ -1,0 +1,147 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms@0.224.0/schema/sveltia-cms.json
+#
+# Sveltia CMS settings for the Stories journal. The CMS runs at /admin/ and
+# saves each change as a commit to GitHub; Netlify then rebuilds the site.
+
+backend:
+  name: github
+  repo: adobopunk/tifajade
+  branch: main
+  commit_messages:
+    create: "Stories: add “{{slug}}”"
+    update: "Stories: update “{{slug}}”"
+    delete: "Stories: delete “{{slug}}”"
+    uploadMedia: "Stories: upload “{{path}}”"
+    deleteMedia: "Stories: delete “{{path}}”"
+
+site_url: https://tifajade.com
+display_url: https://tifajade.com
+logo_url: /assets/favicon/favicon.svg
+
+# Photos are converted to WebP and capped at 2400px in the browser before
+# upload, so originals straight off the camera don't bloat the repository.
+media_folder: /assets/img/stories
+public_folder: /assets/img/stories
+media_libraries:
+  default:
+    config:
+      max_file_size: 30000000
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2400
+          height: 2400
+
+collections:
+  - name: stories
+    label: Stories
+    label_singular: Story
+    description: Photo stories and essays. Turn off “Draft” to publish.
+    folder: src/stories
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    summary: "{{title}} · {{date | date('MMM D, YYYY')}}{{draft | ternary(' · Draft', '')}}"
+    sortable_fields: [date, title]
+    view_filters:
+      - label: Drafts
+        field: draft
+        pattern: true
+      - label: Published
+        field: draft
+        pattern: false
+    preview_path: stories/{{slug}}
+    fields:
+      - label: Title
+        name: title
+        widget: string
+
+      - label: Publish date
+        name: date
+        widget: datetime
+        time_format: false
+        date_format: YYYY-MM-DD
+        format: YYYY-MM-DD
+
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: true
+        hint: Drafts are hidden from the live site. Turn this off to publish.
+
+      - label: Style
+        name: kind
+        widget: select
+        default: photo
+        options:
+          - { label: "Photo story: opens on a full-screen cover, text kept short", value: photo }
+          - { label: "Essay: text-led, with photos in between", value: essay }
+
+      - label: Summary
+        name: description
+        widget: text
+        hint: One or two sentences. Shown on the Stories page, in link previews and in the RSS feed.
+
+      - label: Cover photo
+        name: cover
+        widget: image
+
+      - label: Cover photo description
+        name: cover_alt
+        widget: string
+        required: false
+        hint: What's in the photo, for people using screen readers.
+
+      - label: Location
+        name: location
+        widget: string
+        required: false
+
+      - label: Camera / lens
+        name: camera
+        widget: string
+        required: false
+
+      - label: Topics
+        name: topics
+        widget: list
+        required: false
+        hint: Comma-separated, e.g. Portraits, Events
+
+      - label: Story
+        name: body
+        widget: markdown
+        required: false
+        buttons: [bold, italic, link, heading-two, heading-three, quote, bulleted-list, numbered-list]
+        editor_components: [image]
+
+      - label: Photos
+        name: gallery
+        widget: list
+        required: false
+        hint: Shown after the text, in this order. Drag to reorder.
+        summary: "{{fields.caption | default(fields.alt)}}"
+        fields:
+          - label: Photo
+            name: image
+            widget: image
+          - label: Description
+            name: alt
+            widget: string
+            required: false
+            hint: What's in the photo, for people using screen readers.
+          - label: Caption
+            name: caption
+            widget: string
+            required: false
+          - label: Size
+            name: size
+            widget: select
+            default: wide
+            options:
+              - { label: "Wide: fills the column", value: wide }
+              - { label: "Full bleed: edge to edge", value: full }
+              - { label: "Half: pairs with the next half or portrait", value: half }
+              - { label: "Portrait: tall, pairs side by side", value: portrait }

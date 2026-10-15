@@ -1,0 +1,9 @@
+{#- A responsive image. Expects `src`, `alt`, and optionally `sizes` and `eager`. -#}
+{%- set _srcset = src | srcset -%}
+<img
+  src="{{ src | sizedImage(1600) }}"
+  {% if _srcset %}srcset="{{ _srcset }}" sizes="{{ sizes or '100vw' }}"{% endif %}
+  alt="{{ alt }}"
+  {% if eager %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
+  decoding="async"
+/>

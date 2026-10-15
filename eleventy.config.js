@@ -1,5 +1,13 @@
 const path = require("node:path");
 const sass = require("sass");
+const { feedPlugin } = require("@11ty/eleventy-plugin-rss");
+
+const siteUrl = "https://tifajade.com";
+
+// Netlify's Image CDN resizes images on request. It only exists on Netlify,
+// so local builds use the original file.
+const onNetlify = process.env.NETLIFY === "true";
+const RESPONSIVE_WIDTHS = [640, 1024, 1600, 2400];
 
 module.exports = function (eleventyConfig) {
   // Copy assets
@@ -10,6 +18,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
   eleventyConfig.addPassthroughCopy("pdf");
+  eleventyConfig.addPassthroughCopy({ "src/admin/config.yml": "admin/config.yml" });
+  eleventyConfig.ignores.add("src/readme.md");
 
   // Redesign: scripts and vendored libraries
   eleventyConfig.addPassthroughCopy({ "src/js": "js" });
@@ -99,6 +109,57 @@ module.exports = function (eleventyConfig) {
     (date instanceof Date ? date : new Date()).getFullYear()
   );
 
+  // Redesign: Stories (photo journal), oldest first like Eleventy's own
+  // collections; templates reverse it. Drafts are already excluded.
+  eleventyConfig.addCollection("stories", (collection) =>
+    collection.getFilteredByGlob("src/stories/*.md")
+  );
+
+  // Image URL at a given width (Netlify Image CDN in production)
+  const sizedImage = (src, width) => {
+    if (!src || !onNetlify || /^https?:/.test(src) || src.endsWith(".svg")) return src;
+    return `/.netlify/images?url=${encodeURIComponent(src)}&w=${width}&q=80`;
+  };
+  eleventyConfig.addFilter("sizedImage", sizedImage);
+
+  // srcset for an image; empty locally, where only the original exists
+  eleventyConfig.addFilter("srcset", (src) => {
+    if (!onNetlify || !src || /^https?:/.test(src)) return "";
+    return RESPONSIVE_WIDTHS.map((w) => `${sizedImage(src, w)} ${w}w`).join(", ");
+  });
+
+  eleventyConfig.addFilter("readableDate", (date) =>
+    new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      timeZone: "UTC",
+    })
+  );
+
+  eleventyConfig.addFilter("isoDate", (date) => new Date(date).toISOString().slice(0, 10));
+
+  // RSS (Atom) and JSON feeds for Stories
+  const feedMetadata = {
+    language: "en",
+    title: "Tifa Jade: Stories",
+    subtitle: "Photo stories and writing by Tifa Jade.",
+    base: `${siteUrl}/`,
+    author: { name: "Tifa Jade", email: "hi@tifajade.com" },
+  };
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "atom",
+    outputPath: "/feed.xml",
+    collection: { name: "stories", limit: 20 },
+    metadata: feedMetadata,
+  });
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "json",
+    outputPath: "/feed.json",
+    collection: { name: "stories", limit: 20 },
+    metadata: feedMetadata,
+  });
+
   // Redesign: homepage carousel, ordered by each project's `carousel` number
   eleventyConfig.addCollection("carousel", (collection) =>
     collection
@@ -147,7 +208,6 @@ module.exports = function (eleventyConfig) {
   );
 
   // Absolute URLs for canonical/Open Graph tags
-  const siteUrl = "https://tifajade.com";
   eleventyConfig.addFilter("absoluteUrl", (path) => siteUrl + encodeURI(path));
   eleventyConfig.addFilter("absoluteImage", (path) =>
     siteUrl + encodeURI(path || "/assets/img/og-image.jpg")
@@ -177,6 +237,6 @@ module.exports = function (eleventyConfig) {
       output: "_site",
       includes: "_templates",
     },
-    templateFormats: ["njk", "html", "scss"],
+    templateFormats: ["njk", "html", "md", "scss"],
   };
 };
