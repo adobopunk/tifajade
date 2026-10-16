@@ -204,6 +204,7 @@
 }
 
 .hero__bar {
+  position: relative;
   display: grid;
   padding-block: 0.75rem;
   text-align: left;
@@ -213,6 +214,59 @@
   &:hover,
   &.is-active {
     color: #f4f2ed;
+  }
+}
+
+// Name of the project, shown above a bar on hover or keyboard focus
+.hero__bar-tip {
+  position: absolute;
+  bottom: calc(100% - 0.15rem);
+  left: 50%;
+  display: grid;
+  gap: 0.1rem;
+  width: max-content;
+  max-width: min(18rem, 80vw);
+  padding: 0.5em 0.8em;
+  border-radius: var(--radius-s);
+  background: rgb(11 14 12 / 0.82);
+  backdrop-filter: blur(8px);
+  color: #f4f2ed;
+  font-size: var(--step--1);
+  line-height: 1.25;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 0.35rem);
+  transition:
+    opacity var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+
+  strong {
+    font-weight: 650;
+  }
+
+  .hero__bar:hover &,
+  .hero__bar:focus-visible & {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  // The outer bars line up with their own edge so the label stays on screen
+  .hero__bar:first-child & {
+    left: 0;
+    transform: translate(0, 0.35rem);
+  }
+
+  .hero__bar:last-child & {
+    left: auto;
+    right: 0;
+    transform: translate(0, 0.35rem);
+  }
+
+  .hero__bar:first-child:hover &,
+  .hero__bar:first-child:focus-visible &,
+  .hero__bar:last-child:hover &,
+  .hero__bar:last-child:focus-visible & {
+    transform: none;
   }
 }
 

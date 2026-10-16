@@ -1,7 +1,6 @@
 const path = require("node:path");
 const { fileURLToPath } = require("node:url");
 const sass = require("sass");
-const { feedPlugin } = require("@11ty/eleventy-plugin-rss");
 
 const siteUrl = "https://tifajade.com";
 const { showStories } = require("./src/_data/site.json");
@@ -11,7 +10,11 @@ const { showStories } = require("./src/_data/site.json");
 const onNetlify = process.env.NETLIFY === "true";
 const RESPONSIVE_WIDTHS = [640, 1024, 1600, 2400];
 
-module.exports = function (eleventyConfig) {
+module.exports = async function (eleventyConfig) {
+  // The RSS plugin is an ES module. A dynamic import works on every Node version,
+  // while require() only works on newer ones (Netlify's default Node is older)
+  const { feedPlugin } = await import("@11ty/eleventy-plugin-rss");
+
   // Copy assets
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("robots.txt");
