@@ -1,0 +1,99 @@
+[
+  {
+    "name": "Political",
+    "blurb": "Candidate and contrast ads built from the public record, with the source on screen for every claim.",
+    "videos": [
+      {
+        "business": "John Duresky for Congress",
+        "id": "fada5b50-14a1-4633-a2d0-2b62a1227fef",
+        "title": "The Oath",
+        "roles": [
+          "Videography",
+          "Editing",
+          "Motion design"
+        ]
+      },
+      {
+        "business": "Bill O'Neil for Port Commissioner",
+        "id": "d559baca-2cba-4864-b4bc-53d80fbc1b6a",
+        "title": "What The Heck, Keck?",
+        "roles": [
+          "Motion design"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Retail & Supply",
+    "blurb": "Farm, hardware and building supply spots that give customers a reason to visit.",
+    "videos": [
+      {
+        "business": "Alaska Farm Supply",
+        "id": "54eebc76-72ed-4fe0-a889-1b602692c09e",
+        "title": "Premium Hay",
+        "roles": [
+          "Videography",
+          "Editing",
+          "Motion design"
+        ]
+      },
+      {
+        "business": "Tri-City Lumber",
+        "id": "d649bf8e-b7ff-4e89-bb42-8572afd1c350",
+        "title": "Doug's Advice",
+        "roles": [
+          "Videography",
+          "Editing",
+          "Motion design"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Nonprofit",
+    "blurb": "Stories for seasonal drives and community programs, told through the people involved.",
+    "videos": [
+      {
+        "business": "Giving Machine",
+        "id": "7df0db4c-9687-4266-8988-d2e6a4a76f36",
+        "title": "Fairchild Cinemas Spot",
+        "roles": [
+          "Editing"
+        ]
+      },
+      {
+        "business": "Goodwill",
+        "id": "331cae15-e2a7-48cf-b83d-14cfe4faa6ab",
+        "title": "Perfect Combination",
+        "roles": [
+          "Videography",
+          "Editing",
+          "Motion design"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Beauty & Wellness",
+    "blurb": "Testimonials and brand pieces featuring the clients and staff of local studios and spas.",
+    "videos": [
+      {
+        "business": "Oracle Tattoo and Spa",
+        "id": "8bf3a6a1-ac2b-4057-9d88-9d968de1640d",
+        "title": "Testimonials Spot",
+        "roles": [
+          "Editing"
+        ]
+      },
+      {
+        "business": "Siren Boudoir",
+        "id": "46f9a3d0-1b0c-45d6-9999-0ac5ed8ce22d",
+        "title": "Local Business Spotlight",
+        "roles": [
+          "Videography",
+          "Editing"
+        ]
+      }
+    ]
+  }
+]

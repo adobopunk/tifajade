@@ -8,18 +8,22 @@
     <nav class="site-nav" aria-label="Primary">
       <ul>
         {%- for item in site.nav %}
+        {%- if item.header !== false and not item.hidden %}
         <li>
           <a href="{{ item.url }}" class="link-underline"{% if page.url and page.url.startsWith(item.url) %} aria-current="page"{% endif %}>{{ item.label }}</a>
         </li>
+        {%- endif %}
         {%- endfor %}
       </ul>
     </nav>
 
     <div class="site-header__actions">
+      {%- if site.showShowreel %}
       <button type="button" class="btn site-header__reel" data-reel-open>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.5v11l9-5.5z" /></svg>
         Showreel
       </button>
+      {%- endif %}
       <a href="/contact/" class="btn btn--primary site-header__cta">Let's talk</a>
       <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
         <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" /></svg>

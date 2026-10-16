@@ -263,6 +263,13 @@
     }
   }
 
+  // A website embed needs a tall frame on phones, or it shows a tiny desktop page
+  .iframe-container {
+    @media (max-width: 700px) {
+      aspect-ratio: 3 / 4;
+    }
+  }
+
   figcaption {
     margin-top: var(--space-xs);
     font-family: var(--font-sans);
@@ -463,4 +470,48 @@
 
 .projects-head {
   padding-top: var(--space-xl);
+}
+
+// A live website embed. On wide screens the site renders at a full desktop
+// width and is scaled down to fit, so its layout is never cropped. The page
+// scrolls normally until the embed is clicked, so it doesn't trap the wheel.
+.case-body .iframe-container[data-site-embed] {
+  iframe {
+    pointer-events: none;
+  }
+
+  &.is-active iframe {
+    pointer-events: auto;
+  }
+
+  @media (min-width: 701px) {
+    iframe {
+      inset: auto;
+      top: 0;
+      left: 0;
+      width: calc(var(--site-width, 1440) * 1px);
+      max-width: none;
+      height: calc(var(--site-width, 1440) * 1px * 9 / 16);
+      transform: scale(var(--embed-scale, 0.65));
+      transform-origin: 0 0;
+    }
+  }
+}
+
+.embed-hint {
+  position: absolute;
+  right: var(--space-xs, 0.75rem);
+  bottom: var(--space-xs, 0.75rem);
+  padding: 0.35em 0.8em;
+  border-radius: var(--radius-pill);
+  background: rgb(11 14 12 / 0.7);
+  backdrop-filter: blur(8px);
+  color: #f4f2ed;
+  font-size: var(--step--1);
+  pointer-events: none;
+  transition: opacity var(--dur-fast) var(--ease-out);
+
+  .is-active > & {
+    opacity: 0;
+  }
 }

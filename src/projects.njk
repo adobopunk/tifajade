@@ -20,6 +20,28 @@ permalink: "/projects/"
     {%- for p in collections.projects %}
     {%- set eager = loop.index <= 6 %}
     {% include "partials/project-card.njk" %}
+    {%- if p.fileSlug == "good-loser" %}
+    {#- Link to the local business page, right after Good Loser -#}
+    <li class="project-card" data-category="film">
+      <a href="/local-business/" class="project-card__link">
+        <div class="frame project-card__media">
+          <img src="/assets/img/videos/local-ads-poster.jpg" alt="" loading="lazy" decoding="async" />
+          <video muted loop playsinline preload="none" aria-hidden="true" data-card-video>
+            <source src="/assets/img/videos/local-ads-loop.webm" type="video/webm" />
+            <source src="/assets/img/videos/local-ads-loop.mp4" type="video/mp4" />
+          </video>
+          <span class="project-card__overlay" aria-hidden="true">
+            <span class="project-card__overlay-client">Local Businesses</span>
+            <span class="project-card__overlay-title">Video, social &amp; TV</span>
+          </span>
+        </div>
+        <div class="project-card__meta">
+          <h2 class="project-card__client">Local Businesses</h2>
+          <p class="project-card__title">Video, social &amp; TV</p>
+        </div>
+      </a>
+    </li>
+    {%- endif %}
     {%- endfor %}
   </ul>
 </section>

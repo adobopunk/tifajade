@@ -7,9 +7,9 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  // At least most of the screen, and taller if the headline needs the room,
+  // At least the full screen, and taller if the headline needs the room,
   // so the text never runs up under the header
-  min-height: max(88svh, 560px);
+  min-height: max(100svh, 560px);
   padding-top: calc(var(--header-h) + var(--space-l));
   overflow: hidden;
   color: #f4f2ed;
@@ -52,6 +52,38 @@
   .is-active & {
     transform: scale(1);
   }
+}
+
+// Shorter variants of the hero: a page hero and a band between sections
+.hero--page {
+  min-height: max(85svh, 560px);
+}
+
+.hero--band {
+  min-height: max(70svh, 480px);
+  padding-top: var(--space-2xl);
+
+  .hero__headline {
+    font-size: var(--step-4);
+  }
+
+  .hero__lede a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+
+  .hero__lede {
+    display: block;
+  }
+}
+
+// Background videos sit still; they don't zoom like the carousel slides
+.local-video {
+  transform: none;
 }
 
 .hero__shade {
@@ -377,13 +409,64 @@
   }
 }
 
-.service__media > video {
+// One video per related project, stacked; the active one fades in on top
+.service__layer {
   opacity: 0;
-  transition: opacity var(--dur-med) var(--ease-out);
+  transition: opacity var(--dur-slow) var(--ease-out);
+
+  &.is-active {
+    opacity: 1;
+  }
 }
 
-.service__media.is-playing > video {
-  opacity: 1;
+// Caption in the corner naming what is playing, tied to the active link below
+.service__now {
+  position: absolute;
+  left: var(--space-s);
+  bottom: var(--space-s);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  max-width: calc(100% - var(--space-m));
+  padding: 0.45em 0.9em;
+  border-radius: var(--radius-pill);
+  background: rgb(11 14 12 / 0.65);
+  backdrop-filter: blur(8px);
+  color: #f4f2ed;
+  font-size: var(--step--1);
+  pointer-events: none;
+}
+
+.service__now-dot {
+  flex: none;
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: service-pulse 1.6s ease-in-out infinite;
+}
+
+.service__now-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: opacity var(--dur-fast) var(--ease-out);
+
+  &.is-swapping {
+    opacity: 0;
+  }
+}
+
+@keyframes service-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service__now-dot {
+    animation: none;
+  }
 }
 
 // Clients. A project's loop fades in behind the list while its client
@@ -484,4 +567,102 @@
 
 .clients__foot {
   margin-top: var(--space-xl);
+}
+
+// A phone playing a vertical cut over the project video, like watching it on Instagram
+.svc-phone {
+  position: absolute;
+  right: 4%;
+  bottom: 4%;
+  height: 90%;
+  aspect-ratio: 9 / 18.5;
+  padding: 0.3rem;
+  border-radius: 1.3rem;
+  background: #111;
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.14),
+    0 1.4rem 2.6rem rgb(0 0 0 / 0.5);
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity var(--dur-med) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+  pointer-events: none;
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.svc-phone__screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #000;
+
+  video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.svc-phone__ui {
+  position: absolute;
+  inset: 0;
+  color: #fff;
+  background:
+    linear-gradient(to bottom, rgb(0 0 0 / 0.45), transparent 22%),
+    linear-gradient(to top, rgb(0 0 0 / 0.55), transparent 28%);
+
+  svg {
+    display: block;
+    width: 1.1em;
+    height: 1.1em;
+  }
+}
+
+.svc-phone__top {
+  position: absolute;
+  top: 0.45rem;
+  left: 0.55rem;
+  right: 0.55rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.svc-phone__rail {
+  position: absolute;
+  right: 0.4rem;
+  bottom: 2.2rem;
+  display: grid;
+  gap: 0.55rem;
+  font-size: 0.8rem;
+}
+
+.svc-phone__bottom {
+  position: absolute;
+  left: 0.55rem;
+  right: 0.55rem;
+  bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+
+.svc-phone__follow {
+  padding: 0.1rem 0.45rem;
+  border: 1px solid rgb(255 255 255 / 0.8);
+  border-radius: 0.3rem;
+  font-size: 0.55rem;
+  font-weight: 600;
 }

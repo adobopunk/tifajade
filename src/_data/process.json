@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Discover",
+    "copy": "A conversation about what you need, who it's for and what success looks like. You get a clear proposal and quote.",
+    "project": "impact-gaming"
+  },
+  {
+    "title": "Plan",
+    "copy": "Concept, script, schedule and shot list, plus where every piece will live once it's out in the world.",
+    "project": "midnight-society"
+  },
+  {
+    "title": "Produce",
+    "copy": "Directing, shooting, interviews and design, handled by a small crew that moves fast and treats people well.",
+    "project": "next-level"
+  },
+  {
+    "title": "Review",
+    "copy": "Every cut goes on VidShare, my own review tool. You open one link, with no login, and leave your notes on the exact frame.",
+    "image": "/assets/img/vidshare/blender1-800.webp"
+  },
+  {
+    "title": "Deliver & grow",
+    "copy": "The final cut, every cutdown and format you need, and a plan for getting it seen.",
+    "project": "good-loser"
+  }
+]
