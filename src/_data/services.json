@@ -24,10 +24,10 @@
       "Series development",
       "English & Spanish subtitles"
     ],
-    "project": "impact-gaming",
+    "project": "ufc-promos",
     "related": [
+      "ufc-promos",
       "impact-gaming",
-      "ufc-olympic-features",
       "good-loser"
     ]
   },
@@ -77,10 +77,10 @@
       "Long-form & TV episodes",
       "Interview & archive edits"
     ],
-    "project": "ufc-promos",
+    "project": "next-level",
     "related": [
-      "ufc-promos",
       "next-level",
+      "ufc-olympic-features",
       "intel-inspires"
     ]
   }
