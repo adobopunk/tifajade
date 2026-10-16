@@ -1,6 +1,7 @@
 // Homepage featured carousel. Auto-advances, pauses on hover, focus, hidden
 // tabs and the pause button, and supports swipe and arrow keys.
-// Only the visible slide's video plays.
+// Only the visible slide's video plays. Pointing at a progress bar previews
+// that slide's video; clicking the bar makes it the current slide.
 
 const SLIDE_MS = 7000;
 const SWIPE_PX = 40;
@@ -23,6 +24,11 @@ export function initCarousel({ reducedMotion }) {
   let timer = null;
   let userPaused = reducedMotion.matches;
   let hoverPaused = false;
+  // Time left on the current slide, so pausing and resuming never restarts it
+  let remaining = SLIDE_MS;
+  let startedAt = 0;
+  let running = false;
+  let previewing = null;
 
   function playVideo(slide) {
     const video = slide.querySelector("video");
@@ -42,9 +48,17 @@ export function initCarousel({ reducedMotion }) {
   }
 
   function schedule() {
+    if (running) {
+      remaining = Math.max(0, remaining - (performance.now() - startedAt));
+      running = false;
+    }
     clearTimeout(timer);
     root.dataset.paused = String(isPaused());
-    if (!isPaused()) timer = setTimeout(() => go(index + 1), SLIDE_MS);
+    if (!isPaused()) {
+      startedAt = performance.now();
+      running = true;
+      timer = setTimeout(() => go(index + 1), remaining);
+    }
   }
 
   function restartProgress(bar) {
@@ -56,8 +70,11 @@ export function initCarousel({ reducedMotion }) {
   }
 
   function go(next) {
+    endPreview();
     const prev = index;
     index = (next + slides.length) % slides.length;
+    remaining = SLIDE_MS;
+    running = false;
 
     slides.forEach((slide, i) => {
       const active = i === index;
@@ -89,14 +106,38 @@ export function initCarousel({ reducedMotion }) {
     toggle?.setAttribute("aria-label", paused ? "Play slideshow" : "Pause slideshow");
     if (paused) slides.forEach(pauseVideo);
     else playVideo(slides[index]);
-    // Resuming restarts the current slide's timer from the beginning
-    if (!paused) restartProgress(bars[index]);
     schedule();
+  }
+
+  // Pointing at a bar shows that slide's video over the current one; leaving
+  // puts the current slide back
+  function preview(i) {
+    if (i === index || previewing === i) return;
+    endPreview();
+    previewing = i;
+    slides[i].classList.add("is-previewing");
+    pauseVideo(slides[index]);
+    playVideo(slides[i]);
+  }
+
+  function endPreview() {
+    if (previewing === null) return;
+    slides[previewing].classList.remove("is-previewing");
+    pauseVideo(slides[previewing]);
+    previewing = null;
+    if (!userPaused) playVideo(slides[index]);
   }
 
   root.querySelector("[data-carousel-next]")?.addEventListener("click", () => go(index + 1));
   root.querySelector("[data-carousel-prev]")?.addEventListener("click", () => go(index - 1));
-  bars.forEach((bar, i) => bar.addEventListener("click", () => go(i)));
+  bars.forEach((bar, i) => {
+    bar.addEventListener("click", () => go(i));
+    bar.addEventListener("pointerenter", (e) => {
+      if (e.pointerType === "mouse") preview(i);
+    });
+    bar.addEventListener("pointerleave", endPreview);
+    bar.addEventListener("blur", endPreview);
+  });
   toggle?.addEventListener("click", () => setUserPaused(!userPaused));
 
   // Pause while the pointer or keyboard focus is on the carousel controls.
@@ -109,7 +150,6 @@ export function initCarousel({ reducedMotion }) {
   });
   controls.addEventListener("pointerleave", () => {
     hoverPaused = false;
-    restartProgress(bars[index]);
     schedule();
   });
   controls.addEventListener("focusin", () => {
