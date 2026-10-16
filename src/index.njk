@@ -5,10 +5,14 @@ headerVariant: "overlay"
 bodyClass: "page-home"
 permalink: "/"
 ---
-{%- set slides = collections.carousel -%}
 
-{#- Featured carousel -#}
-<section class="hero" data-carousel aria-roledescription="carousel" aria-label="Featured projects">
+{%- set slides = collections.carousel -%} {#- Featured carousel -#}
+<section
+  class="hero"
+  data-carousel
+  aria-roledescription="carousel"
+  aria-label="Featured projects"
+>
   <div class="hero__slides" aria-live="off" data-carousel-track>
     {%- for p in slides %}
     <article
@@ -18,7 +22,13 @@ permalink: "/"
       data-url="{{ p.url }}"
       aria-roledescription="slide"
       aria-label="{{ loop.index }} of {{ slides.length }}: {{ p.data.client }}"
-      {% if not loop.first %}inert{% endif %}
+      {%
+      if
+      not
+      loop.first
+      %}inert{%
+      endif
+      %}
     >
       <video
         class="hero__media"
@@ -27,7 +37,12 @@ permalink: "/"
         playsinline
         preload="{{ 'auto' if loop.first else 'none' }}"
         poster="{{ p.data.image | poster }}"
-        {% if loop.first %}autoplay{% endif %}
+        {%
+        if
+        loop.first
+        %}autoplay{%
+        endif
+        %}
         aria-hidden="true"
       >
         {%- for s in p.data.video | videoSources %}
@@ -40,108 +55,189 @@ permalink: "/"
   <div class="hero__shade" aria-hidden="true"></div>
 
   <div class="hero__content container">
-    <p class="label hero__eyebrow" data-reveal>Tifa Jade · Director, Producer &amp; Content Strategist</p>
+    <p class="label hero__eyebrow" data-reveal>
+      Tifa Jade · Director, Producer &amp; Content Strategist
+    </p>
     <h1 class="hero__headline" data-split>
-      Films that move people, for brands, agencies, local businesses and
-      <span class="flourish">campaigns.</span>
+      Video that leaves an
+      <span class="flourish">impact.</span>
     </h1>
     <p class="hero__lede" data-reveal>
-      A filmmaker of 10+ years, I take ideas from first pitch to final cut
-      and plan how they reach people once they're out in the world.
+      I take ideas from first pitch to distribution, defining your content
+      strategy before the cameras start to roll.
     </p>
     <div class="cluster" data-reveal>
-      <button type="button" class="btn btn--primary btn--large" data-reel-open>
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.5v11l9-5.5z" /></svg>
+      {%- if site.showShowreel %}
+<button type="button" class="btn btn--primary btn--large" data-reel-open>
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path fill="currentColor" d="M4 2.5v11l9-5.5z" />
+        </svg>
         Watch the showreel
       </button>
-      <a href="/contact/" class="btn btn--on-media btn--large">Start a project</a>
+{%- endif %}
+      <a href="/contact/" class="btn btn--on-media btn--large"
+        >Start a project</a
+      >
     </div>
   </div>
 
   <div class="hero__ui container">
     <p class="hero__now">
-      <span class="hero__count" aria-hidden="true"><span data-carousel-current>01</span><span class="hero__count-total"> / {{ slides.length | pad2 }}</span></span>
-      <a href="{{ slides[0].url }}" class="hero__client link-arrow" data-carousel-client>{{ slides[0].data.client }}</a>
+      <span class="hero__count" aria-hidden="true"
+        ><span data-carousel-current>01</span
+        ><span class="hero__count-total">
+          / {{ slides.length | pad2 }}</span
+        ></span
+      >
+      <a
+        href="{{ slides[0].url }}"
+        class="hero__client link-arrow"
+        data-carousel-client
+        >{{ slides[0].data.client }}</a
+      >
     </p>
 
     <div class="hero__progress">
       {%- for p in slides %}
-      <button type="button" class="hero__bar{% if loop.first %} is-active{% endif %}" data-carousel-goto="{{ loop.index0 }}" aria-label="Show {{ p.data.client }}"{% if loop.first %} aria-current="true"{% endif %}>
-        <span class="hero__bar-track"><span class="hero__bar-fill"></span></span>
+      <button
+        type="button"
+        class="hero__bar{% if loop.first %} is-active{% endif %}"
+        data-carousel-goto="{{ loop.index0 }}"
+        aria-label="Show {{ p.data.client }}"
+        {%
+        if
+        loop.first
+        %}
+        aria-current="true"
+        {%
+        endif
+        %}
+      >
+        <span class="hero__bar-track"
+          ><span class="hero__bar-fill"></span
+        ></span>
       </button>
       {%- endfor %}
     </div>
 
     <div class="hero__controls">
-      <button type="button" class="icon-btn" data-carousel-prev aria-label="Previous project">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7" /></svg>
+      <button
+        type="button"
+        class="icon-btn"
+        data-carousel-prev
+        aria-label="Previous project"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 5l-7 7 7 7"
+          />
+        </svg>
       </button>
-      <button type="button" class="icon-btn" data-carousel-toggle aria-label="Pause slideshow">
-        <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></svg>
-        <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4.5v15l12-7.5z" /></svg>
+      <button
+        type="button"
+        class="icon-btn"
+        data-carousel-toggle
+        aria-label="Pause slideshow"
+      >
+        <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" />
+        </svg>
+        <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M7 4.5v15l12-7.5z" />
+        </svg>
       </button>
-      <button type="button" class="icon-btn" data-carousel-next aria-label="Next project">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+      <button
+        type="button"
+        class="icon-btn"
+        data-carousel-next
+        aria-label="Next project"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
       </button>
     </div>
   </div>
 </section>
 
-{#- Services -#}
-<section class="section services" id="services">
+{#- Clients. Hovering a name plays that project's loop behind the
+list. -#}
+<section class="section clients" data-client-reel>
+  <div class="clients__media" aria-hidden="true">
+    {%- for slug in clients | uniqueValues("project") %} {%- set cp =
+    collections.projects | bySlug(slug) %} {%- if cp %}
+    <div class="clients__media-item" data-client-media="{{ slug }}">
+      <img
+        src="{{ cp.data.image | poster }}"
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+      {%- set sources = cp.data.video | videoSources %} {%- if sources.length %}
+      <video muted loop playsinline preload="none">
+        {%- for s in sources %}
+        <source src="{{ s.src }}" type="{{ s.type }}" />
+        {%- endfor %}
+      </video>
+      {%- endif %}
+    </div>
+    {%- endif %} {%- endfor %}
+  </div>
+
+  <div class="container clients__inner">
+    <p class="label" data-reveal>Clients &amp; collaborators</p>
+    <ul class="client-cloud" role="list" data-reveal-stagger>
+      {%- for c in clients %} {%- set cp = collections.projects |
+      bySlug(c.project) %}
+      <li data-reveal>
+        {%- if cp %}<a href="{{ cp.url }}" data-client="{{ c.project }}">{{
+          c.name
+        }}</a
+        >{% else %}{{ c.name }}{% endif -%}
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="clients__foot" data-reveal>
+      <a href="/projects/" class="btn btn--large">See all projects</a>
+    </p>
+  </div>
+</section>
+
+{#- Services: the full version, then who I work with and how it works -#}
+{% include "partials/local-ads-band.njk" %}
+
+<section class="section services-intro" id="services">
   <div class="container">
     <div class="section-head">
       <h2 class="headline" data-split>What I <span class="flourish">do.</span></h2>
       <a href="/services/" class="link-arrow" data-reveal>All services</a>
     </div>
-
-    <div class="service-list">
-      {%- for s in services %}
-      {%- set sp = collections.projects | bySlug(s.project) if s.project else none %}
-      <details class="service" name="services" data-reveal {% if loop.first %}open{% endif %}>
-        <summary class="service__summary">
-          <span class="index">{{ loop.index | pad2 }}</span>
-          <span class="service__title">{{ s.title }}</span>
-          <span class="service__icon" aria-hidden="true"></span>
-        </summary>
-        <div class="service__body">
-          <div class="service__text stack">
-            <p class="service__desc">{{ s.summary }}</p>
-            <ul class="service__deliverables" role="list">
-              {%- for d in s.deliverables %}
-              <li>{{ d }}</li>
-              {%- endfor %}
-            </ul>
-            {%- if sp %}
-            <a href="{{ sp.url }}" class="link-arrow">See {{ sp.data.client }}</a>
-            {%- endif %}
-          </div>
-          <div class="frame service__media">
-            {%- if sp %}
-            <img src="{{ sp.data.image | poster }}" alt="" loading="lazy" decoding="async" />
-            <video muted loop playsinline preload="none" aria-hidden="true" data-service-video>
-              {%- for v in sp.data.video | videoSources %}
-              <source src="{{ v.src }}" type="{{ v.type }}" />
-              {%- endfor %}
-            </video>
-            {%- elif s.image %}
-            <img src="{{ s.image }}" alt="" loading="lazy" decoding="async" />
-            {%- endif %}
-          </div>
-        </div>
-      </details>
-      {%- endfor %}
-    </div>
   </div>
 </section>
+{% include "partials/services-full.njk" %}
 
-{#- Latest stories, once any are published -#}
-{%- set latestStories = (collections.stories | reverse).slice(0, 3) -%}
-{%- if latestStories.length %}
+{% include "partials/who-and-how.njk" %}
+
+{#- Latest stories, once any are published -#} {%- set latestStories =
+(collections.stories | reverse).slice(0, 3) -%} {%- if site.showStories and latestStories.length %}
 <section class="section home-stories">
   <div class="container">
     <div class="section-head">
-      <h2 class="headline" data-split>Latest <span class="flourish">stories.</span></h2>
+      <h2 class="headline" data-split>
+        Latest <span class="flourish">stories.</span>
+      </h2>
       <a href="/stories/" class="link-arrow" data-reveal>All stories</a>
     </div>
     <ul class="story-list" role="list" data-reveal-stagger>
@@ -149,10 +245,9 @@ permalink: "/"
       <li class="story-card" data-reveal>
         <a href="{{ post.url }}" class="story-card__link">
           <div class="frame frame--portrait">
-            {%- if post.data.cover %}
-            {%- set src = post.data.cover %}{% set alt = "" %}{% set eager = false %}{% set sizes = "(min-width: 900px) 30vw, 94vw" %}
-            {% include "partials/story-image.njk" %}
-            {%- endif %}
+            {%- if post.data.cover %} {%- set src = post.data.cover %}{% set alt
+            = "" %}{% set eager = false %}{% set sizes = "(min-width: 900px)
+            30vw, 94vw" %} {% include "partials/story-image.njk" %} {%- endif %}
           </div>
           <div class="story-card__text">
             <p class="label">{{ post.date | readableDate }}</p>
@@ -165,40 +260,3 @@ permalink: "/"
   </div>
 </section>
 {%- endif %}
-
-{#- Clients. Hovering a name plays that project's loop behind the list. -#}
-<section class="section clients" data-client-reel>
-  <div class="clients__media" aria-hidden="true">
-    {%- for slug in clients | uniqueValues("project") %}
-    {%- set cp = collections.projects | bySlug(slug) %}
-    {%- if cp %}
-    <div class="clients__media-item" data-client-media="{{ slug }}">
-      <img src="{{ cp.data.image | poster }}" alt="" loading="lazy" decoding="async" />
-      {%- set sources = cp.data.video | videoSources %}
-      {%- if sources.length %}
-      <video muted loop playsinline preload="none">
-        {%- for s in sources %}
-        <source src="{{ s.src }}" type="{{ s.type }}" />
-        {%- endfor %}
-      </video>
-      {%- endif %}
-    </div>
-    {%- endif %}
-    {%- endfor %}
-  </div>
-
-  <div class="container clients__inner">
-    <p class="label" data-reveal>Clients &amp; collaborators</p>
-    <ul class="client-cloud" role="list" data-reveal-stagger>
-      {%- for c in clients %}
-      {%- set cp = collections.projects | bySlug(c.project) %}
-      <li data-reveal>
-        {%- if cp %}<a href="{{ cp.url }}" data-client="{{ c.project }}">{{ c.name }}</a>{% else %}{{ c.name }}{% endif -%}
-      </li>
-      {%- endfor %}
-    </ul>
-    <p class="clients__foot" data-reveal>
-      <a href="/projects/" class="btn btn--large">See all projects</a>
-    </p>
-  </div>
-</section>

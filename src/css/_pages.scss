@@ -64,9 +64,30 @@
 }
 
 .related-item {
+  position: relative;
   display: grid;
   gap: 0.15rem;
+  padding-left: var(--space-s);
   text-decoration: none;
+
+  // Bar that grows when this project is the one playing above
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    bottom: 0.2em;
+    width: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform var(--dur-med) var(--ease-out);
+  }
+
+  &.is-active::before {
+    transform: scaleY(1);
+  }
 }
 
 .related-item__client {
@@ -75,7 +96,8 @@
   letter-spacing: -0.015em;
   transition: color var(--dur-fast) var(--ease-out);
 
-  .related-item:hover & {
+  .related-item:hover &,
+  .related-item.is-active & {
     color: var(--accent);
   }
 }
@@ -123,6 +145,27 @@
 
 .about-hero {
   padding-top: var(--space-xl);
+
+  // Text on the left, headshot on the right on wide screens
+  .about-hero__inner {
+    display: grid;
+    gap: var(--space-l);
+    align-items: end;
+
+    @media (min-width: 900px) {
+      grid-template-columns: 1.4fr 1fr;
+      gap: var(--gutter);
+    }
+  }
+
+  .about-hero__photo {
+    max-width: 420px;
+    width: 100%;
+
+    @media (min-width: 900px) {
+      justify-self: end;
+    }
+  }
 
   .display {
     max-width: 13ch;
@@ -377,4 +420,939 @@
 .honeypot {
   position: absolute;
   left: -9999px;
+}
+
+// Cards with a picture on top
+.card-grid--media {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+}
+
+.info-card__media {
+  --ratio: 16 / 10;
+  margin: calc(var(--space-m) * -1) calc(var(--space-m) * -1) 0;
+  border-radius: var(--radius-m) var(--radius-m) 0 0;
+}
+
+// VidShare: the custom review tool, shown in renders
+.vidshare {
+  .grid {
+    align-items: center;
+  }
+}
+
+.vidshare__text {
+  --stack-space: var(--space-m);
+}
+
+.vidshare__points {
+  display: grid;
+  gap: var(--space-s);
+  list-style: none;
+  padding: 0;
+  color: var(--ink-muted);
+
+  strong {
+    color: var(--ink);
+  }
+}
+
+.vidshare__renders {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-s);
+}
+
+.vidshare__render {
+  margin: 0;
+}
+
+.vidshare__render--wide {
+  grid-column: 1 / -1;
+}
+
+// Homepage: the heading above the full services sits close to the first one
+.services-intro {
+  padding-bottom: 0;
+
+  .section-head {
+    margin-bottom: 0;
+  }
+
+  + .service-detail {
+    border-top: 0;
+    padding-top: var(--space-l);
+  }
+}
+
+// How it works: a timeline that fills as you scroll. The line runs down the
+// left on phones and down the middle on wide screens, where steps alternate.
+.journey {
+  --node: 3rem;
+  position: relative;
+  display: grid;
+  gap: var(--space-m);
+  list-style: none;
+  padding: 0;
+
+  @media (min-width: 900px) {
+    gap: var(--space-l);
+  }
+}
+
+.journey__line {
+  position: absolute;
+  top: calc(var(--node) / 2);
+  bottom: calc(var(--node) / 2);
+  left: calc(var(--node) / 2 - 1px);
+  width: 2px;
+  background: var(--line);
+
+  @media (min-width: 900px) {
+    left: calc(50% - 1px);
+  }
+}
+
+.journey__fill {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform-origin: top;
+  transform: scaleY(var(--progress, 0));
+}
+
+.journey__step {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--node) 1fr;
+  gap: var(--space-s);
+  align-items: start;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr var(--node) 1fr;
+    gap: var(--space-m);
+    align-items: center;
+
+    .journey__card {
+      grid-column: 3;
+    }
+
+    &:nth-child(odd) .journey__card {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+}
+
+.journey__node {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  place-items: center;
+  width: var(--node);
+  height: var(--node);
+  border: 2px solid var(--line);
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: var(--step--1);
+  font-weight: 650;
+  color: var(--ink-muted);
+  transition:
+    background var(--dur-med) var(--ease-out),
+    border-color var(--dur-med) var(--ease-out),
+    color var(--dur-med) var(--ease-out),
+    transform var(--dur-med) var(--ease-out);
+
+  @media (min-width: 900px) {
+    grid-column: 2;
+  }
+
+  .is-active & {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
+    transform: scale(1.15);
+  }
+}
+
+.journey__card {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  gap: var(--space-s);
+  opacity: 0.35;
+  transform: translateY(1.5rem);
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+
+  .is-active & {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--space-m);
+    padding: var(--space-s);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-m);
+    background: var(--surface);
+  }
+
+  @media (hover: hover) {
+    &:hover .journey__media img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.journey__media {
+  --ratio: 2 / 1;
+
+  @media (min-width: 900px) {
+    --ratio: 16 / 10;
+  }
+
+  img {
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+}
+
+.journey__text {
+  display: grid;
+  gap: var(--space-2xs);
+  align-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey__card {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.campaign-hero .lede {
+  margin-top: var(--space-m);
+  max-width: 36ch;
+}
+
+// Video heroes for the local ads page and the band that links to it
+
+// Local business page: a scrolling story
+.lb-intro {
+  padding-block: var(--space-2xl);
+}
+
+.lb-intro__statement {
+  max-width: 24ch;
+  font-size: var(--step-4);
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+// Local business work: the player stays put and the details scroll past it
+// The pinned layout is for wide screens only. Below 900px the simpler
+// stacked view (.lb-simple) is shown instead.
+.lb-stage {
+  display: none;
+
+  @media (min-width: 900px) {
+    display: block;
+  }
+
+  .grid {
+    align-items: start;
+  }
+}
+
+.lb-panel {
+  display: flex;
+  align-items: center;
+  min-height: 75svh;
+}
+
+.lb-panel__body {
+  --stack-space: var(--space-s);
+  // --d (set by script) is -1 above the middle of the screen, 1 below
+  --d: 0;
+  opacity: calc(1 - var(--d) * var(--d) * 0.75);
+  transform: translateY(calc(var(--d) * 2.5rem));
+  transition: opacity var(--dur-med) var(--ease-out);
+
+  .lb-panel:not(.is-active) & {
+    opacity: calc(0.35 - var(--d) * var(--d) * 0.25);
+  }
+}
+
+.lb-panel__body .index {
+  font-size: var(--step-1);
+}
+
+// Menu of spots in a category; hovering one swaps the video
+.lb-menu {
+  display: grid;
+  gap: 0.1rem;
+  margin-top: var(--space-s);
+  list-style: none;
+  padding: 0;
+}
+
+.lb-menu__item {
+  position: relative;
+  width: 100%;
+  padding: 0.45rem 0 0.45rem var(--space-s);
+  border: 0;
+  background: none;
+  color: var(--ink-muted);
+  font: inherit;
+  font-size: var(--step-1);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    bottom: 0.5em;
+    width: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform var(--dur-med) var(--ease-out);
+  }
+
+  &:hover,
+  &.is-active {
+    color: var(--accent);
+  }
+
+  &.is-active::before {
+    transform: scaleY(1);
+  }
+}
+
+// Title, client and roles, under the player
+.lb-caption {
+  display: grid;
+  margin-top: var(--space-s);
+}
+
+.lb-caption__item {
+  grid-area: 1 / 1;
+  display: grid;
+  gap: 0.15rem;
+  align-content: start;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition:
+    opacity var(--dur-med) var(--ease-out),
+    transform var(--dur-med) var(--ease-out);
+
+  &.is-active {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.lb-caption__title {
+  font-size: var(--step-2);
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.lb-caption__client {
+  color: var(--ink-muted);
+}
+
+.lb-stage__player {
+  align-self: stretch;
+}
+
+.lb-stage__sticky {
+  position: sticky;
+  top: calc(50svh - 14rem);
+}
+
+.lb-stage__frame {
+  background: #0b0e0c;
+  box-shadow: 0 1.2rem 3rem rgb(0 0 0 / 0.35);
+}
+
+// Each video fades and settles in as it takes over
+.lb-layer {
+  opacity: 0;
+  transform: scale(1.06);
+  pointer-events: none;
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform 1.4s var(--ease-out);
+
+  &.is-active {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+}
+
+.lb-roles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.3rem;
+}
+
+.lb-roles__label {
+  margin-right: 0.2rem;
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+}
+
+.lb-pill {
+  padding: 0.2em 0.65em;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+// Research and craft: big numerals, three across
+.lb-craft__list {
+  display: grid;
+  gap: var(--space-l);
+  list-style: none;
+  padding: 0;
+
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gutter);
+  }
+}
+
+.lb-craft__item {
+  display: grid;
+  gap: var(--space-xs, var(--space-s));
+  align-content: start;
+  padding-top: var(--space-m);
+  border-top: 2px solid var(--ink);
+}
+
+.lb-craft__num {
+  font-size: var(--step-5);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+}
+
+.lb-craft__title {
+  font-size: var(--step-2);
+}
+
+.lb-craft__copy {
+  color: var(--ink-muted);
+  max-width: 34ch;
+}
+
+
+
+.lb-scroller__nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-s);
+
+  .icon-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+}
+
+
+
+
+.lb-format__label {
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+
+  strong {
+    color: var(--ink);
+    margin-right: 0.4em;
+  }
+}
+
+// The math: four hours becomes a month of posts
+.lb-math {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-xs, var(--space-s)) var(--space-m);
+  margin-bottom: var(--space-l);
+}
+
+.lb-math__item {
+  font-size: var(--step-1);
+  color: var(--ink-muted);
+}
+
+.lb-math__num {
+  display: block;
+  font-size: var(--step-6, var(--step-5));
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  color: var(--accent);
+}
+
+.lb-math__arrow {
+  font-size: var(--step-3);
+  color: var(--ink-muted);
+}
+
+// Proof: two lines under the formats
+.lb-proof {
+  display: grid;
+  gap: var(--space-s);
+  margin-top: var(--space-l);
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--line);
+  list-style: none;
+  font-size: var(--step-1);
+  color: var(--ink-muted);
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gutter);
+  }
+
+  strong {
+    color: var(--accent);
+    font-weight: 700;
+  }
+}
+
+.lb-disclaimer {
+  max-width: 52ch;
+  margin-bottom: var(--space-m);
+  padding-left: var(--space-s);
+  border-left: 2px solid var(--accent);
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+}
+
+.lb-proof a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+
+// Service area: the places I shoot, in plain text for readers and search engines
+.lb-area__lede {
+  max-width: 44ch;
+  margin-bottom: var(--space-l);
+}
+
+.lb-area__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: var(--space-s) var(--gutter);
+  list-style: none;
+  padding: 0;
+}
+
+.lb-area__place {
+  scroll-margin-top: calc(var(--header-h) + var(--space-m));
+  display: grid;
+  gap: 0.2rem;
+  align-content: start;
+  padding-top: var(--space-s);
+  border-top: 1px solid var(--line);
+
+  h3 {
+    font-size: var(--step-2);
+  }
+
+  p {
+    font-size: var(--step--1);
+    color: var(--ink-muted);
+  }
+}
+
+// Client logo ticker, ported from tj.cool: one continuous strip, left to right
+.logo-ticker {
+  padding-block: var(--space-m);
+  border-block: 1px solid var(--line);
+}
+
+.logo-ticker__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs, var(--space-s)) var(--space-l);
+
+  > .label {
+    flex: none;
+  }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.logo-ticker__marquee {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+
+  &:hover .logo-ticker__track {
+    animation-play-state: paused;
+  }
+}
+
+.logo-ticker__track {
+  display: flex;
+  width: max-content;
+  animation: logo-ticker 48s linear infinite;
+}
+
+.logo-ticker__logos {
+  display: flex;
+  flex: none;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    flex: none;
+    margin: 0 3.75rem 0 0;
+    padding: 0;
+    font-size: 0;
+
+    @media (max-width: 800px) {
+      margin-right: 3rem;
+    }
+  }
+}
+
+.logo-ticker__logo {
+  display: block;
+  width: calc(var(--w) * 1rem * var(--k, 1));
+  height: calc(var(--w) * 1rem * var(--k, 1) / var(--ar));
+  background: var(--ink);
+  opacity: 0.55;
+  -webkit-mask: var(--logo) center / contain no-repeat;
+  mask: var(--logo) center / contain no-repeat;
+  transition:
+    opacity var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
+
+  &:hover {
+    opacity: 1;
+    background: var(--accent);
+  }
+
+  @media (max-width: 800px) {
+    --k: 0.85;
+  }
+}
+
+@keyframes logo-ticker {
+  from {
+    transform: translateX(-25%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-ticker__marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .logo-ticker__track {
+    animation: none;
+  }
+
+  .logo-ticker__logos + .logo-ticker__logos {
+    display: none;
+  }
+}
+
+// About: bio, how I think, work with me
+.about-bio__grid {
+  display: grid;
+  gap: var(--space-m);
+
+  @media (min-width: 900px) {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--gutter);
+  }
+}
+
+.about-bio__text {
+  display: grid;
+  gap: var(--space-s);
+  max-width: 60ch;
+  font-size: var(--step-1);
+  line-height: 1.5;
+}
+
+.about-beliefs {
+  display: grid;
+  gap: var(--space-m) var(--gutter);
+  list-style: none;
+  padding: 0;
+
+  @media (min-width: 700px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-belief {
+  display: grid;
+  gap: var(--space-2xs);
+  align-content: start;
+  padding-top: var(--space-s);
+  border-top: 2px solid var(--ink);
+}
+
+.about-belief__title {
+  font-size: var(--step-2);
+}
+
+.about-belief__copy {
+  color: var(--ink-muted);
+  max-width: 40ch;
+}
+
+.about-work {
+  .lede {
+    max-width: 38ch;
+    margin-block: var(--space-s) var(--space-m);
+  }
+}
+
+// Small screens: each category is a heading, a short description and its
+// spots stacked, with nothing pinned or animated on scroll
+.lb-simple {
+  @media (min-width: 900px) {
+    display: none;
+  }
+}
+
+.lb-simple__cat {
+  display: grid;
+  gap: var(--space-s);
+  padding-block: var(--space-l);
+  border-top: 1px solid var(--line);
+
+  &:first-child {
+    border-top: 0;
+  }
+
+  .index {
+    font-size: var(--step-1);
+  }
+
+  .headline {
+    font-size: var(--step-4);
+  }
+}
+
+.lb-simple__spots {
+  display: grid;
+  gap: var(--space-m);
+  margin-top: var(--space-s);
+  list-style: none;
+  padding: 0;
+}
+
+.lb-simple__spot {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.lb-simple__spot .frame {
+  margin-bottom: var(--space-2xs);
+  background: #0b0e0c;
+}
+
+// Good Loser Media's local work, near the top of the local business page
+.gl-work__grid {
+  display: flex;
+  gap: var(--gutter);
+  list-style: none;
+  padding: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.gl-work__link {
+  display: grid;
+  gap: var(--space-2xs);
+  align-content: start;
+  color: inherit;
+  text-decoration: none;
+}
+
+.gl-work__frame {
+  position: relative;
+  margin-bottom: var(--space-2xs);
+  background: #0b0e0c;
+
+  > img {
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+
+  .gl-work__link:hover & > img {
+    transform: scale(1.04);
+  }
+}
+
+// Muted preview that fades in over the still while the card is hovered
+.gl-work__preview {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-med) var(--ease-out);
+
+  .is-previewing > & {
+    opacity: 1;
+  }
+}
+
+.gl-work__watch {
+  justify-self: start;
+  margin-top: var(--space-2xs);
+  padding: 0.2em 0.65em;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+
+  .gl-work__link:hover &,
+  .gl-work__link:focus-visible & {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+}
+
+.gl-work__link:hover .gl-work__title,
+.gl-work__link:focus-visible .gl-work__title {
+  color: var(--accent);
+}
+
+.gl-work__item {
+  flex: none;
+  width: min(85%, 420px);
+  scroll-snap-align: start;
+  display: grid;
+  gap: var(--space-2xs);
+  align-content: start;
+
+  .frame {
+    margin-bottom: var(--space-2xs);
+    background: #0b0e0c;
+  }
+}
+
+.gl-work__place {
+  color: var(--accent);
+}
+
+.gl-work__title {
+  font-size: var(--step-2);
+  line-height: 1.1;
+}
+
+.gl-work__copy {
+  color: var(--ink-muted);
+  max-width: 40ch;
+}
+
+.gl-work__lede {
+  max-width: 46ch;
+  margin-bottom: var(--space-l);
+}
+
+// Social-first: the full film beside its vertical cuts
+.lb-social__lede {
+  max-width: 52ch;
+  margin-bottom: var(--space-l);
+}
+
+.lb-social__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-m) var(--gutter);
+  list-style: none;
+  padding: 0;
+}
+
+.lb-social__item {
+  display: grid;
+  gap: var(--space-2xs);
+  min-width: 0;
+}
+
+.lb-social__frame {
+  background: #0b0e0c;
+}
+
+.lb-social__item--wide {
+  flex: 1 1 100%;
+
+  @media (min-width: 900px) {
+    flex: 0 0 auto;
+    .lb-social__frame {
+      height: clamp(260px, 30vw, 380px);
+      aspect-ratio: 16 / 9;
+    }
+  }
+}
+
+.lb-social__item--tall {
+  flex: 1 1 calc(50% - var(--gutter));
+
+  .lb-social__frame {
+    aspect-ratio: 9 / 16;
+  }
+
+  @media (min-width: 900px) {
+    flex: 0 0 auto;
+    .lb-social__frame {
+      height: clamp(260px, 30vw, 380px);
+    }
+  }
 }

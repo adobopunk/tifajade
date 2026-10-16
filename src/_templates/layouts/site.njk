@@ -1,5 +1,5 @@
 {#- Base layout for the redesign. Pages opt in with `layout: layouts/site.njk`.
-    Front matter: title (or metaTitle to override the <title>), description, image, headerVariant ("overlay" for full-bleed heroes), bodyClass. -#}
+    Front matter: title (or metaTitle to override the <title>), description, image, jsonLd (structured data object), headerVariant ("overlay" for full-bleed heroes), bodyClass. -#}
 {%- set namedTitle = metaTitle or title -%}
 {%- set pageTitle = (namedTitle + " | Tifa Jade") if namedTitle else site.title -%}
 {%- set pageDescription = description or site.description -%}
@@ -20,6 +20,8 @@
     <meta property="og:url" content="{{ page.url | absoluteUrl }}" />
     <meta property="og:image" content="{{ (image.jpg or image) | absoluteImage }}" />
     <meta name="twitter:card" content="summary_large_image" />
+
+    {% if jsonLd %}<script type="application/ld+json">{{ jsonLd | dump | safe }}</script>{% endif %}
 
     <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
     <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any" />

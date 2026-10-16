@@ -4,6 +4,7 @@ const sass = require("sass");
 const { feedPlugin } = require("@11ty/eleventy-plugin-rss");
 
 const siteUrl = "https://tifajade.com";
+const { showStories } = require("./src/_data/site.json");
 
 // Netlify's Image CDN resizes images on request. It only exists on Netlify,
 // so local builds use the original file.
@@ -105,18 +106,21 @@ module.exports = function (eleventyConfig) {
     base: `${siteUrl}/`,
     author: { name: "Tifa Jade", email: "hi@tifajade.com" },
   };
-  eleventyConfig.addPlugin(feedPlugin, {
-    type: "atom",
-    outputPath: "/feed.xml",
-    collection: { name: "stories", limit: 20 },
-    metadata: feedMetadata,
-  });
-  eleventyConfig.addPlugin(feedPlugin, {
-    type: "json",
-    outputPath: "/feed.json",
-    collection: { name: "stories", limit: 20 },
-    metadata: feedMetadata,
-  });
+  // Feeds are only built while Stories are showing
+  if (showStories) {
+    eleventyConfig.addPlugin(feedPlugin, {
+      type: "atom",
+      outputPath: "/feed.xml",
+      collection: { name: "stories", limit: 20 },
+      metadata: feedMetadata,
+    });
+    eleventyConfig.addPlugin(feedPlugin, {
+      type: "json",
+      outputPath: "/feed.json",
+      collection: { name: "stories", limit: 20 },
+      metadata: feedMetadata,
+    });
+  }
 
   // Redesign: homepage carousel, ordered by each project's `carousel` number
   eleventyConfig.addCollection("carousel", (collection) =>
@@ -163,6 +167,13 @@ module.exports = function (eleventyConfig) {
   // Look up a page in a collection by its file slug
   eleventyConfig.addFilter("bySlug", (pages, slug) =>
     (pages || []).find((p) => p.fileSlug === slug)
+  );
+
+  // Like bySlug, but also finds pages that aren't projects (src/_data/extraProjects.json),
+  // which have the same shape: { url, data: { client, title, image, video } }
+  const extraProjects = require("./src/_data/extraProjects.json");
+  eleventyConfig.addFilter("resolveProject", (pages, slug) =>
+    (pages || []).find((p) => p.fileSlug === slug) || extraProjects[slug]
   );
 
   // Absolute URLs for canonical/Open Graph tags

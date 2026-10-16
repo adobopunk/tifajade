@@ -11,10 +11,28 @@
   },
   "reel": "https://iframe.mediadelivery.net/embed/418879/c3060459-276c-44c7-a595-693bcadfdab8?autoplay=true&loop=false&muted=false&preload=true&responsive=true",
   "nav": [
-    { "label": "Projects", "url": "/projects/" },
-    { "label": "Stories", "url": "/stories/" },
-    { "label": "Services", "url": "/services/" },
-    { "label": "About", "url": "/about/" },
-    { "label": "Contact", "url": "/contact/" }
-  ]
+    {
+      "label": "Projects",
+      "url": "/projects/"
+    },
+    {
+      "label": "Stories",
+      "url": "/stories/",
+      "hidden": true
+    },
+    {
+      "label": "Services",
+      "url": "/services/"
+    },
+    {
+      "label": "About TJ",
+      "url": "/about/"
+    },
+    {
+      "label": "Contact",
+      "url": "/contact/"
+    }
+  ],
+  "showStories": false,
+  "showShowreel": false
 }

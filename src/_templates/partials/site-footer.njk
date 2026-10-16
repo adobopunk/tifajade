@@ -24,9 +24,10 @@
       <div>
         <p class="label">Explore</p>
         <ul>
-          {%- for item in site.nav %}
-          <li><a href="{{ item.url }}" class="link-underline">{{ item.label }}</a></li>
+          {%- for item in site.nav %}{% if not item.hidden %}
+          <li><a href="{{ item.url }}" class="link-underline">{{ item.label }}</a></li>{% endif %}
           {%- endfor %}
+          <li><a href="/local-business/" class="link-underline">Local business video</a></li>
         </ul>
       </div>
 
@@ -35,7 +36,7 @@
         <ul class="meta">
           <li>&copy; {{ "now" | year }} Tifa Jade</li>
           <li>Designed &amp; built by TJ</li>
-          <li><a href="/feed.xml" class="link-underline">RSS feed</a></li>
+          {%- if site.showStories %}<li><a href="/feed.xml" class="link-underline">RSS feed</a></li>{% endif %}
         </ul>
       </div>
     </div>

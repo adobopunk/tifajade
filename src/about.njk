@@ -1,50 +1,179 @@
 ---
 layout: "layouts/site.njk"
-title: "About"
-description: "Tifa Jade is a director, producer and content strategist. From backyard movies in Richland to UFC, BoomTV and Good Loser, here's the story so far."
+title: "About TJ"
+description: "Tifa Jade is a Tri-Cities, WA director, producer and content strategist. For over a decade, she has made video for global brands and local businesses alike."
 permalink: "/about/"
+# Set to true to bring back the ten-chapter story below
+showStory: false
+# Write the bio here: one string per paragraph (two or three work best)
+bio:
+  - "I grew up making backyard movies with a camcorder and a dream. I brought that same wonder and excitement about film into my career, being named Spokane International Film Festival's Most Promising Filmmaker and seeing my work shortlisted for the Student Academy Awards."
+  - "I went on to launch a career in video production as an editor for the UFC, and carried my passion for documentary storytelling into the work I pursue today. At Good Loser Media, I capture stories about the people working to make life better for everyone. And in my work with global brands and local businesses, my deep roots within the communities I serve help me make the best possible work for your audience."
+beliefs:
+  - title: "Real people, not AI"
+    copy: "The best local stories are in your shop, your team and your actual customers. Generated AI content looks cheap and devalues your brand."
+  - title: "Research before the camera"
+    copy: "I learn who you serve and what makes them choose you before a single shot is planned."
+  - title: "One shoot, every screen"
+    copy: "I frame every shot for TV, the web and social, so one day on set produces a month of content."
+  - title: "Local first"
+    copy: "I grew Good Loser Media by showing up for the community, and I bring the same approach to your business."
 ---
+
 {%- set cdn = "https://tifajade.b-cdn.net/About%20Me/" -%}
 <section class="section about-hero">
-  <div class="container">
-    <p class="label" data-reveal>About</p>
-    <h1 class="display" data-split>I'm Tifa Jade, but you can call me <span class="flourish">TJ.</span></h1>
-    <p class="lede" data-reveal>Ten chapters, from backyard movies to directing for some of the biggest names in sports and gaming. Scroll to read the story.</p>
+  <div class="container about-hero__inner">
+    <div class="about-hero__text">
+      <p class="label" data-reveal>About TJ</p>
+      <h1 class="display" data-split>
+        I'm Tifa Jade, but you can call me <span class="flourish">TJ.</span>
+      </h1>
+      <p class="lede" data-reveal>
+        I'm a director, producer and content strategist in the Tri-Cities, WA.
+        For over a decade I've made video for global brands and local businesses
+        alike.
+      </p>
+    </div>
+    <div class="frame frame--portrait about-hero__photo" data-reveal>
+      <img
+        src="/assets/img/about/tj-headshot.webp"
+        alt="Portrait of Tifa Jade smiling, resting their chin on one hand, in front of a green leaf wall"
+        width="1000"
+        height="1500"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
   </div>
 </section>
 
+{% include "partials/logo-ticker.njk" %}
+
+{#- Hidden until the bio is written: it is skipped while the first paragraph is still the placeholder -#}
+{%- if bio and "to be written" not in bio[0] %}
+<section class="section about-bio">
+  <div class="container about-bio__grid">
+    <h2 class="headline" data-split>
+      The short <span class="flourish">version.</span>
+    </h2>
+    <div class="about-bio__text" data-reveal>
+      {%- for para in bio %}
+      <p>{{ para }}</p>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section class="section about-beliefs-section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="headline" data-split>
+        How I think about the <span class="flourish">work.</span>
+      </h2>
+    </div>
+    <ul class="about-beliefs" role="list" data-reveal-stagger>
+      {%- for b in beliefs %}
+      <li class="about-belief" data-reveal>
+        <h3 class="about-belief__title">{{ b.title }}</h3>
+        <p class="about-belief__copy">{{ b.copy }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{%- if showStory %}
 <section class="section about" data-about-story>
   <div class="container about-story">
     <div class="about-story__media" aria-hidden="true">
       <div class="frame">
-        {%- for ch in about %}
-        {#- Nothing loads until a chapter is on screen; the script starts each loop -#}
-        <video muted loop playsinline preload="none" data-chapter-video="{{ loop.index0 }}"{% if loop.first %} class="is-active"{% endif %}>
+        {%- for ch in about %} {#- Nothing loads until a chapter is on screen;
+        the script starts each loop -#}
+        <video
+          muted
+          loop
+          playsinline
+          preload="none"
+          data-chapter-video="{{ loop.index0 }}"
+          {%
+          if
+          loop.first
+          %}
+          class="is-active"
+          {%
+          endif
+          %}
+        >
           <source src="{{ cdn }}{{ ch.video }}.webm" type="video/webm" />
-          <source src="{{ cdn }}{{ ch.video }}_h264_preview.mp4" type="video/mp4" />
+          <source
+            src="{{ cdn }}{{ ch.video }}_h264_preview.mp4"
+            type="video/mp4"
+          />
         </video>
         {%- endfor %}
       </div>
-      <p class="about-counter label"><span data-chapter-current>01</span> / {{ about.length | pad2 }}</p>
+      <p class="about-counter label">
+        <span data-chapter-current>01</span> / {{ about.length | pad2 }}
+      </p>
     </div>
 
     <ol class="about-story__chapters" role="list">
       {%- for ch in about %}
-      <li class="chapter{% if loop.last %} chapter--last{% endif %}" data-chapter="{{ loop.index0 }}">
+      <li
+        class="chapter{% if loop.last %} chapter--last{% endif %}"
+        data-chapter="{{ loop.index0 }}"
+      >
         <div class="frame frame--portrait chapter__media" aria-hidden="true">
           <video muted loop playsinline preload="none">
             <source src="{{ cdn }}{{ ch.video }}.webm" type="video/webm" />
-            <source src="{{ cdn }}{{ ch.video }}_h264_preview.mp4" type="video/mp4" />
+            <source
+              src="{{ cdn }}{{ ch.video }}_h264_preview.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
-        <p class="label chapter__place" data-reveal>{{ loop.index | pad2 }} · {{ ch.place }}</p>
+        <p class="label chapter__place" data-reveal>
+          {{ loop.index | pad2 }} · {{ ch.place }}
+        </p>
         <h2 class="chapter__title" data-split>{{ ch.title }}</h2>
-        <div class="prose" data-reveal><p>{{ ch.copy | safe }}</p></div>
+        <div class="prose" data-reveal>
+          <p>{{ ch.copy | safe }}</p>
+        </div>
         {%- if loop.last %}
-        <a href="/contact/" class="btn btn--primary btn--large" data-reveal>Let's talk</a>
+        <a href="/contact/" class="btn btn--primary btn--large" data-reveal
+          >Let's talk</a
+        >
         {%- endif %}
       </li>
       {%- endfor %}
     </ol>
+  </div>
+</section>
+{%- endif %} {#- Temporary filler while the story is hidden -#} {% include
+"partials/who-and-how.njk" %}
+
+<section class="section about-work">
+  <div class="container">
+    <p class="label" data-reveal>Work with me</p>
+    <h2 class="headline" data-split>
+      Let's make something your community
+      <span class="flourish">remembers.</span>
+    </h2>
+    <p class="lede" data-reveal>
+      Tell me about your business, your campaign or your idea. I'll tell you how
+      I'd approach it.
+    </p>
+    <div class="cluster" data-reveal>
+      <a
+        href="{{ site.booking.url }}"
+        class="btn btn--primary btn--large"
+        target="_blank"
+        rel="noopener"
+        data-booking="{{ site.booking.calLink }}"
+        >{{ site.booking.label }}</a
+      >
+      <a href="/contact/" class="btn btn--large">Start a project</a>
+    </div>
   </div>
 </section>

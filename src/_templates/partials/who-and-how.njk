@@ -1,0 +1,86 @@
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="headline" data-split>Who I work <span class="flourish">with.</span></h2>
+    </div>
+    <ul class="card-grid card-grid--media" role="list" data-reveal-stagger>
+      {%- for a in audiences %}
+      {%- set ap = collections.projects | bySlug(a.project) if a.project else none %}
+      <li class="info-card" data-reveal>
+        {%- if a.image or ap %}
+        <div class="frame info-card__media">
+          <img src="{{ a.image if a.image else (ap.data.image | poster) }}" alt="" loading="lazy" decoding="async" />
+        </div>
+        {%- endif %}
+        <h3 class="info-card__title">{{ a.title }}</h3>
+        <p class="info-card__copy">{{ a.copy }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="headline" data-split>How it <span class="flourish">works.</span></h2>
+    </div>
+    <ol class="journey" role="list" data-journey>
+      <li class="journey__line" aria-hidden="true"><span class="journey__fill"></span></li>
+      {%- for step in process %}
+      {%- set pp = collections.projects | bySlug(step.project) if step.project else none %}
+      <li class="journey__step">
+        <span class="journey__node" aria-hidden="true">{{ loop.index | pad2 }}</span>
+        <div class="journey__card">
+          {%- if pp or step.image %}
+          <div class="frame journey__media">
+            <img src="{{ pp.data.image | poster if pp else step.image }}" alt="" loading="lazy" decoding="async" />
+          </div>
+          {%- endif %}
+          <div class="journey__text">
+            <h3 class="info-card__title">{{ step.title }}</h3>
+            <p class="info-card__copy">{{ step.copy }}</p>
+          </div>
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section vidshare" id="vidshare">
+  <div class="container grid">
+    <div class="span-5 stack vidshare__text">
+      <p class="label" data-reveal>Video review</p>
+      <h2 class="headline" data-split>Feedback on the exact <span class="flourish">frame.</span></h2>
+      <p class="lede" data-reveal>
+        VidShare is a review tool I built for my clients. It does one thing:
+        you leave notes on the cut and I see them right away. There are no
+        accounts to create and no plan to sign up for.
+      </p>
+      <ul class="vidshare__points" role="list" data-reveal>
+        <li><strong>One link.</strong> Open it and watch, with no login and no app to install. I can add a password if the cut is sensitive.</li>
+        <li>Timestamped comments. Click the timeline and type your note, and I see it on that exact frame. I can reply or mark it resolved.</li>
+        <li>Every version stays available. You can compare cuts and open older notes with one click, so feedback stays attached to the version it was about.</li>
+        <li>Each project has its own folder, nothing goes public until it is approved, and you can download the file when it is final. If a client needs something different, I can change the tool.</li>
+      </ul>
+    </div>
+    <div class="span-7 vidshare__renders" data-reveal-stagger>
+      <figure class="frame vidshare__render vidshare__render--wide" data-reveal>
+        <img src="/assets/img/vidshare/blender1.webp" alt="VidShare's review player with a timestamped comment pinned to the timeline" width="1600" height="900" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="frame vidshare__render" data-reveal>
+        <img src="/assets/img/vidshare/blender2-800.webp" alt="A comment thread with resolved notes" width="800" height="450" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="frame vidshare__render" data-reveal>
+        <img src="/assets/img/vidshare/blender3-800.webp" alt="A folder of approved videos with share buttons" width="800" height="450" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="frame vidshare__render" data-reveal>
+        <img src="/assets/img/vidshare/blender4-800.webp" alt="An activity feed of client comments and replies" width="800" height="450" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="frame vidshare__render" data-reveal>
+        <img src="/assets/img/vidshare/blender5-800.webp" alt="A stats page showing views and unique viewers" width="800" height="450" loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </div>
+</section>

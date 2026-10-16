@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Brands & agencies",
+    "copy": "A director who can own the idea and the production, slot into your team, and deliver on brand at the scale of a global launch.",
+    "project": "mountain-dew-champions-cup"
+  },
+  {
+    "title": "Local businesses",
+    "copy": "Films that make people want to walk through your door, made by someone who knows the community and won't overcomplicate it.",
+    "image": "/assets/img/audiences/local-businesses.webp"
+  },
+  {
+    "title": "Campaigns & causes",
+    "copy": "Candidate stories and issue films that are accurate, on message and ready before the news cycle moves on.",
+    "image": "/assets/img/audiences/campaigns.webp"
+  },
+  {
+    "title": "Creators & events",
+    "copy": "Show packages, trailers and recaps for tournaments, launches and live events, from broadcast graphics to the highlight reel.",
+    "project": "intel-inspires"
+  }
+]

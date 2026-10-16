@@ -6,21 +6,23 @@
   <div class="site-menu__inner container">
     <nav aria-label="Menu">
       <ul class="site-menu__links">
-        {%- for item in site.nav %}
+        {%- for item in site.nav %}{% if not item.hidden %}
         <li style="--i: {{ loop.index0 }}">
           <a href="{{ item.url }}"{% if page.url and page.url.startsWith(item.url) %} aria-current="page"{% endif %}>
             <span class="index">0{{ loop.index }}</span>{{ item.label }}
           </a>
         </li>
-        {%- endfor %}
+        {%- endif %}{% endfor %}
       </ul>
     </nav>
 
     <div class="site-menu__foot">
+      {%- if site.showShowreel %}
       <button type="button" class="btn" style="--btn-fg: #f4f2ed; --btn-border: rgb(244 242 237 / 0.3)" data-reel-open>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.5v11l9-5.5z" /></svg>
         Watch the showreel
       </button>
+      {%- endif %}
       {%- set copyClass = "" %}
       {% include "partials/copy-email.njk" %}
     </div>

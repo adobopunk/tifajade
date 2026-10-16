@@ -8,6 +8,13 @@ import { initCarousel } from "./modules/carousel.js";
 import { initProjectGrid } from "./modules/project-grid.js";
 import { initClientReel } from "./modules/client-reel.js";
 import { initAboutStory } from "./modules/about-story.js";
+import { initServiceMedia } from "./modules/service-media.js";
+import { initLbStage } from "./modules/lb-stage.js";
+import { initGlPreview } from "./modules/gl-preview.js";
+import { initSiteEmbed } from "./modules/site-embed.js";
+import { initInviewPlay } from "./modules/inview-play.js";
+import { initScrollers } from "./modules/scroller.js";
+import { initJourney } from "./modules/journey.js";
 import { initParallax } from "./modules/parallax.js";
 import { initSegmented } from "./modules/segmented.js";
 import { initBooking } from "./modules/booking.js";
@@ -30,3 +37,18 @@ initProjectGrid({ reducedMotion });
 initClientReel({ reducedMotion });
 initAboutStory({ reducedMotion });
 initParallax({ reducedMotion });
+initJourney({ reducedMotion });
+initLbStage({ reducedMotion });
+initScrollers({ reducedMotion });
+initInviewPlay({ reducedMotion });
+initSiteEmbed();
+initGlPreview({ reducedMotion });
+initServiceMedia({ reducedMotion });
+
+// Background videos stand still for people who ask for less motion
+if (reducedMotion.matches) {
+  document.querySelectorAll("[data-bg-video]").forEach((video) => {
+    video.removeAttribute("autoplay");
+    video.pause();
+  });
+}

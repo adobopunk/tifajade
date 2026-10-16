@@ -1,0 +1,11 @@
+{
+  "local-business": {
+    "url": "/local-business/",
+    "data": {
+      "client": "Local Businesses",
+      "title": "Video, social & TV",
+      "image": "/assets/img/videos/local-ads-poster.jpg",
+      "video": "https://tifajade.b-cdn.net/About%20Me/local%20hero.mp4"
+    }
+  }
+}

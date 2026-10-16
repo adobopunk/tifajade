@@ -1,0 +1,97 @@
+{%- for s in services %}
+{%- set sp = collections.projects | bySlug(s.project) if s.project else none %}
+<section class="section service-detail" id="{{ s.title | slugify }}">
+  <div class="container grid">
+    <div class="span-5 stack service-detail__text">
+      <p class="index" data-reveal>{{ loop.index | pad2 }}</p>
+      <h2 class="headline" data-split>{{ s.title }}</h2>
+      <p class="lede" data-reveal>{{ s.summary }}</p>
+      <ul class="service__deliverables" role="list" data-reveal>
+        {%- for d in s.deliverables %}
+        <li>{{ d }}</li>
+        {%- endfor %}
+      </ul>
+      {%- if s.showreel %}
+      <div data-reveal>
+        <button type="button" class="btn btn--primary btn--large" data-reel-open>
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path fill="currentColor" d="M4 2.5v11l9-5.5z" />
+          </svg>
+          {{ s.showreel }}
+        </button>
+      </div>
+      {%- endif %}
+    </div>
+
+    <div class="span-7 service-detail__media" data-reveal data-service-media>
+      <div class="frame service__media">
+        {%- if s.related.length %}
+        {%- for slug in s.related %}
+        {%- set rp = collections.projects | resolveProject(slug) %}
+        {%- if rp %}
+        <video
+          class="service__layer{% if slug == s.project %} is-active{% endif %}"
+          data-layer="{{ slug }}"
+          muted loop playsinline
+          preload="{{ 'metadata' if slug == s.project else 'none' }}"
+          poster="{{ rp.data.image | poster }}"
+          aria-hidden="true"
+        >
+          {%- for v in rp.data.video | videoSources %}
+          <source src="{{ v.src }}" type="{{ v.type }}" />
+          {%- endfor %}
+        </video>
+        {%- endif %}
+        {%- endfor %}
+        {%- endif %}
+        {%- if s.phone %}
+        <div class="svc-phone{% if s.phone.slug == s.project %} is-visible{% endif %}" data-svc-phone="{{ s.phone.slug }}" aria-hidden="true">
+          <div class="svc-phone__screen">
+            <video muted loop playsinline preload="none" data-svc-phone-video>
+              <source src="{{ s.phone.video }}" type="video/mp4" />
+            </video>
+            <div class="svc-phone__ui">
+              <div class="svc-phone__top">
+                <span>Reels</span>
+                <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12.5" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+              </div>
+              <div class="svc-phone__rail">
+                <svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.8a4.3 4.3 0 0 1 7.5 2.7c0 5.4-7.5 10-7.5 10z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.7 7.1L4 20l1-4.2A8 8 0 1 1 20 12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M21 4 3 11l7 2.5L12.5 21 21 4zM10 13.5 21 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="svc-phone__bottom">
+                <span class="svc-phone__follow">Follow</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {%- endif %}
+        <p class="service__now" aria-hidden="true">
+          <span class="service__now-dot"></span>
+          <span class="service__now-text" data-now></span>
+        </p>
+      </div>
+    </div>
+
+    {%- if s.related.length %}
+    <div class="span-12 service-detail__related">
+      <p class="label" data-reveal>Related projects</p>
+      <ul class="related-list" role="list" data-reveal-stagger data-related>
+        {%- for slug in s.related %}
+        {%- set rp = collections.projects | resolveProject(slug) %}
+        {%- if rp %}
+        <li data-reveal>
+          <a href="{{ rp.url }}" class="related-item{% if slug == s.project %} is-active{% endif %}" data-layer-link="{{ slug }}" data-now-label="{{ rp.data.client }}: {{ rp.data.title }}">
+            <span class="related-item__client">{{ rp.data.client }}</span>
+            <span class="related-item__title">{{ rp.data.title }}</span>
+          </a>
+        </li>
+        {%- endif %}
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+{%- endfor %}

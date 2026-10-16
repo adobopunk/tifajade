@@ -1,7 +1,7 @@
 [
   {
     "title": "Brand & Commercial Film",
-    "summary": "Commercials, brand films and launch videos, from the first idea to the final cut. Work that makes people feel something and remember who made it.",
+    "summary": "Commercials, brand films and launch videos, from the first idea to the final cut. Work that makes people feel something and inspires your audience where they're at.",
     "deliverables": [
       "Concept & scripting",
       "Directing & production",
@@ -10,13 +10,13 @@
     ],
     "project": "p3",
     "related": [
-      "ufc-promos",
       "p3",
-      "intel-inspires"
+      "code-freedom-2024",
+      "local-business"
     ]
   },
   {
-    "title": "Documentary & Storytelling",
+    "title": "Documentary Storytelling",
     "summary": "Real people, real stakes. Documentary series, founder stories and community films, shot with the trust and access that let a story breathe.",
     "deliverables": [
       "Interviews",
@@ -24,48 +24,36 @@
       "Series development",
       "English & Spanish subtitles"
     ],
-    "project": "fear-none",
+    "project": "impact-gaming",
     "related": [
-      "fear-none",
-      "good-loser",
-      "next-level"
+      "impact-gaming",
+      "ufc-olympic-features",
+      "good-loser"
     ]
   },
   {
     "title": "Content Strategy & Social",
-    "summary": "A plan for what to make, where it lives and how it grows. Series formats, vertical cuts and release calendars built around your audience, not the algorithm of the week.",
+    "summary": "A plan for what to make, where it lives and how it grows. Series formats, vertical cuts and release calendars built to nurture and grow your audience.",
     "deliverables": [
       "Content audits",
       "Series formats",
       "Vertical & social cutdowns",
       "Release planning"
     ],
-    "project": "tfue-tuesday",
+    "project": "what-the-heck-keck",
     "related": [
+      "what-the-heck-keck",
       "tfue-tuesday",
-      "code-red",
-      "verizon"
-    ]
-  },
-  {
-    "title": "Video Editing & Post",
-    "summary": "Four years editing at UFC, from fight-week social cuts to long-form programming for Fight Pass and ESPN. Story-first editing for anything from a 15-second teaser to a full TV episode, on deadlines that don't move.",
-    "deliverables": [
-      "Social cuts & teasers",
-      "Promos & trailers",
-      "Long-form & TV episodes",
-      "Interview & archive edits"
+      "in-queue"
     ],
-    "project": "ufc-promos",
-    "related": [
-      "ufc-promos",
-      "ufc-olympic-features",
-      "fear-none"
-    ]
+    "phone": {
+      "slug": "what-the-heck-keck",
+      "video": "/assets/img/videos/keck-9x16.mp4"
+    }
   },
   {
     "title": "Motion & Broadcast Design",
-    "summary": "Identity systems, title sequences and broadcast packages that move, from esports events seen by millions to product launches.",
+    "summary": "Identity systems, title sequences and broadcast packages built to last. From gaming events seen live by millions, to product launches that need to stick the landing. Motion that elevates your brand to elite status.",
     "deliverables": [
       "Motion identity systems",
       "Broadcast packages",
@@ -75,20 +63,25 @@
     "project": "mountain-dew-champions-cup",
     "related": [
       "mountain-dew-champions-cup",
-      "fortnite",
-      "off-the-grid-all-stars"
-    ]
+      "pg2025",
+      "boomtv-2024"
+    ],
+    "showreel": "Motion Design Showreel"
   },
   {
-    "title": "Photography",
-    "summary": "Portraits, events and editorial photography, plus stills from every shoot, so a campaign's images are as strong as its video.",
+    "title": "Video Editing & Post",
+    "summary": "Post handled with care by a professional editor with UFC pedigree. From short turnaround social cuts to long-form broadcast programming. Story-first editing, on deadlines that don't move.",
     "deliverables": [
-      "Portraits",
-      "Events",
-      "Editorial & stories",
-      "On-set stills"
+      "Social cuts & teasers",
+      "Promos & trailers",
+      "Long-form & TV episodes",
+      "Interview & archive edits"
     ],
-    "image": "/assets/img/projects/good-loser/may-day-dancer.webp",
-    "related": []
+    "project": "ufc-promos",
+    "related": [
+      "ufc-promos",
+      "next-level",
+      "intel-inspires"
+    ]
   }
 ]
