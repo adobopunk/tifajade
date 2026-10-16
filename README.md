@@ -1,6 +1,6 @@
 # Tifa Jade's Portfolio
 
-The portfolio of Tifa Jade, director, producer and content strategist. Live at [tifajade.com](https://tifajade.com).
+The portfolio of Tifa Jade, director, producer, and content strategist. Live at [tifajade.com](https://tifajade.com).
 
 ## Up next
 

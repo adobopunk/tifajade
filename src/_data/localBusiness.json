@@ -4,20 +4,20 @@
     "blurb": "Candidate and contrast ads built from the public record, with the source on screen for every claim.",
     "videos": [
       {
+        "business": "Bill O'Neil for Port Commissioner",
+        "id": "d559baca-2cba-4864-b4bc-53d80fbc1b6a",
+        "title": "What The Heck, Keck?",
+        "roles": [
+          "Motion design"
+        ]
+      },
+      {
         "business": "John Duresky for Congress",
         "id": "fada5b50-14a1-4633-a2d0-2b62a1227fef",
         "title": "The Oath",
         "roles": [
           "Videography",
           "Editing",
-          "Motion design"
-        ]
-      },
-      {
-        "business": "Bill O'Neil for Port Commissioner",
-        "id": "d559baca-2cba-4864-b4bc-53d80fbc1b6a",
-        "title": "What The Heck, Keck?",
-        "roles": [
           "Motion design"
         ]
       }

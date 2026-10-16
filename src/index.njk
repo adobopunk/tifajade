@@ -1,9 +1,21 @@
 ---
 layout: "layouts/site.njk"
-description: "Tifa Jade is a film director, video producer and content strategist making work for brands, agencies, local businesses and campaigns."
+description: "Tifa Jade is a film director, video producer, and content strategist making work for brands, agencies, local businesses, and campaigns."
 headerVariant: "overlay"
 bodyClass: "page-home"
 permalink: "/"
+jsonLd:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "WebSite"
+      name: "Tifa Jade"
+      url: "https://tifajade.com/"
+    - "@type": "Person"
+      name: "Tifa Jade"
+      url: "https://tifajade.com/"
+      jobTitle: "Film Director, Video Producer and Content Strategist"
+      email: "hi@tifajade.com"
+      knowsAbout: ["Film direction", "Video production", "Content strategy", "Motion design", "Social media video"]
 ---
 
 {%- set slides = collections.carousel -%} {#- Featured carousel -#}
@@ -56,7 +68,7 @@ permalink: "/"
 
   <div class="hero__content container">
     <p class="label hero__eyebrow" data-reveal>
-      Tifa Jade · Director, Producer &amp; Content Strategist
+      Tifa Jade · Director, Producer, &amp; Content Strategist
     </p>
     <h1 class="hero__headline" data-split>
       Video that leaves an
