@@ -1250,6 +1250,7 @@
 
 .gl-work__watch {
   justify-self: start;
+  white-space: nowrap;
   margin-top: var(--space-2xs);
   padding: 0.2em 0.65em;
   border: 1px solid var(--line);
@@ -1355,4 +1356,12 @@
       height: clamp(260px, 30vw, 380px);
     }
   }
+}
+
+.gl-work__arrow {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  margin-left: 0.15em;
+  vertical-align: -0.08em;
 }

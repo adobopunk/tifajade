@@ -11,6 +11,8 @@
 }
 
 html {
+  // Symbols such as arrows stay plain text glyphs; never colour emoji
+  font-variant-emoji: text;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-padding-top: calc(var(--header-h) + var(--space-s));

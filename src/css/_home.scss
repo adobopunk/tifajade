@@ -610,7 +610,7 @@
 
   // A star between names, echoing the one in the wordmark
   li + li::before {
-    content: "✦";
+    content: "\2726\FE0E";
     font-size: 0.45em;
     color: var(--accent);
   }
