@@ -424,7 +424,15 @@
 
 // Cards with a picture on top
 .card-grid--media {
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  grid-template-columns: 1fr;
+
+  @media (min-width: 560px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1000px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .info-card__media {
