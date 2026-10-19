@@ -1202,6 +1202,10 @@
 
 // Good Loser Media's local work, near the top of the local business page
 .gl-work__grid {
+  // The scroller is the containing block for the hidden link text inside each
+  // card, so those absolutely positioned spans are clipped here instead of
+  // stretching the whole page sideways on phones
+  position: relative;
   display: flex;
   gap: var(--gutter);
   list-style: none;
