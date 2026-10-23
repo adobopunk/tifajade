@@ -24,7 +24,7 @@ Other open items:
 
 ## What's here
 
-- **Projects**: film and motion case studies in `src/projects-animation/`, published at `/projects/<name>/`.
+- **Projects**: film and motion case studies in `src/projects/`, published at `/projects/<name>/`.
 - **Stories (currently hidden, see Up next)**: a photo journal of photo stories and essays in `src/stories/`, with RSS at `/feed.xml` and JSON Feed at `/feed.json` once it is turned back on.
 - **Local business page**: `src/local-business.njk` at `/local-business/`. Its videos and categories are in `src/_data/localBusiness.json`.
 - **Services, About, Contact**: `src/services.njk`, `src/about.njk` and `src/contact.njk`. Services, clients and About chapters are driven by files in `src/_data/`.

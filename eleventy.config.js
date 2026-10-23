@@ -55,7 +55,7 @@ module.exports = async function (eleventyConfig) {
   // Redesign: every published project, newest first
   eleventyConfig.addCollection("projects", (collection) =>
     collection
-      .getFilteredByGlob("src/projects-animation/*.njk")
+      .getFilteredByGlob("src/projects/*.njk")
       .sort((a, b) => b.date - a.date)
   );
 
@@ -128,7 +128,7 @@ module.exports = async function (eleventyConfig) {
   // Redesign: homepage carousel, ordered by each project's `carousel` number
   eleventyConfig.addCollection("carousel", (collection) =>
     collection
-      .getFilteredByGlob("src/projects-animation/*.njk")
+      .getFilteredByGlob("src/projects/*.njk")
       .filter((p) => p.data.carousel)
       .sort((a, b) => a.data.carousel - b.data.carousel)
   );

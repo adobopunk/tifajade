@@ -7,12 +7,14 @@
   { "name": "Epic Games", "project": "tfue-tuesday" },
   { "name": "Fortnite", "project": "fortnite" },
   { "name": "Porsche", "project": "porsche-911-turbo" },
-  { "name": "Rocket League", "project": "porsche-911-turbo" },
+  { "name": "Proving Grounds", "project": "pg2025" },
   { "name": "US Army National Guard", "project": "code-freedom-2024" },
   { "name": "Gunzilla Games", "project": "off-the-grid-all-stars" },
   { "name": "Midnight Society", "project": "midnight-society" },
   { "name": "P3 Protein", "project": "p3" },
   { "name": "BoomTV", "project": "boomtv-2024" },
   { "name": "Impact Gaming", "project": "impact-gaming" },
+  { "name": "Tiny Pond", "project": "tiny-pond" },
+  { "name": "In Queue", "project": "in-queue" },
   { "name": "Good Loser Media", "project": "good-loser" }
 ]
