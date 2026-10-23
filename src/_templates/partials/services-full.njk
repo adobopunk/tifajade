@@ -67,10 +67,6 @@
           </div>
         </div>
         {%- endif %}
-        <p class="service__now" aria-hidden="true">
-          <span class="service__now-dot"></span>
-          <span class="service__now-text" data-now></span>
-        </p>
       </div>
     </div>
 
@@ -82,7 +78,7 @@
         {%- set rp = collections.projects | resolveProject(slug) %}
         {%- if rp %}
         <li data-reveal>
-          <a href="{{ rp.url }}" class="related-item{% if slug == s.project %} is-active{% endif %}" data-layer-link="{{ slug }}" data-now-label="{{ rp.data.client }}: {{ rp.data.title }}">
+          <a href="{{ rp.url }}" class="related-item{% if slug == s.project %} is-active{% endif %}" data-layer-link="{{ slug }}">
             <span class="related-item__client">{{ rp.data.client }}</span>
             <span class="related-item__title">{{ rp.data.title }}</span>
           </a>
