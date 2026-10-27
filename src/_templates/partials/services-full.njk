@@ -3,7 +3,6 @@
 <section class="section service-detail" id="{{ s.title | slugify }}">
   <div class="container grid">
     <div class="span-5 stack service-detail__text">
-      <p class="index" data-reveal>{{ loop.index | pad2 }}</p>
       <h2 class="headline" data-split>{{ s.title }}</h2>
       <p class="lede" data-reveal>{{ s.summary }}</p>
       <ul class="service__deliverables" role="list" data-reveal>

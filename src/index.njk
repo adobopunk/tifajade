@@ -67,9 +67,6 @@ jsonLd:
   <div class="hero__shade" aria-hidden="true"></div>
 
   <div class="hero__content container">
-    <p class="label hero__eyebrow" data-reveal>
-      Tifa Jade · Director, Producer, &amp; Content Strategist
-    </p>
     <h1 class="hero__headline" data-split>
       Film that leaves an
       <span class="flourish">impact.</span>
@@ -210,7 +207,6 @@ list. -#}
   </div>
 
   <div class="container clients__inner">
-    <p class="label" data-reveal>Clients &amp; collaborators</p>
     <ul class="client-cloud" role="list" data-reveal-stagger>
       {%- for c in clients %} {%- set cp = collections.projects |
       bySlug(c.project) %}
