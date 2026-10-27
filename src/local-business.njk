@@ -83,9 +83,6 @@ craft:
   </div>
   <div class="hero__shade" aria-hidden="true"></div>
   <div class="hero__content container">
-    <p class="label hero__eyebrow" data-reveal>
-      Film direction &amp; video production · Eastern &amp; Central Washington
-    </p>
     <h1 class="hero__headline" data-split>
       Video that brings local customers
       <span class="flourish">in.</span>
@@ -221,7 +218,6 @@ craft:
         data-lb-first="{{ cat.videos[0].id }}"
       >
         <div class="lb-panel__body stack">
-          <p class="index">{{ loop.index | pad2 }}</p>
           <h2 class="headline">{{ cat.name }}</h2>
           <p class="lede">{{ cat.blurb }}</p>
           <ul class="lb-menu" role="list">
@@ -284,7 +280,6 @@ craft:
   <div class="container">
     {%- for cat in localBusiness %}
     <div class="lb-simple__cat">
-      <p class="index">{{ loop.index | pad2 }}</p>
       <h2 class="headline">{{ cat.name }}</h2>
       <p class="lede">{{ cat.blurb }}</p>
       <ul class="lb-simple__spots" role="list">
@@ -410,7 +405,6 @@ craft:
     <ol class="lb-craft__list" role="list" data-reveal-stagger>
       {%- for c in craft %}
       <li class="lb-craft__item" data-reveal>
-        <span class="lb-craft__num">{{ loop.index | pad2 }}</span>
         <h3 class="lb-craft__title">{{ c.title }}</h3>
         <p class="lb-craft__copy">{{ c.copy }}</p>
       </li>

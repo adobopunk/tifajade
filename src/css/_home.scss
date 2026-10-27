@@ -121,9 +121,6 @@
   padding-bottom: var(--space-xl);
 }
 
-.hero__eyebrow {
-  color: rgb(244 242 237 / 0.75);
-}
 
 .hero__headline {
   text-shadow: 0 2px 24px rgb(5 7 6 / 0.35);
@@ -543,8 +540,8 @@
 .client-cloud {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.1em 0.5em;
-  margin-top: var(--space-l);
+  gap: 0.1em 0.6em;
+  margin-top: 0;
   list-style: none;
   padding: 0;
   font-size: var(--step-4);
@@ -556,13 +553,6 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5em;
-  }
-
-  // A star between names, echoing the one in the wordmark
-  li + li::before {
-    content: "\2726\FE0E";
-    font-size: 0.45em;
-    color: var(--accent);
   }
 
   a {
